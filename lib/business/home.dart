@@ -2,8 +2,6 @@ import 'package:archi_mat/Services/shopService.dart';
 import 'package:archi_mat/util/slider/profileslider.dart';
 import 'package:archi_mat/util/widgets/businesslist.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
-
 import '../environment.dart';
 import '../theme.dart';
 
@@ -112,18 +110,18 @@ class _BusinessHomeState extends State<BusinessHome> {
                                       'Verified',
                                       style: TextStyle(fontSize: 12),
                                     ),
-                                    SmoothStarRating(
-                                        allowHalfRating: false,
-                                        onRated: (v) {},
-                                        starCount: 5,
-                                        rating: rating,
-                                        size: 15.0,
-                                        isReadOnly: true,
-                                        // fullRatedIconData: Icons.blur_off,
-                                        // halfRatedIconData: Icons.blur_on,
-                                        color: Colors.green,
-                                        borderColor: Colors.green,
-                                        spacing: 0.0)
+                                    // SmoothStarRating(
+                                    //     allowHalfRating: false,
+                                    //     onRated: (v) {},
+                                    //     starCount: 5,
+                                    //     rating: rating,
+                                    //     size: 15.0,
+                                    //     isReadOnly: true,
+                                    //     // fullRatedIconData: Icons.blur_off,
+                                    //     // halfRatedIconData: Icons.blur_on,
+                                    //     color: Colors.green,
+                                    //     borderColor: Colors.green,
+                                    //     spacing: 0.0)
                                   ],
                                 ),
                               ],

@@ -30,7 +30,12 @@ class _ProductListGrideState extends State<ProductListGride> {
   Widget build(BuildContext context) {
     return widget.data.length == 0
         ? Center(
-            child: Text('No product Available'),
+            child: Text(
+              'No product Available',
+              style: TextStyle(
+                fontFamily: 'Roxborough CF',
+              ),
+            ),
           )
         : StaggeredGridView.countBuilder(
             scrollDirection: Axis.vertical,
@@ -61,11 +66,17 @@ class _ProductListGrideState extends State<ProductListGride> {
                         children: [
                           Text(
                             widget.data[index]['name'],
-                            style: TextStyle(fontSize: 15),
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: 'Roxborough CF',
+                            ),
                           ),
                           Text(
                             widget.data[index]['category']['name'],
-                            style: TextStyle(color: AppTheme().l1black),
+                            style: TextStyle(
+                              color: AppTheme().l1black,
+                              fontFamily: 'Roxborough CF',
+                            ),
                           ),
                         ],
                       ),

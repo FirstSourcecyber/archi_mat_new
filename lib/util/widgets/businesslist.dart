@@ -285,7 +285,12 @@ class _ListingPageState extends State<ListingPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Filters'),
+                    Text(
+                      'Filters',
+                      style: TextStyle(
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
                     SvgPicture.asset(
                       'assets/images/Filter.svg',
                       width: 25,
@@ -302,7 +307,12 @@ class _ListingPageState extends State<ListingPage> {
                     color: AppTheme().white,
                     borderRadius: BorderRadius.circular(25),
                     border: Border.all(color: AppTheme().lblack, width: 1)),
-                child: Text('Status: All'),
+                child: Text(
+                  'Status: All',
+                  style: TextStyle(
+                    fontFamily: 'Nexa',
+                  ),
+                ),
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.35,
@@ -312,7 +322,12 @@ class _ListingPageState extends State<ListingPage> {
                     color: AppTheme().white,
                     borderRadius: BorderRadius.circular(25),
                     border: Border.all(color: AppTheme().lblack, width: 1)),
-                child: Text('In : All Categories'),
+                child: Text(
+                  'In : All Categories',
+                  style: TextStyle(
+                    fontFamily: 'Nexa',
+                  ),
+                ),
               ),
             ],
           ),
@@ -371,19 +386,32 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('About Us'),
+              Text(
+                'About Us',
+                style: TextStyle(
+                  fontFamily: 'Roxborough CF',
+                ),
+              ),
               SizedBox(
                 height: 20,
               ),
-              Text(widget.data['desc'].length > 200 && aboutText
-                  ? widget.data['desc'].toString().substring(0, 200) +
-                      ' .....\n '
-                  : widget.data['desc'] + '\n'),
+              Text(
+                widget.data['desc'].length > 200 && aboutText
+                    ? widget.data['desc'].toString().substring(0, 200) +
+                        ' .....\n '
+                    : widget.data['desc'] + '\n',
+                style: TextStyle(
+                  fontFamily: 'Roxborough CF',
+                ),
+              ),
               widget.data['desc'].length > 200 && aboutText
                   ? GestureDetector(
                       child: Text(
                         'More',
-                        style: TextStyle(color: AppTheme().blue),
+                        style: TextStyle(
+                          color: AppTheme().blue,
+                          fontFamily: 'Roxborough CF',
+                        ),
                       ),
                       onTap: () {
                         setState(() {
@@ -395,7 +423,10 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                       ? GestureDetector(
                           child: Text(
                             'less',
-                            style: TextStyle(color: AppTheme().blue),
+                            style: TextStyle(
+                              color: AppTheme().blue,
+                              fontFamily: 'Roxborough CF',
+                            ),
                           ),
                           onTap: () {
                             setState(() {
@@ -415,30 +446,22 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
               Container(
                 alignment: Alignment.centerLeft,
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: Text('Company'),
+                child: Text(
+                  'Company',
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
               ),
               Container(
                 alignment: Alignment.centerLeft,
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: Text(widget.data['company']['title']),
-              ),
-            ],
-          ),
-        ),
-        Divider_Widgets(),
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Row(
-            children: [
-              Container(
-                alignment: Alignment.centerLeft,
-                width: MediaQuery.of(context).size.width * 0.4,
-                child: Text('Year'),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                width: MediaQuery.of(context).size.width * 0.4,
-                child: Text('2011'),
+                child: Text(
+                  widget.data['company']['title'],
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
               ),
             ],
           ),
@@ -451,30 +474,22 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
               Container(
                 alignment: Alignment.centerLeft,
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: Text('Registration No.'),
+                child: Text(
+                  'Year',
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
               ),
               Container(
                 alignment: Alignment.centerLeft,
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: Text('123456789'),
-              ),
-            ],
-          ),
-        ),
-        Divider_Widgets(),
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Row(
-            children: [
-              Container(
-                alignment: Alignment.centerLeft,
-                width: MediaQuery.of(context).size.width * 0.4,
-                child: Text('Website'),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                width: MediaQuery.of(context).size.width * 0.4,
-                child: Text(widget.data['website']),
+                child: Text(
+                  '2011',
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
               ),
             ],
           ),
@@ -487,12 +502,22 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
               Container(
                 alignment: Alignment.centerLeft,
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: Text('Email'),
+                child: Text(
+                  'Registration No.',
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
               ),
               Container(
                 alignment: Alignment.centerLeft,
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: Text(widget.data['email']),
+                child: Text(
+                  '123456789',
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
               ),
             ],
           ),
@@ -505,12 +530,78 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
               Container(
                 alignment: Alignment.centerLeft,
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: Text('Mobile'),
+                child: Text(
+                  'Website',
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
               ),
               Container(
                 alignment: Alignment.centerLeft,
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: Text(widget.data['phone']),
+                child: Text(
+                  widget.data['website'],
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Divider_Widgets(),
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Row(
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  'Email',
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  widget.data['email'],
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Divider_Widgets(),
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Row(
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  'Mobile',
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  widget.data['phone'],
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
               ),
             ],
           ),
@@ -524,13 +615,23 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
               Container(
                 alignment: Alignment.topLeft,
                 width: MediaQuery.of(context).size.width * 0.3,
-                child: Text('Opening Hours'),
+                child: Text(
+                  'Opening Hours',
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
               ),
               Container(
                 alignment: Alignment.centerLeft,
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: openingtime == null || openingtime == []
-                    ? Text('close')
+                    ? Text(
+                        'close',
+                        style: TextStyle(
+                          fontFamily: 'Roxborough CF',
+                        ),
+                      )
                     : OpenHourList(
                         data: openingtime,
                       ),
@@ -544,7 +645,12 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Map'),
+              Text(
+                'Map',
+                style: TextStyle(
+                  fontFamily: 'Roxborough CF',
+                ),
+              ),
               Image.asset(
                 'assets/images/map.png',
                 width: MediaQuery.of(context).size.width,
@@ -637,9 +743,24 @@ class _BusinessReviewsState extends State<BusinessReviews> {
                         //     :
                         NetworkImage(widget.data[index]['user']['image']),
                   ),
-                  title: Text(widget.data[index]['user']['name']),
-                  subtitle: Text(widget.data[index]['review']),
-                  trailing: Text(widget.data[index]['rating']),
+                  title: Text(
+                    widget.data[index]['user']['name'],
+                    style: TextStyle(
+                      fontFamily: 'Roxborough CF',
+                    ),
+                  ),
+                  subtitle: Text(
+                    widget.data[index]['review'],
+                    style: TextStyle(
+                      fontFamily: 'Roxborough CF',
+                    ),
+                  ),
+                  trailing: Text(
+                    widget.data[index]['rating'],
+                    style: TextStyle(
+                      fontFamily: 'Roxborough CF',
+                    ),
+                  ),
                 ),
               ),
               Divider_Widgets(),

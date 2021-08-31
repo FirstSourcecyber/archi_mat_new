@@ -49,7 +49,13 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: AppTheme().purple,
-          title: Text('Login'),
+          title: Text(
+            'Login',
+            style: TextStyle(
+              fontFamily: 'Nexa',
+              fontWeight: FontWeight.w700,
+            ),
+          ),
           centerTitle: true,
         ),
         body: InkWell(
@@ -123,7 +129,10 @@ class _LoginPageState extends State<LoginPage> {
                                 controller: email,
                                 decoration: InputDecoration(
                                   hintText: 'Enter Your E-Mail',
-                                  hintStyle: TextStyle(color: AppTheme().black),
+                                  hintStyle: TextStyle(
+                                    color: AppTheme().black,
+                                    fontFamily: 'Roxborough CF',
+                                  ),
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -142,8 +151,10 @@ class _LoginPageState extends State<LoginPage> {
                                 controller: pswd,
                                 decoration: InputDecoration(
                                     hintText: 'Enter Your Password',
-                                    hintStyle:
-                                        TextStyle(color: AppTheme().black),
+                                    hintStyle: TextStyle(
+                                      color: AppTheme().black,
+                                      fontFamily: 'Roxborough CF',
+                                    ),
                                     border: InputBorder.none),
                               ),
                             ),
@@ -178,8 +189,10 @@ class _LoginPageState extends State<LoginPage> {
                                               width: 1)),
                                       child: Text(
                                         'Login',
-                                        style:
-                                            TextStyle(color: AppTheme().white),
+                                        style: TextStyle(
+                                          color: AppTheme().white,
+                                          fontFamily: 'Nexa',
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -208,6 +221,7 @@ class _LoginPageState extends State<LoginPage> {
         if (value['user']['role']['name'] == 'user') {
           print('user');
           prefs.setString('user', jsonEncode(value['user']));
+          prefs.setString('new', 'new');
 
           Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
@@ -218,6 +232,7 @@ class _LoginPageState extends State<LoginPage> {
               (Route<dynamic> route) => false);
         } else if (value['user']['role']['name'] == 'shopOwner') {
           prefs.setString('user', jsonEncode(value['user']));
+          prefs.setString('new', 'new');
 
           Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(

@@ -187,15 +187,18 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(!widget.shopside
-            ? widget.shop['name']
-            : widget.user['firstname'] + ' ' + widget.user['lastname']),
+        title: Text(
+          !widget.shopside
+              ? widget.shop['name']
+              : widget.user['firstname'] + ' ' + widget.user['lastname'],
+          style: TextStyle(fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+        ),
         backgroundColor: AppTheme().purple,
       ),
       body: StreamBuilder(
           stream: FirebaseFirestore.instance
               .collection(collection)
-              .orderBy('createdAt', descending: true)
+              // .orderBy('createdAt', descending: true)
               .snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
@@ -229,7 +232,10 @@ class _ChatPageState extends State<ChatPage> {
                                 controller: fname,
                                 decoration: InputDecoration(
                                   hintText: 'First Name',
-                                  hintStyle: TextStyle(color: AppTheme().black),
+                                  hintStyle: TextStyle(
+                                    color: AppTheme().black,
+                                    fontFamily: 'Roxborough CF',
+                                  ),
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -291,7 +297,10 @@ class _ChatPageState extends State<ChatPage> {
                     return Container(child: null);
                   },
                   inputDecoration: InputDecoration.collapsed(
-                      hintText: "Add message here..."),
+                      hintText: "Add message here...",
+                      hintStyle: TextStyle(
+                        fontFamily: 'Roxborough CF',
+                      )),
                   dateFormat: DateFormat('yyyy-MMM-dd'),
                   timeFormat: DateFormat('HH:mm'),
                   messages: messages,
@@ -392,7 +401,9 @@ class _ChatPageState extends State<ChatPage> {
                                             child: Text(
                                               message.text,
                                               style: TextStyle(
-                                                  color: Colors.black),
+                                                color: Colors.black,
+                                                fontFamily: 'Roxborough CF',
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -403,6 +414,7 @@ class _ChatPageState extends State<ChatPage> {
                                             DateFormat.jm()
                                                 .format(message.createdAt),
                                             style: TextStyle(
+                                                fontFamily: 'Roxborough CF',
                                                 color:
                                                     message.user.uid == userid
                                                         ? Colors.black

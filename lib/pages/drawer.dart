@@ -74,7 +74,10 @@ class _Menu2State extends State<Menu2> {
                               ? name.toString().substring(0, 200) + ' ...'
                               : name
                           : '----',
-                      style: TextStyle(color: AppTheme().white),
+                      style: TextStyle(
+                        color: AppTheme().white,
+                        fontFamily: 'Roxborough CF',
+                      ),
                     ),
                   ),
                 ],
@@ -95,7 +98,10 @@ class _Menu2State extends State<Menu2> {
                   ),
                   Text(
                     'Profile',
-                    style: TextStyle(color: AppTheme().purple),
+                    style: TextStyle(
+                      color: AppTheme().purple,
+                      fontFamily: 'Roxborough CF',
+                    ),
                   ),
                 ],
               ),
@@ -125,7 +131,10 @@ class _Menu2State extends State<Menu2> {
                   ),
                   Text(
                     'Inbox',
-                    style: TextStyle(color: AppTheme().purple),
+                    style: TextStyle(
+                      color: AppTheme().purple,
+                      fontFamily: 'Roxborough CF',
+                    ),
                   ),
                 ],
               ),

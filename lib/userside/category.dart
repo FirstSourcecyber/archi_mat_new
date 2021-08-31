@@ -125,32 +125,39 @@ class _CategoryPageState extends State<CategoryPage> {
       ),
       body: loader
           ? Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                category.length == 0
-                    ? Container()
-                    : Column(
-                        children: [
-                          CategoryList(
-                            category: category,
-                            subcategory: subcategory,
+          : SingleChildScrollView(
+              child: Column(
+                children: [
+                  category.length == 0
+                      ? Container()
+                      : Column(
+                          children: [
+                            CategoryList(
+                              category: category,
+                              subcategory: subcategory,
+                            ),
+                            Divider_Widgets()
+                          ],
+                        ),
+                  product.length == 0
+                      ? Container(
+                          padding: EdgeInsets.only(top: 15),
+                          alignment: Alignment.center,
+                          child: Text(
+                            'No Product Available',
+                            style: TextStyle(
+                              fontFamily: 'Roxborough CF',
+                            ),
                           ),
-                          Divider_Widgets()
-                        ],
-                      ),
-                product.length == 0
-                    ? Container(
-                        padding: EdgeInsets.only(top: 15),
-                        alignment: Alignment.center,
-                        child: Text('No Product Available'),
-                      )
-                    : PhotoListGride(
-                        count: 4,
-                        data: product,
-                        i: 1,
-                        title: 'Find Interactive Events',
-                      ),
-              ],
+                        )
+                      : PhotoListGride(
+                          count: 4,
+                          data: product,
+                          i: 1,
+                          title: 'Find Interactive Events',
+                        ),
+                ],
+              ),
             ),
     );
   }

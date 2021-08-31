@@ -58,7 +58,8 @@ class _LoginRegisterState extends State<LoginRegister> {
                   Text(
                     login ? 'Login' : 'Create a \nNew Account',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Nexa',
                         fontSize: 20,
                         color: AppTheme().l1black),
                   ),
@@ -66,11 +67,15 @@ class _LoginRegisterState extends State<LoginRegister> {
                     height: 10,
                   ),
                   Text(
-                      // login
-                      //   ?
-                      'Welcome Archimat'
-                      // : 'For best experience, download apps here'
-                      ),
+                    // login
+                    //   ?
+                    'Welcome Archimat'
+                    // : 'For best experience, download apps here'
+                    ,
+                    style: TextStyle(
+                      fontFamily: 'Roxborough CF',
+                    ),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
@@ -112,6 +117,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                                 (login ? 'Login' : 'SIGN UP') + ' WITH GMAIL',
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roxborough CF',
                                     // fontWeight: FontWeight.bold,
                                     fontSize: 15),
                               )
@@ -156,6 +162,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                                 (login ? 'Login' : 'SIGN UP') + ' WITH EMAIL',
                                 style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Roxborough CF',
                                     // fontWeight: FontWeight.bold,
                                     fontSize: 15),
                               )
@@ -174,7 +181,12 @@ class _LoginRegisterState extends State<LoginRegister> {
                     },
                     child: Align(
                         alignment: Alignment.topRight,
-                        child: Text(!login ? 'LOGIN HERE' : 'SIGNUP')),
+                        child: Text(
+                          !login ? 'LOGIN HERE' : 'SIGNUP',
+                          style: TextStyle(
+                            fontFamily: 'Roxborough CF',
+                          ),
+                        )),
                   )
                 ],
               ),

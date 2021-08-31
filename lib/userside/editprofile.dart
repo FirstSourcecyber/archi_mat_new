@@ -7,8 +7,7 @@ import 'package:archi_mat/util/widgets/divider.dart';
 import 'package:archi_mat/util/widgets/profilepic.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:gender_picker/source/enums.dart';
-import 'package:gender_picker/source/gender_picker.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserEditProfile extends StatefulWidget {
@@ -27,9 +26,9 @@ class _UserEditProfileState extends State<UserEditProfile> {
   TextEditingController email = new TextEditingController();
   String image = '', image1 = '';
   var countrycode = '+92';
-  var detail;
-  var newphone, gender;
-  Gender _gender;
+  var detail, userid;
+  var newphone, gender = '';
+
   DateTime selectedDate = DateTime.now();
   // var gender;
   bool loader = true, save = false;
@@ -43,23 +42,27 @@ class _UserEditProfileState extends State<UserEditProfile> {
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
       detail = jsonDecode(pref.getString('user'));
+      loader = true;
       if (detail != null) {
         setState(() {
           image = detail['image'];
+          userid = detail['id'];
           fname.text = detail['firstname'];
           username.text = detail['username'];
           lname.text = detail['lastname'];
+          newphone = detail['phoneNo'];
           email.text = detail['email'];
           phone.text = detail['phoneNo'];
-          if (detail['gender'] == 'Male' || detail['gender'] == 'male') {
-            _gender = Gender.Male;
-          } else if (detail['gender'] == 'Female' ||
-              detail['gender'] == 'female') {
-            _gender = Gender.Female;
-          } else {
-            _gender = Gender.Others;
-          }
-          print(_gender);
+          gender = detail['gender'];
+          // if (detail['gender'] == 'Male' || detail['gender'] == 'male') {
+          //   _gender = Gender.Male;
+          // } else if (detail['gender'] == 'Female' ||
+          //     detail['gender'] == 'female') {
+          //   _gender = Gender.Female;
+          // } else {
+          //   _gender = Gender.Others;
+          // }
+          // print(_gender);
           selectedDate = DateTime.parse(detail['dateofbirth']);
 
           loader = false;
@@ -111,7 +114,12 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Text('Username'),
+                          child: Text(
+                            'Username',
+                            style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                                fontWeight: FontWeight.w700),
+                          ),
                           alignment: Alignment.topLeft,
                           width: 70,
                         ),
@@ -124,7 +132,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             controller: username,
                             decoration: InputDecoration(
                                 hintText: 'User Name',
-                                hintStyle: TextStyle(color: Colors.grey),
+                                hintStyle: TextStyle(
+                                  color: Colors.grey,
+                                  fontFamily: 'Roxborough CF',
+                                ),
                                 border: InputBorder.none),
                           ),
                         )
@@ -138,7 +149,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Text('First Name'),
+                          child: Text('First Name',
+                              style: TextStyle(
+                                  fontFamily: 'Roxborough CF',
+                                  fontWeight: FontWeight.w700)),
                           alignment: Alignment.topLeft,
                           width: 70,
                         ),
@@ -151,7 +165,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             controller: fname,
                             decoration: InputDecoration(
                                 hintText: 'First Name',
-                                hintStyle: TextStyle(color: Colors.grey),
+                                hintStyle: TextStyle(
+                                  color: Colors.grey,
+                                  fontFamily: 'Roxborough CF',
+                                ),
                                 border: InputBorder.none),
                           ),
                         )
@@ -165,7 +182,12 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Text('Last Name'),
+                          child: Text(
+                            'Last Name',
+                            style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                                fontWeight: FontWeight.w700),
+                          ),
                           alignment: Alignment.topLeft,
                           width: 70,
                         ),
@@ -178,7 +200,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             controller: lname,
                             decoration: InputDecoration(
                                 hintText: 'Last Name',
-                                hintStyle: TextStyle(color: Colors.grey),
+                                hintStyle: TextStyle(
+                                  color: Colors.grey,
+                                  fontFamily: 'Roxborough CF',
+                                ),
                                 border: InputBorder.none),
                           ),
                         )
@@ -214,37 +239,66 @@ class _UserEditProfileState extends State<UserEditProfile> {
                   // ),
                   Container(
                     padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                    child: Text('Gender'),
+                    child: Text(
+                      'Gender',
+                      style: TextStyle(
+                          fontFamily: 'Roxborough CF',
+                          fontWeight: FontWeight.w700),
+                    ),
                     alignment: Alignment.topLeft,
                     width: MediaQuery.of(context).size.width,
                   ),
-                  GenderPickerWithImage(
-                    showOtherGender: true,
-                    verticalAlignedText: true,
-                    selectedGender: Gender.Male,
-                    selectedGenderTextStyle: TextStyle(
-                        color: Color(0xFF8b32a8), fontWeight: FontWeight.bold),
-                    unSelectedGenderTextStyle: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.normal),
-                    onChanged: (Gender val) {
-                      print(val);
-                      setState(() {
-                        if (val == Gender.Male) {
-                          gender = 'Male';
-                        } else if (val == Gender.Female) {
-                          gender = 'Female';
-                        } else {
-                          gender = 'Other';
-                        }
-                      });
-                    },
-                    equallyAligned: true,
-                    animationDuration: Duration(milliseconds: 300),
-                    isCircular: true,
-                    // default : true,
-                    opacityOfGradient: 0.4,
-                    padding: const EdgeInsets.all(3),
-                    size: 50, //default : 40
+                  Row(
+                    children: [
+                      Radio(
+                        value: 'male',
+                        onChanged: (value) {
+                          setState(() {
+                            gender = value;
+                          });
+                        },
+                        groupValue: gender,
+                      ),
+                      Text(
+                        'Male',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'Roxborough CF',
+                        ),
+                      ),
+                      Radio(
+                        value: 'female',
+                        onChanged: (value) {
+                          setState(() {
+                            gender = value;
+                          });
+                        },
+                        groupValue: gender,
+                      ),
+                      Text(
+                        'Female',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'Roxborough CF',
+                        ),
+                      ),
+                      Radio(
+                        value: 'other',
+                        onChanged: (value) {
+                          setState(() {
+                            gender = value;
+                          });
+                        },
+                        groupValue: gender,
+                      ),
+                      Text(
+                        'Other',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'Roxborough CF',
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 20,
@@ -256,7 +310,12 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Text('D.O.B'),
+                          child: Text(
+                            'D.O.B',
+                            style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                                fontWeight: FontWeight.w700),
+                          ),
                           alignment: Alignment.topLeft,
                           width: 70,
                         ),
@@ -279,7 +338,12 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Text('Phone'),
+                          child: Text(
+                            'Phone',
+                            style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                                fontWeight: FontWeight.w700),
+                          ),
                           alignment: Alignment.topLeft,
                           width: 70,
                         ),
@@ -339,7 +403,12 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Text('Email'),
+                          child: Text(
+                            'Email',
+                            style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                                fontWeight: FontWeight.w700),
+                          ),
                           alignment: Alignment.topLeft,
                           width: 70,
                         ),
@@ -352,7 +421,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             controller: email,
                             decoration: InputDecoration(
                                 hintText: 'Xxxxxxxxxxxxxxx',
-                                hintStyle: TextStyle(color: Colors.grey),
+                                hintStyle: TextStyle(
+                                  color: Colors.grey,
+                                  fontFamily: 'Roxborough CF',
+                                ),
                                 border: InputBorder.none),
                           ),
                         )
@@ -396,7 +468,12 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                 borderRadius: BorderRadius.circular(30),
                                 border: Border.all(
                                     color: AppTheme().l1black, width: 1)),
-                            child: Text('Save'),
+                            child: Text(
+                              'Save',
+                              style: TextStyle(
+                                fontFamily: 'Nexa',
+                              ),
+                            ),
                           ),
                         ),
                   SizedBox(
@@ -420,22 +497,28 @@ class _UserEditProfileState extends State<UserEditProfile> {
       }
     });
     var data = {
+      'id': userid,
       'email': email.text,
       'username': username.text,
       'firstname': fname.text.trim(),
       'lastname': lname.text.trim(),
       'gender': gender != null ? gender : 'Male',
       'birthday': selectedDate.toString(),
-      'phone': countrycode + newphone,
+      'phone': newphone,
       'image': image1
     };
     print(data);
-    LoginService().signup(data).then((value) {
+    LoginService().updateuser(data).then((value) {
       print(value);
       if (value['message'] == 'success') {
         if (value['user']['role']['name'] == 'user') {
           print('user');
           prefs.setString('user', jsonEncode(value['user']));
+          setState(() {
+            save = false;
+          });
+          showAlert('Updated Successfully!', Colors.green);
+          userdetail();
         } else {
           showAlert('User not available', Colors.red);
           print('User not available');

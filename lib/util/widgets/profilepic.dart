@@ -56,9 +56,15 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
       progressWidgetAlignment: Alignment.center,
       maxProgress: 100.0,
       progressTextStyle: TextStyle(
-          color: Colors.black, fontSize: 13.0, fontWeight: FontWeight.w400),
+          color: Colors.black,
+          fontSize: 13.0,
+          fontFamily: 'Roxborough CF',
+          fontWeight: FontWeight.w300),
       messageTextStyle: TextStyle(
-          color: Colors.black, fontSize: 19.0, fontWeight: FontWeight.w600),
+          color: Colors.black,
+          fontSize: 19.0,
+          fontFamily: 'Roxborough CF',
+          fontWeight: FontWeight.w700),
     );
     return Stack(
       children: [
@@ -109,7 +115,12 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Choose Source'),
+            title: Text(
+              'Choose Source',
+              style: TextStyle(
+                fontFamily: 'Roxborough CF',
+              ),
+            ),
             content: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[

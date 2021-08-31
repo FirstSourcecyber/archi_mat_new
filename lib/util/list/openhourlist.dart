@@ -37,7 +37,12 @@ class _OpenHourListState extends State<OpenHourList> {
   Widget build(BuildContext context) {
     return Container(
       child: widget.data.length == 0
-          ? Text('close')
+          ? Text(
+              'close',
+              style: TextStyle(
+                fontFamily: 'Roxborough CF',
+              ),
+            )
           : ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               itemCount: widget.data.length,
@@ -54,7 +59,10 @@ class _OpenHourListState extends State<OpenHourList> {
                           width: MediaQuery.of(context).size.width * 0.2,
                           child: Text(
                             widget.data[index]['day'],
-                            style: TextStyle(fontSize: 12),
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Roxborough CF',
+                            ),
                           )),
                       Container(
                         alignment: Alignment.centerLeft,
@@ -66,7 +74,10 @@ class _OpenHourListState extends State<OpenHourList> {
                               : (gettimeDate(widget.data[index]['opentime']) +
                                   ' - ' +
                                   gettimeDate(widget.data[index]['closetime'])),
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Roxborough CF',
+                          ),
                         ),
                       )
                     ],

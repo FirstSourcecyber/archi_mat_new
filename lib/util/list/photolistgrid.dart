@@ -122,8 +122,8 @@ class _ImageCardState extends State<ImageCard> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            decoration:
-                BoxDecoration(border: Border.all(color: AppTheme().grey)),
+            decoration: BoxDecoration(
+                border: Border.all(color: AppTheme().grey, width: .5)),
             child: widget.i == 1
                 ? Image.network(
                     Config.url + widget.data['images'][0]['image'],
@@ -145,14 +145,20 @@ class _ImageCardState extends State<ImageCard> {
               children: [
                 Text(
                   widget.data['name'],
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Roxborough CF',
+                  ),
                 ),
                 Text(
                   widget.i != 1
                       ? widget.data['category']
                       : widget.data['category']['name'],
                   // widget.data['category'],
-                  style: TextStyle(color: AppTheme().l1black),
+                  style: TextStyle(
+                    color: AppTheme().l1black,
+                    fontFamily: 'Roxborough CF',
+                  ),
                 ),
               ],
             ),

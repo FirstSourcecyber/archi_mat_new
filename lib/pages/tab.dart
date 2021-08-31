@@ -1,4 +1,5 @@
 import 'package:archi_mat/pages/inbox.dart';
+import 'package:archi_mat/pages/scannerPage.dart';
 import 'package:archi_mat/userside/category.dart';
 import 'package:archi_mat/userside/feeds.dart';
 import 'package:archi_mat/userside/homepage.dart';
@@ -16,19 +17,6 @@ class TabPage extends StatefulWidget {
 }
 
 class _TabPageState extends State<TabPage> {
-  // PageController _controller = PageController(
-  //   initialPage: 0,
-  // );
-  // List professional1 = [
-  //   {'image': 'assets/images/professional1.png', 'name': 'Architects'},
-  //   {'image': 'assets/images/professional.png', 'name': 'Interior Designer'},
-  //   {'image': 'assets/images/professional3.png', 'name': 'Engineer'},
-  //   {'image': 'assets/images/professional2.png', 'name': 'Contractors'},
-  //   {'image': 'assets/images/professional1.png', 'name': 'Architects'},
-  //   {'image': 'assets/images/professional.png', 'name': 'Interior Designer'},
-  //   {'image': 'assets/images/professional3.png', 'name': 'Engineer'},
-  //   {'image': 'assets/images/professional2.png', 'name': 'Contractors'},
-  // ];
   int _page = 0;
   bool check = true;
 
@@ -74,7 +62,7 @@ class _TabPageState extends State<TabPage> {
       return AnimatedContainer(
           color: AppTheme().white,
           duration: Duration(seconds: 1),
-          child: Container());
+          child: ShopQr());
     }
   }
 
@@ -94,20 +82,20 @@ class _TabPageState extends State<TabPage> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(237, 240, 242, 1.0),
       body: getPage(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.purple,
-        child: SvgPicture.asset(
-          'assets/images/floatlogo.svg',
-          width: 20,
-          color: AppTheme().white,
-        ),
-        onPressed: () {
-          this.setState(() {
-            _page = 4;
-          });
-        },
-      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: Colors.purple,
+      //   child: SvgPicture.asset(
+      //     'assets/images/floatlogo.svg',
+      //     width: 20,
+      //     color: AppTheme().white,
+      //   ),
+      //   onPressed: () {
+      //     this.setState(() {
+      //       _page = 4;
+      //     });
+      //   },
+      // ),
       bottomNavigationBar: BottomAppBar(
         color: AppTheme().white,
         shape: CircularNotchedRectangle(),
@@ -127,14 +115,11 @@ class _TabPageState extends State<TabPage> {
                 },
                 child: Column(
                   children: <Widget>[
-                    SizedBox(
-                      height: 10,
-                    ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 1, bottom: 3),
+                      padding: const EdgeInsets.only(top: 18, bottom: 3),
                       child: SvgPicture.asset(
                         'assets/images/home.svg',
-                        width: 25,
+                        width: 20,
                         color: _page == 0 ? AppTheme().purple : AppTheme().grey,
                       ),
                     ),
@@ -157,18 +142,19 @@ class _TabPageState extends State<TabPage> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(top: 15, bottom: 3),
+                      padding: const EdgeInsets.only(top: 20, bottom: 3),
                       child: SvgPicture.asset(
                         widget.data != null
                             ? 'assets/images/message.svg'
                             : 'assets/images/category.svg',
-                        width: 25,
+                        width: 20,
                         color: _page == 1 ? AppTheme().purple : AppTheme().grey,
                       ),
                     ),
                     Text(
                       widget.data != null ? 'Chat' : 'Category',
                       style: TextStyle(
+                        fontFamily: 'Roxborough CF',
                         color: _page == 1 ? AppTheme().purple : AppTheme().grey,
                         fontSize: 12,
                       ),
@@ -177,15 +163,23 @@ class _TabPageState extends State<TabPage> {
                 ),
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Text(
-                      'Scan',
-                      style: TextStyle(
-                        color: AppTheme().purple,
-                        fontSize: 12,
+                  InkWell(
+                    onTap: () {
+                      this.setState(() {
+                        _page = 4;
+                      });
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(top: 13),
+                      padding: EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: AppTheme().grey),
+                          shape: BoxShape.circle),
+                      child: SvgPicture.asset(
+                        'assets/images/makitsvg.svg',
+                        width: 30,
+                        color: _page == 4 ? AppTheme().purple : AppTheme().grey,
                       ),
                     ),
                   ),
@@ -200,16 +194,17 @@ class _TabPageState extends State<TabPage> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(top: 15, bottom: 3),
+                      padding: const EdgeInsets.only(top: 20, bottom: 3),
                       child: SvgPicture.asset(
                         'assets/images/search.svg',
-                        width: 25,
+                        width: 20,
                         color: _page == 2 ? AppTheme().purple : AppTheme().grey,
                       ),
                     ),
                     Text(
                       'Discover',
                       style: TextStyle(
+                          fontFamily: 'Roxborough CF',
                           color:
                               _page == 2 ? AppTheme().purple : AppTheme().grey,
                           fontSize: 12),
@@ -225,13 +220,37 @@ class _TabPageState extends State<TabPage> {
                         _page = 3;
                       });
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 15),
-                      child: SvgPicture.asset(
-                        'assets/images/mat.svg',
-                        width: 40,
-                        color: _page == 3 ? AppTheme().purple : AppTheme().grey,
-                      ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, bottom: 5),
+                          child: SvgPicture.asset(
+                            'assets/images/makitsvg.svg',
+                            width: 25,
+                            color: _page == 3
+                                ? AppTheme().purple
+                                : AppTheme().grey,
+                          ),
+                        ),
+                        Text(
+                          'MAT IT',
+                          style: TextStyle(
+                              fontFamily: 'Roxborough CF',
+                              // fontWeight: FontWeight.w700,
+                              color: _page == 3
+                                  ? AppTheme().purple
+                                  : AppTheme().grey,
+                              fontSize: 12),
+                        )
+                        // Padding(
+                        //   padding: const EdgeInsets.only(top: 20),
+                        //   child: SvgPicture.asset(
+                        //     'assets/images/mat.svg',
+                        //     width: 35,
+                        //     color: _page == 3 ? AppTheme().purple : AppTheme().grey,
+                        //   ),
+                        // ),
+                      ],
                     ),
                   ),
                 ],

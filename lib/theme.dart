@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   // all colors here
@@ -30,6 +31,7 @@ class AppTheme {
     return TextStyle(
       fontSize: 10,
       color: !i ? black : white,
+      fontFamily: 'Roxborough CF',
     );
   }
 }

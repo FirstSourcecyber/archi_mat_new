@@ -182,6 +182,7 @@ class _InboxState extends State<Inbox> {
           'Inbox',
           style: TextStyle(
             color: AppTheme().black,
+            fontFamily: 'Roxborough CF',
           ),
         ),
         centerTitle: true,

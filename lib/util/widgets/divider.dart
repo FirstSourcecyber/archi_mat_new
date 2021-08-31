@@ -12,7 +12,7 @@ class Divider_Widgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       color: AppTheme().l1black,
-      thickness: 1,
+      thickness: 0.5,
       height: 1,
     );
   }

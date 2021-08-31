@@ -29,33 +29,6 @@ class _HomePageState extends State<HomePage> {
       slider3 = [];
 
   bool loader = true;
-  // List professional = [
-  //   {'image': 'assets/images/card2.png', 'name': 'Architects'},
-  //   {'image': 'assets/images/card10.png', 'name': 'Interior Designer'},
-  //   {'image': 'assets/images/card9.png', 'name': 'Engineer'},
-  //   {'image': 'assets/images/card8.png', 'name': 'Contractors'},
-  // ];
-  // List professional1 = [
-  //   {'image': 'assets/images/professional1.png', 'name': 'Architects'},
-  //   {'image': 'assets/images/professional.png', 'name': 'Interior Designer'},
-  //   {'image': 'assets/images/professional3.png', 'name': 'Engineer'},
-  //   {'image': 'assets/images/professional2.png', 'name': 'Contractors'},
-  //   {'image': 'assets/images/professional1.png', 'name': 'Architects'},
-  //   {'image': 'assets/images/professional.png', 'name': 'Interior Designer'},
-  //   {'image': 'assets/images/professional3.png', 'name': 'Engineer'},
-  //   {'image': 'assets/images/professional2.png', 'name': 'Contractors'},
-  // // ];
-  // List photos = [
-  //   'assets/images/card1.png',
-  //   'assets/images/card3.png',
-  //   'assets/images/card4.png',
-  //   'assets/images/card6.png',
-  //   'assets/images/card7.png',
-  //   'assets/images/2.png',
-  //   'assets/images/Image1.png',
-  //   'assets/images/card4.png',
-  //   'assets/images/card6.png'
-  // ];
 
   getcategory() {
     setState(() {
@@ -121,13 +94,13 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         if (value != null) {
           var data = value;
-          // print(data['arks']);
-          slider = data['arks'];
-          slider2 = data['arks'];
-          slider3 = data['arks'];
-          // slider = data['slider1'];
-          // slider2 = data['slider2'];
-          // slider3 = data['slider3'];
+          // // print(data['arks']);
+          // slider = data['arks'];
+          // slider2 = data['arks'];
+          // slider3 = data['arks'];
+          slider = data['slider1'];
+          slider2 = data['slider2'];
+          slider3 = data['slider3'];
           loader = false;
         }
       });
@@ -230,12 +203,9 @@ class _HomePageState extends State<HomePage> {
                       data: slider,
                     ),
                     List1(),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: CategoryList(
-                        category: category,
-                        subcategory: false,
-                      ),
+                    CategoryList(
+                      category: category,
+                      subcategory: false,
                     ),
                     Productlist(
                       // onclick: () {

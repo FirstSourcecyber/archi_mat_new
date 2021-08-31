@@ -1,6 +1,5 @@
 import 'package:archi_mat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
-
 import '../../theme.dart';
 
 class List1 extends StatefulWidget {
@@ -31,15 +30,12 @@ class _List1State extends State<List1> {
                   });
                 },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
                   alignment: Alignment.center,
                   width: i == 0 ? 90 : 50,
                   decoration: i != 0
-                      ? BoxDecoration(
-                          color: AppTheme().white,
-                        )
+                      ? BoxDecoration()
                       : BoxDecoration(
-                          color: AppTheme().white,
                           borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
@@ -47,6 +43,7 @@ class _List1State extends State<List1> {
                     'Shops',
                     style: TextStyle(
                       fontSize: 12,
+                      fontFamily: 'Roxborough CF',
                     ),
                   ),
                 ),
@@ -75,6 +72,7 @@ class _List1State extends State<List1> {
                     'Products',
                     style: TextStyle(
                       fontSize: 12,
+                      fontFamily: 'Roxborough CF',
                     ),
                   ),
                 ),
@@ -103,6 +101,7 @@ class _List1State extends State<List1> {
                     'Services',
                     style: TextStyle(
                       fontSize: 12,
+                      fontFamily: 'Roxborough CF',
                     ),
                   ),
                 ),
@@ -130,6 +129,7 @@ class _List1State extends State<List1> {
                     'Events',
                     style: TextStyle(
                       fontSize: 12,
+                      fontFamily: 'Roxborough CF',
                     ),
                   ),
                 ),

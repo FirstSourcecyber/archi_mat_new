@@ -80,7 +80,12 @@ class _SplashScreenState extends State<SplashScreen> {
                                     borderRadius: BorderRadius.circular(30),
                                     border: Border.all(
                                         color: AppTheme().l1black, width: 1)),
-                                child: Text('Lonin'),
+                                child: Text(
+                                  'Login',
+                                  style: TextStyle(
+                                    fontFamily: 'Roxborough CF',
+                                  ),
+                                ),
                               ),
                             ),
                             GestureDetector(
@@ -101,7 +106,12 @@ class _SplashScreenState extends State<SplashScreen> {
                                     borderRadius: BorderRadius.circular(30),
                                     border: Border.all(
                                         color: AppTheme().l1black, width: 1)),
-                                child: Text('Register'),
+                                child: Text(
+                                  'Register',
+                                  style: TextStyle(
+                                    fontFamily: 'Roxborough CF',
+                                  ),
+                                ),
                               ),
                             ),
                           ],

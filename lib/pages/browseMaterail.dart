@@ -1,5 +1,4 @@
 import 'package:archi_mat/splash/splash.dart';
-import 'package:archi_mat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:archi_mat/theme.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -19,9 +18,9 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
   double currentIndex = 0;
   List<String> items = [
     'assets/images/Capture.PNG',
-    'assets/images/Capture.PNG',
+    'assets/images/Capture1.PNG',
 
-    'assets/images/Capture.PNG',
+    'assets/images/Capture2.PNG',
 
     //  'assets/images/2.png',
     //  'assets/images/3.png'
@@ -109,6 +108,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                         'SKIP',
                                         style: TextStyle(
                                           color: AppTheme().grey,
+                                          fontFamily: 'Roxborough CF',
                                         ),
                                       ),
                                     )
@@ -128,7 +128,8 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                     style: TextStyle(
                                         fontSize: 32,
                                         color: Colors.black54,
-                                        fontWeight: FontWeight.bold),
+                                        fontFamily: 'Nexa',
+                                        fontWeight: FontWeight.w700),
                                   ),
                                 ),
                                 Padding(
@@ -145,7 +146,9 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                   'World Of Architectural & \n Building Materials',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      color: Colors.black54, fontSize: 20),
+                                      color: Colors.black54,
+                                      fontFamily: 'Nexa',
+                                      fontSize: 20),
                                 ),
                                 SizedBox(
                                   height: 30,
@@ -210,6 +213,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                     'NEXT',
                                     style: TextStyle(
                                         color: Colors.black,
+                                        fontFamily: 'Nexa',
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   )

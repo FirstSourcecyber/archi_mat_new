@@ -178,11 +178,17 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                       children: [
                                         Text(
                                           widget.data['name'],
-                                          style: TextStyle(fontSize: 15),
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Nexa',
+                                              fontWeight: FontWeight.w700),
                                         ),
                                         Text(
                                           '@username',
-                                          style: TextStyle(fontSize: 12),
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontFamily: 'Roxborough CF',
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -231,7 +237,7 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                         fallow1();
                                       },
                                       child: Text(
-                                        youfallow ? 'Unfallow' : 'Follow',
+                                        youfallow ? 'Unfollow' : 'Follow',
                                         style:
                                             TextStyle(color: AppTheme().white),
                                       ),
@@ -255,7 +261,10 @@ class _ShopHomePageState extends State<ShopHomePage> {
                             children: [
                               Text(
                                 'Listing',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Roxborough CF',
+                                ),
                               ),
                               SizedBox(
                                 height: 5,
@@ -276,12 +285,20 @@ class _ShopHomePageState extends State<ShopHomePage> {
                             children: [
                               Text(
                                 'Industry',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Roxborough CF',
+                                ),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
-                              Text(shop['shop_type']['name'])
+                              Text(
+                                shop['shop_type']['name'],
+                                style: TextStyle(
+                                  fontFamily: 'Roxborough CF',
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -297,12 +314,20 @@ class _ShopHomePageState extends State<ShopHomePage> {
                             children: [
                               Text(
                                 'Country',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Roxborough CF',
+                                ),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
-                              Text('Malaysia')
+                              Text(
+                                'Malaysia',
+                                style: TextStyle(
+                                  fontFamily: 'Roxborough CF',
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -318,12 +343,20 @@ class _ShopHomePageState extends State<ShopHomePage> {
                             children: [
                               Text(
                                 'Followers',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'Roxborough CF',
+                                ),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
-                              Text('1244')
+                              Text(
+                                '1244',
+                                style: TextStyle(
+                                  fontFamily: 'Roxborough CF',
+                                ),
+                              )
                             ],
                           ),
                         ),

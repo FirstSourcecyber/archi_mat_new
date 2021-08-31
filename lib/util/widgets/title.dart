@@ -1,5 +1,7 @@
-import 'package:archi_mat/util/widgets/divider.dart';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme.dart';
 
@@ -15,17 +17,16 @@ class Title_Widgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Divider_Widgets(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
+          padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 this.text,
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                     color: AppTheme().l2black,
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight:
                         this.bold == true ? FontWeight.bold : FontWeight.w300),
               ),
@@ -35,6 +36,7 @@ class Title_Widgets extends StatelessWidget {
                   children: [
                     Text('See All ',
                         style: TextStyle(
+                          fontFamily: 'Roxborough CF',
                           color: AppTheme().l2black,
                         )),
                     Icon(
@@ -48,7 +50,6 @@ class Title_Widgets extends StatelessWidget {
             ],
           ),
         ),
-        Divider_Widgets(),
       ],
     );
   }

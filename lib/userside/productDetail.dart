@@ -83,7 +83,12 @@ class _ProductDetailState extends State<ProductDetail> {
                     Divider_Widgets(),
                     Padding(
                       padding: const EdgeInsets.all(20.0),
-                      child: Text(widget.data['name']),
+                      child: Text(
+                        widget.data['name'],
+                        style: TextStyle(
+                          fontFamily: 'Roxborough CF',
+                        ),
+                      ),
                     ),
                     Divider_Widgets(),
                     Container(
@@ -91,18 +96,32 @@ class _ProductDetailState extends State<ProductDetail> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Description'),
+                          Text(
+                            'Description',
+                            style: TextStyle(
+                              fontFamily: 'Roxborough CF',
+                            ),
+                          ),
                           SizedBox(
                             height: 20,
                           ),
-                          Text(about.length > 200 && aboutText
-                              ? about.toString().substring(0, 200) + ' .....\n '
-                              : about + '\n'),
+                          Text(
+                            about.length > 200 && aboutText
+                                ? about.toString().substring(0, 200) +
+                                    ' .....\n '
+                                : about + '\n',
+                            style: TextStyle(
+                              fontFamily: 'Roxborough CF',
+                            ),
+                          ),
                           about.length > 200 && aboutText
                               ? GestureDetector(
                                   child: Text(
                                     'More',
-                                    style: TextStyle(color: AppTheme().blue),
+                                    style: TextStyle(
+                                      color: AppTheme().blue,
+                                      fontFamily: 'Roxborough CF',
+                                    ),
                                   ),
                                   onTap: () {
                                     setState(() {
@@ -114,8 +133,10 @@ class _ProductDetailState extends State<ProductDetail> {
                                   ? GestureDetector(
                                       child: Text(
                                         'less',
-                                        style:
-                                            TextStyle(color: AppTheme().blue),
+                                        style: TextStyle(
+                                          color: AppTheme().blue,
+                                          fontFamily: 'Roxborough CF',
+                                        ),
                                       ),
                                       onTap: () {
                                         setState(() {
@@ -135,7 +156,12 @@ class _ProductDetailState extends State<ProductDetail> {
                           Container(
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text('Shop'),
+                            child: Text(
+                              'Shop',
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
                           ),
                           InkWell(
                             onTap: () {
@@ -155,7 +181,10 @@ class _ProductDetailState extends State<ProductDetail> {
                               width: MediaQuery.of(context).size.width * 0.4,
                               child: Text(
                                 widget.data['shop']['name'],
-                                style: TextStyle(color: AppTheme().blue),
+                                style: TextStyle(
+                                  color: AppTheme().blue,
+                                  fontFamily: 'Roxborough CF',
+                                ),
                               ),
                             ),
                           ),
@@ -170,30 +199,22 @@ class _ProductDetailState extends State<ProductDetail> {
                           Container(
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text('Price'),
+                            child: Text(
+                              'Price',
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text(widget.data['price'].toString()),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Divider_Widgets(),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text('In Stock'),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text(widget.data['stock'].toString()),
+                            child: Text(
+                              widget.data['price'].toString(),
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -206,32 +227,22 @@ class _ProductDetailState extends State<ProductDetail> {
                           Container(
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text('Category'),
+                            child: Text(
+                              'In Stock',
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text(widget.data['category']['name'] +
-                                '>' +
-                                widget.data['subcategory']['name']),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Divider_Widgets(),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text('Size'),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text(widget.data['size']),
+                            child: Text(
+                              widget.data['stock'].toString(),
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -244,12 +255,80 @@ class _ProductDetailState extends State<ProductDetail> {
                           Container(
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text('Product Code'),
+                            child: Text(
+                              'Category',
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text(widget.data['productCode']),
+                            child: Text(
+                              widget.data['category']['name'] +
+                                  '>' +
+                                  widget.data['subcategory']['name'],
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider_Widgets(),
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Text(
+                              'Size',
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Text(
+                              widget.data['size'],
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider_Widgets(),
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Text(
+                              'Product Code',
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Text(
+                              widget.data['productCode'],
+                              style: TextStyle(
+                                fontFamily: 'Roxborough CF',
+                              ),
+                            ),
                           ),
                         ],
                       ),

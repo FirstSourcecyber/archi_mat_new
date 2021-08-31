@@ -41,7 +41,12 @@ class _ProfileTabState extends State<ProfileTab> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(widget.text),
+                Text(
+                  widget.text,
+                  style: TextStyle(
+                    fontFamily: 'Roxborough CF',
+                  ),
+                ),
                 widget.bold
                     ? Container(
                         padding: EdgeInsets.all(5),

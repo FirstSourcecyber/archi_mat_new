@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SliderPage extends StatefulWidget {
   final bool text;
@@ -52,7 +53,7 @@ class _SliderPageState extends State<SliderPage> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-            height: 480,
+            height: MediaQuery.of(context).size.height * 0.53,
             viewportFraction: 1,
             initialPage: 0,
             enableInfiniteScroll: true,
@@ -75,7 +76,7 @@ class _SliderPageState extends State<SliderPage> {
                 return Stack(
                   children: [
                     Container(
-                      height: 480,
+                      height: MediaQuery.of(context).size.height * 0.53,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         // image: DecorationImage(
@@ -93,13 +94,11 @@ class _SliderPageState extends State<SliderPage> {
 
                       child: CachedNetworkImage(
                         width: MediaQuery.of(context).size.width,
-                        height: 200,
+                        height: 230,
                         imageUrl: widget.data != null
                             ? Config.url + item['image']
                             : item,
-                        memCacheHeight: 200,
-                        memCacheWidth: 200,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                     ),
                     widget.text
@@ -110,11 +109,26 @@ class _SliderPageState extends State<SliderPage> {
                             child: Column(
                               children: [
                                 widget.data != null
-                                    ? Text(
-                                        item['title'],
-                                        style: TextStyle(
-                                            color: AppTheme().white,
-                                            fontSize: 20),
+                                    ? Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            item['title'],
+                                            style: TextStyle(
+                                                color: AppTheme().white,
+                                                fontFamily: 'Nexa',
+                                                fontSize: 18),
+                                          ),
+                                          Text(
+                                            'How can we help you?',
+                                            style: TextStyle(
+                                                color: AppTheme().white,
+                                                fontFamily: 'Nexa',
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: 30),
+                                          ),
+                                        ],
                                       )
                                     : Column(
                                         crossAxisAlignment:
@@ -124,12 +138,15 @@ class _SliderPageState extends State<SliderPage> {
                                             'Hello Eva Tee',
                                             style: TextStyle(
                                                 color: AppTheme().white,
+                                                fontFamily: 'Nexa',
                                                 fontSize: 15),
                                           ),
                                           Text(
                                             'How can we help you?',
                                             style: TextStyle(
                                                 color: AppTheme().white,
+                                                fontFamily: 'Nexa',
+                                                fontWeight: FontWeight.w700,
                                                 fontSize: 30),
                                           ),
                                         ],

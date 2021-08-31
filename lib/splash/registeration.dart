@@ -3,13 +3,13 @@ import 'package:archi_mat/Services/loginService.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:archi_mat/pages/tab.dart';
 import 'package:archi_mat/util/widgets/profilepic.dart';
+// import 'package:cupertino_date_textbox/cupertino_date_textbox.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:archi_mat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:gender_picker/source/enums.dart';
-import 'package:gender_picker/source/gender_picker.dart';
 
 class RegisterationPage extends StatefulWidget {
   final bool login;
@@ -31,7 +31,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
   String token;
   bool passwordmatch = false, birth = true;
   var countrycode = '+92';
-  var newphone, gender;
+  var newphone;
+  String gender = 'male';
   bool loader = false;
 
   @override
@@ -46,17 +47,31 @@ class _RegisterationPageState extends State<RegisterationPage> {
 
   DateTime selectedDate = DateTime.now();
 
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(1955, 8),
-        lastDate: DateTime.now());
-    if (picked != null && picked != selectedDate)
+  // Future<void> _selectDate(BuildContext context) async {
+  //   final DateTime picked = await showDatePicker(
+  //       context: context,
+  //       initialDate: selectedDate,
+  //       firstDate: DateTime(1955, 8),
+  //       lastDate: DateTime.now());
+  //   if (picked != null && picked != selectedDate)
+  //     setState(() {
+  //       selectedDate = picked;
+  //       birth = false;
+  //     });
+  // }
+
+  void onBirthdayChange(DateTime birthday) {
+    final date = DateTime.now();
+    final diff = date.difference(birthday).inDays;
+
+    if (diff <= 0) {
+      showAlert("Date Must be Less Then Today!", Colors.red);
+      // Toast.show('Date Must be Less Then Today', context, duration: 3);
+    } else {
       setState(() {
-        selectedDate = picked;
-        birth = false;
+        selectedDate = birthday;
       });
+    }
   }
 
   showAlert(text, backcolor) {
@@ -76,7 +91,11 @@ class _RegisterationPageState extends State<RegisterationPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppTheme().purple,
-        title: Text('Signup'),
+        title: Text('Signup',
+            style: TextStyle(
+              fontFamily: 'Nexa',
+              fontWeight: FontWeight.w700,
+            )),
         centerTitle: true,
       ),
       body: InkWell(
@@ -121,7 +140,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       controller: uname,
                       decoration: InputDecoration(
                         hintText: 'User Name',
-                        hintStyle: TextStyle(color: AppTheme().black),
+                        hintStyle: TextStyle(
+                          color: AppTheme().black,
+                          fontFamily: 'Roxborough CF',
+                        ),
                         border: InputBorder.none,
                       ),
                     ),
@@ -139,7 +161,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       controller: fname,
                       decoration: InputDecoration(
                         hintText: 'First Name',
-                        hintStyle: TextStyle(color: AppTheme().black),
+                        hintStyle: TextStyle(
+                          color: AppTheme().black,
+                          fontFamily: 'Roxborough CF',
+                        ),
                         border: InputBorder.none,
                       ),
                     ),
@@ -157,7 +182,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       controller: lname,
                       decoration: InputDecoration(
                         hintText: 'Last Name',
-                        hintStyle: TextStyle(color: AppTheme().black),
+                        hintStyle: TextStyle(
+                          color: AppTheme().black,
+                          fontFamily: 'Roxborough CF',
+                        ),
                         border: InputBorder.none,
                       ),
                     ),
@@ -175,7 +203,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       controller: email,
                       decoration: InputDecoration(
                         hintText: 'Enter Your E-Mail',
-                        hintStyle: TextStyle(color: AppTheme().black),
+                        hintStyle: TextStyle(
+                          color: AppTheme().black,
+                          fontFamily: 'Roxborough CF',
+                        ),
                         border: InputBorder.none,
                       ),
                     ),
@@ -213,9 +244,11 @@ class _RegisterationPageState extends State<RegisterationPage> {
                                 controller: number,
                                 keyboardType: TextInputType.phone,
                                 decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: "Phone Number",
-                                ),
+                                    border: InputBorder.none,
+                                    hintText: "Phone Number",
+                                    hintStyle: TextStyle(
+                                      fontFamily: 'Roxborough CF',
+                                    )),
                                 onChanged: (value) {
                                   if (number.text.isNotEmpty) {
                                     if (value[0] != '0') {
@@ -231,19 +264,25 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppTheme().black)),
-                    child: InkWell(
-                      onTap: () => _selectDate(context),
-                      child: Text(birth
-                          ? 'Date of Birth'
-                          : "${selectedDate.toLocal()}".split(' ')[0]),
-                    ),
-                  ),
+                  // Container(
+                  //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  //   alignment: Alignment.center,
+                  //   decoration: BoxDecoration(
+                  //       borderRadius: BorderRadius.circular(30),
+                  //       border: Border.all(color: AppTheme().black)),
+                  //   child: CupertinoDateTextBox(
+                  //     hintText: DateFormat.yMd().format(selectedDate),
+                  //     color: Colors.black,
+                  //     initialValue: selectedDate,
+                  //     onDateChange: onBirthdayChange,
+                  //   ),
+                  // InkWell(
+                  //   onTap: () => _selectDate(context),
+                  //   child: Text(birth
+                  //       ? 'Date of Birth'
+                  //       : "${selectedDate.toLocal()}".split(' ')[0]),
+                  // ),
+                  // ),
                   SizedBox(
                     height: 20,
                   ),
@@ -252,34 +291,57 @@ class _RegisterationPageState extends State<RegisterationPage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         border: Border.all(color: AppTheme().black)),
-                    child: GenderPickerWithImage(
-                      showOtherGender: true,
-                      verticalAlignedText: true,
-                      selectedGender: Gender.Male,
-                      selectedGenderTextStyle: TextStyle(
-                          color: Color(0xFF8b32a8),
-                          fontWeight: FontWeight.bold),
-                      unSelectedGenderTextStyle: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.normal),
-                      onChanged: (Gender val) {
-                        print(val);
-                        setState(() {
-                          if (val == Gender.Male) {
-                            gender = 'Male';
-                          } else if (val == Gender.Female) {
-                            gender = 'Female';
-                          } else {
-                            gender = 'Other';
-                          }
-                        });
-                      },
-                      equallyAligned: true,
-                      animationDuration: Duration(milliseconds: 300),
-                      isCircular: true,
-                      // default : true,
-                      opacityOfGradient: 0.4,
-                      padding: const EdgeInsets.all(3),
-                      size: 50, //default : 40
+                    child: Row(
+                      children: [
+                        Radio(
+                          value: 'male',
+                          onChanged: (value) {
+                            setState(() {
+                              gender = value;
+                            });
+                          },
+                          groupValue: gender,
+                        ),
+                        Text(
+                          'Male',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Roxborough CF',
+                          ),
+                        ),
+                        Radio(
+                          value: 'female',
+                          onChanged: (value) {
+                            setState(() {
+                              gender = value;
+                            });
+                          },
+                          groupValue: gender,
+                        ),
+                        Text(
+                          'Female',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Roxborough CF',
+                          ),
+                        ),
+                        Radio(
+                          value: 'other',
+                          onChanged: (value) {
+                            setState(() {
+                              gender = value;
+                            });
+                          },
+                          groupValue: gender,
+                        ),
+                        Text(
+                          'Other',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Roxborough CF',
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -303,7 +365,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       },
                       decoration: InputDecoration(
                           hintText: 'Enter Your Password',
-                          hintStyle: TextStyle(color: AppTheme().black),
+                          hintStyle: TextStyle(
+                            color: AppTheme().black,
+                            fontFamily: 'Roxborough CF',
+                          ),
                           border: InputBorder.none),
                     ),
                   ),
@@ -328,7 +393,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       controller: confirmpswd,
                       decoration: InputDecoration(
                           hintText: 'Confirm Password',
-                          hintStyle: TextStyle(color: AppTheme().black),
+                          hintStyle: TextStyle(
+                            color: AppTheme().black,
+                            fontFamily: 'Roxborough CF',
+                          ),
                           border: InputBorder.none),
                     ),
                   ),
@@ -379,7 +447,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                                     color: AppTheme().lblack, width: 1)),
                             child: Text(
                               'Create',
-                              style: TextStyle(color: AppTheme().white),
+                              style: TextStyle(
+                                color: AppTheme().white,
+                                fontFamily: 'Nexa',
+                              ),
                             ),
                           ),
                         ),

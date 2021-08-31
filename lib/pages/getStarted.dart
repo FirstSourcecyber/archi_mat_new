@@ -59,7 +59,8 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                         style: TextStyle(
                             fontSize: 32,
                             color: AppTheme().white,
-                            fontWeight: FontWeight.bold),
+                            fontFamily: 'Nexa',
+                            fontWeight: FontWeight.w700),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 15),
@@ -72,7 +73,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       ),
                       Text(
                         'For the best experience \nwith ArchiMAT',
-                        style: TextStyle(color: AppTheme().white, fontSize: 20),
+                        style: TextStyle(
+                            color: AppTheme().white,
+                            fontFamily: 'Roxborough CF',
+                            fontSize: 20),
                       ),
                     ],
                   ),
@@ -98,7 +102,8 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                         child: Text(
                                       'Sign Up',
                                       style: TextStyle(
-                                          fontWeight: FontWeight.bold,
+                                          fontWeight: FontWeight.w700,
+                                          fontFamily: 'Nexa',
                                           color: isSignup == false
                                               ? AppTheme().loginBtnColor
                                               : Colors.white),
@@ -136,7 +141,8 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                       child: Text(
                                         'Log In',
                                         style: TextStyle(
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: 'Nexa',
                                             color: isLogin == false
                                                 ? AppTheme().loginBtnColor
                                                 : Colors.white),
@@ -183,6 +189,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                     'SIGN UP WITH EMAIL',
                                     style: TextStyle(
                                         color: Colors.black,
+                                        fontFamily: 'Roxborough CF',
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   )
@@ -216,6 +223,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                     'SIGN UP WITH PHONE NUMBER',
                                     style: TextStyle(
                                         color: AppTheme().white,
+                                        fontFamily: 'Roxborough CF',
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   )
