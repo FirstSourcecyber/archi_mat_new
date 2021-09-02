@@ -8,7 +8,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:archi_mat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 // import 'package:intl/intl.dart';
+import 'package:cupertino_date_textbox/cupertino_date_textbox.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterationPage extends StatefulWidget {
@@ -264,25 +266,25 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  // Container(
-                  //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  //   alignment: Alignment.center,
-                  //   decoration: BoxDecoration(
-                  //       borderRadius: BorderRadius.circular(30),
-                  //       border: Border.all(color: AppTheme().black)),
-                  //   child: CupertinoDateTextBox(
-                  //     hintText: DateFormat.yMd().format(selectedDate),
-                  //     color: Colors.black,
-                  //     initialValue: selectedDate,
-                  //     onDateChange: onBirthdayChange,
-                  //   ),
-                  // InkWell(
-                  //   onTap: () => _selectDate(context),
-                  //   child: Text(birth
-                  //       ? 'Date of Birth'
-                  //       : "${selectedDate.toLocal()}".split(' ')[0]),
-                  // ),
-                  // ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: AppTheme().black)),
+                    child: CupertinoDateTextBox(
+                      hintText: DateFormat.yMd().format(selectedDate),
+                      color: Colors.black,
+                      initialValue: selectedDate,
+                      onDateChange: onBirthdayChange,
+                    ),
+                    // InkWell(
+                    //   onTap: () => _selectDate(context),
+                    //   child: Text(birth
+                    //       ? 'Date of Birth'
+                    //       : "${selectedDate.toLocal()}".split(' ')[0]),
+                    // ),
+                  ),
                   SizedBox(
                     height: 20,
                   ),
@@ -421,7 +423,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                                 lname.text.trim().isEmpty ||
                                 fname.text.trim().isEmpty ||
                                 uname.text.trim().isEmpty ||
-                                birth ||
+                                // birth ||
                                 newphone == null) {
                               print('Please Fill All Field');
                               showAlert("Please Fill All Field", Colors.red);

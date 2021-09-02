@@ -4,7 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class SliderPage extends StatefulWidget {
   final bool text;
@@ -118,6 +118,7 @@ class _SliderPageState extends State<SliderPage> {
                                             style: TextStyle(
                                                 color: AppTheme().white,
                                                 fontFamily: 'Nexa',
+                                                fontWeight: FontWeight.w700,
                                                 fontSize: 18),
                                           ),
                                           Text(
@@ -139,6 +140,7 @@ class _SliderPageState extends State<SliderPage> {
                                             style: TextStyle(
                                                 color: AppTheme().white,
                                                 fontFamily: 'Nexa',
+                                                fontWeight: FontWeight.w700,
                                                 fontSize: 15),
                                           ),
                                           Text(

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:archi_mat/Services/fallowService.dart';
+// import 'package:archi_mat/Services/fallowService.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:qr_code_scanner/qr_code_scanner.dart';

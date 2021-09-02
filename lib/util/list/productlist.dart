@@ -1,8 +1,9 @@
 import 'package:archi_mat/environment.dart';
 import 'package:archi_mat/userside/productDetail.dart';
+import 'package:archi_mat/userside/shophome.dart';
 import 'package:archi_mat/util/widgets/title.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import '../../theme.dart';
 
 class Productlist extends StatefulWidget {
@@ -17,6 +18,25 @@ class Productlist extends StatefulWidget {
 }
 
 class _ProductlistState extends State<Productlist> {
+  gotoshop(data) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ShopHomePage(
+                  data: data,
+                  shop: false,
+                )));
+  }
+
+  gotoproduct(data) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ProductDetail(
+                  data: data,
+                )));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,12 +66,14 @@ class _ProductlistState extends State<Productlist> {
                 return InkWell(
                   onTap: () {
                     if (widget.i == 3) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ProductDetail(
-                                    data: widget.data[index],
-                                  )));
+                      print('product===');
+                      print(widget.data[index]);
+                      gotoproduct(widget.data[index]);
+                    } else if (widget.i == 2) {
+                      print('shop===');
+                      print(widget.data[index]);
+
+                      gotoshop(widget.data[index]);
                     }
                   },
                   child: Container(
@@ -74,28 +96,19 @@ class _ProductlistState extends State<Productlist> {
                                       bottom:
                                           BorderSide(color: AppTheme().grey)),
                                   image: DecorationImage(
-                                      image: widget.i == 3
-                                          ? widget.data[index]['images'] ==
-                                                      null ||
-                                                  widget.data[index]
-                                                          ['images'] ==
+                                      image: widget.i == 3 &&
+                                              widget.data[index]['images']
+                                                      .length !=
+                                                  0
+                                          ? NetworkImage(Config.url +
+                                              (widget.data[index]['images'][0]
+                                                  ['image']))
+                                          : widget.data[index]['image'] !=
+                                                      null &&
+                                                  widget.data[index]['image'] !=
                                                       ''
-                                              ? AssetImage(
-                                                  'assets/images/back.png')
-                                              : NetworkImage(Config.url +
-                                                  (widget.data[index]['images']
-                                                      [0]['image']))
-                                          : widget.i == 4
-                                              ? widget.data[index]['image'] ==
-                                                          null ||
-                                                      widget.data[index]
-                                                              ['image'] ==
-                                                          ''
-                                                  ? AssetImage(
-                                                      'assets/images/back.png')
-                                                  : NetworkImage(Config.url +
-                                                      (widget.data[index]
-                                                          ['image']))
+                                              ? NetworkImage(Config.url +
+                                                  (widget.data[index]['image']))
                                               : AssetImage(
                                                   'assets/images/back.png'),
                                       // AssetImage(widget.data[index]['image']),
@@ -104,9 +117,7 @@ class _ProductlistState extends State<Productlist> {
                             Positioned(
                               left: 10,
                               top: 10,
-                              child: widget.i != 0 &&
-                                      widget.i != 3 &&
-                                      widget.i != 4
+                              child: widget.i != 1 && widget.i != 4
                                   ? Container(
                                       padding: EdgeInsets.all(5),
                                       decoration: BoxDecoration(
@@ -117,7 +128,7 @@ class _ProductlistState extends State<Productlist> {
                                           border: Border.all(
                                               color: AppTheme().l2black)),
                                       child: Text(
-                                        widget.i == 1 ? 'VR' : 'AR',
+                                        widget.i == 2 ? 'VR' : 'AR',
                                         style: TextStyle(
                                             fontSize: 8,
                                             fontFamily: 'Roxborough CF',
@@ -142,61 +153,67 @@ class _ProductlistState extends State<Productlist> {
                                   fontFamily: 'Roxborough CF',
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    widget.i == 3
-                                        ? widget.data[index]['shop']['name']
-                                        : widget.i == 4
-                                            ? ''
-                                            : widget.data[index]['category'],
-                                    style: TextStyle(
-                                        color: AppTheme().l1black,
-                                        fontFamily: 'Roxborough CF',
-                                        fontSize: 12),
-                                  ),
-                                  // Container(
-                                  //   width: 70,
-                                  //   child: Row(
-                                  //     mainAxisAlignment:
-                                  //         MainAxisAlignment.spaceBetween,
-                                  //     children: [
-                                  //       // Container(
-                                  //       //   decoration: BoxDecoration(
-                                  //       //       shape: BoxShape.circle,
-                                  //       //       border: Border.all(
-                                  //       //           color: AppTheme().grey)),
-                                  //       //   child: Icon(
-                                  //       //     Icons.star,
-                                  //       //     color: AppTheme().grey,
-                                  //       //     size: 15,
-                                  //       //   ),
-                                  //       // ),
-                                  //       // Container(
-                                  //       //   padding: EdgeInsets.all(5),
-                                  //       //   decoration: BoxDecoration(
-                                  //       //       shape: BoxShape.circle,
-                                  //       //       border: Border.all(
-                                  //       //           color: AppTheme().grey)),
-                                  //       //   child: Icon(FontAwesomeIcons.leaf,
-                                  //       //       size: 10, color: AppTheme().grey),
-                                  //       // ),
-                                  //       // Container(
-                                  //       //     padding: EdgeInsets.all(5),
-                                  //       //     decoration: BoxDecoration(
-                                  //       //         shape: BoxShape.circle,
-                                  //       //         border: Border.all(
-                                  //       //             color: AppTheme().grey)),
-                                  //       //     child: Text(
-                                  //       //       'VR',
-                                  //       //       style: TextStyle(fontSize: 8),
-                                  //       //     )),
-                                  //     ],
-                                  //   ),
-                                  // )
-                                ],
-                              )
+                              widget.i != 2
+                                  ? Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          widget.data[index]['shop']['name'] !=
+                                                      '' &&
+                                                  widget.data[index]['shop']
+                                                          ['name'] !=
+                                                      null
+                                              ? widget.data[index]['shop']
+                                                  ['name']
+                                              : '',
+                                          style: TextStyle(
+                                              color: AppTheme().l1black,
+                                              fontFamily: 'Roxborough CF',
+                                              fontSize: 12),
+                                        ),
+                                        // Container(
+                                        //   width: 70,
+                                        //   child: Row(
+                                        //     mainAxisAlignment:
+                                        //         MainAxisAlignment.spaceBetween,
+                                        //     children: [
+                                        //       // Container(
+                                        //       //   decoration: BoxDecoration(
+                                        //       //       shape: BoxShape.circle,
+                                        //       //       border: Border.all(
+                                        //       //           color: AppTheme().grey)),
+                                        //       //   child: Icon(
+                                        //       //     Icons.star,
+                                        //       //     color: AppTheme().grey,
+                                        //       //     size: 15,
+                                        //       //   ),
+                                        //       // ),
+                                        //       // Container(
+                                        //       //   padding: EdgeInsets.all(5),
+                                        //       //   decoration: BoxDecoration(
+                                        //       //       shape: BoxShape.circle,
+                                        //       //       border: Border.all(
+                                        //       //           color: AppTheme().grey)),
+                                        //       //   child: Icon(FontAwesomeIcons.leaf,
+                                        //       //       size: 10, color: AppTheme().grey),
+                                        //       // ),
+                                        //       // Container(
+                                        //       //     padding: EdgeInsets.all(5),
+                                        //       //     decoration: BoxDecoration(
+                                        //       //         shape: BoxShape.circle,
+                                        //       //         border: Border.all(
+                                        //       //             color: AppTheme().grey)),
+                                        //       //     child: Text(
+                                        //       //       'VR',
+                                        //       //       style: TextStyle(fontSize: 8),
+                                        //       //     )),
+                                        //     ],
+                                        //   ),
+                                        // )
+                                      ],
+                                    )
+                                  : Container()
                             ],
                           ),
                         ),

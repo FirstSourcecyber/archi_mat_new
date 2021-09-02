@@ -66,7 +66,7 @@ dependencies:
   flutter_launcher_icons: ^0.9.1
   vibration:
   qr_code_scanner: ^0.5.2
-  # cupertino_date_textbox: ^1.0.0+3
+  cupertino_date_textbox: ^1.0.0+3
   scroll_date_picker: ^2.0.5
 
 

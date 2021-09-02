@@ -1,6 +1,4 @@
-import 'package:archi_mat/Services/categoryService.dart';
-import 'package:archi_mat/Services/productService.dart';
-import 'package:archi_mat/Services/service.dart';
+import 'package:archi_mat/Services/homeService.dart';
 import 'package:archi_mat/pages/drawer.dart';
 import 'package:archi_mat/theme.dart';
 import 'package:archi_mat/util/list/categorylist.dart';
@@ -22,82 +20,104 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int i = 0, j = 0;
   List category = [],
-      product1 = [],
+      product = [],
       service = [],
       slider = [],
       slider2 = [],
-      slider3 = [];
+      slider3 = [],
+      shop = [],
+      material = [];
 
   bool loader = true;
 
-  getcategory() {
+  // getcategory() {
+  //   setState(() {
+  //     loader = true;
+  //   });
+  //   CategoryService().getcategory().then((value) {
+  //     print(value);
+  //     setState(() {
+  //       if (value != null) {
+  //         // var data = jsonDecode(value);
+  //         var data = value;
+  //         print(data['arks']);
+  //         category = data['arks'];
+  //         // loader = false;
+  //       }
+  //     });
+  //   });
+  // }
+
+  // getproduct() {
+  //   // setState(() {
+  //   //   loader = true;
+  //   // });
+
+  //   ProductService().getproduct().then((value) {
+  //     print(value);
+  //     setState(() {
+  //       if (value != null) {
+  //         var data = value;
+  //         print(data['arks']);
+  //         product1 = data['arks'];
+  //       }
+  //     });
+  //   });
+  // }
+
+  // getservice() {
+  //   // setState(() {
+  //   //   loader = true;
+  //   // });
+
+  //   ServiceRoute().getservice().then((value) {
+  //     print(value);
+  //     setState(() {
+  //       if (value != null) {
+  //         var data = value;
+  //         print(data['arks']);
+  //         service = data['arks'];
+  //         // loader = false;
+  //       }
+  //     });
+  //   });
+  // }
+
+  // getslider() {
+  //   setState(() {
+  //     loader = true;
+  //   });
+
+  //   ProductService().getslider().then((value) {
+  //     print(value);
+  //     setState(() {
+  //       if (value != null) {
+  //         var data = value;
+
+  //         slider = data['slider1'];
+  //         slider2 = data['slider2'];
+  //         slider3 = data['slider3'];
+  //         loader = false;
+  //       }
+  //     });
+  //   });
+  // }
+
+  gethome() {
     setState(() {
       loader = true;
     });
-    CategoryService().getcategory().then((value) {
-      print(value);
-      setState(() {
-        if (value != null) {
-          // var data = jsonDecode(value);
-          var data = value;
-          print(data['arks']);
-          category = data['arks'];
-          // loader = false;
-        }
-      });
-    });
-  }
 
-  getproduct() {
-    // setState(() {
-    //   loader = true;
-    // });
-
-    ProductService().getproduct().then((value) {
+    HomeService().gethomedetail().then((value) {
       print(value);
       setState(() {
         if (value != null) {
           var data = value;
-          print(data['arks']);
-          product1 = data['arks'];
-          // loader = false;
-        }
-      });
-    });
-  }
-
-  getservice() {
-    // setState(() {
-    //   loader = true;
-    // });
-
-    ServiceRoute().getservice().then((value) {
-      print(value);
-      setState(() {
-        if (value != null) {
-          var data = value;
-          print(data['arks']);
-          service = data['arks'];
-          // loader = false;
-        }
-      });
-    });
-  }
-
-  getslider() {
-    setState(() {
-      loader = true;
-    });
-
-    ProductService().getslider().then((value) {
-      print(value);
-      setState(() {
-        if (value != null) {
-          var data = value;
-          // // print(data['arks']);
-          // slider = data['arks'];
-          // slider2 = data['arks'];
-          // slider3 = data['arks'];
+          product = data['vrproduct'];
+          material = data['allmaterial'];
+          category = data['allcategory'];
+          shop = data['vrshop'];
+          service = data['allservice'];
           slider = data['slider1'];
           slider2 = data['slider2'];
           slider3 = data['slider3'];
@@ -107,45 +127,13 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  List product = [
-    {
-      'image': 'assets/images/product.png',
-      'name': 'Mererials',
-      'category': 'Shop'
-    },
-    {
-      'image': 'assets/images/product1.png',
-      'name': 'Showrooms',
-      'category': 'Shop'
-    },
-    {
-      'image': 'assets/images/product2.png',
-      'name': 'Event',
-      'category': 'Shop'
-    },
-    {
-      'image': 'assets/images/product.png',
-      'name': 'Mererials',
-      'category': 'Shop'
-    },
-    {
-      'image': 'assets/images/product1.png',
-      'name': 'Showrooms',
-      'category': 'Shop'
-    },
-    {
-      'image': 'assets/images/product2.png',
-      'name': 'Event',
-      'category': 'Shop'
-    },
-  ];
-
   @override
   void initState() {
-    getcategory();
-    getproduct();
-    getservice();
-    getslider();
+    // getcategory();
+    // getproduct();
+    // getservice();
+    // getslider();
+    gethome();
     super.initState();
   }
 
@@ -198,47 +186,57 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SliderPage(
-                      text: false,
-                      data: slider,
-                    ),
+                    slider != []
+                        ? SliderPage(
+                            text: false,
+                            data: slider,
+                          )
+                        : Container(),
                     List1(),
-                    CategoryList(
-                      category: category,
-                      subcategory: false,
-                    ),
-                    Productlist(
-                      // onclick: () {
-                      //   Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //           builder: (context) => ProductDetail()));
-                      // },
-                      i: 3,
-                      data: product1,
-                      title: 'Find Materials Around You',
-                    ),
-                    Slider1Page(
-                      data: slider2,
-                    ),
-                    Productlist(
-                      i: 1,
-                      data: product,
-                      title: 'Find Virtual Shops',
-                    ),
-                    Productlist(
-                      i: 2,
-                      data: product,
-                      title: 'Find AR Product',
-                    ),
-                    Productlist(
-                      i: 4,
-                      data: service,
-                      title: 'Find Professional Services',
-                    ),
-                    Slider1Page(
-                      data: slider3,
-                    ),
+                    category != []
+                        ? CategoryList(
+                            category: category,
+                            subcategory: false,
+                          )
+                        : Container(),
+                    material != []
+                        ? Productlist(
+                            i: 1,
+                            data: material,
+                            title: 'Find Materials Around You',
+                          )
+                        : Container(),
+                    slider2 != []
+                        ? Slider1Page(
+                            data: slider2,
+                          )
+                        : Container(),
+                    shop != []
+                        ? Productlist(
+                            i: 2,
+                            data: shop,
+                            title: 'Find Virtual Shops',
+                          )
+                        : Container(),
+                    product != []
+                        ? Productlist(
+                            i: 3,
+                            data: product,
+                            title: 'Find AR Product',
+                          )
+                        : Container(),
+                    service != []
+                        ? Productlist(
+                            i: 4,
+                            data: service,
+                            title: 'Find Professional Services',
+                          )
+                        : Container(),
+                    slider3 != []
+                        ? Slider1Page(
+                            data: slider3,
+                          )
+                        : Container(),
                     // Productlist(
                     //   i: 0,
                     //   data: product,

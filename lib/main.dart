@@ -2,7 +2,9 @@ import 'package:archi_mat/splash/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -51,7 +53,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     // WidgetsFlutterBinding.ensureInitialized();
-    Firebase.initializeApp();
+    // await Firebase.initializeApp();
   }
 
   @override
