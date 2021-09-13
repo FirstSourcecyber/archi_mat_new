@@ -142,27 +142,27 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: scaffoldKey,
-        drawer: Menu2(),
+        // key: scaffoldKey,
+        // drawer: Menu2(),
         appBar: AppBar(
           backgroundColor: AppTheme().white,
-          leading: GestureDetector(
-            onTap: () => scaffoldKey.currentState.openDrawer(),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppTheme().black)),
-                child: SvgPicture.asset(
-                  'assets/images/menu.svg',
-                  color: AppTheme().l1black,
-                  width: 40,
-                ),
-              ),
-            ),
-          ),
+          // leading: GestureDetector(
+          //   onTap: () => scaffoldKey.currentState.openDrawer(),
+          //   child: Padding(
+          //     padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+          //     child: Container(
+          //       padding: EdgeInsets.all(10),
+          //       decoration: BoxDecoration(
+          //           shape: BoxShape.circle,
+          //           border: Border.all(color: AppTheme().black)),
+          //       child: SvgPicture.asset(
+          //         'assets/images/menu.svg',
+          //         color: AppTheme().l1black,
+          //         width: 40,
+          //       ),
+          //     ),
+          //   ),
+          // ),
           title: Image(
             image: AssetImage('assets/images/archimat.png'),
             width: 150,
@@ -218,7 +218,7 @@ class _HomePageState extends State<HomePage> {
                             title: 'Find Virtual Shops',
                           )
                         : Container(),
-                    product != []
+                    product.length != 0
                         ? Productlist(
                             i: 3,
                             data: product,

@@ -169,15 +169,15 @@ class _InboxState extends State<Inbox> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppTheme().white,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios_sharp,
-            color: AppTheme().black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(
+        //     Icons.arrow_back_ios_sharp,
+        //     color: AppTheme().black,
+        //   ),
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        // ),
         title: Text(
           'Inbox',
           style: TextStyle(
@@ -276,13 +276,16 @@ class _InboxState extends State<Inbox> {
                               padding: const EdgeInsets.only(top: 10),
                               child: InkWell(
                                 onTap: () {
+                                  print(widget.shopside);
+                                  print(inbox1[i]['user']);
+                                  print(inbox1[i]['shop']);
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => ChatPage(
                                                 user: inbox1[i]['user'],
                                                 shop: inbox1[i]['shop'],
-                                                shopside: false,
+                                                shopside: widget.shopside,
                                               )));
                                 },
                                 child: ListTile(

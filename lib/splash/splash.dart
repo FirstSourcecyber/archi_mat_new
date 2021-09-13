@@ -173,11 +173,12 @@ class _SplachPageState extends State<SplachPage> {
                       )),
               (Route<dynamic> route) => false);
         } else if (this.role == 'shopOwner') {
+          print(profile['shop']);
           Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
                   builder: (context) => TabPage(
                         index: 0,
-                        data: profile['user']['shop'],
+                        data: profile['shop'],
                       )),
               (Route<dynamic> route) => false);
         } else {

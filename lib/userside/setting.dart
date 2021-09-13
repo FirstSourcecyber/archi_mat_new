@@ -22,10 +22,13 @@ class _UserSettingState extends State<UserSetting> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Back_Widgets(
-                onclick: () {
-                  Navigator.pop(context);
-                },
+              // Back_Widgets(
+              //   onclick: () {
+              //     Navigator.pop(context);
+              //   },
+              // ),
+              Container(
+                height: 40,
               ),
               ProfilepicWidgets(
                 image: widget.data['image'],

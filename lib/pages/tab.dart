@@ -1,12 +1,17 @@
+import 'dart:convert';
+
+import 'package:archi_mat/business/setting.dart';
 import 'package:archi_mat/pages/inbox.dart';
 import 'package:archi_mat/pages/scannerPage.dart';
 import 'package:archi_mat/userside/category.dart';
 import 'package:archi_mat/userside/feeds.dart';
 import 'package:archi_mat/userside/homepage.dart';
 import 'package:archi_mat/theme.dart';
+import 'package:archi_mat/userside/setting.dart';
 import 'package:archi_mat/userside/shophome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TabPage extends StatefulWidget {
   final int index;
@@ -34,23 +39,29 @@ class _TabPageState extends State<TabPage> {
     }
     if (_page == 1) {
       return AnimatedContainer(
-        color: AppTheme().white,
-        duration: Duration(seconds: 1),
-        child: widget.data != null
-            ? Inbox(
-                shopside: true,
-              )
-            : CategoryPage(
-                dat1: false,
-              ),
-      );
+          color: AppTheme().white,
+          duration: Duration(seconds: 1),
+          child:
+              //  widget.data != null
+              //     ?
+              Inbox(
+            shopside: widget.data != null ? true : false,
+          )
+          // : CategoryPage(
+          //     dat1: false,
+          //   ),
+          );
     }
 
     if (_page == 2) {
       return AnimatedContainer(
           color: AppTheme().white,
           duration: Duration(seconds: 1),
-          child: Feeds());
+          child: widget.data != null
+              ? BusinessSetting()
+              : UserSetting(
+                  data: detail,
+                ));
     }
     if (_page == 3) {
       return AnimatedContainer(
@@ -62,16 +73,36 @@ class _TabPageState extends State<TabPage> {
       return AnimatedContainer(
           color: AppTheme().white,
           duration: Duration(seconds: 1),
-          child: ShopQr());
+          child: ShopQr(
+            shopside: widget.data != null ? true : false,
+            shopdata: widget.data != null ? detail['shop'] : detail,
+          ));
     }
   }
 
   List pages = [];
   String logstatment = 'You Need To Login First \nTo Move Forward!';
 
+  String name = '', image = '';
+  dynamic detail;
+
+  userdetail() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    setState(() {
+      detail = jsonDecode(pref.getString('user'));
+    });
+    if (detail != null) {
+      setState(() {
+        name = detail['firstname'] + ' ' + detail['lastname'];
+        image = detail['image'];
+      });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    userdetail();
     setState(() {
       _page = widget.index;
     });
@@ -144,15 +175,20 @@ class _TabPageState extends State<TabPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 20, bottom: 3),
                       child: SvgPicture.asset(
-                        widget.data != null
-                            ? 'assets/images/message.svg'
-                            : 'assets/images/category.svg',
+                        // widget.data != null
+                        //     ?
+                        'assets/images/message.svg'
+                        // : 'assets/images/category.svg'
+                        ,
                         width: 20,
                         color: _page == 1 ? AppTheme().purple : AppTheme().grey,
                       ),
                     ),
                     Text(
-                      widget.data != null ? 'Chat' : 'Category',
+                      // widget.data != null ?
+                      'Chat'
+                      // : 'Category'
+                      ,
                       style: TextStyle(
                         fontFamily: 'Roxborough CF',
                         color: _page == 1 ? AppTheme().purple : AppTheme().grey,
@@ -194,15 +230,28 @@ class _TabPageState extends State<TabPage> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(top: 20, bottom: 3),
-                      child: SvgPicture.asset(
-                        'assets/images/search.svg',
-                        width: 20,
-                        color: _page == 2 ? AppTheme().purple : AppTheme().grey,
-                      ),
-                    ),
+                        padding: const EdgeInsets.only(top: 20, bottom: 3),
+                        child:
+                            //  widget.data != null
+                            //     ?
+                            Icon(
+                          Icons.person,
+                          color:
+                              _page == 2 ? AppTheme().purple : AppTheme().grey,
+                        )
+                        // : SvgPicture.asset(
+                        //     'assets/images/search.svg',
+                        //     width: 20,
+                        //     color: _page == 2
+                        //         ? AppTheme().purple
+                        //         : AppTheme().grey,
+                        //   ),
+                        ),
                     Text(
-                      'Discover',
+                      // widget.data != null ?
+                      'Person'
+                      // : 'Discover'
+                      ,
                       style: TextStyle(
                           fontFamily: 'Roxborough CF',
                           color:
