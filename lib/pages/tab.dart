@@ -1,14 +1,12 @@
 import 'dart:convert';
 
-import 'package:archi_mat/business/setting.dart';
-import 'package:archi_mat/pages/inbox.dart';
-import 'package:archi_mat/pages/scannerPage.dart';
-import 'package:archi_mat/userside/category.dart';
-import 'package:archi_mat/userside/feeds.dart';
-import 'package:archi_mat/userside/homepage.dart';
-import 'package:archi_mat/theme.dart';
-import 'package:archi_mat/userside/setting.dart';
-import 'package:archi_mat/userside/shophome.dart';
+import 'package:Archimat/business/setting.dart';
+import 'package:Archimat/pages/inbox.dart';
+import 'package:Archimat/pages/scannerPage.dart';
+import 'package:Archimat/userside/homepage.dart';
+import 'package:Archimat/theme.dart';
+import 'package:Archimat/userside/setting.dart';
+import 'package:Archimat/userside/shophome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';

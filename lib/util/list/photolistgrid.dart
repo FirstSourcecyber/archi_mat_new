@@ -1,4 +1,4 @@
-import 'package:archi_mat/environment.dart';
+import 'package:Archimat/environment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -61,7 +61,7 @@ class _PhotoListGrideState extends State<PhotoListGride> {
     dynamic width = MediaQuery.of(context).size.width;
     // dynamic height = MediaQuery.of(context).size.height;
     return loader
-        ? Center(child: CircularProgressIndicator())
+        ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
         : StaggeredGridView.countBuilder(
             scrollDirection: Axis.vertical,
             physics: NeverScrollableScrollPhysics(),

@@ -1,7 +1,7 @@
-import 'package:archi_mat/Services/categoryService.dart';
-import 'package:archi_mat/util/list/categorylist.dart';
-import 'package:archi_mat/util/list/photolistgrid.dart';
-import 'package:archi_mat/util/widgets/divider.dart';
+import 'package:Archimat/Services/categoryService.dart';
+import 'package:Archimat/util/list/categorylist.dart';
+import 'package:Archimat/util/list/photolistgrid.dart';
+import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -124,7 +124,7 @@ class _CategoryPageState extends State<CategoryPage> {
         centerTitle: true,
       ),
       body: loader
-          ? Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
           : SingleChildScrollView(
               child: Column(
                 children: [

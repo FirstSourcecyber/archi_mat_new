@@ -1,5 +1,5 @@
-import 'package:archi_mat/util/list/photolistgrid.dart';
-import 'package:archi_mat/util/widgets/list2.dart';
+import 'package:Archimat/util/list/photolistgrid.dart';
+import 'package:Archimat/util/widgets/list2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

@@ -1,4 +1,4 @@
-import 'package:archi_mat/Services/categoryService.dart';
+import 'package:Archimat/Services/categoryService.dart';
 import 'package:get/get.dart';
 
 class CategoryController extends GetxController {

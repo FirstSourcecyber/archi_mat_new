@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io' as io;
-import 'package:archi_mat/Services/inboxService.dart';
+import 'package:Archimat/Services/inboxService.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -206,8 +206,9 @@ class _ChatPageState extends State<ChatPage> {
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                       // Theme.of(context).primaryColor,
-                      Color(0xff232A4E)),
-                ),
+                      // Color(0xff232A4E)),
+                    AppTheme().purple
+                ),)
               );
             } else if (snapshot.hasError) {
               return Center(child: Text(snapshot.hasError.hashCode.toString()));
@@ -538,7 +539,7 @@ class _ChatPageState extends State<ChatPage> {
                                               child: CachedNetworkImage(
                                                 imageUrl: message.image,
                                                 placeholder: (context, url) =>
-                                                    CircularProgressIndicator(),
+                                                    CircularProgressIndicator(color: AppTheme().purple),
                                                 errorWidget:
                                                     (context, url, error) =>
                                                         Icon(Icons.error),

@@ -1,5 +1,5 @@
-import 'package:archi_mat/theme.dart';
-import 'package:archi_mat/util/widgets/back.dart';
+import 'package:Archimat/theme.dart';
+import 'package:Archimat/util/widgets/back.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPassword extends StatefulWidget {

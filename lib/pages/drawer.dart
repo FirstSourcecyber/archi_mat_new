@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:archi_mat/pages/inbox.dart';
-import 'package:archi_mat/theme.dart';
-import 'package:archi_mat/userside/setting.dart';
+import 'package:Archimat/pages/inbox.dart';
+import 'package:Archimat/theme.dart';
+import 'package:Archimat/userside/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

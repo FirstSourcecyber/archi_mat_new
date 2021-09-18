@@ -1,14 +1,11 @@
-import 'package:archi_mat/Services/homeService.dart';
-import 'package:archi_mat/pages/drawer.dart';
-import 'package:archi_mat/theme.dart';
-import 'package:archi_mat/util/list/categorylist.dart';
-import 'package:archi_mat/util/list/productlist.dart';
-import 'package:archi_mat/util/slider/slider.dart';
-import 'package:archi_mat/util/slider/slider1.dart';
-
-import 'package:archi_mat/util/widgets/list.dart';
+import 'package:Archimat/Services/homeService.dart';
+import 'package:Archimat/theme.dart';
+import 'package:Archimat/util/list/categorylist.dart';
+import 'package:Archimat/util/list/productlist.dart';
+import 'package:Archimat/util/slider/slider.dart';
+import 'package:Archimat/util/slider/slider1.dart';
+import 'package:Archimat/util/widgets/list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -181,7 +178,7 @@ class _HomePageState extends State<HomePage> {
           // ],
         ),
         body: loader
-            ? Center(child: CircularProgressIndicator())
+            ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
             : SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

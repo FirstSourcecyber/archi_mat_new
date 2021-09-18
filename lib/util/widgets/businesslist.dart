@@ -1,6 +1,6 @@
-import 'package:archi_mat/util/list/openhourlist.dart';
-import 'package:archi_mat/util/list/productgrid.dart';
-import 'package:archi_mat/util/widgets/divider.dart';
+import 'package:Archimat/util/list/openhourlist.dart';
+import 'package:Archimat/util/list/productgrid.dart';
+import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

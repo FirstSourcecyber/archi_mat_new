@@ -1,4 +1,4 @@
-import 'package:archi_mat/splash/splash.dart';
+import 'package:Archimat/splash/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

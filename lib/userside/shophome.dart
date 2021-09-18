@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:archi_mat/Services/fallowService.dart';
-import 'package:archi_mat/Services/shopService.dart';
-import 'package:archi_mat/pages/chat.dart';
-import 'package:archi_mat/util/slider/profileslider.dart';
-import 'package:archi_mat/util/widgets/businesslist.dart';
+import 'package:Archimat/Services/fallowService.dart';
+import 'package:Archimat/Services/shopService.dart';
+import 'package:Archimat/pages/chat.dart';
+import 'package:Archimat/util/slider/profileslider.dart';
+import 'package:Archimat/util/widgets/businesslist.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -73,7 +73,7 @@ class _ShopHomePageState extends State<ShopHomePage> {
               ? Container(
                   alignment: Alignment.center,
                   height: MediaQuery.of(context).size.height,
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(color: AppTheme().purple),
                 )
               : Column(
                   children: [

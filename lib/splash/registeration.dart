@@ -1,12 +1,12 @@
 import 'dart:convert';
-import 'package:archi_mat/Services/loginService.dart';
+import 'package:Archimat/Services/loginService.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:archi_mat/pages/tab.dart';
-import 'package:archi_mat/util/widgets/profilepic.dart';
+import 'package:Archimat/pages/tab.dart';
+import 'package:Archimat/util/widgets/profilepic.dart';
 // import 'package:cupertino_date_textbox/cupertino_date_textbox.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:archi_mat/theme.dart';
+import 'package:Archimat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 // import 'package:intl/intl.dart';
@@ -406,7 +406,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                     height: 20,
                   ),
                   loader
-                      ? Center(child: CircularProgressIndicator())
+                      ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
                       : GestureDetector(
                           onTap: () {
                             FocusScope.of(context)

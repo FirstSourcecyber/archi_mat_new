@@ -1,6 +1,6 @@
-import 'package:archi_mat/environment.dart';
-import 'package:archi_mat/userside/category.dart';
-import 'package:archi_mat/util/widgets/divider.dart';
+import 'package:Archimat/environment.dart';
+import 'package:Archimat/userside/category.dart';
+import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
@@ -41,7 +41,7 @@ class _CategoryListState extends State<CategoryList> {
           height: 116,
           child:
               // loader
-              //     ? Center(child: CircularProgressIndicator())
+              //     ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
               //     :
               ListView.builder(
             itemCount: widget.category.length,
@@ -107,7 +107,6 @@ class _CategoryListState extends State<CategoryList> {
           ),
         ),
         Divider_Widgets(),
-
       ],
     );
   }

@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:archi_mat/Services/loginService.dart';
+import 'package:Archimat/Services/loginService.dart';
 
-import 'package:archi_mat/pages/tab.dart';
+import 'package:Archimat/pages/tab.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:archi_mat/theme.dart';
+import 'package:Archimat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -162,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                               height: 20,
                             ),
                             loader
-                                ? Center(child: CircularProgressIndicator())
+                                ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
                                 : GestureDetector(
                                     onTap: () {
                                       FocusScope.of(context)

@@ -1,7 +1,7 @@
-import 'package:archi_mat/environment.dart';
-import 'package:archi_mat/userside/productDetail.dart';
-import 'package:archi_mat/userside/shophome.dart';
-import 'package:archi_mat/util/widgets/title.dart';
+import 'package:Archimat/environment.dart';
+import 'package:Archimat/userside/productDetail.dart';
+import 'package:Archimat/userside/shophome.dart';
+import 'package:Archimat/util/widgets/title.dart';
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import '../../theme.dart';
@@ -54,7 +54,7 @@ class _ProductlistState extends State<Productlist> {
             color: AppTheme().white,
             child:
                 // loader
-                //     ? Center(child: CircularProgressIndicator())
+                //     ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
                 //     :
                 ListView.builder(
               // padding:

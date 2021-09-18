@@ -1,6 +1,6 @@
-import 'package:archi_mat/Services/shopService.dart';
-import 'package:archi_mat/util/slider/profileslider.dart';
-import 'package:archi_mat/util/widgets/businesslist.dart';
+import 'package:Archimat/Services/shopService.dart';
+import 'package:Archimat/util/slider/profileslider.dart';
+import 'package:Archimat/util/widgets/businesslist.dart';
 import 'package:flutter/material.dart';
 import '../environment.dart';
 import '../theme.dart';
@@ -53,7 +53,7 @@ class _BusinessHomeState extends State<BusinessHome> {
               ? Container(
                   alignment: Alignment.center,
                   height: MediaQuery.of(context).size.height,
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(color: AppTheme().purple),
                 )
               : Column(
                   children: [

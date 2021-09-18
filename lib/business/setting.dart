@@ -1,10 +1,10 @@
-import 'package:archi_mat/business/editprofile.dart';
-import 'package:archi_mat/business/forget.dart';
-import 'package:archi_mat/util/widgets/back.dart';
-import 'package:archi_mat/util/widgets/divider.dart';
-import 'package:archi_mat/util/widgets/logout.dart';
-import 'package:archi_mat/util/widgets/profilepic.dart';
-import 'package:archi_mat/util/widgets/profiletab.dart';
+import 'package:Archimat/business/editprofile.dart';
+import 'package:Archimat/business/forget.dart';
+import 'package:Archimat/util/widgets/back.dart';
+import 'package:Archimat/util/widgets/divider.dart';
+import 'package:Archimat/util/widgets/logout.dart';
+import 'package:Archimat/util/widgets/profilepic.dart';
+import 'package:Archimat/util/widgets/profiletab.dart';
 import 'package:flutter/material.dart';
 
 class BusinessSetting extends StatefulWidget {

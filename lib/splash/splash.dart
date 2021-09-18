@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:archi_mat/pages/browseMaterail.dart';
-import 'package:archi_mat/pages/tab.dart';
-import 'package:archi_mat/splash/loginregister.dart';
+import 'package:Archimat/pages/browseMaterail.dart';
+import 'package:Archimat/pages/tab.dart';
+import 'package:Archimat/splash/loginregister.dart';
 import 'package:flutter/material.dart';
-import 'package:archi_mat/theme.dart';
+import 'package:Archimat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

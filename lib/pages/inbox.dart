@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:archi_mat/Services/inboxService.dart';
-import 'package:archi_mat/pages/chat.dart';
+import 'package:Archimat/Services/inboxService.dart';
+import 'package:Archimat/pages/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
@@ -323,7 +323,7 @@ class _InboxState extends State<Inbox> {
                                     //             ),
                                     //           ),
                                     //           placeholder: (context, url) =>
-                                    //               new CircularProgressIndicator(),
+                                    //               new CircularProgressIndicator(color: AppTheme().purple),
                                     //           errorWidget:
                                     //               (context, url, error) =>
                                     //                   new Icon(Icons.error),
@@ -366,7 +366,7 @@ class _InboxState extends State<Inbox> {
                     children: <Widget>[
                       loader1
                           ? Center(
-                              child: CircularProgressIndicator(),
+                              child: CircularProgressIndicator(color: AppTheme().purple),
                             )
                           : Padding(
                               padding: const EdgeInsets.only(top: 10),

@@ -1,4 +1,4 @@
-import 'package:archi_mat/environment.dart';
+import 'package:Archimat/environment.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +45,7 @@ class _ProfileSliderPageState extends State<ProfileSliderPage> {
         ? Container(
             height: MediaQuery.of(context).size.height,
             alignment: Alignment.center,
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(color: AppTheme().purple),
           )
         : Stack(
             children: [

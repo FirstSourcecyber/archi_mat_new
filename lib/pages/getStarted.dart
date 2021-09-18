@@ -1,6 +1,6 @@
-import 'package:archi_mat/pages/browseMaterail.dart';
+import 'package:Archimat/pages/browseMaterail.dart';
 import 'package:flutter/material.dart';
-import 'package:archi_mat/theme.dart';
+import 'package:Archimat/theme.dart';
 
 class GetStartedScreen extends StatefulWidget {
   @override

@@ -1,4 +1,4 @@
-import 'package:archi_mat/util/widgets/title.dart';
+import 'package:Archimat/util/widgets/title.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme.dart';
@@ -27,7 +27,7 @@ class _InstListState extends State<InstList> {
           color: AppTheme().white,
           child:
               // loader
-              //     ? Center(child: CircularProgressIndicator())
+              //     ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
               //     :
               ListView.builder(
             itemCount: widget.data.length,

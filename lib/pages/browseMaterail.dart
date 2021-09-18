@@ -1,6 +1,6 @@
-import 'package:archi_mat/splash/splash.dart';
+import 'package:Archimat/splash/splash.dart';
 import 'package:flutter/material.dart';
-import 'package:archi_mat/theme.dart';
+import 'package:Archimat/theme.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
 class VirtualMaterialScreen1 extends StatefulWidget {

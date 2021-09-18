@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:archi_mat/Services/loginService.dart';
-import 'package:archi_mat/theme.dart';
-import 'package:archi_mat/util/widgets/back.dart';
-import 'package:archi_mat/util/widgets/divider.dart';
-import 'package:archi_mat/util/widgets/profilepic.dart';
+import 'package:Archimat/Services/loginService.dart';
+import 'package:Archimat/theme.dart';
+import 'package:Archimat/util/widgets/back.dart';
+import 'package:Archimat/util/widgets/divider.dart';
+import 'package:Archimat/util/widgets/profilepic.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -90,7 +90,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
           ? Container(
               height: MediaQuery.of(context).size.height,
               alignment: Alignment.center,
-              child: CircularProgressIndicator())
+              child: CircularProgressIndicator(color: AppTheme().purple))
           : SafeArea(
               child: SingleChildScrollView(
               child: Column(
@@ -436,7 +436,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                     height: 40,
                   ),
                   save
-                      ? Center(child: CircularProgressIndicator())
+                      ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
                       : InkWell(
                           onTap: () async {
                             FocusScope.of(context)

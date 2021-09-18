@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:archi_mat/Services/loginService.dart';
-import 'package:archi_mat/theme.dart';
+import 'package:Archimat/Services/loginService.dart';
+import 'package:Archimat/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:image_picker/image_picker.dart';

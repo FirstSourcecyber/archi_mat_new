@@ -1,8 +1,8 @@
-import 'package:archi_mat/userside/category.dart';
-import 'package:archi_mat/userside/feeds.dart';
-import 'package:archi_mat/theme.dart';
-import 'package:archi_mat/userside/setting.dart';
-import 'package:archi_mat/userside/shophome.dart';
+import 'package:Archimat/userside/category.dart';
+import 'package:Archimat/userside/feeds.dart';
+import 'package:Archimat/theme.dart';
+import 'package:Archimat/userside/setting.dart';
+import 'package:Archimat/userside/shophome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
