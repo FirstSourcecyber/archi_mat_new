@@ -163,7 +163,7 @@ class _SliderPageState extends State<SliderPage> {
         ),
         Positioned(
           right: 30,
-          top: (240.0 - (imageList.length * 8)),
+          top: (210.0 - (imageList.length * 9)),
           child: DotsIndicator(
             // mainAxisAlignment: MainAxisAlignment.center,
             axis: Axis.vertical,

@@ -73,7 +73,9 @@ class _ShopHomePageState extends State<ShopHomePage> {
               ? Container(
                   alignment: Alignment.center,
                   height: MediaQuery.of(context).size.height,
-                  child: CircularProgressIndicator(color: AppTheme().purple),
+                  child: CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(AppTheme().purple)),
                 )
               : Column(
                   children: [
@@ -88,7 +90,7 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                 // bottom: 5,
                                 top: 5,
                                 right: 5,
-                                child: InkWell(
+                                child: GestureDetector(
                                   onTap: () {
                                     message();
                                   },
@@ -113,7 +115,7 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                 // bottom: 5,
                                 top: 5,
                                 left: 5,
-                                child: InkWell(
+                                child: GestureDetector(
                                   onTap: () {
                                     Navigator.pop(context);
                                   },
@@ -187,7 +189,7 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                           '@username',
                                           style: TextStyle(
                                             fontSize: 12,
-                                            fontFamily: 'Roxborough CF',
+                                            fontFamily: 'Nexa',
                                           ),
                                         ),
                                       ],
@@ -238,8 +240,9 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                       },
                                       child: Text(
                                         youfallow ? 'Unfollow' : 'Follow',
-                                        style:
-                                            TextStyle(color: AppTheme().white),
+                                        style: TextStyle(
+                                            color: AppTheme().white,
+                                            fontFamily: 'Nexa'),
                                       ),
                                     ),
                                   ),
@@ -262,9 +265,9 @@ class _ShopHomePageState extends State<ShopHomePage> {
                               Text(
                                 'Listing',
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Roxborough CF',
-                                ),
+                                    fontSize: 12,
+                                    fontFamily: 'Nexa',
+                                    fontWeight: FontWeight.w700),
                               ),
                               SizedBox(
                                 height: 5,
@@ -286,9 +289,9 @@ class _ShopHomePageState extends State<ShopHomePage> {
                               Text(
                                 'Industry',
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Roxborough CF',
-                                ),
+                                    fontSize: 12,
+                                    fontFamily: 'Nexa',
+                                    fontWeight: FontWeight.w700),
                               ),
                               SizedBox(
                                 height: 5,
@@ -296,7 +299,7 @@ class _ShopHomePageState extends State<ShopHomePage> {
                               Text(
                                 shop['shop_type']['name'],
                                 style: TextStyle(
-                                  fontFamily: 'Roxborough CF',
+                                  fontFamily: 'Nexa',
                                 ),
                               )
                             ],
@@ -315,9 +318,9 @@ class _ShopHomePageState extends State<ShopHomePage> {
                               Text(
                                 'Country',
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Roxborough CF',
-                                ),
+                                    fontSize: 12,
+                                    fontFamily: 'Nexa',
+                                    fontWeight: FontWeight.w700),
                               ),
                               SizedBox(
                                 height: 5,
@@ -325,7 +328,7 @@ class _ShopHomePageState extends State<ShopHomePage> {
                               Text(
                                 'Malaysia',
                                 style: TextStyle(
-                                  fontFamily: 'Roxborough CF',
+                                  fontFamily: 'Nexa',
                                 ),
                               )
                             ],
@@ -344,9 +347,9 @@ class _ShopHomePageState extends State<ShopHomePage> {
                               Text(
                                 'Followers',
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Roxborough CF',
-                                ),
+                                    fontSize: 12,
+                                    fontFamily: 'Nexa',
+                                    fontWeight: FontWeight.w700),
                               ),
                               SizedBox(
                                 height: 5,
@@ -354,7 +357,7 @@ class _ShopHomePageState extends State<ShopHomePage> {
                               Text(
                                 '1244',
                                 style: TextStyle(
-                                  fontFamily: 'Roxborough CF',
+                                  fontFamily: 'Nexa',
                                 ),
                               )
                             ],

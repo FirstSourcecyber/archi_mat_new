@@ -124,7 +124,9 @@ class _CategoryPageState extends State<CategoryPage> {
         centerTitle: true,
       ),
       body: loader
-          ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
+          ? Center(
+              child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(AppTheme().purple)))
           : SingleChildScrollView(
               child: Column(
                 children: [

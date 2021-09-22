@@ -102,7 +102,7 @@ class _ShopQrState extends State<ShopQr> {
                                 border: Border.all(
                                     color: AppTheme().lblack, width: 1)),
                             child: Text(
-                              'QR',
+                              'My Code',
                               style: TextStyle(
                                 color: i == 1
                                     ? AppTheme().white
@@ -131,7 +131,7 @@ class _ShopQrState extends State<ShopQr> {
                                 border: Border.all(
                                     color: AppTheme().lblack, width: 1)),
                             child: Text(
-                              'Scan',
+                              'Scan Code',
                               style: TextStyle(
                                 color: i == 2
                                     ? AppTheme().white
@@ -170,11 +170,17 @@ class _ShopQrState extends State<ShopQr> {
                             ),
                           ),
                           Text("Its the best way to grow your ",
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20)),
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Nexa',
+                              )),
                           Text("follower and reach more buyers. ",
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20)),
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Nexa',
+                              )),
                         ],
                       ),
               ],

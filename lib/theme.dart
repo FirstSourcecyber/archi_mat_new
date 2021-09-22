@@ -14,7 +14,9 @@ class AppTheme {
   Color whiteopacity = Colors.white.withOpacity(0.5);
   Color whiteopacity1 = Colors.white.withOpacity(0.8);
   Color grey = Colors.grey;
+  Color darkgrey = Colors.grey[800];
   Color lightgrey = Colors.grey[200];
+  Color light1grey = Colors.grey[300];
   Color red = Colors.red;
   Color purple = Color(0xFFA12791);
   Color pink = Colors.pink;

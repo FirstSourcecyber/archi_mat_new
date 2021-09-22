@@ -43,7 +43,7 @@ class _List1State extends State<List1> {
                     'Shops',
                     style: TextStyle(
                       fontSize: 12,
-                      fontFamily: 'Roxborough CF',
+                      fontFamily: 'Nexa',
                     ),
                   ),
                 ),
@@ -72,7 +72,7 @@ class _List1State extends State<List1> {
                     'Products',
                     style: TextStyle(
                       fontSize: 12,
-                      fontFamily: 'Roxborough CF',
+                      fontFamily: 'Nexa',
                     ),
                   ),
                 ),
@@ -101,7 +101,7 @@ class _List1State extends State<List1> {
                     'Services',
                     style: TextStyle(
                       fontSize: 12,
-                      fontFamily: 'Roxborough CF',
+                      fontFamily: 'Nexa',
                     ),
                   ),
                 ),
@@ -129,7 +129,7 @@ class _List1State extends State<List1> {
                     'Events',
                     style: TextStyle(
                       fontSize: 12,
-                      fontFamily: 'Roxborough CF',
+                      fontFamily: 'Nexa',
                     ),
                   ),
                 ),

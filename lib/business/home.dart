@@ -53,7 +53,9 @@ class _BusinessHomeState extends State<BusinessHome> {
               ? Container(
                   alignment: Alignment.center,
                   height: MediaQuery.of(context).size.height,
-                  child: CircularProgressIndicator(color: AppTheme().purple),
+                  child: CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(AppTheme().purple)),
                 )
               : Column(
                   children: [

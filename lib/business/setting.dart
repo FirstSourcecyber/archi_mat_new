@@ -41,20 +41,20 @@ class _BusinessSettingState extends State<BusinessSetting> {
                 bold: true,
                 text: 'Edit Profile',
                 onclick: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => BusinessEditProfile()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BusinessEditProfile()));
                 },
               ),
               ProfileTab(
                 bold: true,
                 text: 'Change Password',
                 onclick: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => ForgetPassword()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ForgetPassword()));
                 },
               ),
               ProfileTab(

@@ -90,7 +90,8 @@ class _UserEditProfileState extends State<UserEditProfile> {
           ? Container(
               height: MediaQuery.of(context).size.height,
               alignment: Alignment.center,
-              child: CircularProgressIndicator(color: AppTheme().purple))
+              child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(AppTheme().purple)))
           : SafeArea(
               child: SingleChildScrollView(
               child: Column(
@@ -117,7 +118,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                           child: Text(
                             'Username',
                             style: TextStyle(
-                                fontFamily: 'Roxborough CF',
+                                fontFamily: 'Nexa',
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -134,7 +135,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                 hintText: 'User Name',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
-                                  fontFamily: 'Roxborough CF',
+                                  fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
                           ),
@@ -151,7 +152,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         Container(
                           child: Text('First Name',
                               style: TextStyle(
-                                  fontFamily: 'Roxborough CF',
+                                  fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700)),
                           alignment: Alignment.topLeft,
                           width: 70,
@@ -167,7 +168,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                 hintText: 'First Name',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
-                                  fontFamily: 'Roxborough CF',
+                                  fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
                           ),
@@ -185,7 +186,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                           child: Text(
                             'Last Name',
                             style: TextStyle(
-                                fontFamily: 'Roxborough CF',
+                                fontFamily: 'Nexa',
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -202,7 +203,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                 hintText: 'Last Name',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
-                                  fontFamily: 'Roxborough CF',
+                                  fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
                           ),
@@ -242,8 +243,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                     child: Text(
                       'Gender',
                       style: TextStyle(
-                          fontFamily: 'Roxborough CF',
-                          fontWeight: FontWeight.w700),
+                          fontFamily: 'Nexa', fontWeight: FontWeight.w700),
                     ),
                     alignment: Alignment.topLeft,
                     width: MediaQuery.of(context).size.width,
@@ -263,7 +263,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         'Male',
                         style: TextStyle(
                           color: Colors.black,
-                          fontFamily: 'Roxborough CF',
+                          fontFamily: 'Nexa',
                         ),
                       ),
                       Radio(
@@ -279,7 +279,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         'Female',
                         style: TextStyle(
                           color: Colors.black,
-                          fontFamily: 'Roxborough CF',
+                          fontFamily: 'Nexa',
                         ),
                       ),
                       Radio(
@@ -295,7 +295,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         'Other',
                         style: TextStyle(
                           color: Colors.black,
-                          fontFamily: 'Roxborough CF',
+                          fontFamily: 'Nexa',
                         ),
                       ),
                     ],
@@ -313,7 +313,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                           child: Text(
                             'D.O.B',
                             style: TextStyle(
-                                fontFamily: 'Roxborough CF',
+                                fontFamily: 'Nexa',
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -323,7 +323,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                           width: 20,
                         ),
                         Expanded(
-                          child: InkWell(
+                          child: GestureDetector(
                               onTap: () => _selectDate(context),
                               child: Text(
                                   "${selectedDate.toLocal()}".split(' ')[0])),
@@ -341,7 +341,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                           child: Text(
                             'Phone',
                             style: TextStyle(
-                                fontFamily: 'Roxborough CF',
+                                fontFamily: 'Nexa',
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -406,7 +406,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                           child: Text(
                             'Email',
                             style: TextStyle(
-                                fontFamily: 'Roxborough CF',
+                                fontFamily: 'Nexa',
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -423,7 +423,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                 hintText: 'Xxxxxxxxxxxxxxx',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
-                                  fontFamily: 'Roxborough CF',
+                                  fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
                           ),
@@ -436,8 +436,11 @@ class _UserEditProfileState extends State<UserEditProfile> {
                     height: 40,
                   ),
                   save
-                      ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
-                      : InkWell(
+                      ? Center(
+                          child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                  AppTheme().purple)))
+                      : GestureDetector(
                           onTap: () async {
                             FocusScope.of(context)
                                 .requestFocus(new FocusNode());
@@ -498,8 +501,8 @@ class _UserEditProfileState extends State<UserEditProfile> {
     });
     var data = {
       'id': userid,
-      'email': email.text,
-      'username': username.text,
+      'email': email.text.trim(),
+      'username': username.text.trim(),
       'firstname': fname.text.trim(),
       'lastname': lname.text.trim(),
       'gender': gender != null ? gender : 'Male',

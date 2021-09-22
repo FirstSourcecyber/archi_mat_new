@@ -52,7 +52,7 @@ class _CategoryListState extends State<CategoryList> {
                   child: Container(
                     width: 60,
                     // height: 70,
-                    child: InkWell(
+                    child: GestureDetector(
                       onTap: () {
                         Navigator.push(
                             context,

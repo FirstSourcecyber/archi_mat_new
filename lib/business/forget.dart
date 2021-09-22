@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:Archimat/theme.dart';
 import 'package:Archimat/util/widgets/back.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({Key key}) : super(key: key);
@@ -13,6 +17,20 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   TextEditingController currentpaswd = new TextEditingController();
   TextEditingController newpaswd = new TextEditingController();
   TextEditingController confirmpaswd = new TextEditingController();
+  var userdata;
+  @override
+  void initState() {
+    getuserdata();
+    super.initState();
+  }
+
+  getuserdata() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      userdata = jsonDecode(prefs.getString('user'));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,15 +102,20 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          border:
-                              Border.all(color: AppTheme().lblack, width: 1)),
-                      child: Text('Change'),
+                    GestureDetector(
+                      onTap: () {
+                        change();
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            border:
+                                Border.all(color: AppTheme().lblack, width: 1)),
+                        child: Text('Change'),
+                      ),
                     ),
                     SizedBox(
                       height: 20,
@@ -106,5 +129,25 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         ),
       ),
     );
+  }
+
+  change() {
+    if (currentpaswd.text.isEmpty ||
+        confirmpaswd.text.isEmpty ||
+        newpaswd.text.isEmpty) {
+      showAlert('Please Fill All Field', AppTheme().red);
+    }
+  }
+
+  showAlert(text, backcolor) {
+    print('infunction');
+    Fluttertoast.showToast(
+        msg: text,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: backcolor,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 }

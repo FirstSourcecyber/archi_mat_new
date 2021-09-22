@@ -24,13 +24,14 @@ class Title_Widgets extends StatelessWidget {
             children: [
               Text(
                 this.text,
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                     color: AppTheme().l2black,
                     fontSize: 18,
+                    fontFamily: 'Nexa',
                     fontWeight:
-                        this.bold == true ? FontWeight.bold : FontWeight.w300),
+                        this.bold == true ? FontWeight.w700 : FontWeight.w300),
               ),
-              InkWell(
+              GestureDetector(
                 onTap: this.onclick,
                 child: Row(
                   children: [

@@ -178,37 +178,40 @@ class _HomePageState extends State<HomePage> {
           // ],
         ),
         body: loader
-            ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
+            ? Center(
+                child: CircularProgressIndicator(
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(AppTheme().purple)))
             : SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    slider != []
+                    slider.length != 0
                         ? SliderPage(
                             text: false,
                             data: slider,
                           )
                         : Container(),
                     List1(),
-                    category != []
+                    category.length != 0
                         ? CategoryList(
                             category: category,
                             subcategory: false,
                           )
                         : Container(),
-                    material != []
+                    material.length != 0
                         ? Productlist(
                             i: 1,
                             data: material,
                             title: 'Find Materials Around You',
                           )
                         : Container(),
-                    slider2 != []
+                    slider2.length != 0
                         ? Slider1Page(
                             data: slider2,
                           )
                         : Container(),
-                    shop != []
+                    shop.length != 0
                         ? Productlist(
                             i: 2,
                             data: shop,
@@ -222,14 +225,14 @@ class _HomePageState extends State<HomePage> {
                             title: 'Find AR Product',
                           )
                         : Container(),
-                    service != []
+                    service.length != 0
                         ? Productlist(
                             i: 4,
                             data: service,
                             title: 'Find Professional Services',
                           )
                         : Container(),
-                    slider3 != []
+                    slider3.length == 0
                         ? Slider1Page(
                             data: slider3,
                           )

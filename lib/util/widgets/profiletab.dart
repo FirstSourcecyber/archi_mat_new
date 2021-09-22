@@ -36,7 +36,7 @@ class _ProfileTabState extends State<ProfileTab> {
         // Divider_Widgets(),
         Padding(
           padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
-          child: InkWell(
+          child: GestureDetector(
             onTap: widget.onclick,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,7 +44,7 @@ class _ProfileTabState extends State<ProfileTab> {
                 Text(
                   widget.text,
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
+                    fontFamily: 'Nexa',
                   ),
                 ),
                 widget.bold

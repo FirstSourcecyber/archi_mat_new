@@ -389,7 +389,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
               Text(
                 'About Us',
                 style: TextStyle(
-                  fontFamily: 'Roxborough CF',
+                  fontFamily: 'Nexa',
                 ),
               ),
               SizedBox(
@@ -401,7 +401,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                         ' .....\n '
                     : widget.data['desc'] + '\n',
                 style: TextStyle(
-                  fontFamily: 'Roxborough CF',
+                  fontFamily: 'Nexa',
                 ),
               ),
               widget.data['desc'].length > 200 && aboutText
@@ -410,7 +410,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                         'More',
                         style: TextStyle(
                           color: AppTheme().blue,
-                          fontFamily: 'Roxborough CF',
+                          fontFamily: 'Nexa',
                         ),
                       ),
                       onTap: () {
@@ -425,7 +425,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                             'less',
                             style: TextStyle(
                               color: AppTheme().blue,
-                              fontFamily: 'Roxborough CF',
+                              fontFamily: 'Nexa',
                             ),
                           ),
                           onTap: () {
@@ -449,8 +449,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   'Company',
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
-                  ),
+                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -459,7 +458,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   widget.data['company']['title'],
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
+                    fontFamily: 'Nexa',
                   ),
                 ),
               ),
@@ -477,8 +476,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   'Year',
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
-                  ),
+                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -487,7 +485,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   '2011',
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
+                    fontFamily: 'Nexa',
                   ),
                 ),
               ),
@@ -505,8 +503,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   'Registration No.',
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
-                  ),
+                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -515,7 +512,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   '123456789',
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
+                    fontFamily: 'Nexa',
                   ),
                 ),
               ),
@@ -533,8 +530,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   'Website',
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
-                  ),
+                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -543,7 +539,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   widget.data['website'],
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
+                    fontFamily: 'Nexa',
                   ),
                 ),
               ),
@@ -561,8 +557,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   'Email',
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
-                  ),
+                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -571,7 +566,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   widget.data['email'],
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
+                    fontFamily: 'Nexa',
                   ),
                 ),
               ),
@@ -589,8 +584,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   'Mobile',
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
-                  ),
+                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -599,7 +593,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   widget.data['phone'],
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
+                    fontFamily: 'Nexa',
                   ),
                 ),
               ),
@@ -618,8 +612,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: Text(
                   'Opening Hours',
                   style: TextStyle(
-                    fontFamily: 'Roxborough CF',
-                  ),
+                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -629,7 +622,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                     ? Text(
                         'close',
                         style: TextStyle(
-                          fontFamily: 'Roxborough CF',
+                          fontFamily: 'Nexa',
                         ),
                       )
                     : OpenHourList(
@@ -648,7 +641,7 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
               Text(
                 'Map',
                 style: TextStyle(
-                  fontFamily: 'Roxborough CF',
+                  fontFamily: 'Nexa',
                 ),
               ),
               Image.asset(
@@ -746,19 +739,19 @@ class _BusinessReviewsState extends State<BusinessReviews> {
                   title: Text(
                     widget.data[index]['user']['name'],
                     style: TextStyle(
-                      fontFamily: 'Roxborough CF',
+                      fontFamily: 'Nexa',
                     ),
                   ),
                   subtitle: Text(
                     widget.data[index]['review'],
                     style: TextStyle(
-                      fontFamily: 'Roxborough CF',
+                      fontFamily: 'Nexa',
                     ),
                   ),
                   trailing: Text(
                     widget.data[index]['rating'],
                     style: TextStyle(
-                      fontFamily: 'Roxborough CF',
+                      fontFamily: 'Nexa',
                     ),
                   ),
                 ),

@@ -136,7 +136,7 @@ class _TabPageState extends State<TabPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   this.setState(() {
                     _page = 0;
@@ -162,7 +162,7 @@ class _TabPageState extends State<TabPage> {
                   ],
                 ),
               ),
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   this.setState(() {
                     _page = 1;
@@ -198,7 +198,7 @@ class _TabPageState extends State<TabPage> {
               ),
               Column(
                 children: <Widget>[
-                  InkWell(
+                  GestureDetector(
                     onTap: () {
                       this.setState(() {
                         _page = 4;
@@ -219,7 +219,7 @@ class _TabPageState extends State<TabPage> {
                   ),
                 ],
               ),
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   this.setState(() {
                     _page = 2;
@@ -228,23 +228,23 @@ class _TabPageState extends State<TabPage> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                        padding: const EdgeInsets.only(top: 20, bottom: 3),
-                        child:
-                            //  widget.data != null
-                            //     ?
-                            Icon(
-                          Icons.person,
-                          color:
-                              _page == 2 ? AppTheme().purple : AppTheme().grey,
-                        )
-                        // : SvgPicture.asset(
-                        //     'assets/images/search.svg',
-                        //     width: 20,
-                        //     color: _page == 2
-                        //         ? AppTheme().purple
-                        //         : AppTheme().grey,
-                        //   ),
-                        ),
+                      padding: const EdgeInsets.only(top: 20, bottom: 3),
+                      child:
+                          //  widget.data != null
+                          //     ?
+                          //     Icon(
+                          //   Icons.person,
+                          //   size: 30,
+                          //   color:
+                          //       _page == 2 ? AppTheme().purple : AppTheme().grey,
+                          // )
+                          // :
+                          SvgPicture.asset(
+                        'assets/images/person.svg',
+                        width: 20,
+                        color: _page == 2 ? AppTheme().purple : AppTheme().grey,
+                      ),
+                    ),
                     Text(
                       // widget.data != null ?
                       'Person'
@@ -261,7 +261,7 @@ class _TabPageState extends State<TabPage> {
               ),
               Column(
                 children: <Widget>[
-                  InkWell(
+                  GestureDetector(
                     onTap: () {
                       this.setState(() {
                         _page = 3;

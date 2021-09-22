@@ -82,7 +82,7 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
           right: 0,
           top: 57,
           child: Container(
-            child: InkWell(
+            child: GestureDetector(
               child: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(boxShadow: [

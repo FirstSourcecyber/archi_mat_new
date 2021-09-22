@@ -18,7 +18,7 @@ class Back_Widgets extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          InkWell(
+          GestureDetector(
             onTap: onclick,
             child: Container(
               padding: EdgeInsets.fromLTRB(10, 5, 5, 5),

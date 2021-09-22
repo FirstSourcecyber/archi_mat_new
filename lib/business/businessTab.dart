@@ -112,7 +112,7 @@ class _BusinessTabState extends State<BusinessTab> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   this.setState(() {
                     _page = 0;
@@ -141,7 +141,7 @@ class _BusinessTabState extends State<BusinessTab> {
                   ],
                 ),
               ),
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   this.setState(() {
                     _page = 1;
@@ -182,7 +182,7 @@ class _BusinessTabState extends State<BusinessTab> {
                   ),
                 ],
               ),
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   this.setState(() {
                     _page = 2;
@@ -210,7 +210,7 @@ class _BusinessTabState extends State<BusinessTab> {
               ),
               Column(
                 children: <Widget>[
-                  InkWell(
+                  GestureDetector(
                     onTap: () {
                       this.setState(() {
                         _page = 3;

@@ -33,7 +33,7 @@ class _ProductListGrideState extends State<ProductListGride> {
             child: Text(
               'No product Available',
               style: TextStyle(
-                fontFamily: 'Roxborough CF',
+                fontFamily: 'Nexa',
               ),
             ),
           )
@@ -68,7 +68,7 @@ class _ProductListGrideState extends State<ProductListGride> {
                             widget.data[index]['name'],
                             style: TextStyle(
                               fontSize: 15,
-                              fontFamily: 'Roxborough CF',
+                              fontFamily: 'Nexa',
                             ),
                           ),
                           Text(

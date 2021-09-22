@@ -45,7 +45,9 @@ class _ProductDetailState extends State<ProductDetail> {
               ? Container(
                   height: MediaQuery.of(context).size.height,
                   alignment: Alignment.center,
-                  child: CircularProgressIndicator(color: AppTheme().purple),
+                  child: CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(AppTheme().purple)),
                 )
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +61,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           // bottom: 5,
                           top: 5,
                           left: 5,
-                          child: InkWell(
+                          child: GestureDetector(
                             onTap: () {
                               Navigator.pop(context);
                             },
@@ -163,7 +165,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               ),
                             ),
                           ),
-                          InkWell(
+                          GestureDetector(
                             onTap: () {
                               print(
                                 widget.data['shop'],

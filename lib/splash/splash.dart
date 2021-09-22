@@ -33,93 +33,144 @@ class _SplashScreenState extends State<SplashScreen> {
               // height: MediaQuery.of(context).size.height * 0.9,
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 40),
-                  child: Center(
-                    child: Container(
-                      alignment: Alignment.topCenter,
-                      child: Image(
-                        image: AssetImage('assets/images/archimatlogo.png'),
-                        fit: BoxFit.cover,
-                        // height: 160,
-                        width: 180,
+                Center(
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    child: Image(
+                      image: AssetImage('assets/images/archimatlogo.png'),
+                      fit: BoxFit.cover,
+                      // height: 160,
+                      width: 180,
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => LoginRegister(
+                                  login: true,
+                                )));
+                  },
+                  child: Container(
+                    width: 200,
+                    height: 50,
+                    margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border:
+                            Border.all(color: AppTheme().l1black, width: 1)),
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        fontFamily: 'Roxborough CF',
                       ),
                     ),
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(color: AppTheme().white),
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.1,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            //  Container(width: 20,),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginRegister(
-                                              login: true,
-                                            )));
-                              },
-                              child: Container(
-                                // width: 150,
-                                height: 50,
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    border: Border.all(
-                                        color: AppTheme().l1black, width: 1)),
-                                child: Text(
-                                  'Login',
-                                  style: TextStyle(
-                                    fontFamily: 'Roxborough CF',
-                                  ),
-                                ),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginRegister(
-                                              login: false,
-                                            )));
-                              },
-                              child: Container(
-                                // width: 10,
-                                height: 50,
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    border: Border.all(
-                                        color: AppTheme().l1black, width: 1)),
-                                child: Text(
-                                  'Register',
-                                  style: TextStyle(
-                                    fontFamily: 'Roxborough CF',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => LoginRegister(
+                                  login: false,
+                                )));
+                  },
+                  child: Container(
+                    width: 200,
+                    height: 50,
+                    margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border:
+                            Border.all(color: AppTheme().l1black, width: 1)),
+                    child: Text(
+                      'Register',
+                      style: TextStyle(
+                        fontFamily: 'Roxborough CF',
                       ),
                     ),
-                  ],
+                  ),
                 ),
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     Container(
+                //       decoration: BoxDecoration(color: AppTheme().white),
+                //       width: MediaQuery.of(context).size.width,
+                //       height: MediaQuery.of(context).size.height * 0.1,
+                //       child: Padding(
+                //         padding: const EdgeInsets.only(left: 20, right: 20),
+                //         child: Row(
+                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //           children: [
+                //             //  Container(width: 20,),
+                //             GestureDetector(
+                //               onTap: () {
+                //                 Navigator.push(
+                //                     context,
+                //                     MaterialPageRoute(
+                //                         builder: (context) => LoginRegister(
+                //                               login: true,
+                //                             )));
+                //               },
+                //               child: Container(
+                //                 // width: 150,
+                //                 height: 50,
+                //                 alignment: Alignment.center,
+                //                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                //                 decoration: BoxDecoration(
+                //                     borderRadius: BorderRadius.circular(30),
+                //                     border: Border.all(
+                //                         color: AppTheme().l1black, width: 1)),
+                //                 child: Text(
+                //                   'Login',
+                //                   style: TextStyle(
+                //                     fontFamily: 'Roxborough CF',
+                //                   ),
+                //                 ),
+                //               ),
+                //             ),
+                //             GestureDetector(
+                //               onTap: () {
+                //                 Navigator.push(
+                //                     context,
+                //                     MaterialPageRoute(
+                //                         builder: (context) => LoginRegister(
+                //                               login: false,
+                //                             )));
+                //               },
+                //               child: Container(
+                //                 // width: 10,
+                //                 height: 50,
+                //                 alignment: Alignment.center,
+                //                 padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
+                //                 decoration: BoxDecoration(
+                //                     borderRadius: BorderRadius.circular(30),
+                //                     border: Border.all(
+                //                         color: AppTheme().l1black, width: 1)),
+                //                 child: Text(
+                //                   'Register',
+                //                   style: TextStyle(
+                //                     fontFamily: 'Roxborough CF',
+                //                   ),
+                //                 ),
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ],

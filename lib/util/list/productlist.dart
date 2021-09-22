@@ -63,7 +63,7 @@ class _ProductlistState extends State<Productlist> {
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return InkWell(
+                return GestureDetector(
                   onTap: () {
                     if (widget.i == 3) {
                       print('product===');
@@ -150,7 +150,7 @@ class _ProductlistState extends State<Productlist> {
                                 widget.data[index]['name'],
                                 style: TextStyle(
                                   fontSize: 15,
-                                  fontFamily: 'Roxborough CF',
+                                  fontFamily: 'Nexa',
                                 ),
                               ),
                               widget.i != 2

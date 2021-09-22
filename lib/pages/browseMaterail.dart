@@ -93,7 +93,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                         : Container(
                                             height: 20,
                                           ),
-                                    InkWell(
+                                    GestureDetector(
                                       onTap: () {
                                         Navigator.of(context)
                                             .pushAndRemoveUntil(
@@ -157,28 +157,28 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                 SizedBox(
                                   height: 5,
                                 ),
-                                Center(
-                                  // alignment: Alignment.center,
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    child: new DotsIndicator(
-                                      dotsCount: items.length,
-                                      position: currentIndex,
-                                      decorator: DotsDecorator(
-                                        spacing:
-                                            EdgeInsets.fromLTRB(5, 0, 5, 0),
-                                        color: Colors.grey, // Inactive color
-                                        activeColor: AppTheme().lightgrey,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                // Center(
+                                //   // alignment: Alignment.center,
+                                //   child: Container(
+                                //     alignment: Alignment.center,
+                                //     child: new DotsIndicator(
+                                //       dotsCount: items.length,
+                                //       position: currentIndex,
+                                //       decorator: DotsDecorator(
+                                //         spacing:
+                                //             EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                //         color: Colors.grey, // Inactive color
+                                //         activeColor: AppTheme().lightgrey,
+                                //       ),
+                                //     ),
+                                //   ),
+                                // ),
                               ]),
                             ),
                           ]),
                       Padding(
                         padding: const EdgeInsets.all(60.0),
-                        child: InkWell(
+                        child: GestureDetector(
                           onTap: () {
                             if (i < 2) {
                               setState(() {
@@ -213,12 +213,30 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                     'NEXT',
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontFamily: 'Nexa',
+                                        fontFamily: 'Roxborough CF',
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   )
                                 ],
                               )),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Center(
+                        // alignment: Alignment.center,
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: new DotsIndicator(
+                            dotsCount: items.length,
+                            position: currentIndex,
+                            decorator: DotsDecorator(
+                              spacing: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                              color: Colors.grey, // Inactive color
+                              activeColor: AppTheme().light1grey,
+                            ),
+                          ),
                         ),
                       ),
                     ]),

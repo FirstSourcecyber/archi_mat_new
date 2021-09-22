@@ -50,7 +50,7 @@ class _List2State extends State<List2> {
                 'New',
                 style: TextStyle(
                   fontSize: 12,
-                  fontFamily: 'Roxborough CF',
+                  fontFamily: 'Nexa',
                 ),
               ),
             ),
@@ -75,7 +75,7 @@ class _List2State extends State<List2> {
                 'Top',
                 style: TextStyle(
                   fontSize: 12,
-                  fontFamily: 'Roxborough CF',
+                  fontFamily: 'Nexa',
                 ),
               ),
             ),
@@ -100,7 +100,7 @@ class _List2State extends State<List2> {
                 'Minimalist',
                 style: TextStyle(
                   fontSize: 12,
-                  fontFamily: 'Roxborough CF',
+                  fontFamily: 'Nexa',
                 ),
               ),
             ),
@@ -125,7 +125,7 @@ class _List2State extends State<List2> {
                 'Eco',
                 style: TextStyle(
                   fontSize: 12,
-                  fontFamily: 'Roxborough CF',
+                  fontFamily: 'Nexa',
                 ),
               ),
             ),

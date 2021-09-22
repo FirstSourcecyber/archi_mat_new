@@ -21,7 +21,7 @@ class Logou_button extends StatelessWidget {
         SizedBox(
           height: 40,
         ),
-        InkWell(
+        GestureDetector(
           onTap: () async {
             SharedPreferences pref = await SharedPreferences.getInstance();
             pref.clear();

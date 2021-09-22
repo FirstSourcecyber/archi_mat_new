@@ -6,6 +6,7 @@ class HomeService {
   var dio = new Dio();
   Future<dynamic> gethomedetail() async {
     try {
+      print(Config.url + "home/all");
       var resp = await this.dio.get(
             Config.url + "home/all",
           );

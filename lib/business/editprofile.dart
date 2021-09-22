@@ -5,6 +5,7 @@ import 'package:Archimat/util/widgets/logout.dart';
 import 'package:Archimat/util/widgets/profilepic.dart';
 import 'package:Archimat/util/widgets/profiletab.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BusinessEditProfile extends StatefulWidget {
   final dynamic data;
@@ -22,7 +23,11 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
     super.initState();
   }
 
-  userdetail() {}
+  userdetail() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    var data = pref.getString('user');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

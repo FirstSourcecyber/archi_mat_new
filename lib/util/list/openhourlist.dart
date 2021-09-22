@@ -40,7 +40,7 @@ class _OpenHourListState extends State<OpenHourList> {
           ? Text(
               'close',
               style: TextStyle(
-                fontFamily: 'Roxborough CF',
+                fontFamily: 'Nexa',
               ),
             )
           : ListView.builder(
@@ -61,7 +61,7 @@ class _OpenHourListState extends State<OpenHourList> {
                             widget.data[index]['day'],
                             style: TextStyle(
                               fontSize: 12,
-                              fontFamily: 'Roxborough CF',
+                              fontFamily: 'Nexa',
                             ),
                           )),
                       Container(
@@ -76,7 +76,7 @@ class _OpenHourListState extends State<OpenHourList> {
                                   gettimeDate(widget.data[index]['closetime'])),
                           style: TextStyle(
                             fontSize: 12,
-                            fontFamily: 'Roxborough CF',
+                            fontFamily: 'Nexa',
                           ),
                         ),
                       )

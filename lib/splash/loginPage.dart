@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:Archimat/Services/loginService.dart';
-
+import 'package:email_validator/email_validator.dart';
 import 'package:Archimat/pages/tab.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController email = new TextEditingController();
   TextEditingController pswd = new TextEditingController();
 
+  bool emailvarified = false;
   String token;
   bool loader = false;
   @override
@@ -58,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           centerTitle: true,
         ),
-        body: InkWell(
+        body: GestureDetector(
           onTap: () {
             FocusScope.of(context).requestFocus(new FocusNode());
           },
@@ -127,10 +128,13 @@ class _LoginPageState extends State<LoginPage> {
                               child: TextField(
                                 keyboardType: TextInputType.text,
                                 controller: email,
+                                onChanged: (value) {
+                                  checker(value);
+                                },
                                 decoration: InputDecoration(
                                   hintText: 'Enter Your E-Mail',
                                   hintStyle: TextStyle(
-                                    color: AppTheme().black,
+                                    color: AppTheme().darkgrey,
                                     fontFamily: 'Roxborough CF',
                                   ),
                                   border: InputBorder.none,
@@ -152,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                                 decoration: InputDecoration(
                                     hintText: 'Enter Your Password',
                                     hintStyle: TextStyle(
-                                      color: AppTheme().black,
+                                      color: AppTheme().darkgrey,
                                       fontFamily: 'Roxborough CF',
                                     ),
                                     border: InputBorder.none),
@@ -162,7 +166,11 @@ class _LoginPageState extends State<LoginPage> {
                               height: 20,
                             ),
                             loader
-                                ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
+                                ? Center(
+                                    child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                                AppTheme().purple)))
                                 : GestureDetector(
                                     onTap: () {
                                       FocusScope.of(context)
@@ -208,40 +216,56 @@ class _LoginPageState extends State<LoginPage> {
         ));
   }
 
+  void checker(value) {
+    emailvarified = EmailValidator.validate(value);
+  }
+
   login() async {
     setState(() {
       loader = true;
     });
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    var data = {'email': email.text, 'password': pswd.text, 'mob_token': token};
+    var data = {
+      'email': email.text.trim(),
+      'password': pswd.text.trim(),
+      'mob_token': token
+    };
     print(data);
-    LoginService().login(data).then((value) {
-      print(value);
-      if (value['message'] == 'success') {
-        if (value['user']['role']['name'] == 'user') {
-          print('user');
-          prefs.setString('user', jsonEncode(value['user']));
-          prefs.setString('new', 'new');
+    if (emailvarified) {
+      LoginService().login(data).then((value) {
+        print(value);
+        if (value['message'] == 'success') {
+          if (value['user']['role']['name'] == 'user') {
+            print('user');
+            prefs.setString('user', jsonEncode(value['user']));
+            prefs.setString('new', 'new');
 
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                  builder: (context) => TabPage(
-                        index: 0,
-                        data: null,
-                      )),
-              (Route<dynamic> route) => false);
-        } else if (value['user']['role']['name'] == 'shopOwner') {
-          prefs.setString('user', jsonEncode(value['user']));
-          prefs.setString('new', 'new');
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                    builder: (context) => TabPage(
+                          index: 0,
+                          data: null,
+                        )),
+                (Route<dynamic> route) => false);
+          } else if (value['user']['role']['name'] == 'shopOwner') {
+            prefs.setString('user', jsonEncode(value['user']));
+            prefs.setString('new', 'new');
 
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                  builder: (context) => TabPage(
-                        index: 0,
-                        data: value['user']['shop'],
-                      )),
-              (Route<dynamic> route) => false);
-          print('shop');
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                    builder: (context) => TabPage(
+                          index: 0,
+                          data: value['user']['shop'],
+                        )),
+                (Route<dynamic> route) => false);
+            print('shop');
+          } else {
+            setState(() {
+              loader = false;
+            });
+            showAlert('User not available', Colors.red);
+            print('user not available');
+          }
         } else {
           setState(() {
             loader = false;
@@ -249,13 +273,9 @@ class _LoginPageState extends State<LoginPage> {
           showAlert('User not available', Colors.red);
           print('user not available');
         }
-      } else {
-        setState(() {
-          loader = false;
-        });
-        showAlert('User not available', Colors.red);
-        print('user not available');
-      }
-    });
+      });
+    } else {
+      showAlert('Email not Correct', Colors.red);
+    }
   }
 }

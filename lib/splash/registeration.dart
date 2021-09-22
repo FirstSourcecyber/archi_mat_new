@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:Archimat/Services/loginService.dart';
+import 'package:Archimat/package/datepickerpackage.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:Archimat/pages/tab.dart';
 import 'package:Archimat/util/widgets/profilepic.dart';
@@ -9,8 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
-// import 'package:intl/intl.dart';
-import 'package:cupertino_date_textbox/cupertino_date_textbox.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterationPage extends StatefulWidget {
@@ -100,7 +99,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
             )),
         centerTitle: true,
       ),
-      body: InkWell(
+      body: GestureDetector(
         onTap: () {
           FocusScope.of(context).requestFocus(new FocusNode());
         },
@@ -119,6 +118,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
               width: MediaQuery.of(context).size.width,
               // height: 300,
               decoration: BoxDecoration(
+                  // color: AppTheme().white,
                   image: DecorationImage(
                       image: AssetImage('assets/images/splashbg.png'),
                       fit: BoxFit.cover)),
@@ -143,7 +143,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       decoration: InputDecoration(
                         hintText: 'User Name',
                         hintStyle: TextStyle(
-                          color: AppTheme().black,
+                          color: AppTheme().darkgrey,
                           fontFamily: 'Roxborough CF',
                         ),
                         border: InputBorder.none,
@@ -164,7 +164,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       decoration: InputDecoration(
                         hintText: 'First Name',
                         hintStyle: TextStyle(
-                          color: AppTheme().black,
+                          color: AppTheme().darkgrey,
                           fontFamily: 'Roxborough CF',
                         ),
                         border: InputBorder.none,
@@ -185,7 +185,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       decoration: InputDecoration(
                         hintText: 'Last Name',
                         hintStyle: TextStyle(
-                          color: AppTheme().black,
+                          color: AppTheme().darkgrey,
                           fontFamily: 'Roxborough CF',
                         ),
                         border: InputBorder.none,
@@ -206,7 +206,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       decoration: InputDecoration(
                         hintText: 'Enter Your E-Mail',
                         hintStyle: TextStyle(
-                          color: AppTheme().black,
+                          color: AppTheme().darkgrey,
                           fontFamily: 'Roxborough CF',
                         ),
                         border: InputBorder.none,
@@ -229,6 +229,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                               showFlag: true,
                               initialSelection: 'PK',
                               favorite: ['+92', 'PK'],
+                              textStyle: TextStyle(color: AppTheme().darkgrey),
                               onChanged: (code) {
                                 this.countrycode = code.toString();
                                 print(countrycode);
@@ -249,8 +250,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                                     border: InputBorder.none,
                                     hintText: "Phone Number",
                                     hintStyle: TextStyle(
-                                      fontFamily: 'Roxborough CF',
-                                    )),
+                                        fontFamily: 'Roxborough CF',
+                                        color: AppTheme().darkgrey)),
                                 onChanged: (value) {
                                   if (number.text.isNotEmpty) {
                                     if (value[0] != '0') {
@@ -266,25 +267,26 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppTheme().black)),
-                    child: CupertinoDateTextBox(
-                      hintText: DateFormat.yMd().format(selectedDate),
-                      color: Colors.black,
-                      initialValue: selectedDate,
-                      onDateChange: onBirthdayChange,
-                    ),
-                    // InkWell(
-                    //   onTap: () => _selectDate(context),
-                    //   child: Text(birth
-                    //       ? 'Date of Birth'
-                    //       : "${selectedDate.toLocal()}".split(' ')[0]),
-                    // ),
+                  // Container(
+                  //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  //   alignment: Alignment.center,
+                  //   decoration: BoxDecoration(
+                  //       borderRadius: BorderRadius.circular(30),
+                  //       border: Border.all(color: AppTheme().black)),
+                  //   child:
+                  CupertinoDateTextBox(
+                    hintText: DateFormat.yMd().format(selectedDate),
+                    color: AppTheme().darkgrey,
+                    initialValue: selectedDate,
+                    onDateChange: onBirthdayChange,
                   ),
+                  // GestureDetector(
+                  //   onTap: () => _selectDate(context),
+                  //   child: Text(birth
+                  //       ? 'Date of Birth'
+                  //       : "${selectedDate.toLocal()}".split(' ')[0]),
+                  // ),
+                  // ),
                   SizedBox(
                     height: 20,
                   ),
@@ -297,6 +299,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       children: [
                         Radio(
                           value: 'male',
+                          activeColor: AppTheme().purple,
                           onChanged: (value) {
                             setState(() {
                               gender = value;
@@ -307,12 +310,13 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         Text(
                           'Male',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: AppTheme().darkgrey,
                             fontFamily: 'Roxborough CF',
                           ),
                         ),
                         Radio(
                           value: 'female',
+                          activeColor: AppTheme().purple,
                           onChanged: (value) {
                             setState(() {
                               gender = value;
@@ -323,12 +327,13 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         Text(
                           'Female',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: AppTheme().darkgrey,
                             fontFamily: 'Roxborough CF',
                           ),
                         ),
                         Radio(
                           value: 'other',
+                          activeColor: AppTheme().purple,
                           onChanged: (value) {
                             setState(() {
                               gender = value;
@@ -339,7 +344,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         Text(
                           'Other',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: AppTheme().darkgrey,
                             fontFamily: 'Roxborough CF',
                           ),
                         ),
@@ -406,7 +411,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                     height: 20,
                   ),
                   loader
-                      ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
+                      ? Center(
+                          child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                  AppTheme().purple)))
                       : GestureDetector(
                           onTap: () {
                             FocusScope.of(context)
@@ -473,9 +481,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
     });
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var data = {
-      'email': email.text,
-      'username': uname.text,
-      'password': pswd.text,
+      'email': email.text.trim(),
+      'username': uname.text.trim(),
+      'password': pswd.text.trim(),
       'mob_token': token,
       'firstname': fname.text.trim(),
       'lastname': lname.text.trim(),

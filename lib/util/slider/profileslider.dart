@@ -4,6 +4,8 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+import '../../theme.dart';
+
 class ProfileSliderPage extends StatefulWidget {
   final dynamic image;
   const ProfileSliderPage({Key key, this.image}) : super(key: key);
@@ -45,7 +47,8 @@ class _ProfileSliderPageState extends State<ProfileSliderPage> {
         ? Container(
             height: MediaQuery.of(context).size.height,
             alignment: Alignment.center,
-            child: CircularProgressIndicator(color: AppTheme().purple),
+            child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(AppTheme().purple)),
           )
         : Stack(
             children: [
@@ -71,7 +74,7 @@ class _ProfileSliderPageState extends State<ProfileSliderPage> {
                 items: this.imageList.map((item) {
                   return Builder(
                     builder: (BuildContext context) {
-                      return InkWell(
+                      return GestureDetector(
                         onTap: () {
                           // Navigator.of(context).push(MaterialPageRoute(
                           //     builder: (BuildContext context) {

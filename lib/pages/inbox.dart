@@ -215,7 +215,7 @@ class _InboxState extends State<Inbox> {
                   errorText: null,
                   // border: InputBorder.none,
                   suffixIcon: cancel
-                      ? InkWell(
+                      ? GestureDetector(
                           child: Icon(Icons.cancel),
                           onTap: () {
                             setState(() {
@@ -232,7 +232,7 @@ class _InboxState extends State<Inbox> {
                             // }
                           },
                         )
-                      : InkWell(
+                      : GestureDetector(
                           child: Icon(Icons.search),
                           onTap: () {
                             if (loader > 0) {
@@ -274,7 +274,7 @@ class _InboxState extends State<Inbox> {
                           itemBuilder: (BuildContext context, int i) {
                             return Padding(
                               padding: const EdgeInsets.only(top: 10),
-                              child: InkWell(
+                              child: GestureDetector(
                                 onTap: () {
                                   print(widget.shopside);
                                   print(inbox1[i]['user']);
@@ -366,7 +366,9 @@ class _InboxState extends State<Inbox> {
                     children: <Widget>[
                       loader1
                           ? Center(
-                              child: CircularProgressIndicator(color: AppTheme().purple),
+                              child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      AppTheme().purple)),
                             )
                           : Padding(
                               padding: const EdgeInsets.only(top: 10),

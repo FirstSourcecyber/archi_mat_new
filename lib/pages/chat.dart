@@ -203,13 +203,12 @@ class _ChatPageState extends State<ChatPage> {
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return Center(
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                      // Theme.of(context).primaryColor,
-                      // Color(0xff232A4E)),
-                    AppTheme().purple
-                ),)
-              );
+                  child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                    // Theme.of(context).primaryColor,
+                    // Color(0xff232A4E)),
+                    AppTheme().purple),
+              ));
             } else if (snapshot.hasError) {
               return Center(child: Text(snapshot.hasError.hashCode.toString()));
             } else {
@@ -539,7 +538,12 @@ class _ChatPageState extends State<ChatPage> {
                                               child: CachedNetworkImage(
                                                 imageUrl: message.image,
                                                 placeholder: (context, url) =>
-                                                    CircularProgressIndicator(color: AppTheme().purple),
+                                                    CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                                AppTheme()
+                                                                    .purple)),
                                                 errorWidget:
                                                     (context, url, error) =>
                                                         Icon(Icons.error),

@@ -1,5 +1,6 @@
 import 'package:Archimat/splash/loginPage.dart';
 import 'package:Archimat/splash/registeration.dart';
+import 'package:Archimat/util/widgets/back.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
@@ -42,11 +43,20 @@ class _LoginRegisterState extends State<LoginRegister> {
             //     ),
             //   ),
             // ),
-            Image(
-              image: AssetImage('assets/images/back.png'),
-              fit: BoxFit.cover,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.43,
+            Stack(
+              children: [
+                Image(
+                  image: AssetImage('assets/images/back.png'),
+                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.43,
+                ),
+                Back_Widgets(
+                  onclick: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
             ),
             Container(
               width: MediaQuery.of(context).size.width,
@@ -87,7 +97,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  InkWell(
+                  GestureDetector(
                     // onTap: () {
                     //   Navigator.of(context).push(MaterialPageRoute(
                     //       builder: (context) => VirtualMaterialScreen1()));
@@ -126,7 +136,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                         )),
                   ),
                   SizedBox(height: 15),
-                  InkWell(
+                  GestureDetector(
                     onTap: () {
                       if (login) {
                         Navigator.of(context).push(MaterialPageRoute(

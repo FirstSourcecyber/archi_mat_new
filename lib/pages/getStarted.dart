@@ -85,7 +85,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          InkWell(
+                          GestureDetector(
                             onTap: () {
                               this.setState(() {
                                 this.isSignup = true;
@@ -124,7 +124,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                               ),
                             ),
                           ),
-                          InkWell(
+                          GestureDetector(
                             onTap: () {
                               this.setState(() {
                                 this.isSignup = false;
@@ -167,7 +167,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                         ],
                       ),
                       SizedBox(height: 45),
-                      InkWell(
+                      GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => VirtualMaterialScreen1()));
@@ -198,7 +198,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                             )),
                       ),
                       SizedBox(height: 15),
-                      InkWell(
+                      GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => VirtualMaterialScreen1()));
