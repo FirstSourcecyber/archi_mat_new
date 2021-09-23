@@ -157,6 +157,7 @@ class _TabPageState extends State<TabPage> {
                       style: TextStyle(
                           color:
                               _page == 0 ? AppTheme().purple : AppTheme().grey,
+                              fontFamily: 'Roxborough CF',
                           fontSize: 12),
                     )
                   ],

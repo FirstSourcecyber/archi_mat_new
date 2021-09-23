@@ -17,7 +17,7 @@ class _List1State extends State<List1> {
       children: [
         Divider_Widgets(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -60,11 +60,8 @@ class _List1State extends State<List1> {
                   alignment: Alignment.center,
                   width: i == 1 ? 90 : 50,
                   decoration: i != 1
-                      ? BoxDecoration(
-                          color: AppTheme().white,
-                        )
+                      ? BoxDecoration()
                       : BoxDecoration(
-                          color: AppTheme().white,
                           borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
@@ -89,11 +86,8 @@ class _List1State extends State<List1> {
                   alignment: Alignment.center,
                   width: i == 2 ? 90 : 50,
                   decoration: i != 2
-                      ? BoxDecoration(
-                          color: AppTheme().white,
-                        )
+                      ? BoxDecoration()
                       : BoxDecoration(
-                          color: AppTheme().white,
                           borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
@@ -117,11 +111,8 @@ class _List1State extends State<List1> {
                   alignment: Alignment.center,
                   width: i == 3 ? 90 : 50,
                   decoration: i != 3
-                      ? BoxDecoration(
-                          color: AppTheme().white,
-                        )
+                      ? BoxDecoration()
                       : BoxDecoration(
-                          color: AppTheme().white,
                           borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),

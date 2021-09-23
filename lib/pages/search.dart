@@ -32,17 +32,20 @@ class _SearchPageState extends State<SearchPage> {
     super.initState();
   }
 
-  dat() {
+  dat() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+
     setState(() {
+      detail = jsonDecode(pref.getString('user'));
       data = widget.search;
     });
     getdata();
   }
 
   getdata() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
-      detail = jsonDecode(pref.getString('user'));
+      inbox = [];
+      inbox1 = [];
     });
     if (data == 'product') {
       getproduct();
@@ -53,39 +56,44 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
-  getservice() {}
-  getmaterial() {}
+  getservice() {
+    setState(() {
+      loader1 = true;
+    });
+    InboxService().getshopinbox(detail['shop']['id']).then((value) {
+      print(value);
+      setvalue(value);
+    });
+  }
+
+  getmaterial() {
+    setState(() {
+      loader1 = true;
+    });
+    InboxService().getshopinbox(detail['shop']['id']).then((value) {
+      print(value);
+      setvalue(value);
+    });
+  }
+
   getproduct() {
     setState(() {
       loader1 = true;
     });
     InboxService().getshopinbox(detail['shop']['id']).then((value) {
       print(value);
-      setState(() {
-        inbox1 = value['inbox'];
-        inbox = value['inbox'];
-        if (inbox1.length == 0) {
-          loader = 0;
-        }
-        loader1 = false;
-      });
+      setvalue(value);
     });
   }
 
-  getuserinbox() {
+  setvalue(value) {
     setState(() {
-      loader1 = true;
-    });
-    InboxService().getuserinbox(detail['id']).then((value) {
-      print(value);
-      setState(() {
-        inbox1 = value['inbox'];
-        inbox = value['inbox'];
-        if (inbox1.length == 0) {
-          loader = 0;
-        }
-        loader1 = false;
-      });
+      inbox1 = value['inbox'];
+      inbox = value['inbox'];
+      if (inbox1.length == 0) {
+        loader = 0;
+      }
+      loader1 = false;
     });
   }
 
@@ -101,23 +109,6 @@ class _SearchPageState extends State<SearchPage> {
               (search1['user']['lastname']
                   .toLowerCase()
                   .contains(search.text.toLowerCase()))))
-          .toList();
-      if (inbox1.length == 0) {
-        loader = 0;
-      }
-      loader1 = false;
-    });
-  }
-
-  searchvalueASuser() {
-    FocusScope.of(context).requestFocus(new FocusNode());
-    setState(() {
-      cancel = !cancel;
-      loader1 = true;
-      inbox1 = inbox
-          .where((search1) => ((search1['shop']['name']
-              .toLowerCase()
-              .contains(search.text.toLowerCase()))))
           .toList();
       if (inbox1.length == 0) {
         loader = 0;
@@ -219,11 +210,7 @@ class _SearchPageState extends State<SearchPage> {
                           onTap: () {
                             if (loader > 0) {
                               if (search.text.isNotEmpty) {
-                                if (widget.search) {
-                                  searchvalueASshop();
-                                } else {
-                                  searchvalueASuser();
-                                }
+                                searchvalueASshop();
                               }
                             }
                           },

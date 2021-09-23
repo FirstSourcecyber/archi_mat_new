@@ -91,7 +91,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                             },
                                           )
                                         : Container(
-                                            height: 20,
+                                            height: 30,
                                           ),
                                     GestureDetector(
                                       onTap: () {

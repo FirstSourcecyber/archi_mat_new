@@ -33,6 +33,7 @@ class _ShopQrState extends State<ShopQr> {
   @override
   void reassemble() {
     super.reassemble();
+
     if (Platform.isAndroid) {
       controller.pauseCamera();
     } else if (Platform.isIOS) {
@@ -52,25 +53,38 @@ class _ShopQrState extends State<ShopQr> {
   }
 
   @override
+  void initState() {
+    if (widget.shopside) {
+      print('in shop side');
+      setState(() {
+        i = 1;
+      });
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Align(
-        alignment: Alignment.bottomCenter,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: FloatingActionButton(
-            backgroundColor: Colors.white,
-            child: SvgPicture.asset(
-              'assets/images/torch.svg',
-              width: 30,
-              color: AppTheme().black,
-            ),
-            onPressed: () async {
-              await controller.toggleFlash();
-            },
-          ),
-        ),
-      ),
+      floatingActionButton: i == 2
+          ? Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 12),
+                child: FloatingActionButton(
+                  backgroundColor: Colors.white,
+                  child: SvgPicture.asset(
+                    'assets/images/torch.svg',
+                    width: 30,
+                    color: AppTheme().black,
+                  ),
+                  onPressed: () async {
+                    await controller.toggleFlash();
+                  },
+                ),
+              ),
+            )
+          : Container(),
       body: SafeArea(
         child: Column(
           // crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,6 +101,7 @@ class _ShopQrState extends State<ShopQr> {
                           onTap: () {
                             setState(() {
                               i = 1;
+                              controller.pauseCamera();
                             });
                           },
                           child: Container(
@@ -151,7 +166,7 @@ class _ShopQrState extends State<ShopQr> {
                 i == 1
                     ? Center(
                         child: QrImage(
-                          data: widget.shopdata['id'],
+                          data: widget.shopdata['id'].toString(),
                           version: QrVersions.auto,
                           size: 350.0,
                         ),
