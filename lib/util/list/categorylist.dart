@@ -38,7 +38,7 @@ class _CategoryListState extends State<CategoryList> {
       children: [
         Container(
           padding: EdgeInsets.only(left: 20),
-          height: 116,
+          height: 105,
           child:
               // loader
               //     ? Center(child: CircularProgressIndicator(color: AppTheme().purple))

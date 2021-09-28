@@ -126,7 +126,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                             : 'Save Your \n Fave Materials',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 32,
+                                        fontSize: 30,
                                         color: Colors.black54,
                                         fontFamily: 'Nexa',
                                         fontWeight: FontWeight.w700),
@@ -148,7 +148,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                   style: TextStyle(
                                       color: Colors.black54,
                                       fontFamily: 'Nexa',
-                                      fontSize: 20),
+                                      fontSize: 18),
                                 ),
                                 SizedBox(
                                   height: 30,
@@ -215,7 +215,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                         color: Colors.black,
                                         fontFamily: 'Roxborough CF',
                                         // fontWeight: FontWeight.bold,
-                                        fontSize: 15),
+                                        fontSize: 14),
                                   )
                                 ],
                               )),

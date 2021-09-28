@@ -119,6 +119,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             'Username',
                             style: TextStyle(
                                 fontFamily: 'Nexa',
+                                fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -135,6 +136,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                 hintText: 'User Name',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
+                                  fontSize: 14,
                                   fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
@@ -153,6 +155,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                           child: Text('First Name',
                               style: TextStyle(
                                   fontFamily: 'Nexa',
+                                  fontSize: 14,
                                   fontWeight: FontWeight.w700)),
                           alignment: Alignment.topLeft,
                           width: 70,
@@ -168,6 +171,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                 hintText: 'First Name',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
+                                  fontSize: 14,
                                   fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
@@ -187,6 +191,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             'Last Name',
                             style: TextStyle(
                                 fontFamily: 'Nexa',
+                                fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -203,6 +208,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                 hintText: 'Last Name',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
+                                  fontSize: 14,
                                   fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
@@ -243,7 +249,9 @@ class _UserEditProfileState extends State<UserEditProfile> {
                     child: Text(
                       'Gender',
                       style: TextStyle(
-                          fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+                          fontFamily: 'Nexa',
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700),
                     ),
                     alignment: Alignment.topLeft,
                     width: MediaQuery.of(context).size.width,
@@ -263,6 +271,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         'Male',
                         style: TextStyle(
                           color: Colors.black,
+                          fontSize: 14,
                           fontFamily: 'Nexa',
                         ),
                       ),
@@ -279,6 +288,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         'Female',
                         style: TextStyle(
                           color: Colors.black,
+                          fontSize: 14,
                           fontFamily: 'Nexa',
                         ),
                       ),
@@ -294,6 +304,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       Text(
                         'Other',
                         style: TextStyle(
+                          fontSize: 14,
                           color: Colors.black,
                           fontFamily: 'Nexa',
                         ),
@@ -314,6 +325,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             'D.O.B',
                             style: TextStyle(
                                 fontFamily: 'Nexa',
+                                fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -342,6 +354,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             'Phone',
                             style: TextStyle(
                                 fontFamily: 'Nexa',
+                                fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -407,6 +420,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             'Email',
                             style: TextStyle(
                                 fontFamily: 'Nexa',
+                                fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
                           alignment: Alignment.topLeft,
@@ -423,6 +437,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                 hintText: 'Xxxxxxxxxxxxxxx',
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
+                                  fontSize: 14,
                                   fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
@@ -475,6 +490,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                               'Save',
                               style: TextStyle(
                                 fontFamily: 'Nexa',
+                                fontSize: 14,
                               ),
                             ),
                           ),

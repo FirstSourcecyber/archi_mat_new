@@ -60,7 +60,7 @@ class _LoginRegisterState extends State<LoginRegister> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 300,
+              height: 305,
               padding: EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +70,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontFamily: 'Nexa',
-                        fontSize: 20,
+                        fontSize: 25,
                         color: AppTheme().l1black),
                   ),
                   SizedBox(
@@ -83,6 +83,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                     // : 'For best experience, download apps here'
                     ,
                     style: TextStyle(
+                      fontSize: 14,
                       fontFamily: 'Roxborough CF',
                     ),
                   ),
@@ -129,7 +130,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                                     color: Colors.black,
                                     fontFamily: 'Roxborough CF',
                                     // fontWeight: FontWeight.bold,
-                                    fontSize: 15),
+                                    fontSize: 14),
                               )
                             ],
                           ),
@@ -174,7 +175,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                                     color: Colors.black,
                                     fontFamily: 'Roxborough CF',
                                     // fontWeight: FontWeight.bold,
-                                    fontSize: 15),
+                                    fontSize: 14),
                               )
                             ],
                           ),
@@ -194,6 +195,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                         child: Text(
                           !login ? 'LOGIN HERE' : 'SIGNUP',
                           style: TextStyle(
+                            fontSize: 12,
                             fontFamily: 'Roxborough CF',
                           ),
                         )),

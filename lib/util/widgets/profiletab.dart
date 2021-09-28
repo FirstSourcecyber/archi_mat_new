@@ -44,6 +44,7 @@ class _ProfileTabState extends State<ProfileTab> {
                 Text(
                   widget.text,
                   style: TextStyle(
+                    fontSize: 14,
                     fontFamily: 'Nexa',
                   ),
                 ),

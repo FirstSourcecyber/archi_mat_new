@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme.dart';
 
@@ -42,7 +42,7 @@ class Title_Widgets extends StatelessWidget {
                         )),
                     Icon(
                       Icons.arrow_forward_ios,
-                      size: 13,
+                      size: 12,
                       color: AppTheme().grey,
                     )
                   ],

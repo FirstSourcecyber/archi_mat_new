@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:Archimat/Services/inboxService.dart';
+import 'package:Archimat/Services/searchService.dart';
 import 'package:Archimat/util/widgets/businesslist.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -23,7 +24,7 @@ class _SearchPageState extends State<SearchPage> {
   var search = TextEditingController();
   bool loader1 = true, cancel = false;
   String data = '';
-  List inbox1 = [], inbox = [];
+  List inbox1 = [], inbox = [], searchdetail = [];
 
   var detail;
   @override
@@ -39,57 +40,27 @@ class _SearchPageState extends State<SearchPage> {
       detail = jsonDecode(pref.getString('user'));
       data = widget.search;
     });
-    getdata();
+    getsearch();
   }
 
-  getdata() async {
-    setState(() {
-      inbox = [];
-      inbox1 = [];
-    });
-    if (data == 'product') {
-      getproduct();
-    } else if (data == 'service') {
-      getservice();
-    } else {
-      getmaterial();
-    }
-  }
-
-  getservice() {
+  getsearch() {
     setState(() {
       loader1 = true;
     });
-    InboxService().getshopinbox(detail['shop']['id']).then((value) {
+    SearchService().getallsearch().then((value) {
       print(value);
-      setvalue(value);
+      setState(() {
+        searchdetail = value;
+      });
+      setvalue(widget.search);
     });
   }
 
-  getmaterial() {
+  setvalue(search) {
     setState(() {
       loader1 = true;
-    });
-    InboxService().getshopinbox(detail['shop']['id']).then((value) {
-      print(value);
-      setvalue(value);
-    });
-  }
-
-  getproduct() {
-    setState(() {
-      loader1 = true;
-    });
-    InboxService().getshopinbox(detail['shop']['id']).then((value) {
-      print(value);
-      setvalue(value);
-    });
-  }
-
-  setvalue(value) {
-    setState(() {
-      inbox1 = value['inbox'];
-      inbox = value['inbox'];
+      inbox1 = searchdetail[search];
+      inbox = searchdetail[search];
       if (inbox1.length == 0) {
         loader = 0;
       }
@@ -104,11 +75,8 @@ class _SearchPageState extends State<SearchPage> {
       loader1 = true;
       inbox1 = inbox
           .where((search1) => ((search1['user']['firstname']
-                  .toLowerCase()
-                  .contains(search.text.toLowerCase())) ||
-              (search1['user']['lastname']
-                  .toLowerCase()
-                  .contains(search.text.toLowerCase()))))
+              .toLowerCase()
+              .contains(search.text.toLowerCase()))))
           .toList();
       if (inbox1.length == 0) {
         loader = 0;

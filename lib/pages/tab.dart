@@ -157,8 +157,8 @@ class _TabPageState extends State<TabPage> {
                       style: TextStyle(
                           color:
                               _page == 0 ? AppTheme().purple : AppTheme().grey,
-                              fontFamily: 'Roxborough CF',
-                          fontSize: 12),
+                          fontFamily: 'Roxborough CF',
+                          fontSize: 8),
                     )
                   ],
                 ),
@@ -191,7 +191,7 @@ class _TabPageState extends State<TabPage> {
                       style: TextStyle(
                         fontFamily: 'Roxborough CF',
                         color: _page == 1 ? AppTheme().purple : AppTheme().grey,
-                        fontSize: 12,
+                        fontSize: 8,
                       ),
                     )
                   ],
@@ -255,7 +255,7 @@ class _TabPageState extends State<TabPage> {
                           fontFamily: 'Roxborough CF',
                           color:
                               _page == 2 ? AppTheme().purple : AppTheme().grey,
-                          fontSize: 12),
+                          fontSize: 8),
                     )
                   ],
                 ),
@@ -288,7 +288,7 @@ class _TabPageState extends State<TabPage> {
                               color: _page == 3
                                   ? AppTheme().purple
                                   : AppTheme().grey,
-                              fontSize: 12),
+                              fontSize: 8),
                         )
                         // Padding(
                         //   padding: const EdgeInsets.only(top: 20),

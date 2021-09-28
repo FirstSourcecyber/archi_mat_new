@@ -119,7 +119,7 @@ class _SliderPageState extends State<SliderPage> {
                                                 color: AppTheme().white,
                                                 fontFamily: 'Nexa',
                                                 fontWeight: FontWeight.w700,
-                                                fontSize: 18),
+                                                fontSize: 14),
                                           ),
                                           Text(
                                             'How can we help you?',
@@ -141,7 +141,7 @@ class _SliderPageState extends State<SliderPage> {
                                                 color: AppTheme().white,
                                                 fontFamily: 'Nexa',
                                                 fontWeight: FontWeight.w700,
-                                                fontSize: 15),
+                                                fontSize: 14),
                                           ),
                                           Text(
                                             'How can we help you?',
@@ -149,7 +149,7 @@ class _SliderPageState extends State<SliderPage> {
                                                 color: AppTheme().white,
                                                 fontFamily: 'Nexa',
                                                 fontWeight: FontWeight.w700,
-                                                fontSize: 30),
+                                                fontSize: 25),
                                           ),
                                         ],
                                       ),

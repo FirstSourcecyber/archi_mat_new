@@ -18,8 +18,10 @@ class _List1State extends State<List1> {
         Divider_Widgets(),
         Padding(
           padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Wrap(
+            spacing: 10,
+            runSpacing: 15,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
                 onTap: () {
@@ -32,10 +34,16 @@ class _List1State extends State<List1> {
                 child: Container(
                   padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
                   alignment: Alignment.center,
-                  width: i == 0 ? 90 : 50,
-                  decoration: i != 0
-                      ? BoxDecoration()
-                      : BoxDecoration(
+                  width:
+                      //  i == 0 ?
+                      90
+                  //  : 50
+                  ,
+                  decoration:
+                      //  i != 0
+                      //     ? BoxDecoration()
+                      //     :
+                      BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
@@ -56,12 +64,18 @@ class _List1State extends State<List1> {
                   });
                 },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
                   alignment: Alignment.center,
-                  width: i == 1 ? 90 : 50,
-                  decoration: i != 1
-                      ? BoxDecoration()
-                      : BoxDecoration(
+                  width:
+                      // i == 1 ?
+                      90
+                  //  : 55
+                  ,
+                  decoration:
+                      //  i != 1
+                      //     ? BoxDecoration()
+                      //     :
+                      BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
@@ -82,12 +96,18 @@ class _List1State extends State<List1> {
                   });
                 },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
                   alignment: Alignment.center,
-                  width: i == 2 ? 90 : 50,
-                  decoration: i != 2
-                      ? BoxDecoration()
-                      : BoxDecoration(
+                  width:
+                      //  i == 2 ?
+                      90
+                  // : 50
+                  ,
+                  decoration:
+                      //  i != 2
+                      //     ? BoxDecoration()
+                      //     :
+                      BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
@@ -107,17 +127,21 @@ class _List1State extends State<List1> {
                   });
                 },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
                   alignment: Alignment.center,
-                  width: i == 3 ? 90 : 50,
-                  decoration: i != 3
-                      ? BoxDecoration()
-                      : BoxDecoration(
+                  width:
+                      // i != 3 ? 50 :
+                      90,
+                  decoration:
+                      // i != 3
+                      //     ? BoxDecoration()
+                      //     :
+                      BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
-                    'Events',
+                    'Material',
                     style: TextStyle(
                       fontSize: 12,
                       fontFamily: 'Nexa',

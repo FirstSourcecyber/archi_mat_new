@@ -68,6 +68,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Text(
                       'Login',
                       style: TextStyle(
+                        fontSize: 14,
                         fontFamily: 'Roxborough CF',
                       ),
                     ),
@@ -95,6 +96,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Text(
                       'Register',
                       style: TextStyle(
+                        fontSize: 14,
                         fontFamily: 'Roxborough CF',
                       ),
                     ),

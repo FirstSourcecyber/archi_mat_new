@@ -13,4 +13,15 @@ class FallowService {
       return null;
     }
   }
+
+  Future<dynamic> fallowbyscan(data) async {
+    try {
+      var resp =
+          await this.dio.post(Config.url + "fallow/followbyscan", data: data);
+      return resp.data;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
 }

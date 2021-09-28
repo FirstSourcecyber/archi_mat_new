@@ -213,7 +213,23 @@ class _ProductlistState extends State<Productlist> {
                                         // )
                                       ],
                                     )
-                                  : Container()
+                                  : Container(
+                                      child: Text(
+                                        widget.data[index]['company']
+                                                        ['title'] !=
+                                                    '' &&
+                                                widget.data[index]['company']
+                                                        ['title'] !=
+                                                    null
+                                            ? widget.data[index]['company']
+                                                ['title']
+                                            : '',
+                                        style: TextStyle(
+                                            color: AppTheme().l1black,
+                                            fontFamily: 'Roxborough CF',
+                                            fontSize: 12),
+                                      ),
+                                    )
                             ],
                           ),
                         ),

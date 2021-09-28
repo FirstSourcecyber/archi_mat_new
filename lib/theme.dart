@@ -31,7 +31,7 @@ class AppTheme {
   // Primary Text Style
   TextStyle primaryTextStyle(bool i) {
     return TextStyle(
-      fontSize: 10,
+      fontSize: 8,
       color: !i ? black : white,
       fontFamily: 'Roxborough CF',
     );

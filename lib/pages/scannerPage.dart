@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:Archimat/Services/fallowService.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -212,43 +211,45 @@ class _ShopQrState extends State<ShopQr> {
       setState(() {
         result = scanData;
       });
-      if (controller1.toString() != '') {
+
+      if (controller1.toString() != '' && !widget.shopside) {
         controller.pauseCamera();
         print('result.code===============================');
         print(result.code);
         print("result.code===============================");
-        var data = {'user': widget.shopdata['id'], 'shop': result.code};
-        print(data);
-        FallowService().fallow(data).then((value) {
-          showAlert(value['message'], Colors.green);
-        });
-        // FallowService().fallow(controller).then((data) {
-        //   print("+++++++++++++++++++++++++++++++++++++++++++++++++++");
-        //   print(data);
-        //   if (data['message'] == 'success') {
-        //     // Toast.show('Voucher Successfully Use', context, duration: 4);
-        //   } else if (data['message'] == 'Already Use') {
-        //     // Toast.show('Already Use', context, duration: 4);
-        //   } else if (data['message'] == 'fail') {
-        //     // Toast.show('Expired', context, duration: 4);
-        //   } else {
-        //     // Toast.show("Wrong QR, Try Again", context,
-        //     //     duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-        //   }
-        controller.resumeCamera();
-        // });
+        final number = num.tryParse(result.code.toString().trim());
+        print('result.code===============================');
+        print(number);
+        print('result.code===============================');
+        if (number == null) {
+          if (await Vibration.hasVibrator()) {
+            Vibration.vibrate();
+          }
 
-        // var shopId = link.queryParameters["shop"];
-
+          this.controller.resumeCamera();
+        } else {
+          var data = {'user': widget.shopdata['id'], 'shop': result.code};
+          print(data);
+          FallowService().fallowbyscan(data).then((value) async {
+            if (value['message'] == 'Wrong QR Code') {
+              if (await Vibration.hasVibrator()) {
+                Vibration.vibrate();
+              }
+              print(value['message']);
+              showAlert(value['message'], Colors.red);
+            } else {
+              showAlert(value['message'], Colors.green);
+            }
+            controller.resumeCamera();
+          });
+        }
       } else {
         if (await Vibration.hasVibrator()) {
           Vibration.vibrate();
         }
-        // Toast.show("Wrong QR, Try Again", context,
-        //     duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+
         this.controller.resumeCamera();
       }
-      // qrText = controller;
     });
   }
 
@@ -258,7 +259,7 @@ class _ShopQrState extends State<ShopQr> {
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
-        backgroundColor: Colors.green,
+        backgroundColor: backcolor,
         textColor: Colors.white,
         fontSize: 16.0);
   }
