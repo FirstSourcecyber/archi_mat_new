@@ -1,4 +1,5 @@
 import 'package:Archimat/Services/homeService.dart';
+import 'package:Archimat/pages/search.dart';
 import 'package:Archimat/theme.dart';
 import 'package:Archimat/util/list/categorylist.dart';
 import 'package:Archimat/util/list/productlist.dart';
@@ -170,10 +171,20 @@ class _HomePageState extends State<HomePage> {
           actions: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 15),
-              child: SvgPicture.asset(
-                'assets/images/search.svg',
-                color: AppTheme().l1black,
-                width: 20,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchPage(
+                                search: '',
+                              )));
+                },
+                child: SvgPicture.asset(
+                  'assets/images/search.svg',
+                  color: AppTheme().l1black,
+                  width: 20,
+                ),
               ),
             )
           ],

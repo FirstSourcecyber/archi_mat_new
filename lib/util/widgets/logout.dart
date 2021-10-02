@@ -1,4 +1,4 @@
-import 'package:Archimat/splash/splash.dart';
+import 'package:Archimat/splash/loginregister.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,7 +27,7 @@ class Logou_button extends StatelessWidget {
             pref.clear();
             pref.setString('new', 'new');
             Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => SplashScreen()),
+                MaterialPageRoute(builder: (context) => LoginRegister()),
                 (Route<dynamic> route) => false);
           },
           child: Container(

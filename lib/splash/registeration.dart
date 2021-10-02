@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:Archimat/Services/loginService.dart';
-import 'package:Archimat/package/datepickerpackage.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:Archimat/pages/tab.dart';
 import 'package:Archimat/util/widgets/profilepic.dart';
@@ -9,7 +8,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterationPage extends StatefulWidget {
@@ -46,35 +44,6 @@ class _RegisterationPageState extends State<RegisterationPage> {
     });
   }
 
-  DateTime selectedDate = DateTime.now();
-
-  // Future<void> _selectDate(BuildContext context) async {
-  //   final DateTime picked = await showDatePicker(
-  //       context: context,
-  //       initialDate: selectedDate,
-  //       firstDate: DateTime(1955, 8),
-  //       lastDate: DateTime.now());
-  //   if (picked != null && picked != selectedDate)
-  //     setState(() {
-  //       selectedDate = picked;
-  //       birth = false;
-  //     });
-  // }
-
-  void onBirthdayChange(DateTime birthday) {
-    final date = DateTime.now();
-    final diff = date.difference(birthday).inDays;
-
-    if (diff <= 0) {
-      showAlert("Date Must be Less Then Today!", Colors.red);
-      // Toast.show('Date Must be Less Then Today', context, duration: 3);
-    } else {
-      setState(() {
-        selectedDate = birthday;
-      });
-    }
-  }
-
   showAlert(text, backcolor) {
     print('infunction');
     Fluttertoast.showToast(
@@ -91,10 +60,19 @@ class _RegisterationPageState extends State<RegisterationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppTheme().purple,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: AppTheme().black,
+            )),
+        backgroundColor: AppTheme().white,
         title: Text('Signup',
             style: TextStyle(
               fontFamily: 'Nexa',
+              color: AppTheme().black,
               fontWeight: FontWeight.w700,
             )),
         centerTitle: true,
@@ -105,24 +83,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
         },
         child: SafeArea(
           child: SingleChildScrollView(
-            child:
-                // Stack(
-                //   children: [
-                //     Image(
-                //       image: AssetImage('assets/images/splashbg.png'),
-                //       fit: BoxFit.cover,
-                //       width: MediaQuery.of(context).size.width,
-                //       // height: MediaQuery.of(context).size.height * 0.2,
-                //     ),
-                Container(
-              width: MediaQuery.of(context).size.width,
-              // height: 300,
-              decoration: BoxDecoration(
-                  // color: AppTheme().white,
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/splashbg.png'),
-                      fit: BoxFit.cover)),
-              padding: EdgeInsets.all(20),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -135,15 +97,15 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppTheme().black)),
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: AppTheme().grey)),
                     child: TextField(
                       keyboardType: TextInputType.text,
                       controller: uname,
                       decoration: InputDecoration(
                         hintText: 'User Name',
                         hintStyle: TextStyle(
-                          color: AppTheme().darkgrey,
+                          color: AppTheme().grey,
                           fontFamily: 'Roxborough CF',
                         ),
                         border: InputBorder.none,
@@ -153,23 +115,52 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppTheme().black)),
-                    child: TextField(
-                      keyboardType: TextInputType.text,
-                      controller: fname,
-                      decoration: InputDecoration(
-                        hintText: 'First Name',
-                        hintStyle: TextStyle(
-                          color: AppTheme().darkgrey,
-                          fontFamily: 'Roxborough CF',
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: AppTheme().grey)),
+                          child: TextField(
+                            keyboardType: TextInputType.text,
+                            controller: fname,
+                            decoration: InputDecoration(
+                              hintText: 'First Name',
+                              hintStyle: TextStyle(
+                                color: AppTheme().grey,
+                                fontFamily: 'Roxborough CF',
+                              ),
+                              border: InputBorder.none,
+                            ),
+                          ),
                         ),
-                        border: InputBorder.none,
                       ),
-                    ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: AppTheme().grey)),
+                          child: TextField(
+                            keyboardType: TextInputType.text,
+                            controller: lname,
+                            decoration: InputDecoration(
+                              hintText: 'Last Name',
+                              hintStyle: TextStyle(
+                                color: AppTheme().grey,
+                                fontFamily: 'Roxborough CF',
+                              ),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 20,
@@ -177,36 +168,15 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppTheme().black)),
-                    child: TextField(
-                      keyboardType: TextInputType.text,
-                      controller: lname,
-                      decoration: InputDecoration(
-                        hintText: 'Last Name',
-                        hintStyle: TextStyle(
-                          color: AppTheme().darkgrey,
-                          fontFamily: 'Roxborough CF',
-                        ),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppTheme().black)),
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: AppTheme().grey)),
                     child: TextField(
                       keyboardType: TextInputType.text,
                       controller: email,
                       decoration: InputDecoration(
                         hintText: 'Enter Your E-Mail',
                         hintStyle: TextStyle(
-                          color: AppTheme().darkgrey,
+                          color: AppTheme().grey,
                           fontFamily: 'Roxborough CF',
                         ),
                         border: InputBorder.none,
@@ -219,8 +189,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   Container(
                       padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          border: Border.all(color: AppTheme().black)),
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: AppTheme().grey)),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -229,7 +199,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                               showFlag: true,
                               initialSelection: 'PK',
                               favorite: ['+92', 'PK'],
-                              textStyle: TextStyle(color: AppTheme().darkgrey),
+                              textStyle: TextStyle(color: AppTheme().grey),
                               onChanged: (code) {
                                 this.countrycode = code.toString();
                                 print(countrycode);
@@ -267,34 +237,11 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  // Container(
-                  //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  //   alignment: Alignment.center,
-                  //   decoration: BoxDecoration(
-                  //       borderRadius: BorderRadius.circular(30),
-                  //       border: Border.all(color: AppTheme().black)),
-                  //   child:
-                  CupertinoDateTextBox(
-                    hintText: DateFormat.yMd().format(selectedDate),
-                    color: AppTheme().darkgrey,
-                    initialValue: selectedDate,
-                    onDateChange: onBirthdayChange,
-                  ),
-                  // GestureDetector(
-                  //   onTap: () => _selectDate(context),
-                  //   child: Text(birth
-                  //       ? 'Date of Birth'
-                  //       : "${selectedDate.toLocal()}".split(' ')[0]),
-                  // ),
-                  // ),
-                  SizedBox(
-                    height: 20,
-                  ),
                   Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppTheme().black)),
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: AppTheme().grey)),
                     child: Row(
                       children: [
                         Radio(
@@ -310,7 +257,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         Text(
                           'Male',
                           style: TextStyle(
-                            color: AppTheme().darkgrey,
+                            color: AppTheme().grey,
                             fontFamily: 'Roxborough CF',
                           ),
                         ),
@@ -327,7 +274,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         Text(
                           'Female',
                           style: TextStyle(
-                            color: AppTheme().darkgrey,
+                            color: AppTheme().grey,
                             fontFamily: 'Roxborough CF',
                           ),
                         ),
@@ -344,7 +291,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         Text(
                           'Other',
                           style: TextStyle(
-                            color: AppTheme().darkgrey,
+                            color: AppTheme().grey,
                             fontFamily: 'Roxborough CF',
                           ),
                         ),
@@ -357,8 +304,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppTheme().black)),
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: AppTheme().grey)),
                     child: TextField(
                       keyboardType: TextInputType.text,
                       obscureText: true,
@@ -373,7 +320,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       decoration: InputDecoration(
                           hintText: 'Enter Your Password',
                           hintStyle: TextStyle(
-                            color: AppTheme().black,
+                            color: AppTheme().grey,
                             fontFamily: 'Roxborough CF',
                           ),
                           border: InputBorder.none),
@@ -385,8 +332,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppTheme().black)),
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: AppTheme().grey)),
                     child: TextField(
                       keyboardType: TextInputType.text,
                       obscureText: true,
@@ -401,7 +348,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       decoration: InputDecoration(
                           hintText: 'Confirm Password',
                           hintStyle: TextStyle(
-                            color: AppTheme().black,
+                            color: AppTheme().grey,
                             fontFamily: 'Roxborough CF',
                           ),
                           border: InputBorder.none),
@@ -419,7 +366,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                           onTap: () {
                             FocusScope.of(context)
                                 .requestFocus(new FocusNode());
-                            print(selectedDate.toString());
+                            // print(selectedDate.toString());
                             print(birth);
                             print(newphone);
                             print(email.text);
@@ -451,14 +398,15 @@ class _RegisterationPageState extends State<RegisterationPage> {
                             alignment: Alignment.center,
                             padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
                             decoration: BoxDecoration(
-                                color: AppTheme().purple,
-                                borderRadius: BorderRadius.circular(30),
+                                color: AppTheme().white,
+                                borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
                                     color: AppTheme().lblack, width: 1)),
                             child: Text(
                               'Create',
                               style: TextStyle(
-                                color: AppTheme().white,
+                                color: AppTheme().black,
+                                fontWeight: FontWeight.w700,
                                 fontFamily: 'Nexa',
                               ),
                             ),
@@ -488,7 +436,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
       'firstname': fname.text.trim(),
       'lastname': lname.text.trim(),
       'gender': gender != null ? gender : 'Male',
-      'birthday': selectedDate.toString(),
+      // 'birthday': selectedDate.toString(),
       'phone': countrycode + newphone,
       'image': prefs.getString('image')
     };

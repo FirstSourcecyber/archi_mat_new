@@ -5,182 +5,181 @@ import 'package:Archimat/pages/browseMaterail.dart';
 import 'package:Archimat/pages/tab.dart';
 import 'package:Archimat/splash/loginregister.dart';
 import 'package:flutter/material.dart';
-import 'package:Archimat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
+// class SplashScreen extends StatefulWidget {
+//   @override
+//   _SplashScreenState createState() => _SplashScreenState();
+// }
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
+// class _SplashScreenState extends State<SplashScreen> {
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            Image(
-              image: AssetImage('assets/images/splashbg.png'),
-              fit: BoxFit.cover,
-              width: MediaQuery.of(context).size.width,
-              // height: MediaQuery.of(context).size.height * 0.9,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                  child: Container(
-                    alignment: Alignment.topCenter,
-                    child: Image(
-                      image: AssetImage('assets/images/archimatlogo.png'),
-                      fit: BoxFit.cover,
-                      // height: 160,
-                      width: 180,
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => LoginRegister(
-                                  login: true,
-                                )));
-                  },
-                  child: Container(
-                    width: 200,
-                    height: 50,
-                    margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border:
-                            Border.all(color: AppTheme().l1black, width: 1)),
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roxborough CF',
-                      ),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => LoginRegister(
-                                  login: false,
-                                )));
-                  },
-                  child: Container(
-                    width: 200,
-                    height: 50,
-                    margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border:
-                            Border.all(color: AppTheme().l1black, width: 1)),
-                    child: Text(
-                      'Register',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roxborough CF',
-                      ),
-                    ),
-                  ),
-                ),
-                // Column(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: [
-                //     Container(
-                //       decoration: BoxDecoration(color: AppTheme().white),
-                //       width: MediaQuery.of(context).size.width,
-                //       height: MediaQuery.of(context).size.height * 0.1,
-                //       child: Padding(
-                //         padding: const EdgeInsets.only(left: 20, right: 20),
-                //         child: Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: [
-                //             //  Container(width: 20,),
-                //             GestureDetector(
-                //               onTap: () {
-                //                 Navigator.push(
-                //                     context,
-                //                     MaterialPageRoute(
-                //                         builder: (context) => LoginRegister(
-                //                               login: true,
-                //                             )));
-                //               },
-                //               child: Container(
-                //                 // width: 150,
-                //                 height: 50,
-                //                 alignment: Alignment.center,
-                //                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                //                 decoration: BoxDecoration(
-                //                     borderRadius: BorderRadius.circular(30),
-                //                     border: Border.all(
-                //                         color: AppTheme().l1black, width: 1)),
-                //                 child: Text(
-                //                   'Login',
-                //                   style: TextStyle(
-                //                     fontFamily: 'Roxborough CF',
-                //                   ),
-                //                 ),
-                //               ),
-                //             ),
-                //             GestureDetector(
-                //               onTap: () {
-                //                 Navigator.push(
-                //                     context,
-                //                     MaterialPageRoute(
-                //                         builder: (context) => LoginRegister(
-                //                               login: false,
-                //                             )));
-                //               },
-                //               child: Container(
-                //                 // width: 10,
-                //                 height: 50,
-                //                 alignment: Alignment.center,
-                //                 padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
-                //                 decoration: BoxDecoration(
-                //                     borderRadius: BorderRadius.circular(30),
-                //                     border: Border.all(
-                //                         color: AppTheme().l1black, width: 1)),
-                //                 child: Text(
-                //                   'Register',
-                //                   style: TextStyle(
-                //                     fontFamily: 'Roxborough CF',
-                //                   ),
-                //                 ),
-                //               ),
-                //             ),
-                //           ],
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return SafeArea(
+//       child: Scaffold(
+//         body: Stack(
+//           children: <Widget>[
+//             Image(
+//               image: AssetImage('assets/images/splashbg.png'),
+//               fit: BoxFit.cover,
+//               width: MediaQuery.of(context).size.width,
+//               // height: MediaQuery.of(context).size.height * 0.9,
+//             ),
+//             Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Center(
+//                   child: Container(
+//                     alignment: Alignment.topCenter,
+//                     child: Image(
+//                       image: AssetImage('assets/images/archimatlogo.png'),
+//                       fit: BoxFit.cover,
+//                       // height: 160,
+//                       width: 180,
+//                     ),
+//                   ),
+//                 ),
+//                 GestureDetector(
+//                   onTap: () {
+//                     Navigator.push(
+//                         context,
+//                         MaterialPageRoute(
+//                             builder: (context) => LoginRegister(
+//                                   login: true,
+//                                 )));
+//                   },
+//                   child: Container(
+//                     width: 200,
+//                     height: 50,
+//                     margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
+//                     alignment: Alignment.center,
+//                     padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+//                     decoration: BoxDecoration(
+//                         borderRadius: BorderRadius.circular(30),
+//                         border:
+//                             Border.all(color: AppTheme().l1black, width: 1)),
+//                     child: Text(
+//                       'Login',
+//                       style: TextStyle(
+//                         fontSize: 14,
+//                         fontFamily: 'Roxborough CF',
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 GestureDetector(
+//                   onTap: () {
+//                     Navigator.push(
+//                         context,
+//                         MaterialPageRoute(
+//                             builder: (context) => LoginRegister(
+//                                   login: false,
+//                                 )));
+//                   },
+//                   child: Container(
+//                     width: 200,
+//                     height: 50,
+//                     margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
+//                     alignment: Alignment.center,
+//                     padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
+//                     decoration: BoxDecoration(
+//                         borderRadius: BorderRadius.circular(30),
+//                         border:
+//                             Border.all(color: AppTheme().l1black, width: 1)),
+//                     child: Text(
+//                       'Register',
+//                       style: TextStyle(
+//                         fontSize: 14,
+//                         fontFamily: 'Roxborough CF',
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 // Column(
+//                 //   crossAxisAlignment: CrossAxisAlignment.start,
+//                 //   children: [
+//                 //     Container(
+//                 //       decoration: BoxDecoration(color: AppTheme().white),
+//                 //       width: MediaQuery.of(context).size.width,
+//                 //       height: MediaQuery.of(context).size.height * 0.1,
+//                 //       child: Padding(
+//                 //         padding: const EdgeInsets.only(left: 20, right: 20),
+//                 //         child: Row(
+//                 //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 //           children: [
+//                 //             //  Container(width: 20,),
+//                 //             GestureDetector(
+//                 //               onTap: () {
+//                 //                 Navigator.push(
+//                 //                     context,
+//                 //                     MaterialPageRoute(
+//                 //                         builder: (context) => LoginRegister(
+//                 //                               login: true,
+//                 //                             )));
+//                 //               },
+//                 //               child: Container(
+//                 //                 // width: 150,
+//                 //                 height: 50,
+//                 //                 alignment: Alignment.center,
+//                 //                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+//                 //                 decoration: BoxDecoration(
+//                 //                     borderRadius: BorderRadius.circular(30),
+//                 //                     border: Border.all(
+//                 //                         color: AppTheme().l1black, width: 1)),
+//                 //                 child: Text(
+//                 //                   'Login',
+//                 //                   style: TextStyle(
+//                 //                     fontFamily: 'Roxborough CF',
+//                 //                   ),
+//                 //                 ),
+//                 //               ),
+//                 //             ),
+//                 //             GestureDetector(
+//                 //               onTap: () {
+//                 //                 Navigator.push(
+//                 //                     context,
+//                 //                     MaterialPageRoute(
+//                 //                         builder: (context) => LoginRegister(
+//                 //                               login: false,
+//                 //                             )));
+//                 //               },
+//                 //               child: Container(
+//                 //                 // width: 10,
+//                 //                 height: 50,
+//                 //                 alignment: Alignment.center,
+//                 //                 padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
+//                 //                 decoration: BoxDecoration(
+//                 //                     borderRadius: BorderRadius.circular(30),
+//                 //                     border: Border.all(
+//                 //                         color: AppTheme().l1black, width: 1)),
+//                 //                 child: Text(
+//                 //                   'Register',
+//                 //                   style: TextStyle(
+//                 //                     fontFamily: 'Roxborough CF',
+//                 //                   ),
+//                 //                 ),
+//                 //               ),
+//                 //             ),
+//                 //           ],
+//                 //         ),
+//                 //       ),
+//                 //     ),
+//                 //   ],
+//                 // ),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class SplachPage extends StatefulWidget {
   @override
@@ -208,7 +207,7 @@ class _SplachPageState extends State<SplachPage> {
     } else {
       if (this.profile1 == null) {
         Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => SplashScreen()),
+            MaterialPageRoute(builder: (context) => LoginRegister()),
             (Route<dynamic> route) => false);
       } else {
         this.profile = jsonDecode(pref.getString('user'));

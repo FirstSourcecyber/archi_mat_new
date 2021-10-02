@@ -90,3 +90,212 @@ class _ProductListGrideState extends State<ProductListGride> {
             });
   }
 }
+
+class ListGride extends StatefulWidget {
+  final dynamic data;
+  final int i;
+  const ListGride({
+    Key key,
+    this.data,
+    this.i,
+  }) : super(key: key);
+
+  @override
+  _ListGrideState createState() => _ListGrideState();
+}
+
+class _ListGrideState extends State<ListGride> {
+  List photos = [];
+  int g = 0;
+  bool loader = true;
+  @override
+  void initState() {
+    setState(() {
+      g = widget.i;
+    });
+    print(widget.data);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.data.length == 0
+        ? Center(
+            child: Text(
+              'No ' +
+                  (g == 0
+                      ? 'product'
+                      : g == 1
+                          ? 'Shop'
+                          : g == 2
+                              ? 'Services'
+                              : 'Material') +
+                  ' Available',
+              style: TextStyle(
+                fontFamily: 'Nexa',
+              ),
+            ),
+          )
+        : StaggeredGridView.countBuilder(
+            scrollDirection: Axis.vertical,
+            physics: NeverScrollableScrollPhysics(),
+            crossAxisCount: 2,
+            shrinkWrap: true,
+            itemCount: widget.data.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                width: MediaQuery.of(context).size.width * 0.5,
+                height: 276,
+                decoration: BoxDecoration(
+                    border: Border.all(color: AppTheme().grey),
+                    color: AppTheme().white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          height: 185,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: AppTheme().grey)),
+                              image: DecorationImage(
+                                  image: g == 3 &&
+                                          widget.data[index]['images'].length !=
+                                              0
+                                      ? NetworkImage(Config.url +
+                                          (widget.data[index]['images'][0]
+                                              ['image']))
+                                      : widget.data[index]['image'] != null &&
+                                              widget.data[index]['image'] != ''
+                                          ? NetworkImage(Config.url +
+                                              (widget.data[index]['image']))
+                                          : AssetImage(
+                                              'assets/images/back.png'),
+                                  // AssetImage(widget.data[index]['image']),
+                                  fit: BoxFit.cover)),
+                        ),
+                        Positioned(
+                          left: 10,
+                          top: 10,
+                          child: g != 1 && g != 4
+                              ? Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color:
+                                          AppTheme().lightgrey.withOpacity(0.4),
+                                      border: Border.all(
+                                          color: AppTheme().l2black)),
+                                  child: Text(
+                                    g == 2 ? 'VR' : 'AR',
+                                    style: TextStyle(
+                                        fontSize: 8,
+                                        fontFamily: 'Roxborough CF',
+                                        color: AppTheme().l2black),
+                                  ))
+                              : Container(),
+                        )
+                      ],
+                    ),
+                    // SizedBox(
+                    //   height: 5,
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.data[index]['name'],
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: 'Nexa',
+                            ),
+                          ),
+                          g != 2
+                              ? Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      widget.data[index]['shop']['name'] !=
+                                                  '' &&
+                                              widget.data[index]['shop']
+                                                      ['name'] !=
+                                                  null
+                                          ? widget.data[index]['shop']['name']
+                                          : '',
+                                      style: TextStyle(
+                                          color: AppTheme().l1black,
+                                          fontFamily: 'Roxborough CF',
+                                          fontSize: 12),
+                                    ),
+                                    // Container(
+                                    //   width: 70,
+                                    //   child: Row(
+                                    //     mainAxisAlignment:
+                                    //         MainAxisAlignment.spaceBetween,
+                                    //     children: [
+                                    //       // Container(
+                                    //       //   decoration: BoxDecoration(
+                                    //       //       shape: BoxShape.circle,
+                                    //       //       border: Border.all(
+                                    //       //           color: AppTheme().grey)),
+                                    //       //   child: Icon(
+                                    //       //     Icons.star,
+                                    //       //     color: AppTheme().grey,
+                                    //       //     size: 15,
+                                    //       //   ),
+                                    //       // ),
+                                    //       // Container(
+                                    //       //   padding: EdgeInsets.all(5),
+                                    //       //   decoration: BoxDecoration(
+                                    //       //       shape: BoxShape.circle,
+                                    //       //       border: Border.all(
+                                    //       //           color: AppTheme().grey)),
+                                    //       //   child: Icon(FontAwesomeIcons.leaf,
+                                    //       //       size: 10, color: AppTheme().grey),
+                                    //       // ),
+                                    //       // Container(
+                                    //       //     padding: EdgeInsets.all(5),
+                                    //       //     decoration: BoxDecoration(
+                                    //       //         shape: BoxShape.circle,
+                                    //       //         border: Border.all(
+                                    //       //             color: AppTheme().grey)),
+                                    //       //     child: Text(
+                                    //       //       'VR',
+                                    //       //       style: TextStyle(fontSize: 8),
+                                    //       //     )),
+                                    //     ],
+                                    //   ),
+                                    // )
+                                  ],
+                                )
+                              : Container(
+                                  child: Text(
+                                    widget.data[index]['company']['title'] !=
+                                                '' &&
+                                            widget.data[index]['company']
+                                                    ['title'] !=
+                                                null
+                                        ? widget.data[index]['company']['title']
+                                        : '',
+                                    style: TextStyle(
+                                        color: AppTheme().l1black,
+                                        fontFamily: 'Roxborough CF',
+                                        fontSize: 12),
+                                  ),
+                                )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+            staggeredTileBuilder: (int index) {
+              return new StaggeredTile.count(1, 1);
+            });
+  }
+}

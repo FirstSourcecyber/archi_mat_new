@@ -1,26 +1,21 @@
 import 'package:Archimat/splash/loginPage.dart';
 import 'package:Archimat/splash/registeration.dart';
 import 'package:Archimat/util/widgets/back.dart';
-import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
 import 'package:flutter_svg/svg.dart';
 
 class LoginRegister extends StatefulWidget {
-  final bool login;
-  const LoginRegister({Key key, this.login}) : super(key: key);
+  const LoginRegister({Key key}) : super(key: key);
 
   @override
   _LoginRegisterState createState() => _LoginRegisterState();
 }
 
 class _LoginRegisterState extends State<LoginRegister> {
-  bool login = true;
+  // bool login = true;
   @override
   void initState() {
-    setState(() {
-      login = widget.login;
-    });
     super.initState();
   }
 
@@ -51,39 +46,41 @@ class _LoginRegisterState extends State<LoginRegister> {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.43,
                 ),
-                Back_Widgets(
-                  onclick: () {
-                    Navigator.pop(context);
-                  },
-                ),
+                // Back_Widgets(
+                //   onclick: () {
+                //     Navigator.pop(context);
+                //   },
+                // ),
               ],
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 305,
+              // height: 305,
+              height: MediaQuery.of(context).size.height * 0.5,
+              decoration: BoxDecoration(
+                color: AppTheme().lightgrey,
+              ),
               padding: EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    login ? 'Login' : 'Create a \nNew Account',
+                    // login ? 'Login' :
+                    'Create a \nNew Account',
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontFamily: 'Nexa',
                         fontSize: 25,
-                        color: AppTheme().l1black),
+                        color: AppTheme().black),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
-                    // login
-                    //   ?
-                    'Welcome Archimat'
-                    // : 'For best experience, download apps here'
-                    ,
+                    'Welcome Archimat',
                     style: TextStyle(
                       fontSize: 14,
+                      color: AppTheme().black,
                       fontFamily: 'Roxborough CF',
                     ),
                   ),
@@ -110,7 +107,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                         decoration: BoxDecoration(
                             color: AppTheme().white,
                             border: Border.all(color: AppTheme().loginBtnColor),
-                            borderRadius: BorderRadius.circular(25)),
+                            borderRadius: BorderRadius.circular(5)),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30),
                           child: Row(
@@ -125,7 +122,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                                 width: 10,
                               ),
                               Text(
-                                (login ? 'Login' : 'SIGN UP') + ' WITH GMAIL',
+                                'SIGN UP WITH GMAIL',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: 'Roxborough CF',
@@ -139,23 +136,17 @@ class _LoginRegisterState extends State<LoginRegister> {
                   SizedBox(height: 15),
                   GestureDetector(
                     onTap: () {
-                      if (login) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => LoginPage()));
-                      } else {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => RegisterationPage()));
-                      }
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => RegisterationPage()));
                     },
                     child: Container(
-                        // padding: EdgeInsets.only(left: 15),
                         margin: EdgeInsets.only(left: 15, right: 15),
                         height: 50,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                            // color: AppTheme().white,
+                            color: AppTheme().white,
                             border: Border.all(color: AppTheme().loginBtnColor),
-                            borderRadius: BorderRadius.circular(25)),
+                            borderRadius: BorderRadius.circular(5)),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30),
                           child: Row(
@@ -170,90 +161,105 @@ class _LoginRegisterState extends State<LoginRegister> {
                                 width: 10,
                               ),
                               Text(
-                                (login ? 'Login' : 'SIGN UP') + ' WITH EMAIL',
+                                'SIGN UP WITH EMAIL',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: 'Roxborough CF',
-                                    // fontWeight: FontWeight.bold,
                                     fontSize: 14),
                               )
                             ],
                           ),
                         )),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 15),
                   GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        print(login);
-                        login = !login;
-                        print(login);
-                      });
-                    },
-                    child: Align(
-                        alignment: Alignment.topRight,
-                        child: Text(
-                          !login ? 'LOGIN HERE' : 'SIGNUP',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontFamily: 'Roxborough CF',
-                          ),
-                        )),
-                  )
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => LoginPage()));
+                      },
+                      child: Container(
+                          margin: EdgeInsets.only(left: 15, right: 15),
+                          height: 50,
+                          width: MediaQuery.of(context).size.width,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: AppTheme().white,
+                              border:
+                                  Border.all(color: AppTheme().loginBtnColor),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/images/login.png',
+                                width: 20,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Login Here',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Roxborough CF',
+                                    fontSize: 14),
+                              ),
+                            ],
+                          ))),
                 ],
               ),
             ),
-            Column(
-              children: [
-                Divider_Widgets(),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 5, 0, 5),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: AppTheme().black)),
-                        child: SvgPicture.asset(
-                          'assets/images/facebook.svg',
-                          color: AppTheme().black,
-                          width: 10,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: AppTheme().black)),
-                        child: SvgPicture.asset(
-                          'assets/images/insta.svg',
-                          color: AppTheme().black,
-                          width: 20,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: AppTheme().black)),
-                        child: SvgPicture.asset(
-                          'assets/images/word.svg',
-                          color: AppTheme().black,
-                          width: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            // Column(
+            //   children: [
+            //     Divider_Widgets(),
+            //     Padding(
+            //       padding: const EdgeInsets.fromLTRB(20, 5, 0, 5),
+            //       child: Row(
+            //         children: [
+            //           Container(
+            //             padding: EdgeInsets.all(15),
+            //             decoration: BoxDecoration(
+            //                 shape: BoxShape.circle,
+            //                 border: Border.all(color: AppTheme().black)),
+            //             child: SvgPicture.asset(
+            //               'assets/images/facebook.svg',
+            //               color: AppTheme().black,
+            //               width: 10,
+            //             ),
+            //           ),
+            //           SizedBox(
+            //             width: 10,
+            //           ),
+            //           Container(
+            //             padding: EdgeInsets.all(10),
+            //             decoration: BoxDecoration(
+            //                 shape: BoxShape.circle,
+            //                 border: Border.all(color: AppTheme().black)),
+            //             child: SvgPicture.asset(
+            //               'assets/images/insta.svg',
+            //               color: AppTheme().black,
+            //               width: 20,
+            //             ),
+            //           ),
+            //           SizedBox(
+            //             width: 10,
+            //           ),
+            //           Container(
+            //             padding: EdgeInsets.all(10),
+            //             decoration: BoxDecoration(
+            //                 shape: BoxShape.circle,
+            //                 border: Border.all(color: AppTheme().black)),
+            //             child: SvgPicture.asset(
+            //               'assets/images/word.svg',
+            //               color: AppTheme().black,
+            //               width: 20,
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),

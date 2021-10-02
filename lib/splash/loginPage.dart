@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:Archimat/Services/loginService.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:Archimat/pages/tab.dart';
@@ -48,12 +47,22 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppTheme().lightgrey,
         appBar: AppBar(
-          backgroundColor: AppTheme().purple,
+          backgroundColor: AppTheme().white,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                color: AppTheme().black,
+              )),
           title: Text(
             'Login',
             style: TextStyle(
               fontFamily: 'Nexa',
+              color: AppTheme().black,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -65,149 +74,114 @@ class _LoginPageState extends State<LoginPage> {
           },
           child: SafeArea(
             child: SingleChildScrollView(
-              child: Stack(
-                children: [
-                  Image(
-                    image: AssetImage('assets/images/splashbg.png'),
-                    fit: BoxFit.cover,
-                    width: MediaQuery.of(context).size.width,
-                    // height: MediaQuery.of(context).size.height * 0.2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top: 40),
+                    child: Center(
+                      child: Container(
+                        alignment: Alignment.topCenter,
+                        child: Image(
+                          image: AssetImage('assets/images/archimatlogo.png'),
+                          fit: BoxFit.cover,
+                          // height: 160,
+                          width: 180,
+                        ),
+                      ),
+                    ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 40),
-                        child: Center(
-                          child: Container(
-                            alignment: Alignment.topCenter,
-                            child: Image(
-                              image:
-                                  AssetImage('assets/images/archimatlogo.png'),
-                              fit: BoxFit.cover,
-                              // height: 160,
-                              width: 180,
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    // height: 300,
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                          decoration: BoxDecoration(
+                              // color: AppTheme().white,
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: AppTheme().lblack)),
+                          child: TextField(
+                            keyboardType: TextInputType.text,
+                            controller: email,
+                            onChanged: (value) {
+                              checker(value);
+                            },
+                            decoration: InputDecoration(
+                              hintText: 'Enter Your E-Mail',
+                              hintStyle: TextStyle(
+                                color: AppTheme().grey,
+                                fontFamily: 'Roxborough CF',
+                              ),
+                              border: InputBorder.none,
                             ),
                           ),
                         ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        // height: 300,
-                        padding: EdgeInsets.all(20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Text(
-                            //   'Login',
-                            //   style: TextStyle(
-                            //       fontWeight: FontWeight.bold,
-                            //       fontSize: 20,
-                            //       color: AppTheme().l1black),
-                            // ),
-                            // SizedBox(
-                            //   height: 10,
-                            // ),
-                            // Text('Welcome Archimat'),
-                            // SizedBox(
-                            //   height: 10,
-                            // ),
-                            // Container(
-                            //   width: 40,
-                            //   child: Divider(
-                            //     color: AppTheme().black,
-                            //     thickness: 1,
-                            //   ),
-                            // ),
-                            // SizedBox(height: 20),
-                            Container(
-                              padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  border: Border.all(color: AppTheme().black)),
-                              child: TextField(
-                                keyboardType: TextInputType.text,
-                                controller: email,
-                                onChanged: (value) {
-                                  checker(value);
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                          decoration: BoxDecoration(
+                              // color: AppTheme().white,
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: AppTheme().lblack)),
+                          child: TextField(
+                            keyboardType: TextInputType.text,
+                            obscureText: true,
+                            controller: pswd,
+                            decoration: InputDecoration(
+                                hintText: 'Enter Your Password',
+                                hintStyle: TextStyle(
+                                  color: AppTheme().grey,
+                                  fontFamily: 'Roxborough CF',
+                                ),
+                                border: InputBorder.none),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        loader
+                            ? Center(
+                                child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                        AppTheme().purple)))
+                            : GestureDetector(
+                                onTap: () {
+                                  FocusScope.of(context)
+                                      .requestFocus(new FocusNode());
+                                  if (email.text.isEmpty || pswd.text.isEmpty) {
+                                    showAlert(
+                                        "Please Fill Both Field", Colors.red);
+                                  } else {
+                                    login();
+                                  }
                                 },
-                                decoration: InputDecoration(
-                                  hintText: 'Enter Your E-Mail',
-                                  hintStyle: TextStyle(
-                                    color: AppTheme().darkgrey,
-                                    fontFamily: 'Roxborough CF',
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
+                                  decoration: BoxDecoration(
+                                      // color: AppTheme().white,
+                                      borderRadius: BorderRadius.circular(5),
+                                      border: Border.all(
+                                          color: AppTheme().lblack, width: 1)),
+                                  child: Text(
+                                    'Login',
+                                    style: TextStyle(
+                                      color: AppTheme().black,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: 'Nexa',
+                                    ),
                                   ),
-                                  border: InputBorder.none,
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Container(
-                              padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  border: Border.all(color: AppTheme().black)),
-                              child: TextField(
-                                keyboardType: TextInputType.text,
-                                obscureText: true,
-                                controller: pswd,
-                                decoration: InputDecoration(
-                                    hintText: 'Enter Your Password',
-                                    hintStyle: TextStyle(
-                                      color: AppTheme().darkgrey,
-                                      fontFamily: 'Roxborough CF',
-                                    ),
-                                    border: InputBorder.none),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            loader
-                                ? Center(
-                                    child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                                AppTheme().purple)))
-                                : GestureDetector(
-                                    onTap: () {
-                                      FocusScope.of(context)
-                                          .requestFocus(new FocusNode());
-                                      if (email.text.isEmpty ||
-                                          pswd.text.isEmpty) {
-                                        showAlert("Please Fill Both Field",
-                                            Colors.red);
-                                      } else {
-                                        login();
-                                      }
-                                    },
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      alignment: Alignment.center,
-                                      padding:
-                                          EdgeInsets.fromLTRB(30, 20, 30, 20),
-                                      decoration: BoxDecoration(
-                                          color: AppTheme().purple,
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                          border: Border.all(
-                                              color: AppTheme().lblack,
-                                              width: 1)),
-                                      child: Text(
-                                        'Login',
-                                        style: TextStyle(
-                                          color: AppTheme().white,
-                                          fontFamily: 'Nexa',
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                          ],
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),

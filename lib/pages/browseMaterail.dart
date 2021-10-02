@@ -1,4 +1,4 @@
-import 'package:Archimat/splash/splash.dart';
+import 'package:Archimat/splash/loginregister.dart';
 import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -19,11 +19,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
   List<String> items = [
     'assets/images/Capture.PNG',
     'assets/images/Capture1.PNG',
-
     'assets/images/Capture2.PNG',
-
-    //  'assets/images/2.png',
-    //  'assets/images/3.png'
   ];
 
   Widget slider() {
@@ -56,12 +52,6 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                 height: MediaQuery.of(context).size.height,
                 color: AppTheme().white,
               ),
-
-              // Image(
-              //   image: AssetImage('assets/images/splashbg.png'),
-              //   fit: BoxFit.fitHeight,
-              //   width: MediaQuery.of(context).size.width,
-              // ),
               SingleChildScrollView(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,7 +90,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                                 MaterialPageRoute(
                                                     builder:
                                                         (context) =>
-                                                            SplashScreen()),
+                                                            LoginRegister()),
                                                 (Route<dynamic> route) =>
                                                     false);
                                       },
@@ -157,22 +147,6 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                 SizedBox(
                                   height: 5,
                                 ),
-                                // Center(
-                                //   // alignment: Alignment.center,
-                                //   child: Container(
-                                //     alignment: Alignment.center,
-                                //     child: new DotsIndicator(
-                                //       dotsCount: items.length,
-                                //       position: currentIndex,
-                                //       decorator: DotsDecorator(
-                                //         spacing:
-                                //             EdgeInsets.fromLTRB(5, 0, 5, 0),
-                                //         color: Colors.grey, // Inactive color
-                                //         activeColor: AppTheme().lightgrey,
-                                //       ),
-                                //     ),
-                                //   ),
-                                // ),
                               ]),
                             ),
                           ]),
@@ -188,13 +162,11 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                             } else {
                               Navigator.of(context).pushAndRemoveUntil(
                                   MaterialPageRoute(
-                                      builder: (context) => SplashScreen()),
+                                      builder: (context) => LoginRegister()),
                                   (Route<dynamic> route) => false);
                             }
                           },
                           child: Container(
-                              // padding: EdgeInsets.only(left: 15),
-
                               height: 50,
                               width: MediaQuery.of(context).size.width * 0.5,
                               decoration: BoxDecoration(
@@ -205,7 +177,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                         color: Colors.black54),
                                   ],
                                   color: AppTheme().white,
-                                  borderRadius: BorderRadius.circular(25)),
+                                  borderRadius: BorderRadius.circular(5)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [

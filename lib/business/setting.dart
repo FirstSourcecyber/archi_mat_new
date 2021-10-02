@@ -1,6 +1,5 @@
 import 'package:Archimat/business/editprofile.dart';
 import 'package:Archimat/business/forget.dart';
-import 'package:Archimat/util/widgets/back.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:Archimat/util/widgets/logout.dart';
 import 'package:Archimat/util/widgets/profilepic.dart';
