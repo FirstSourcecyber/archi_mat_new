@@ -29,6 +29,8 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
     setState(() {
       if (widget.image != '') {
         image = widget.image;
+        print(image);
+        print(image.substring(0, 4) == 'http');
       } else {
         image = '';
       }
@@ -74,7 +76,9 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
             radius: 50,
             backgroundColor: Colors.grey[200],
             backgroundImage: image != ''
-                ? NetworkImage(Config.url + image)
+                ? NetworkImage(image.substring(0, 4) == 'http'
+                    ? image
+                    : Config.url + image)
                 : AssetImage('assets/images/mask.png'),
           ),
         ),

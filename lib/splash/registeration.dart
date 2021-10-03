@@ -437,6 +437,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
       'lastname': lname.text.trim(),
       'gender': gender != null ? gender : 'Male',
       // 'birthday': selectedDate.toString(),
+      'google': true,
       'phone': countrycode + newphone,
       'image': prefs.getString('image')
     };

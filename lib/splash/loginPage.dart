@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'package:Archimat/Services/loginService.dart';
+import 'package:Archimat/controller/loginRegister.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:Archimat/pages/tab.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -19,7 +22,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController email = new TextEditingController();
   TextEditingController pswd = new TextEditingController();
-
+  final LoginRegisterController contro = Get.find();
   bool emailvarified = false;
   String token;
   bool loader = false;
@@ -180,6 +183,46 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 ),
                               ),
+                        SizedBox(height: 20),
+                        GestureDetector(
+                          onTap: () {
+                            contro.loginwithgoogle();
+                          },
+                          child: Container(
+                              margin: EdgeInsets.only(left: 15, right: 15),
+                              height: 50,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  color: AppTheme().white,
+                                  border: Border.all(
+                                      color: AppTheme().loginBtnColor),
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 30),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SvgPicture.asset(
+                                      'assets/images/google.svg',
+                                      color: AppTheme().black,
+                                      width: 20,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      'SIGN UP WITH GMAIL',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Roxborough CF',
+                                          // fontWeight: FontWeight.bold,
+                                          fontSize: 14),
+                                    )
+                                  ],
+                                ),
+                              )),
+                        ),
                       ],
                     ),
                   ),
@@ -212,7 +255,7 @@ class _LoginPageState extends State<LoginPage> {
           if (value['user']['role']['name'] == 'user') {
             print('user');
             prefs.setString('user', jsonEncode(value['user']));
-            prefs.setString('new', 'new');
+            // prefs.setString('new', 'new');
 
             Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(

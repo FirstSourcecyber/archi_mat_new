@@ -71,6 +71,7 @@ dependencies:
   cupertino_date_textbox: ^1.0.0+3
   scroll_date_picker: ^2.0.5
   email_validator: ^1.0.6
+  google_sign_in: ^5.1.1
 
 
 flutter_icons:

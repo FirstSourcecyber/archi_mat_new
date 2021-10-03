@@ -14,6 +14,18 @@ class LoginService {
     }
   }
 
+  Future<dynamic> loginwithgoogle(data) async {
+    try {
+      var resp = await this
+          .dio
+          .post(Config.url + "users/userloginwithgoogle", data: data);
+      return resp.data;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
+
   Future<dynamic> signup(data) async {
     try {
       var resp =

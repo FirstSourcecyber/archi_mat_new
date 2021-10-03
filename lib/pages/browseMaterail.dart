@@ -2,6 +2,7 @@ import 'package:Archimat/splash/loginregister.dart';
 import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class VirtualMaterialScreen1 extends StatefulWidget {
   @override
@@ -60,9 +61,9 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 15, vertical: 15),
+                            Container(
+                              height: 50,
+                              padding: const EdgeInsets.all(15),
                               child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -151,7 +152,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                             ),
                           ]),
                       Padding(
-                        padding: const EdgeInsets.all(60.0),
+                        padding: const EdgeInsets.all(40.0),
                         child: GestureDetector(
                           onTap: () {
                             if (i < 2) {
@@ -160,24 +161,23 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                 currentIndex = i;
                               });
                             } else {
-                              Navigator.of(context).pushAndRemoveUntil(
-                                  MaterialPageRoute(
-                                      builder: (context) => LoginRegister()),
-                                  (Route<dynamic> route) => false);
+                              next();
                             }
                           },
                           child: Container(
                               height: 50,
                               width: MediaQuery.of(context).size.width * 0.5,
                               decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                        blurRadius: 2,
-                                        spreadRadius: 2,
-                                        color: Colors.black54),
-                                  ],
+                                  // boxShadow: [
+                                  //   BoxShadow(
+                                  //       blurRadius: 2,
+                                  //       spreadRadius: 2,
+                                  //       color: Colors.black54),
+                                  // ],
                                   color: AppTheme().white,
-                                  borderRadius: BorderRadius.circular(5)),
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: AppTheme().grey, width: .5)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -211,6 +211,9 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        height: 10,
+                      ),
                     ]),
               ),
             ],
@@ -218,5 +221,13 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
         ),
       ),
     );
+  }
+
+  next() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('new', 'new');
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => LoginRegister()),
+        (Route<dynamic> route) => false);
   }
 }
