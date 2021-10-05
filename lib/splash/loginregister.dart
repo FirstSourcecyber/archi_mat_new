@@ -96,7 +96,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                       SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          controller.signupgoogle();
+                          controller.signupgoogle(token);
                         },
                         child: Container(
                             margin: EdgeInsets.only(left: 15, right: 15),

@@ -91,7 +91,7 @@ class _TabPageState extends State<TabPage> {
     });
     if (detail != null) {
       setState(() {
-        name = detail['firstname'] + ' ' + detail['lastname'];
+        // name = detail['firstname'] + ' ' + detail['lastname'];
         image = detail['image'];
       });
     }

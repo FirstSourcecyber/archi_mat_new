@@ -38,7 +38,7 @@ class _BusinessSettingState extends State<BusinessSetting> {
               Divider_Widgets(),
               ProfileTab(
                 bold: true,
-                text: 'Edit Profile',
+                text: "Edit Profile",
                 onclick: () {
                   Navigator.push(
                       context,
@@ -58,7 +58,7 @@ class _BusinessSettingState extends State<BusinessSetting> {
               ),
               ProfileTab(
                 bold: false,
-                text: 'Push Notifications',
+                text: "Push Notifications",
                 option: true,
                 onclick: () {},
               ),

@@ -1,4 +1,6 @@
 import 'package:Archimat/environment.dart';
+import 'package:Archimat/pages/materialdetail.dart';
+import 'package:Archimat/pages/servicdetail.dart';
 import 'package:Archimat/userside/productDetail.dart';
 import 'package:Archimat/userside/shophome.dart';
 import 'package:Archimat/util/widgets/title.dart';
@@ -34,6 +36,27 @@ class _ProductlistState extends State<Productlist> {
         MaterialPageRoute(
             builder: (context) => ProductDetail(
                   data: data,
+                  shop: false,
+                )));
+  }
+
+  gotomaterial(data) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => MaterialDetail(
+                  data: data,
+                  shop: false,
+                )));
+  }
+
+  gotoservice(data) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ServiceDetail(
+                  data: data,
+                  shop: false,
                 )));
   }
 
@@ -74,6 +97,16 @@ class _ProductlistState extends State<Productlist> {
                       print(widget.data[index]);
 
                       gotoshop(widget.data[index]);
+                    } else if (widget.i == 1) {
+                      print('shop===');
+                      print(widget.data[index]);
+
+                      gotomaterial(widget.data[index]);
+                    } else {
+                      print('shop===');
+                      print(widget.data[index]);
+
+                      gotoservice(widget.data[index]);
                     }
                   },
                   child: Container(

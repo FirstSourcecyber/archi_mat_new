@@ -189,9 +189,9 @@ class _LoginPageState extends State<LoginPage> {
                             contro.loginwithgoogle();
                           },
                           child: Container(
-                              margin: EdgeInsets.only(left: 15, right: 15),
-                              height: 50,
                               width: MediaQuery.of(context).size.width,
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.fromLTRB(20, 17, 20, 17),
                               decoration: BoxDecoration(
                                   color: AppTheme().white,
                                   border: Border.all(

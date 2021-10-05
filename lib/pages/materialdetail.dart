@@ -1,20 +1,20 @@
 import 'package:Archimat/userside/shophome.dart';
-import 'package:Archimat/util/slider/profileslider.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 
+import '../environment.dart';
 import '../theme.dart';
 
-class ProductDetail extends StatefulWidget {
+class MaterialDetail extends StatefulWidget {
   final dynamic data;
   final dynamic shop;
-  const ProductDetail({Key key, this.data, this.shop}) : super(key: key);
+  const MaterialDetail({Key key, this.data, this.shop}) : super(key: key);
 
   @override
-  _ProductDetailState createState() => _ProductDetailState();
+  _MaterialDetailState createState() => _MaterialDetailState();
 }
 
-class _ProductDetailState extends State<ProductDetail> {
+class _MaterialDetailState extends State<MaterialDetail> {
   double rating = 3.5, i = 0;
   bool aboutText = true, loader = true;
   List image = [];
@@ -30,7 +30,7 @@ class _ProductDetailState extends State<ProductDetail> {
     setState(() {
       about = widget.data['desc'];
 
-      image = widget.data['images'];
+      // image = widget.data['image'];
       print(image);
       print(widget.data);
       loader = false;
@@ -72,8 +72,20 @@ class _ProductDetailState extends State<ProductDetail> {
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ProfileSliderPage(
-                      image: image,
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 250,
+                      decoration: BoxDecoration(
+                          border: Border(
+                              bottom: BorderSide(color: AppTheme().grey)),
+                          image: DecorationImage(
+                              image: widget.data['image'] != null &&
+                                      widget.data['image'] != ''
+                                  ? NetworkImage(
+                                      Config.url + (widget.data['image']))
+                                  : AssetImage('assets/images/back.png'),
+                              // AssetImage(widget.data[index]['image']),
+                              fit: BoxFit.cover)),
                     ),
                     Container(
                       // height: 75,
@@ -107,8 +119,9 @@ class _ProductDetailState extends State<ProductDetail> {
                                   fontFamily: 'Roxborough CF',
                                   fontSize: 12),
                             ),
-                            !widget.shop
-                                ? Text(
+                            widget.shop
+                                ? Container()
+                                : Text(
                                     widget.data['shop']['name'] != '' &&
                                             widget.data['shop']['name'] != null
                                         ? widget.data['shop']['name']
@@ -117,8 +130,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                         color: AppTheme().l1black,
                                         fontFamily: 'Roxborough CF',
                                         fontSize: 12),
-                                  )
-                                : Container(),
+                                  ),
                             Align(
                               alignment: Alignment.bottomRight,
                               child: widget.shop
@@ -163,66 +175,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
-                      child: Text(
-                        'Description',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: AppTheme().black,
-                          fontFamily: 'Nexa',
-                        ),
-                      ),
-                    ),
-                    Divider_Widgets1(),
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            about.length > 200 && aboutText
-                                ? about.toString().substring(0, 200) +
-                                    ' .....\n '
-                                : about + '\n',
-                            style: TextStyle(
-                              fontFamily: 'Roxborough CF',
-                            ),
-                          ),
-                          about.length > 200 && aboutText
-                              ? GestureDetector(
-                                  child: Text(
-                                    'More',
-                                    style: TextStyle(
-                                      color: AppTheme().blue,
-                                      fontFamily: 'Roxborough CF',
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    setState(() {
-                                      aboutText = false;
-                                    });
-                                  },
-                                )
-                              : about.length > 200
-                                  ? GestureDetector(
-                                      child: Text(
-                                        'less',
-                                        style: TextStyle(
-                                          color: AppTheme().blue,
-                                          fontFamily: 'Roxborough CF',
-                                        ),
-                                      ),
-                                      onTap: () {
-                                        setState(() {
-                                          aboutText = true;
-                                        });
-                                      },
-                                    )
-                                  : Container(),
-                        ],
-                      ),
-                    ),
+                    // Divider_Widgets(),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
                       child: Text(
@@ -243,7 +196,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
-                              'In Stock',
+                              'Brand',
                               style: TextStyle(
                                   fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
@@ -253,7 +206,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
-                              widget.data['stock'].toString(),
+                              widget.data['brand'],
                               style: TextStyle(
                                   fontFamily: 'Nexa', color: AppTheme().black),
                             ),
@@ -269,7 +222,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
-                              'Category',
+                              'Country',
                               style: TextStyle(
                                   fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
@@ -279,9 +232,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
-                              widget.data['category']['name'] +
-                                  '>' +
-                                  widget.data['subcategory']['name'],
+                              widget.data['country'],
                               style: TextStyle(
                                 fontFamily: 'Nexa',
                               ),
@@ -298,7 +249,36 @@ class _ProductDetailState extends State<ProductDetail> {
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
-                              'Size',
+                              'Color',
+                              style: TextStyle(
+                                  fontFamily: 'Nexa',
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                  color: Color(int.parse(widget.data['color']
+                                      .replaceAll('#', '0xff'))),
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                      child: Row(
+                        children: [
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Text(
+                              'Status',
                               style: TextStyle(
                                   fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
@@ -308,7 +288,9 @@ class _ProductDetailState extends State<ProductDetail> {
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
-                              widget.data['size'],
+                              widget.data['status']
+                                  ? 'Available'
+                                  : 'Not Available',
                               style: TextStyle(
                                 fontFamily: 'Nexa',
                               ),
@@ -325,7 +307,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
-                              'Category',
+                              'Material Code',
                               style: TextStyle(
                                   fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
@@ -335,36 +317,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
-                              widget.data['category']['name'] +
-                                  '>' +
-                                  widget.data['subcategory']['name'],
-                              style: TextStyle(
-                                fontFamily: 'Nexa',
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      child: Row(
-                        children: [
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text(
-                              'Product Code',
-                              style: TextStyle(
-                                  fontFamily: 'Nexa',
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text(
-                              widget.data['productCode'],
+                              widget.data['code'],
                               style: TextStyle(
                                 fontFamily: 'Nexa',
                               ),

@@ -26,7 +26,7 @@ class LoginRegisterController extends GetxController {
     });
   }
 
-  signupgoogle() async {
+  signupgoogle(token) async {
     googleAccount.value = await _googlesignin.signIn();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     print(googleAccount.value);
@@ -44,7 +44,7 @@ class LoginRegisterController extends GetxController {
         'phone': '',
       };
       print(data);
-      LoginService().signup(data).then((value) {
+      LoginService().signupWithGoogle(data).then((value) {
         print(value);
         if (value['message'] == 'success') {
           if (value['user']['role']['name'] == 'user') {

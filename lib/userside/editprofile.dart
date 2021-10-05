@@ -5,6 +5,7 @@ import 'package:Archimat/theme.dart';
 import 'package:Archimat/util/widgets/back.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:Archimat/util/widgets/profilepic.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -42,6 +43,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
       detail = jsonDecode(pref.getString('user'));
+      print(detail);
       loader = true;
       if (detail != null) {
         setState(() {
@@ -50,9 +52,21 @@ class _UserEditProfileState extends State<UserEditProfile> {
           fname.text = detail['firstname'];
           username.text = detail['username'];
           lname.text = detail['lastname'];
-          newphone = detail['phoneNo'];
+          if (detail['phoneNo'] == '' || detail['phoneNo'] == null) {
+            newphone = detail['phoneNo'];
+          } else {
+            newphone = detail['phoneNo'];
+            countrycode = (detail['phoneNo']).substring(0, 3);
+            phone.text = (detail['phoneNo'].replaceAll(countrycode, ''))
+                .toString()
+                .trim();
+            print(phone.text);
+            newphone = phone.text;
+            print(countrycode);
+          }
+
           email.text = detail['email'];
-          phone.text = detail['phoneNo'];
+          // phone.text = detail['phoneNo'];
           gender = detail['gender'];
           // if (detail['gender'] == 'Male' || detail['gender'] == 'male') {
           //   _gender = Gender.Male;
@@ -63,7 +77,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
           //   _gender = Gender.Others;
           // }
           // print(_gender);
-          selectedDate = DateTime.parse(detail['dateofbirth']);
+          // selectedDate = DateTime.parse(detail['dateofbirth']);
 
           loader = false;
         });
@@ -314,40 +328,41 @@ class _UserEditProfileState extends State<UserEditProfile> {
                   SizedBox(
                     height: 20,
                   ),
-                  Divider_Widgets(),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Text(
-                            'D.O.B',
-                            style: TextStyle(
-                                fontFamily: 'Nexa',
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700),
-                          ),
-                          alignment: Alignment.topLeft,
-                          width: 70,
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Expanded(
-                          child: GestureDetector(
-                              onTap: () => _selectDate(context),
-                              child: Text(
-                                  "${selectedDate.toLocal()}".split(' ')[0])),
-                        )
-                      ],
-                    ),
-                  ),
+                  // Divider_Widgets(),
+                  // Padding(
+                  //   padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: [
+                  //       Container(
+                  //         child: Text(
+                  //           'D.O.B',
+                  //           style: TextStyle(
+                  //               fontFamily: 'Nexa',
+                  //               fontSize: 14,
+                  //               fontWeight: FontWeight.w700),
+                  //         ),
+                  //         alignment: Alignment.topLeft,
+                  //         width: 70,
+                  //       ),
+                  //       SizedBox(
+                  //         width: 20,
+                  //       ),
+                  //       Expanded(
+                  //         child: GestureDetector(
+                  //             onTap: () => _selectDate(context),
+                  //             child: Text(
+                  //                 "${selectedDate.toLocal()}".split(' ')[0])),
+                  //       )
+                  //     ],
+                  //   ),
+                  // ),
                   Divider_Widgets(),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           child: Text(
@@ -360,34 +375,32 @@ class _UserEditProfileState extends State<UserEditProfile> {
                           alignment: Alignment.topLeft,
                           width: 70,
                         ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Expanded(
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                              // CountryCodePicker(
-                              //   padding: EdgeInsets.all(0),
-                              //   showFlag: true,
-                              //   initialSelection: 'PK',
-                              //   // favorite: ['+92', 'PK'],
-                              //   onChanged: (code) {
-                              //     this.countrycode = code.toString();
-                              //     print(countrycode);
-                              //   },
-                              // ),
-                              // Container(
-                              //   height: 30.0,
-                              //   width: 1.0,
-                              //   color: Colors.blue,
-                              //   margin: const EdgeInsets.only(
-                              //       left: 10.0, right: 10.0),
-                              // ),
+                        // SizedBox(
+                        //   width: 20,
+                        // ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              CountryCodePicker(
+                                padding: EdgeInsets.all(0),
+                                showFlag: true,
+                                initialSelection: countrycode,
+                                // favorite: ['+92', 'PK'],
+                                onChanged: (code) {
+                                  this.countrycode = code.toString();
+                                  print(countrycode);
+                                },
+                              ),
+                              Container(
+                                height: 30.0,
+                                width: 1.0,
+                                color: Colors.blue,
+                                margin: const EdgeInsets.only(
+                                    left: 10.0, right: 10.0),
+                              ),
                               Expanded(
                                 child: TextField(
-                                  enabled: false,
+                                  // enabled: false,
                                   controller: phone,
                                   keyboardType: TextInputType.phone,
                                   decoration: InputDecoration(
@@ -405,7 +418,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                   },
                                 ),
                               ),
-                            ]))
+                            ])
                       ],
                     ),
                   ),
@@ -483,7 +496,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             alignment: Alignment.center,
                             padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
                                     color: AppTheme().l1black, width: 1)),
                             child: Text(
@@ -523,7 +536,7 @@ class _UserEditProfileState extends State<UserEditProfile> {
       'lastname': lname.text.trim(),
       'gender': gender != null ? gender : 'Male',
       'birthday': selectedDate.toString(),
-      'phone': newphone,
+      'phone': countrycode + newphone,
       'image': image1
     };
     print(data);

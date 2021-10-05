@@ -119,13 +119,18 @@ class _ImageCardState extends State<ImageCard> {
       // width: widget.width,
       // height: widget.height,
       decoration: BoxDecoration(
-          border: Border.all(color: AppTheme().grey), color: AppTheme().white),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: AppTheme().grey),
+          color: AppTheme().white),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             decoration: BoxDecoration(
-                border: Border.all(color: AppTheme().grey, width: .5)),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              // border: Border.all(color: AppTheme().grey, width: .5)
+            ),
             child: widget.i == 1
                 ? Image.network(
                     Config.url + widget.data['images'][0]['image'],

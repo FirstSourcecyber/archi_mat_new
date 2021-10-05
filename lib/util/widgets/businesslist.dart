@@ -1,8 +1,8 @@
 import 'package:Archimat/util/list/openhourlist.dart';
 import 'package:Archimat/util/list/productgrid.dart';
+import 'package:Archimat/util/list/shopproductlist.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../theme.dart';
 
@@ -17,73 +17,7 @@ class BusinessList extends StatefulWidget {
 
 class _BusinessListState extends State<BusinessList> {
   double i = 0;
-  List review = [
-    {
-      'rating': '5.0',
-      'review':
-          'Love the outcome of the design, fuss free communication and straightforward.',
-      'user': {
-        'image':
-            'https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg',
-        'name': 'Mererials',
-      }
-    },
-    {
-      'rating': '5.0',
-      'review':
-          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
-      'user': {
-        'image':
-            'https://cdn.pixabay.com/photo/2017/12/13/00/23/christmas-3015776_960_720.jpg',
-        'name': 'Showrooms',
-        'category': 'Shop'
-      }
-    },
-    {
-      'rating': '5.0',
-      'review':
-          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
-      'user': {
-        'image':
-            'https://cdn.pixabay.com/photo/2019/12/19/10/55/christmas-market-4705877_960_720.jpg',
-        'name': 'Event',
-        'category': 'Shop'
-      }
-    },
-    {
-      'rating': '5.0',
-      'review':
-          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
-      'user': {
-        'image':
-            'https://cdn.pixabay.com/photo/2019/12/20/00/03/road-4707345_960_720.jpg',
-        'name': 'Mererials',
-        'category': 'Shop'
-      }
-    },
-    {
-      'rating': '5.0',
-      'review':
-          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
-      'user': {
-        'image':
-            'https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg',
-        'name': 'Showrooms',
-        'category': 'Shop'
-      }
-    },
-    {
-      'rating': '5.0',
-      'review':
-          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
-      'user': {
-        'image':
-            'https://cdn.pixabay.com/photo/2016/11/22/07/09/spruce-1848543__340.jpg',
-        'name': 'Event',
-        'category': 'Shop'
-      }
-    },
-  ];
+  List review = [];
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -105,15 +39,18 @@ class _BusinessListState extends State<BusinessList> {
                   },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                    decoration: i != 0
-                        ? BoxDecoration(
-                            color: AppTheme().white,
-                          )
-                        : BoxDecoration(
-                            color: AppTheme().l1black,
-                            borderRadius: BorderRadius.circular(25),
-                            border:
-                                Border.all(color: AppTheme().lblack, width: 1)),
+                    decoration:
+                        // i != 0
+                        //     ? BoxDecoration(
+                        //         color: AppTheme().white,
+                        //       )
+                        //     :
+                        BoxDecoration(
+                            color:
+                                i == 0 ? AppTheme().purple : AppTheme().white,
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(
+                                color: AppTheme().lblack, width: 0.5)),
                     child: Text(
                       'Listing',
                       style: AppTheme().primaryTextStyle(i == 0 ? true : false),
@@ -174,15 +111,18 @@ class _BusinessListState extends State<BusinessList> {
                   },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
-                    decoration: i != 3
-                        ? BoxDecoration(
-                            color: AppTheme().white,
-                          )
-                        : BoxDecoration(
-                            color: AppTheme().l1black,
-                            borderRadius: BorderRadius.circular(25),
-                            border:
-                                Border.all(color: AppTheme().lblack, width: 1)),
+                    decoration:
+                        // i != 3
+                        //     ? BoxDecoration(
+                        //         color: AppTheme().white,
+                        //       )
+                        //     :
+                        BoxDecoration(
+                            color:
+                                i == 3 ? AppTheme().purple : AppTheme().white,
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(
+                                color: AppTheme().lblack, width: 0.5)),
                     child: Text(
                       'About',
                       style: AppTheme().primaryTextStyle(i == 3 ? true : false),
@@ -220,44 +160,9 @@ class ListingPage extends StatefulWidget {
 }
 
 class _ListingPageState extends State<ListingPage> {
-  List product = [
-    {
-      'image':
-          'https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg',
-      'name': 'Mererials',
-      'category': 'Shop'
-    },
-    {
-      'image':
-          'https://cdn.pixabay.com/photo/2017/12/13/00/23/christmas-3015776_960_720.jpg',
-      'name': 'Showrooms',
-      'category': 'Shop'
-    },
-    {
-      'image':
-          'https://cdn.pixabay.com/photo/2019/12/19/10/55/christmas-market-4705877_960_720.jpg',
-      'name': 'Event',
-      'category': 'Shop'
-    },
-    {
-      'image':
-          'https://cdn.pixabay.com/photo/2019/12/20/00/03/road-4707345_960_720.jpg',
-      'name': 'Mererials',
-      'category': 'Shop'
-    },
-    {
-      'image':
-          'https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg',
-      'name': 'Showrooms',
-      'category': 'Shop'
-    },
-    {
-      'image':
-          'https://cdn.pixabay.com/photo/2016/11/22/07/09/spruce-1848543__340.jpg',
-      'name': 'Event',
-      'category': 'Shop'
-    },
-  ];
+  List product = [];
+  int i = 0;
+  bool loader = false;
   @override
   void initState() {
     print('widget.data===========================================');
@@ -270,74 +175,144 @@ class _ListingPageState extends State<ListingPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //     children: [
+        //       Container(
+        //         width: MediaQuery.of(context).size.width * 0.27,
+        //         padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+        //         decoration: BoxDecoration(
+        //             color: AppTheme().white,
+        //             borderRadius: BorderRadius.circular(25),
+        //             border: Border.all(color: AppTheme().lblack, width: 1)),
+        //         child: Row(
+        //           mainAxisAlignment: MainAxisAlignment.center,
+        //           children: [
+        //             Text(
+        //               'Filters',
+        //               style: TextStyle(
+        //                 fontFamily: 'Nexa',
+        //               ),
+        //             ),
+        //             SvgPicture.asset(
+        //               'assets/images/Filter.svg',
+        //               width: 25,
+        //               color: AppTheme().black,
+        //             )
+        //           ],
+        //         ),
+        //       ),
+        //       Container(
+        //         padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+        //         width: MediaQuery.of(context).size.width * 0.27,
+        //         alignment: Alignment.center,
+        //         decoration: BoxDecoration(
+        //             color: AppTheme().white,
+        //             borderRadius: BorderRadius.circular(25),
+        //             border: Border.all(color: AppTheme().lblack, width: 1)),
+        //         child: Text(
+        //           'Status: All',
+        //           style: TextStyle(
+        //             fontFamily: 'Nexa',
+        //           ),
+        //         ),
+        //       ),
+        //       Container(
+        //         width: MediaQuery.of(context).size.width * 0.35,
+        //         alignment: Alignment.center,
+        //         padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+        //         decoration: BoxDecoration(
+        //             color: AppTheme().white,
+        //             borderRadius: BorderRadius.circular(25),
+        //             border: Border.all(color: AppTheme().lblack, width: 1)),
+        //         child: Text(
+        //           'In : All Categories',
+        //           style: TextStyle(
+        //             fontFamily: 'Nexa',
+        //           ),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        // SizedBox(
+        //   height: 10,
+        // ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.27,
-                padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                decoration: BoxDecoration(
-                    color: AppTheme().white,
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(color: AppTheme().lblack, width: 1)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Filters',
-                      style: TextStyle(
-                        fontFamily: 'Nexa',
-                      ),
-                    ),
-                    SvgPicture.asset(
-                      'assets/images/Filter.svg',
-                      width: 25,
-                      color: AppTheme().black,
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                width: MediaQuery.of(context).size.width * 0.27,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    color: AppTheme().white,
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(color: AppTheme().lblack, width: 1)),
-                child: Text(
-                  'Status: All',
-                  style: TextStyle(
-                    fontFamily: 'Nexa',
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    i = 0;
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                  decoration: BoxDecoration(
+                      color: i == 0 ? AppTheme().purple : AppTheme().white,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: AppTheme().lblack, width: 0.5)),
+                  child: Text(
+                    'Product',
+                    style: AppTheme().primaryTextStyle(i == 0 ? true : false),
                   ),
                 ),
               ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.35,
-                alignment: Alignment.center,
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                decoration: BoxDecoration(
-                    color: AppTheme().white,
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(color: AppTheme().lblack, width: 1)),
-                child: Text(
-                  'In : All Categories',
-                  style: TextStyle(
-                    fontFamily: 'Nexa',
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    i = 1;
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                  decoration: BoxDecoration(
+                      color: i == 1 ? AppTheme().purple : AppTheme().white,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: AppTheme().lblack, width: 0.5)),
+                  child: Text(
+                    'Material',
+                    style: AppTheme().primaryTextStyle(i == 1 ? true : false),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    i = 2;
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                  decoration: BoxDecoration(
+                      color: i == 2 ? AppTheme().purple : AppTheme().white,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: AppTheme().lblack, width: 0.5)),
+                  child: Text(
+                    'Service',
+                    style: AppTheme().primaryTextStyle(i == 2 ? true : false),
                   ),
                 ),
               ),
             ],
           ),
         ),
-        ProductListGride(
-          data: widget.data,
-        ),
+        loader
+            ? Center(
+                child: CircularProgressIndicator(
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(AppTheme().purple)))
+            : ProductListGride(
+                data: widget.data,
+              ),
         SizedBox(
           height: 20,
-        )
+        ),
       ],
     );
   }
@@ -345,7 +320,12 @@ class _ListingPageState extends State<ListingPage> {
 
 class BusinessAboutPage extends StatefulWidget {
   final dynamic data;
-  const BusinessAboutPage({Key key, this.data}) : super(key: key);
+  final dynamic product;
+  final dynamic service;
+  final dynamic material;
+  const BusinessAboutPage(
+      {Key key, this.data, this.material, this.service, this.product})
+      : super(key: key);
 
   @override
   _BusinessAboutPageState createState() => _BusinessAboutPageState();
@@ -380,67 +360,168 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.all(20),
+          // padding: EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'About Us',
-                style: TextStyle(
-                  fontFamily: 'Nexa',
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                child: Text(
+                  'About Us',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: AppTheme().black,
+                    fontFamily: 'Nexa',
+                  ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                widget.data['desc'].length > 200 && aboutText
-                    ? widget.data['desc'].toString().substring(0, 200) +
-                        ' .....\n '
-                    : widget.data['desc'] + '\n',
-                style: TextStyle(
-                  fontFamily: 'Nexa',
+              Divider_Widgets1(),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
+                child: Text(
+                  widget.data['desc'].length > 200 && aboutText
+                      ? widget.data['desc'].toString().substring(0, 200) +
+                          ' .....'
+                      : widget.data['desc'] + '',
+                  style: TextStyle(fontFamily: 'Nexa', color: AppTheme().black),
                 ),
               ),
-              widget.data['desc'].length > 200 && aboutText
-                  ? GestureDetector(
-                      child: Text(
-                        'More',
-                        style: TextStyle(
-                          color: AppTheme().blue,
-                          fontFamily: 'Nexa',
-                        ),
-                      ),
-                      onTap: () {
-                        setState(() {
-                          aboutText = false;
-                        });
-                      },
-                    )
-                  : widget.data['desc'].length > 200
-                      ? GestureDetector(
-                          child: Text(
-                            'less',
-                            style: TextStyle(
-                              color: AppTheme().blue,
-                              fontFamily: 'Nexa',
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 5, 0, 5),
+                child: Column(
+                  children: [
+                    widget.data['desc'].length > 200 && aboutText
+                        ? GestureDetector(
+                            child: Text(
+                              'More',
+                              style: TextStyle(
+                                color: AppTheme().blue,
+                                fontFamily: 'Nexa',
+                              ),
                             ),
-                          ),
-                          onTap: () {
-                            setState(() {
-                              aboutText = true;
-                            });
-                          },
-                        )
-                      : Container(),
+                            onTap: () {
+                              setState(() {
+                                aboutText = false;
+                              });
+                            },
+                          )
+                        : widget.data['desc'].length > 200
+                            ? GestureDetector(
+                                child: Text(
+                                  'less',
+                                  style: TextStyle(
+                                    color: AppTheme().blue,
+                                    fontFamily: 'Nexa',
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    aboutText = true;
+                                  });
+                                },
+                              )
+                            : Container(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
-        Divider_Widgets(),
+        widget.product.length == 0
+            ? Container()
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                    child: Text(
+                      'Product',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: AppTheme().black,
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
+                  ),
+                  Divider_Widgets1(),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    child: ShopProductlist(
+                      i: 1,
+                      data: widget.product,
+                    ),
+                  ),
+                ],
+              ),
+        widget.material.length == 0
+            ? Container()
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                    child: Text(
+                      'Material',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: AppTheme().black,
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
+                  ),
+                  Divider_Widgets1(),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    child: ShopProductlist(
+                      i: 2,
+                      data: widget.material,
+                    ),
+                  ),
+                ],
+              ),
+        widget.service.length == 0
+            ? Container()
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                    child: Text(
+                      'Service',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: AppTheme().black,
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
+                  ),
+                  Divider_Widgets1(),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    child: ShopProductlist(
+                      i: 3,
+                      data: widget.service,
+                    ),
+                  ),
+                ],
+              ),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+          child: Text(
+            'Basic Info',
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              color: AppTheme().black,
+              fontFamily: 'Nexa',
+            ),
+          ),
+        ),
+        Divider_Widgets1(),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
           child: Row(
             children: [
               Container(
@@ -457,17 +538,14 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   widget.data['company']['title'],
-                  style: TextStyle(
-                    fontFamily: 'Nexa',
-                  ),
+                  style: TextStyle(fontFamily: 'Nexa', color: AppTheme().black),
                 ),
               ),
             ],
           ),
         ),
-        Divider_Widgets(),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
           child: Row(
             children: [
               Container(
@@ -492,9 +570,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
-        Divider_Widgets(),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
           child: Row(
             children: [
               Container(
@@ -519,9 +596,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
-        Divider_Widgets(),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
           child: Row(
             children: [
               Container(
@@ -546,9 +622,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
-        Divider_Widgets(),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
           child: Row(
             children: [
               Container(
@@ -573,9 +648,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
-        Divider_Widgets(),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
           child: Row(
             children: [
               Container(
@@ -600,15 +674,14 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
-        Divider_Widgets(),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.fromLTRB(20, 5, 15, 5),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 alignment: Alignment.topLeft,
-                width: MediaQuery.of(context).size.width * 0.3,
+                width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Opening Hours',
                   style: TextStyle(
@@ -632,18 +705,23 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
-        Divider_Widgets(),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+          child: Text(
+            'Map',
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              color: AppTheme().black,
+              fontFamily: 'Nexa',
+            ),
+          ),
+        ),
+        Divider_Widgets1(),
         Container(
-          padding: EdgeInsets.all(15),
+          padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Map',
-                style: TextStyle(
-                  fontFamily: 'Nexa',
-                ),
-              ),
               Image.asset(
                 'assets/images/map.png',
                 width: MediaQuery.of(context).size.width,
@@ -651,53 +729,56 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
-        Divider_Widgets(),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 0, 5),
-          child: Row(
-            children: [
-              Container(
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppTheme().black)),
-                child: SvgPicture.asset(
-                  'assets/images/facebook.svg',
-                  color: AppTheme().black,
-                  width: 10,
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppTheme().black)),
-                child: SvgPicture.asset(
-                  'assets/images/insta.svg',
-                  color: AppTheme().black,
-                  width: 20,
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppTheme().black)),
-                child: SvgPicture.asset(
-                  'assets/images/word.svg',
-                  color: AppTheme().black,
-                  width: 20,
-                ),
-              ),
-            ],
-          ),
+        SizedBox(
+          height: 20,
         )
+        // Divider_Widgets(),
+        // Padding(
+        //   padding: const EdgeInsets.fromLTRB(20, 5, 0, 5),
+        //   child: Row(
+        //     children: [
+        //       Container(
+        //         padding: EdgeInsets.all(15),
+        //         decoration: BoxDecoration(
+        //             shape: BoxShape.circle,
+        //             border: Border.all(color: AppTheme().black)),
+        //         child: SvgPicture.asset(
+        //           'assets/images/facebook.svg',
+        //           color: AppTheme().black,
+        //           width: 10,
+        //         ),
+        //       ),
+        //       SizedBox(
+        //         width: 10,
+        //       ),
+        //       Container(
+        //         padding: EdgeInsets.all(10),
+        //         decoration: BoxDecoration(
+        //             shape: BoxShape.circle,
+        //             border: Border.all(color: AppTheme().black)),
+        //         child: SvgPicture.asset(
+        //           'assets/images/insta.svg',
+        //           color: AppTheme().black,
+        //           width: 20,
+        //         ),
+        //       ),
+        //       SizedBox(
+        //         width: 10,
+        //       ),
+        //       Container(
+        //         padding: EdgeInsets.all(10),
+        //         decoration: BoxDecoration(
+        //             shape: BoxShape.circle,
+        //             border: Border.all(color: AppTheme().black)),
+        //         child: SvgPicture.asset(
+        //           'assets/images/word.svg',
+        //           color: AppTheme().black,
+        //           width: 20,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // )
       ],
     );
   }

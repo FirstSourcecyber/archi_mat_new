@@ -1,5 +1,4 @@
 import 'package:Archimat/Services/homeService.dart';
-import 'package:Archimat/pages/search.dart';
 import 'package:Archimat/theme.dart';
 import 'package:Archimat/util/list/categorylist.dart';
 import 'package:Archimat/util/list/productlist.dart';
@@ -7,7 +6,6 @@ import 'package:Archimat/util/slider/slider.dart';
 import 'package:Archimat/util/slider/slider1.dart';
 import 'package:Archimat/util/widgets/list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -143,6 +141,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         // key: scaffoldKey,
         // drawer: Menu2(),
+        backgroundColor: AppTheme().lightgrey,
         appBar: AppBar(
           backgroundColor: AppTheme().white,
           // leading: GestureDetector(
@@ -168,26 +167,26 @@ class _HomePageState extends State<HomePage> {
             height: 100,
           ),
           centerTitle: true,
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 15),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => SearchPage(
-                                search: '',
-                              )));
-                },
-                child: SvgPicture.asset(
-                  'assets/images/search.svg',
-                  color: AppTheme().l1black,
-                  width: 20,
-                ),
-              ),
-            )
-          ],
+          // actions: <Widget>[
+          //   Padding(
+          //     padding: const EdgeInsets.only(right: 15),
+          //     child: GestureDetector(
+          //       onTap: () {
+          //         Navigator.push(
+          //             context,
+          //             MaterialPageRoute(
+          //                 builder: (context) => SearchPage(
+          //                       search: '',
+          //                     )));
+          //       },
+          //       child: SvgPicture.asset(
+          //         'assets/images/search.svg',
+          //         color: AppTheme().l1black,
+          //         width: 20,
+          //       ),
+          //     ),
+          //   )
+          // ],
         ),
         body: loader
             ? Center(

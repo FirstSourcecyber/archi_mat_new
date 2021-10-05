@@ -1,10 +1,9 @@
 import 'package:Archimat/Services/categoryService.dart';
 import 'package:Archimat/util/list/categorylist.dart';
 import 'package:Archimat/util/list/photolistgrid.dart';
+import 'package:Archimat/util/list/productgrid.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
 import '../theme.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -99,21 +98,13 @@ class _CategoryPageState extends State<CategoryPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppTheme().white,
-        leading: GestureDetector(
-          // onTap: () => scaffoldKey.currentState.openDrawer(),
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: AppTheme().black)),
-              child: SvgPicture.asset(
-                'assets/images/menu.svg',
-                color: AppTheme().l1black,
-                width: 20,
-              ),
-            ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: AppTheme().black,
           ),
         ),
         title: Image(
@@ -152,11 +143,12 @@ class _CategoryPageState extends State<CategoryPage> {
                             ),
                           ),
                         )
-                      : PhotoListGride(
-                          count: 4,
-                          data: product,
-                          i: 1,
-                          title: 'Find Interactive Events',
+                      : Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: ProductListGride(
+                            data: product,
+                            i: 1,
+                          ),
                         ),
                 ],
               ),

@@ -19,7 +19,7 @@ class Inbox extends StatefulWidget {
 }
 
 class _InboxState extends State<Inbox> {
-  int loader = 2;
+  int loader = 0;
   var search = TextEditingController();
   bool loader1 = true, cancel = false;
   List months = [
@@ -178,22 +178,20 @@ class _InboxState extends State<Inbox> {
         //     Navigator.pop(context);
         //   },
         // ),
-        title: Text(
-          'Inbox',
-          style: TextStyle(
-            color: AppTheme().black,
-            fontFamily: 'Roxborough CF',
-          ),
+        title: Image(
+          image: AssetImage('assets/images/archimat.png'),
+          width: 150,
+          height: 100,
         ),
         centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(
-                FontAwesomeIcons.facebookMessenger,
-                color: Colors.black,
-              ),
-              onPressed: null)
-        ],
+        // actions: <Widget>[
+        //   IconButton(
+        //       icon: Icon(
+        //         FontAwesomeIcons.facebookMessenger,
+        //         color: Colors.black,
+        //       ),
+        //       onPressed: null)
+        // ],
       ),
       body: SingleChildScrollView(
         child: Column(

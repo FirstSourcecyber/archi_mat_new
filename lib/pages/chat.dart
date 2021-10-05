@@ -47,8 +47,14 @@ class _ChatPageState extends State<ChatPage> {
   );
   @override
   void initState() {
-    super.initState();
+    setState(() {
+      collection = 'shop' +
+          widget.shop['id'].toString() +
+          '-' +
+          widget.user['id'].toString();
+    });
     setuser();
+    super.initState();
   }
 
   setuser() async {
@@ -63,10 +69,7 @@ class _ChatPageState extends State<ChatPage> {
       print(userid);
       user.name = me;
       user.uid = userid;
-      collection = 'shop' +
-          widget.shop['id'].toString() +
-          '-' +
-          widget.user['id'].toString();
+
       print(collection);
     });
     checkchat();

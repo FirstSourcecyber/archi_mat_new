@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:Archimat/Services/searchService.dart';
+import 'package:Archimat/util/list/productgrid.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../theme.dart';
 
 class SearchPage extends StatefulWidget {
-  final dynamic search;
+  final int search;
   const SearchPage({
     Key key,
     this.search,
@@ -21,8 +22,8 @@ class _SearchPageState extends State<SearchPage> {
   int loader = 2;
   var search = TextEditingController();
   bool loader1 = true, cancel = false;
-  String data = '';
-  List inbox1 = [],
+  int data = 0;
+  dynamic inbox1 = [],
       inbox = [],
       shop = [],
       product = [],
@@ -53,11 +54,21 @@ class _SearchPageState extends State<SearchPage> {
     SearchService().getallsearch().then((value) {
       print(value);
       setState(() {
-        shop = value['shop'];
-        product = value['product'];
-        service = value['service'];
-        material = value['material'];
+        shop = value['data1']['shop'];
+        product = value['data1']['product'];
+        service = value['data1']['service'];
+        material = value['data1']['material'];
+        if (widget.search == 1) {
+          setvalue(product);
+        } else if (widget.search == 2) {
+          setvalue(shop);
+        } else if (widget.search == 3) {
+          setvalue(service);
+        } else {
+          setvalue(material);
+        }
       });
+
       // setvalue(widget.search);
     });
   }
@@ -65,8 +76,8 @@ class _SearchPageState extends State<SearchPage> {
   setvalue(search) {
     setState(() {
       loader1 = true;
-      // inbox1 = searchdetail[search];
-      // inbox = searchdetail[search];
+      inbox1 = search;
+      inbox = search;
       if (inbox1.length == 0) {
         loader = 0;
       }
@@ -80,9 +91,16 @@ class _SearchPageState extends State<SearchPage> {
       cancel = !cancel;
       loader1 = true;
       inbox1 = inbox
-          .where((search1) => ((search1['user']['firstname']
-              .toLowerCase()
-              .contains(search.text.toLowerCase()))))
+          .where((search1) => ((search1['name']
+                  .toLowerCase()
+                  .contains(search.text.toLowerCase())) ||
+              (widget.search != 2
+                  ? (search1['shop']['name']
+                      .toLowerCase()
+                      .contains(search.text.toLowerCase()))
+                  : (search1['company']['title']
+                      .toLowerCase()
+                      .contains(search.text.toLowerCase())))))
           .toList();
       if (inbox1.length == 0) {
         loader = 0;
@@ -118,24 +136,23 @@ class _SearchPageState extends State<SearchPage> {
         backgroundColor: AppTheme().white,
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back_ios_sharp,
+            Icons.arrow_back,
             color: AppTheme().black,
           ),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text(
-          'Search',
-          style: TextStyle(
-            color: AppTheme().black,
-            fontFamily: 'Roxborough CF',
-          ),
+        title: Image(
+          image: AssetImage('assets/images/archimat.png'),
+          width: 150,
+          height: 100,
         ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               height: 30,
@@ -179,11 +196,11 @@ class _SearchPageState extends State<SearchPage> {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15.0))),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Colors.black, width: 2.0),
-                    borderRadius: BorderRadius.circular(100.0),
-                  ),
+                  // focusedBorder: OutlineInputBorder(
+                  //   borderSide:
+                  //       const BorderSide(color: Colors.black, width: 2.0),
+                  //   borderRadius: BorderRadius.circular(100.0),
+                  // ),
                 ),
               ),
             ),
@@ -191,120 +208,26 @@ class _SearchPageState extends State<SearchPage> {
               height: 10,
             ),
             Divider_Widgets(),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-              child: Wrap(
-                spacing: 10,
-                runSpacing: 15,
-                children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
-                      alignment: Alignment.center,
-                      width: 90,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          border:
-                              Border.all(color: AppTheme().lblack, width: 1)),
-                      child: Text(
-                        'Shops',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: 'Nexa',
+            Column(
+              children: <Widget>[
+                loader1
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Center(
+                          child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                  AppTheme().purple)),
+                        ),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: ProductListGride(
+                          data: inbox1,
+                          i: widget.search,
                         ),
                       ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
-                      alignment: Alignment.center,
-                      width: 90,
-                      decoration:
-                          //  i != 1
-                          //     ? BoxDecoration()
-                          //     :
-                          BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              border: Border.all(
-                                  color: AppTheme().lblack, width: 1)),
-                      child: Text(
-                        'Products',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: 'Nexa',
-                        ),
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
-                      alignment: Alignment.center,
-                      width: 90,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          border:
-                              Border.all(color: AppTheme().lblack, width: 1)),
-                      child: Text(
-                        'Services',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: 'Nexa',
-                        ),
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
-                      alignment: Alignment.center,
-                      width: 90,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          border:
-                              Border.all(color: AppTheme().lblack, width: 1)),
-                      child: Text(
-                        'Material',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: 'Nexa',
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              ],
             ),
-            Divider_Widgets(),
-
-            SizedBox(
-              height: 20,
-            ),
-            // Divider_Widgets(),
-            loader != 0
-                ? Container()
-                : Column(
-                    children: <Widget>[
-                      loader1
-                          ? Center(
-                              child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                      AppTheme().purple)),
-                            )
-                          : Padding(
-                              padding: const EdgeInsets.only(top: 10),
-                              child: Text(
-                                'No ' + 'Product' + ' available',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                    ],
-                  ),
           ],
         ),
       ),

@@ -17,3 +17,18 @@ class Divider_Widgets extends StatelessWidget {
     );
   }
 }
+
+class Divider_Widgets1 extends StatelessWidget {
+  const Divider_Widgets1({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Divider(
+      color: AppTheme().black,
+      thickness: 0.5,
+      height: 1,
+    );
+  }
+}

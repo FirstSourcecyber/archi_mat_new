@@ -39,7 +39,7 @@ class _UserSettingState extends State<UserSetting> {
               Divider_Widgets(),
               ProfileTab(
                 bold: true,
-                text: 'Edit Profile',
+                text: "Edit Profile",
                 onclick: () {
                   Navigator.push(
                       context,
@@ -54,7 +54,7 @@ class _UserSettingState extends State<UserSetting> {
               ),
               ProfileTab(
                 bold: false,
-                text: 'Push Notifications',
+                text: "Push Notifications",
                 option: true,
                 onclick: () {},
               ),

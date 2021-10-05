@@ -1,4 +1,8 @@
 import 'package:Archimat/environment.dart';
+import 'package:Archimat/pages/materialdetail.dart';
+import 'package:Archimat/pages/servicdetail.dart';
+import 'package:Archimat/userside/productDetail.dart';
+import 'package:Archimat/userside/shophome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -6,10 +10,12 @@ import '../../theme.dart';
 
 class ProductListGride extends StatefulWidget {
   final dynamic data;
+  final dynamic i;
 
   const ProductListGride({
     Key key,
     this.data,
+    this.i,
   }) : super(key: key);
 
   @override
@@ -26,68 +32,211 @@ class _ProductListGrideState extends State<ProductListGride> {
     super.initState();
   }
 
+  gotoshop(data) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ShopHomePage(
+                  data: data,
+                  shop: false,
+                )));
+  }
+
+  gotoproduct(data) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ProductDetail(
+                  data: data,
+                  shop: false,
+                )));
+  }
+
+  gotomaterial(data) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => MaterialDetail(
+                  data: data,
+                  shop: false,
+                )));
+  }
+
+  gotoservice(data) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ServiceDetail(
+                  data: data,
+                  shop: false,
+                )));
+  }
+
   @override
   Widget build(BuildContext context) {
     return widget.data.length == 0
         ? Center(
             child: Text(
-              'No product Available',
+              'No' +
+                  (widget.i == 1
+                      ? 'Product'
+                      : widget.i == 2
+                          ? 'Shop'
+                          : widget.i == 3
+                              ? 'Service'
+                              : 'Material') +
+                  'Available',
               style: TextStyle(
                 fontFamily: 'Nexa',
               ),
             ),
           )
-        : StaggeredGridView.countBuilder(
-            scrollDirection: Axis.vertical,
-            physics: NeverScrollableScrollPhysics(),
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            itemCount: widget.data.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: 276,
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppTheme().grey),
-                    color: AppTheme().white),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.network(
-                      Config.url + widget.data[index]['images'][0]['image'],
-                      width: MediaQuery.of(context).size.width,
-                      height: 134,
-                      fit: BoxFit.cover,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.data[index]['name'],
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontFamily: 'Nexa',
-                            ),
-                          ),
-                          Text(
-                            widget.data[index]['category']['name'],
-                            style: TextStyle(
-                              color: AppTheme().l1black,
-                              fontFamily: 'Roxborough CF',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-            staggeredTileBuilder: (int index) {
-              return new StaggeredTile.count(1, 1);
-            });
+        : Wrap(
+            spacing: 14,
+            runSpacing: 14,
+            children: List.generate(
+                widget.data.length,
+                (index) => GestureDetector(
+                      onTap: () {
+                        if (widget.i == 1) {
+                          print('product===');
+                          print(widget.data[index]);
+                          gotoproduct(widget.data[index]);
+                        } else if (widget.i == 2) {
+                          print('shop===');
+                          print(widget.data[index]);
+
+                          gotoshop(widget.data[index]);
+                        } else if (widget.i == 3) {
+                          print('shop===');
+                          print(widget.data[index]);
+
+                          gotomaterial(widget.data[index]);
+                        } else {
+                          print('shop===');
+                          print(widget.data[index]);
+
+                          gotoservice(widget.data[index]);
+                        }
+                      },
+                      child: Container(
+                          // width: MediaQuery.of(context).size.width * 0.5,
+                          width: 150,
+                          height: 200,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: AppTheme().grey),
+                              color: AppTheme().white),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 150,
+                                height: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10)),
+                                    image: DecorationImage(
+                                        image: widget.i == 1 &&
+                                                widget.data[index]['images']
+                                                        .length !=
+                                                    0
+                                            ? NetworkImage(Config.url +
+                                                (widget.data[index]['images'][0]
+                                                    ['image']))
+                                            : widget.data[index]['image'] !=
+                                                        null &&
+                                                    widget.data[index]
+                                                            ['image'] !=
+                                                        ''
+                                                ? NetworkImage(Config.url +
+                                                    (widget.data[index]
+                                                        ['image']))
+                                                : AssetImage('assets/images/back.png'),
+                                        // AssetImage(widget.data[index]['image']),
+                                        fit: BoxFit.cover)),
+                              ),
+                              // ClipRRect(
+                              //   borderRadius: BorderRadius.only(
+                              //       topLeft: Radius.circular(10),
+                              //       topRight: Radius.circular(10)),
+                              //   child: Image.network(
+                              //     Config.url + widget.data[index]['images'][0]['image'],
+                              //     width: MediaQuery.of(context).size.width,
+                              //     height: 134,
+                              //     fit: BoxFit.cover,
+                              //   ),
+                              // ),
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      widget.data[index]['name'].length > 16
+                                          ? widget.data[index]['name']
+                                                  .toString()
+                                                  .substring(0, 16) +
+                                              ' .. '
+                                          : widget.data[index]['name'],
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontFamily: 'Nexa',
+                                      ),
+                                    ),
+                                    widget.i != 2
+                                        ? Text(
+                                            widget.data[index]['shop']
+                                                            ['name'] !=
+                                                        '' &&
+                                                    widget.data[index]['shop']
+                                                            ['name'] !=
+                                                        null
+                                                ? widget.data[index]['shop']
+                                                    ['name']
+                                                : '',
+                                            style: TextStyle(
+                                                color: AppTheme().l1black,
+                                                fontFamily: 'Roxborough CF',
+                                                fontSize: 12),
+                                          )
+                                        : Container(
+                                            child: Text(
+                                              widget.data[index]['company']
+                                                              ['title'] !=
+                                                          '' &&
+                                                      widget.data[index]['company']
+                                                              ['title'] !=
+                                                          null
+                                                  ? widget
+                                                              .data[index]
+                                                                  ['company']
+                                                                  ['title']
+                                                              .length >
+                                                          18
+                                                      ? widget.data[index]
+                                                                  ['company']
+                                                                  ['title']
+                                                              .toString()
+                                                              .substring(
+                                                                  0, 18) +
+                                                          ' .. '
+                                                      : widget.data[index]
+                                                          ['company']['title']
+                                                  : '',
+                                              style: TextStyle(
+                                                  color: AppTheme().l1black,
+                                                  fontFamily: 'Roxborough CF',
+                                                  fontSize: 12),
+                                            ),
+                                          )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )),
+                    )));
   }
 }
 

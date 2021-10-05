@@ -35,7 +35,7 @@ class Logou_button extends StatelessWidget {
             alignment: Alignment.center,
             padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(5),
                 border: Border.all(color: AppTheme().l1black, width: 1)),
             child: Text(
               'LOG OUT',

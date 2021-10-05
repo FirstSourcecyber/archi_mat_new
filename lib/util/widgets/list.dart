@@ -1,3 +1,4 @@
+import 'package:Archimat/pages/search.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import '../../theme.dart';
@@ -25,11 +26,17 @@ class _List1State extends State<List1> {
             children: [
               GestureDetector(
                 onTap: () {
-                  print(i.toString());
-                  setState(() {
-                    i = 0;
-                    print(i.toString());
-                  });
+                  // print(i.toString());
+                  // setState(() {
+                  //   i = 0;
+                  //   print(i.toString());
+                  // });
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchPage(
+                                search: 2,
+                              )));
                 },
                 child: Container(
                   padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
@@ -44,13 +51,15 @@ class _List1State extends State<List1> {
                       //     ? BoxDecoration()
                       //     :
                       BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
+                          color: AppTheme().white,
+                          borderRadius: BorderRadius.circular(5),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Shops',
                     style: TextStyle(
                       fontSize: 12,
+                      color: AppTheme().black,
                       fontFamily: 'Nexa',
                     ),
                   ),
@@ -58,10 +67,16 @@ class _List1State extends State<List1> {
               ),
               GestureDetector(
                 onTap: () {
-                  setState(() {
-                    i = 1;
-                    print(i.toString());
-                  });
+                  // setState(() {
+                  //   i = 1;
+                  //   print(i.toString());
+                  // });
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchPage(
+                                search: 1,
+                              )));
                 },
                 child: Container(
                   padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
@@ -76,13 +91,15 @@ class _List1State extends State<List1> {
                       //     ? BoxDecoration()
                       //     :
                       BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
+                          color: AppTheme().white,
+                          borderRadius: BorderRadius.circular(5),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Products',
                     style: TextStyle(
                       fontSize: 12,
+                      color: AppTheme().black,
                       fontFamily: 'Nexa',
                     ),
                   ),
@@ -90,10 +107,16 @@ class _List1State extends State<List1> {
               ),
               GestureDetector(
                 onTap: () {
-                  setState(() {
-                    i = 2;
-                    print(i.toString());
-                  });
+                  // setState(() {
+                  //   i = 2;
+                  //   print(i.toString());
+                  // });
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchPage(
+                                search: 3,
+                              )));
                 },
                 child: Container(
                   padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
@@ -108,13 +131,15 @@ class _List1State extends State<List1> {
                       //     ? BoxDecoration()
                       //     :
                       BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
+                          color: AppTheme().white,
+                          borderRadius: BorderRadius.circular(5),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Services',
                     style: TextStyle(
                       fontSize: 12,
+                      color: AppTheme().black,
                       fontFamily: 'Nexa',
                     ),
                   ),
@@ -122,9 +147,15 @@ class _List1State extends State<List1> {
               ),
               GestureDetector(
                 onTap: () {
-                  setState(() {
-                    i = 3;
-                  });
+                  // setState(() {
+                  //   i = 3;
+                  // });
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchPage(
+                                search: 4,
+                              )));
                 },
                 child: Container(
                   padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
@@ -137,13 +168,15 @@ class _List1State extends State<List1> {
                       //     ? BoxDecoration()
                       //     :
                       BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
+                          color: AppTheme().white,
+                          borderRadius: BorderRadius.circular(5),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Material',
                     style: TextStyle(
                       fontSize: 12,
+                      color: AppTheme().black,
                       fontFamily: 'Nexa',
                     ),
                   ),
