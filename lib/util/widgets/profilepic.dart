@@ -75,11 +75,11 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
           child: CircleAvatar(
             radius: 50,
             backgroundColor: Colors.grey[200],
-            backgroundImage: image != ''
-                ? NetworkImage(image.substring(0, 4) == 'http'
+            backgroundImage: image == '' || image == null
+                ? AssetImage('assets/images/mask.png')
+                : NetworkImage(image.substring(0, 4) == 'http'
                     ? image
-                    : Config.url + image)
-                : AssetImage('assets/images/mask.png'),
+                    : Config.url + image),
           ),
         ),
         Positioned(
