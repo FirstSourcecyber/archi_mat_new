@@ -68,6 +68,7 @@ class _ProductlistState extends State<Productlist> {
           Title_Widgets(
             text: widget.title,
             onclick: null,
+            i: widget.i,
             bold: false,
           ),
           Container(

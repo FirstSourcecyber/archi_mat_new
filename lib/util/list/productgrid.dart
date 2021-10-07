@@ -77,7 +77,7 @@ class _ProductListGrideState extends State<ProductListGride> {
     return widget.data.length == 0
         ? Center(
             child: Text(
-              'No' +
+              'No ' +
                   (widget.i == 1
                       ? 'Product'
                       : widget.i == 2
@@ -85,7 +85,7 @@ class _ProductListGrideState extends State<ProductListGride> {
                           : widget.i == 3
                               ? 'Service'
                               : 'Material') +
-                  'Available',
+                  ' Available',
               style: TextStyle(
                 fontFamily: 'Nexa',
               ),
@@ -107,7 +107,7 @@ class _ProductListGrideState extends State<ProductListGride> {
                           print(widget.data[index]);
 
                           gotoshop(widget.data[index]);
-                        } else if (widget.i == 3) {
+                        } else if (widget.i == 4) {
                           print('shop===');
                           print(widget.data[index]);
 

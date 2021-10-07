@@ -186,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(height: 20),
                         GestureDetector(
                           onTap: () {
-                            contro.loginwithgoogle();
+                            contro.loginwithgoogle(token);
                           },
                           child: Container(
                               width: MediaQuery.of(context).size.width,

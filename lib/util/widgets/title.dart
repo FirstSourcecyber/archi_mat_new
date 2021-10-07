@@ -19,6 +19,7 @@ class Title_Widgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     gotoshop() {
+      print(i.toString());
       Navigator.push(
           context,
           MaterialPageRoute(
@@ -72,6 +73,7 @@ class Title_Widgets extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
+                  print(i.toString());
                   if (i == 3) {
                     gotoproduct();
                   } else if (i == 2) {

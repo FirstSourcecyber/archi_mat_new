@@ -206,7 +206,9 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             alignment: Alignment.centerLeft,
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
-                              widget.data['brand'],
+                              widget.data['brand'] == ''
+                                  ? ''
+                                  : widget.data['brand'],
                               style: TextStyle(
                                   fontFamily: 'Nexa', color: AppTheme().black),
                             ),

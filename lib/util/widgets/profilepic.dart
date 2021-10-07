@@ -27,7 +27,7 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
   @override
   void initState() {
     setState(() {
-      if (widget.image != '') {
+      if (widget.image != '' && widget.image != null) {
         image = widget.image;
         print(image);
         print(image.substring(0, 4) == 'http');

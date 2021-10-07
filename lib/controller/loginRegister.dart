@@ -67,10 +67,10 @@ class LoginRegisterController extends GetxController {
     }
   }
 
-  loginwithgoogle() async {
+  loginwithgoogle(token1) async {
     googleAccount.value = await _googlesignin.signIn();
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    var data = {'email': googleAccount.value.email.trim(), 'mob_token': token};
+    var data = {'email': googleAccount.value.email.trim(), 'mob_token': token1};
     print(data);
 
     LoginService().loginwithgoogle(data).then((value) {
