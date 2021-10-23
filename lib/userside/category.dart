@@ -4,6 +4,7 @@ import 'package:Archimat/util/list/photolistgrid.dart';
 import 'package:Archimat/util/list/productgrid.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../theme.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -138,9 +139,9 @@ class _CategoryPageState extends State<CategoryPage> {
                           alignment: Alignment.center,
                           child: Text(
                             'No Product Available',
-                            style: TextStyle(
-                              fontFamily: 'Roxborough CF',
-                            ),
+                            style: GoogleFonts.lato(
+                                // fontFamily: 'Roxborough CF',
+                                ),
                           ),
                         )
                       : Padding(

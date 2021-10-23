@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginRegister extends StatefulWidget {
   const LoginRegister({Key key}) : super(key: key);
@@ -66,9 +67,9 @@ class _LoginRegisterState extends State<LoginRegister> {
                     children: [
                       Text(
                         'Create a \nNew Account',
-                        style: TextStyle(
+                        style: GoogleFonts.alegreya(
                             fontWeight: FontWeight.w700,
-                            fontFamily: 'Nexa',
+                            // fontFamily: 'Nexa',
                             fontSize: 25,
                             color: AppTheme().black),
                       ),
@@ -77,10 +78,10 @@ class _LoginRegisterState extends State<LoginRegister> {
                       ),
                       Text(
                         'Welcome Archimat',
-                        style: TextStyle(
+                        style: GoogleFonts.lato(
                           fontSize: 14,
                           color: AppTheme().black,
-                          fontFamily: 'Roxborough CF',
+                          // fontFamily: 'Roxborough CF',
                         ),
                       ),
                       SizedBox(
@@ -123,9 +124,9 @@ class _LoginRegisterState extends State<LoginRegister> {
                                   ),
                                   Text(
                                     'SIGN UP WITH GMAIL',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         color: Colors.black,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 14),
                                   )
@@ -164,9 +165,9 @@ class _LoginRegisterState extends State<LoginRegister> {
                                   ),
                                   Text(
                                     'SIGN UP WITH EMAIL',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         color: Colors.black,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         fontSize: 14),
                                   )
                                 ],
@@ -201,9 +202,9 @@ class _LoginRegisterState extends State<LoginRegister> {
                                   ),
                                   Text(
                                     'Login Here',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         color: Colors.black,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         fontSize: 14),
                                   ),
                                 ],

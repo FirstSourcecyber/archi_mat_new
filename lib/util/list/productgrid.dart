@@ -5,6 +5,7 @@ import 'package:Archimat/userside/productDetail.dart';
 import 'package:Archimat/userside/shophome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme.dart';
 
@@ -174,15 +175,19 @@ class _ProductListGrideState extends State<ProductListGride> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      widget.data[index]['name'].length > 16
-                                          ? widget.data[index]['name']
-                                                  .toString()
-                                                  .substring(0, 16) +
-                                              ' .. '
-                                          : widget.data[index]['name'],
-                                      style: TextStyle(
+                                      widget.data[index]['name'] != '' &&
+                                              widget.data[index]['name'] != null
+                                          ? widget.data[index]['name'].length >
+                                                  16
+                                              ? widget.data[index]['name']
+                                                      .toString()
+                                                      .substring(0, 16) +
+                                                  ' .. '
+                                              : widget.data[index]['name']
+                                          : ' ',
+                                      style: GoogleFonts.alegreya(
                                         fontSize: 15,
-                                        fontFamily: 'Nexa',
+                                        // fontFamily: 'Nexa',
                                       ),
                                     ),
                                     widget.i != 2
@@ -193,12 +198,22 @@ class _ProductListGrideState extends State<ProductListGride> {
                                                     widget.data[index]['shop']
                                                             ['name'] !=
                                                         null
-                                                ? widget.data[index]['shop']
-                                                    ['name']
+                                                ? widget
+                                                            .data[index]['shop']
+                                                                ['name']
+                                                            .length >
+                                                        18
+                                                    ? widget.data[index]['shop']
+                                                                ['name']
+                                                            .toString()
+                                                            .substring(0, 18) +
+                                                        ' .. '
+                                                    : widget.data[index]['shop']
+                                                        ['name']
                                                 : '',
-                                            style: TextStyle(
+                                            style: GoogleFonts.lato(
                                                 color: AppTheme().l1black,
-                                                fontFamily: 'Roxborough CF',
+                                                // fontFamily: 'Roxborough CF',
                                                 fontSize: 12),
                                           )
                                         : Container(
@@ -225,9 +240,9 @@ class _ProductListGrideState extends State<ProductListGride> {
                                                       : widget.data[index]
                                                           ['company']['title']
                                                   : '',
-                                              style: TextStyle(
+                                              style: GoogleFonts.lato(
                                                   color: AppTheme().l1black,
-                                                  fontFamily: 'Roxborough CF',
+                                                  // fontFamily: 'Roxborough CF',
                                                   fontSize: 12),
                                             ),
                                           )
@@ -280,9 +295,9 @@ class _ListGrideState extends State<ListGride> {
                               ? 'Services'
                               : 'Material') +
                   ' Available',
-              style: TextStyle(
-                fontFamily: 'Nexa',
-              ),
+              style: GoogleFonts.alegreya(
+                  // fontFamily: 'Nexa',
+                  ),
             ),
           )
         : StaggeredGridView.countBuilder(
@@ -339,9 +354,9 @@ class _ListGrideState extends State<ListGride> {
                                           color: AppTheme().l2black)),
                                   child: Text(
                                     g == 2 ? 'VR' : 'AR',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         fontSize: 8,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         color: AppTheme().l2black),
                                   ))
                               : Container(),
@@ -357,10 +372,18 @@ class _ListGrideState extends State<ListGride> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.data[index]['name'],
-                            style: TextStyle(
+                            widget.data[index]['name'] != '' &&
+                                    widget.data[index]['name'] != null
+                                ? widget.data[index]['name'].length > 18
+                                    ? widget.data[index]['name']
+                                            .toString()
+                                            .substring(0, 18) +
+                                        '..'
+                                    : widget.data[index]['name']
+                                : '',
+                            style: GoogleFonts.alegreya(
                               fontSize: 15,
-                              fontFamily: 'Nexa',
+                              // fontFamily: 'Nexa',
                             ),
                           ),
                           g != 2
@@ -374,10 +397,19 @@ class _ListGrideState extends State<ListGride> {
                                                       ['name'] !=
                                                   null
                                           ? widget.data[index]['shop']['name']
+                                                      .length >
+                                                  18
+                                              ? widget.data[index]['shop']
+                                                          ['name']
+                                                      .toString()
+                                                      .substring(0, 18) +
+                                                  '..'
+                                              : widget.data[index]['shop']
+                                                  ['name']
                                           : '',
-                                      style: TextStyle(
+                                      style: GoogleFonts.lato(
                                           color: AppTheme().l1black,
-                                          fontFamily: 'Roxborough CF',
+                                          // fontFamily: 'Roxborough CF',
                                           fontSize: 12),
                                     ),
                                     // Container(
@@ -429,10 +461,19 @@ class _ListGrideState extends State<ListGride> {
                                                     ['title'] !=
                                                 null
                                         ? widget.data[index]['company']['title']
+                                                    .length >
+                                                18
+                                            ? widget.data[index]['company']
+                                                        ['title']
+                                                    .toString()
+                                                    .substring(0, 18) +
+                                                '..'
+                                            : widget.data[index]['company']
+                                                ['title']
                                         : '',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         color: AppTheme().l1black,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         fontSize: 12),
                                   ),
                                 )

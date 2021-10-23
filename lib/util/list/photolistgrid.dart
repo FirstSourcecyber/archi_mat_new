@@ -1,6 +1,7 @@
 import 'package:Archimat/environment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme.dart';
 
@@ -151,20 +152,41 @@ class _ImageCardState extends State<ImageCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.data['name'],
-                  style: TextStyle(
+                  widget.data['name'] != '' && widget.data['name'] != null
+                      ? widget.data['name'].length > 16
+                          ? widget.data['name'].toString().substring(0, 16) +
+                              '..'
+                          : widget.data['name']
+                      : '',
+                  style: GoogleFonts.alegreya(
                     fontSize: 15,
-                    fontFamily: 'Nexa',
+                    // fontFamily: 'Nexa',
                   ),
                 ),
                 Text(
                   widget.i != 1
-                      ? widget.data['category']
-                      : widget.data['category']['name'],
+                      ? widget.data['category'] != '' &&
+                              widget.data['category'] != null
+                          ? widget.data['category'].length > 18
+                              ? widget.data['category']
+                                      .toString()
+                                      .substring(0, 18) +
+                                  '..'
+                              : widget.data['category']
+                          : ''
+                      : widget.data['category']['name'] != '' &&
+                              widget.data['category']['name'] != null
+                          ? widget.data['category']['name'].length > 18
+                              ? widget.data['category']['name']
+                                      .toString()
+                                      .substring(0, 18) +
+                                  '..'
+                              : widget.data['category']['name']
+                          : '',
                   // widget.data['category'],
-                  style: TextStyle(
+                  style: GoogleFonts.lato(
                     color: AppTheme().l1black,
-                    fontFamily: 'Roxborough CF',
+                    // fontFamily: 'Roxborough CF',
                   ),
                 ),
               ],

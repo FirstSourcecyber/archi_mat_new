@@ -8,6 +8,7 @@ import 'package:Archimat/util/widgets/businesslist.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../environment.dart';
 import '../theme.dart';
@@ -223,9 +224,10 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                                 youfallow
                                                     ? 'Unfollow'
                                                     : 'Follow',
-                                                style: TextStyle(
-                                                    color: AppTheme().white,
-                                                    fontFamily: 'Nexa'),
+                                                style: GoogleFonts.alegreya(
+                                                  color: AppTheme().white,
+                                                  // fontFamily: 'Nexa'
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -274,9 +276,9 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                       children: [
                                         Text(
                                           widget.data['name'],
-                                          style: TextStyle(
+                                          style: GoogleFonts.alegreya(
                                               fontSize: 15,
-                                              fontFamily: 'Nexa',
+                                              // fontFamily: 'Nexa',
                                               fontWeight: FontWeight.w700),
                                         ),
                                         Row(
@@ -290,8 +292,8 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                             ),
                                             Text(
                                               'Malaysia',
-                                              style: TextStyle(
-                                                  fontFamily: 'Nexa',
+                                              style: GoogleFonts.alegreya(
+                                                  // fontFamily: 'Nexa',
                                                   color: AppTheme().lblack,
                                                   fontSize: 12),
                                             )

@@ -1,6 +1,7 @@
 import 'package:Archimat/userside/shophome.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../environment.dart';
 import '../theme.dart';
@@ -104,9 +105,9 @@ class _MaterialDetailState extends State<MaterialDetail> {
                           children: [
                             Text(
                               widget.data['name'],
-                              style: TextStyle(
+                              style: GoogleFonts.alegreya(
                                 fontSize: 15,
-                                fontFamily: 'Nexa',
+                                // fontFamily: 'Nexa',
                               ),
                             ),
                             Text(
@@ -114,9 +115,9 @@ class _MaterialDetailState extends State<MaterialDetail> {
                                       widget.data['price'].toString() != null
                                   ? widget.data['price'].toString()
                                   : '0',
-                              style: TextStyle(
+                              style: GoogleFonts.lato(
                                   color: AppTheme().l1black,
-                                  fontFamily: 'Roxborough CF',
+                                  // fontFamily: 'Roxborough CF',
                                   fontSize: 12),
                             ),
                             widget.shop
@@ -126,9 +127,9 @@ class _MaterialDetailState extends State<MaterialDetail> {
                                             widget.data['shop']['name'] != null
                                         ? widget.data['shop']['name']
                                         : '',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         color: AppTheme().l1black,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         fontSize: 12),
                                   ),
                             Align(
@@ -163,9 +164,10 @@ class _MaterialDetailState extends State<MaterialDetail> {
                                           },
                                           child: Text(
                                             'Visit Shop',
-                                            style: TextStyle(
-                                                color: AppTheme().white,
-                                                fontFamily: 'Nexa'),
+                                            style: GoogleFonts.alegreya(
+                                              color: AppTheme().white,
+                                              // fontFamily: 'Nexa'
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -180,10 +182,10 @@ class _MaterialDetailState extends State<MaterialDetail> {
                       padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
                       child: Text(
                         'Basic Info',
-                        style: TextStyle(
+                        style: GoogleFonts.alegreya(
                           fontWeight: FontWeight.w700,
                           color: AppTheme().black,
-                          fontFamily: 'Nexa',
+                          // fontFamily: 'Nexa',
                         ),
                       ),
                     ),
@@ -197,8 +199,8 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Brand',
-                              style: TextStyle(
-                                  fontFamily: 'Nexa',
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
                           ),
@@ -209,8 +211,9 @@ class _MaterialDetailState extends State<MaterialDetail> {
                               widget.data['brand'] == ''
                                   ? ''
                                   : widget.data['brand'],
-                              style: TextStyle(
-                                  fontFamily: 'Nexa', color: AppTheme().black),
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
+                                  color: AppTheme().black),
                             ),
                           ),
                         ],
@@ -225,8 +228,8 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Country',
-                              style: TextStyle(
-                                  fontFamily: 'Nexa',
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
                           ),
@@ -235,9 +238,9 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               widget.data['country'],
-                              style: TextStyle(
-                                fontFamily: 'Nexa',
-                              ),
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
+                                  ),
                             ),
                           ),
                         ],
@@ -252,8 +255,8 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Color',
-                              style: TextStyle(
-                                  fontFamily: 'Nexa',
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
                           ),
@@ -281,8 +284,8 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Status',
-                              style: TextStyle(
-                                  fontFamily: 'Nexa',
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
                           ),
@@ -293,9 +296,9 @@ class _MaterialDetailState extends State<MaterialDetail> {
                               widget.data['status']
                                   ? 'Available'
                                   : 'Not Available',
-                              style: TextStyle(
-                                fontFamily: 'Nexa',
-                              ),
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
+                                  ),
                             ),
                           ),
                         ],
@@ -310,8 +313,8 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Material Code',
-                              style: TextStyle(
-                                  fontFamily: 'Nexa',
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
                           ),
@@ -320,9 +323,9 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               widget.data['code'],
-                              style: TextStyle(
-                                fontFamily: 'Nexa',
-                              ),
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
+                                  ),
                             ),
                           ),
                         ],

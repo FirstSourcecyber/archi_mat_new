@@ -4,6 +4,7 @@ import 'package:Archimat/theme.dart';
 import 'package:Archimat/util/widgets/back.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -78,7 +79,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         controller: newpaswd,
                         decoration: InputDecoration(
                             hintText: 'New Password',
-                            hintStyle: TextStyle(color: Colors.grey),
+                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     ),
@@ -95,7 +96,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         controller: confirmpaswd,
                         decoration: InputDecoration(
                             hintText: 'New Password again',
-                            hintStyle: TextStyle(color: Colors.grey),
+                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     ),
@@ -114,13 +115,19 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                             borderRadius: BorderRadius.circular(30),
                             border:
                                 Border.all(color: AppTheme().lblack, width: 1)),
-                        child: Text('Change'),
+                        child: Text(
+                          'Change',
+                          style: GoogleFonts.alegreya(),
+                        ),
                       ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    Text('Forget Password?')
+                    Text(
+                      'Forget Password?',
+                      style: GoogleFonts.alegreya(),
+                    )
                   ],
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:Archimat/splash/loginregister.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../theme.dart';
@@ -39,8 +40,8 @@ class Logou_button extends StatelessWidget {
                 border: Border.all(color: AppTheme().l1black, width: 1)),
             child: Text(
               'LOG OUT',
-              style: TextStyle(
-                fontFamily: 'Roxborough CF',
+              style: GoogleFonts.lato(
+                // fontFamily: 'Roxborough CF',
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -51,9 +52,9 @@ class Logou_button extends StatelessWidget {
         ),
         Text(
           'Version 1.0',
-          style: TextStyle(
-            fontFamily: 'Roxborough CF',
-          ),
+          style: GoogleFonts.lato(
+              // fontFamily: 'Roxborough CF',
+              ),
         ),
         SizedBox(
           height: 20,

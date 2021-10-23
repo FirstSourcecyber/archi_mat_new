@@ -3,6 +3,7 @@ import 'package:Archimat/pages/materialdetail.dart';
 import 'package:Archimat/pages/servicdetail.dart';
 import 'package:Archimat/userside/productDetail.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../theme.dart';
 
 class ShopProductlist extends StatefulWidget {
@@ -135,9 +136,9 @@ class _ShopProductlistState extends State<ShopProductlist> {
                             children: [
                               Text(
                                 widget.data[index]['name'],
-                                style: TextStyle(
+                                style: GoogleFonts.alegreya(
                                   fontSize: 15,
-                                  fontFamily: 'Nexa',
+                                  // fontFamily: 'Nexa',
                                 ),
                               ),
                             ],

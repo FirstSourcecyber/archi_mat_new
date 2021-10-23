@@ -1,6 +1,7 @@
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme.dart';
 
@@ -43,9 +44,9 @@ class _ProfileTabState extends State<ProfileTab> {
               children: [
                 Text(
                   widget.text,
-                  style: TextStyle(
+                  style: GoogleFonts.alegreya(
                     fontSize: 14,
-                    fontFamily: 'Nexa',
+                    // fontFamily: 'Nexa',
                   ),
                 ),
                 widget.bold

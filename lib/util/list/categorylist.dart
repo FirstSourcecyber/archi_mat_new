@@ -25,8 +25,8 @@ class _CategoryListState extends State<CategoryList> {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(left: 20),
-          height: 105,
+          // padding: EdgeInsets.only(left: 20),
+          height: 90,
           child:
               // loader
               //     ? Center(child: CircularProgressIndicator(color: AppTheme().purple))
@@ -36,7 +36,7 @@ class _CategoryListState extends State<CategoryList> {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: Container(
                     width: 60,
                     // height: 70,

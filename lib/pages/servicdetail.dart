@@ -1,6 +1,7 @@
 import 'package:Archimat/userside/shophome.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../environment.dart';
 import '../theme.dart';
@@ -107,9 +108,9 @@ class _ServiceDetailState extends State<ServiceDetail> {
                           children: [
                             Text(
                               widget.data['name'],
-                              style: TextStyle(
+                              style: GoogleFonts.alegreya(
                                 fontSize: 15,
-                                fontFamily: 'Nexa',
+                                // fontFamily: 'Nexa',
                               ),
                             ),
                             widget.shop
@@ -119,9 +120,9 @@ class _ServiceDetailState extends State<ServiceDetail> {
                                             widget.data['shop']['name'] != null
                                         ? widget.data['shop']['name']
                                         : '',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         color: AppTheme().l1black,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         fontSize: 12),
                                   ),
                             Align(
@@ -130,7 +131,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
                                   ? Container()
                                   : GestureDetector(
                                       child: Container(
-                                        width: 100,
+                                        // width: 100,
                                         height: 35,
                                         alignment: Alignment.center,
                                         padding:
@@ -156,9 +157,10 @@ class _ServiceDetailState extends State<ServiceDetail> {
                                           },
                                           child: Text(
                                             'Visit Shop',
-                                            style: TextStyle(
-                                                color: AppTheme().white,
-                                                fontFamily: 'Nexa'),
+                                            style: GoogleFonts.alegreya(
+                                              color: AppTheme().white,
+                                              // fontFamily: 'Nexa'
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -172,10 +174,10 @@ class _ServiceDetailState extends State<ServiceDetail> {
                       padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
                       child: Text(
                         'Description',
-                        style: TextStyle(
+                        style: GoogleFonts.alegreya(
                           fontWeight: FontWeight.w700,
                           color: AppTheme().black,
-                          fontFamily: 'Nexa',
+                          // fontFamily: 'Nexa',
                         ),
                       ),
                     ),
@@ -192,17 +194,17 @@ class _ServiceDetailState extends State<ServiceDetail> {
                                     ? about.toString().substring(0, 200) +
                                         ' .....\n '
                                     : about + '\n',
-                            style: TextStyle(
-                              fontFamily: 'Roxborough CF',
-                            ),
+                            style: GoogleFonts.lato(
+                                // fontFamily: 'Roxborough CF',
+                                ),
                           ),
                           about.length > 200 && aboutText
                               ? GestureDetector(
                                   child: Text(
                                     'More',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                       color: AppTheme().blue,
-                                      fontFamily: 'Roxborough CF',
+                                      // fontFamily: 'Roxborough CF',
                                     ),
                                   ),
                                   onTap: () {
@@ -215,9 +217,9 @@ class _ServiceDetailState extends State<ServiceDetail> {
                                   ? GestureDetector(
                                       child: Text(
                                         'less',
-                                        style: TextStyle(
+                                        style: GoogleFonts.lato(
                                           color: AppTheme().blue,
-                                          fontFamily: 'Roxborough CF',
+                                          // fontFamily: 'Roxborough CF',
                                         ),
                                       ),
                                       onTap: () {
@@ -241,8 +243,8 @@ class _ServiceDetailState extends State<ServiceDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Status',
-                              style: TextStyle(
-                                  fontFamily: 'Nexa',
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
                           ),
@@ -253,9 +255,9 @@ class _ServiceDetailState extends State<ServiceDetail> {
                               widget.data['status']
                                   ? 'Available'
                                   : 'Not Available',
-                              style: TextStyle(
-                                fontFamily: 'Nexa',
-                              ),
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
+                                  ),
                             ),
                           ),
                         ],

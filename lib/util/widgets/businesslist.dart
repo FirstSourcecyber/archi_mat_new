@@ -3,6 +3,7 @@ import 'package:Archimat/util/list/productgrid.dart';
 import 'package:Archimat/util/list/shopproductlist.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme.dart';
 
@@ -371,10 +372,10 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                 child: Text(
                   'About Us',
-                  style: TextStyle(
+                  style: GoogleFonts.alegreya(
                     fontWeight: FontWeight.w700,
                     color: AppTheme().black,
-                    fontFamily: 'Nexa',
+                    // fontFamily: 'Nexa',
                   ),
                 ),
               ),
@@ -386,7 +387,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                       ? widget.data['desc'].toString().substring(0, 200) +
                           ' .....'
                       : widget.data['desc'] + '',
-                  style: TextStyle(fontFamily: 'Nexa', color: AppTheme().black),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      color: AppTheme().black),
                 ),
               ),
               Padding(
@@ -397,9 +400,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                         ? GestureDetector(
                             child: Text(
                               'More',
-                              style: TextStyle(
+                              style: GoogleFonts.alegreya(
                                 color: AppTheme().blue,
-                                fontFamily: 'Nexa',
+                                // fontFamily: 'Nexa',
                               ),
                             ),
                             onTap: () {
@@ -412,9 +415,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                             ? GestureDetector(
                                 child: Text(
                                   'less',
-                                  style: TextStyle(
+                                  style: GoogleFonts.alegreya(
                                     color: AppTheme().blue,
-                                    fontFamily: 'Nexa',
+                                    // fontFamily: 'Nexa',
                                   ),
                                 ),
                                 onTap: () {
@@ -439,10 +442,10 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                     padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                     child: Text(
                       'Product',
-                      style: TextStyle(
+                      style: GoogleFonts.alegreya(
                         fontWeight: FontWeight.w700,
                         color: AppTheme().black,
-                        fontFamily: 'Nexa',
+                        // fontFamily: 'Nexa',
                       ),
                     ),
                   ),
@@ -465,10 +468,10 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                     padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                     child: Text(
                       'Material',
-                      style: TextStyle(
+                      style: GoogleFonts.alegreya(
                         fontWeight: FontWeight.w700,
                         color: AppTheme().black,
-                        fontFamily: 'Nexa',
+                        // fontFamily: 'Nexa',
                       ),
                     ),
                   ),
@@ -491,10 +494,10 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                     padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                     child: Text(
                       'Service',
-                      style: TextStyle(
+                      style: GoogleFonts.alegreya(
                         fontWeight: FontWeight.w700,
                         color: AppTheme().black,
-                        fontFamily: 'Nexa',
+                        // fontFamily: 'Nexa',
                       ),
                     ),
                   ),
@@ -512,10 +515,10 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
           padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
           child: Text(
             'Basic Info',
-            style: TextStyle(
+            style: GoogleFonts.alegreya(
               fontWeight: FontWeight.w700,
               color: AppTheme().black,
-              fontFamily: 'Nexa',
+              // fontFamily: 'Nexa',
             ),
           ),
         ),
@@ -529,8 +532,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Company',
-                  style: TextStyle(
-                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -538,7 +542,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   widget.data['company']['title'],
-                  style: TextStyle(fontFamily: 'Nexa', color: AppTheme().black),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      color: AppTheme().black),
                 ),
               ),
             ],
@@ -553,8 +559,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Year',
-                  style: TextStyle(
-                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -562,9 +569,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   '2011',
-                  style: TextStyle(
-                    fontFamily: 'Nexa',
-                  ),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      ),
                 ),
               ),
             ],
@@ -579,8 +586,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Registration No.',
-                  style: TextStyle(
-                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -588,9 +596,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   '123456789',
-                  style: TextStyle(
-                    fontFamily: 'Nexa',
-                  ),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      ),
                 ),
               ),
             ],
@@ -605,8 +613,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Website',
-                  style: TextStyle(
-                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -614,9 +623,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   widget.data['website'],
-                  style: TextStyle(
-                    fontFamily: 'Nexa',
-                  ),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      ),
                 ),
               ),
             ],
@@ -631,8 +640,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Email',
-                  style: TextStyle(
-                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -640,9 +650,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   widget.data['email'],
-                  style: TextStyle(
-                    fontFamily: 'Nexa',
-                  ),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      ),
                 ),
               ),
             ],
@@ -657,8 +667,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Mobile',
-                  style: TextStyle(
-                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -666,9 +677,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   widget.data['phone'],
-                  style: TextStyle(
-                    fontFamily: 'Nexa',
-                  ),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      ),
                 ),
               ),
             ],
@@ -684,8 +695,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Opening Hours',
-                  style: TextStyle(
-                      fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+                  style: GoogleFonts.alegreya(
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
@@ -694,9 +706,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: openingtime == null || openingtime == []
                     ? Text(
                         'close',
-                        style: TextStyle(
-                          fontFamily: 'Nexa',
-                        ),
+                        style: GoogleFonts.alegreya(
+                            // fontFamily: 'Nexa',
+                            ),
                       )
                     : OpenHourList(
                         data: openingtime,
@@ -709,10 +721,10 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
           padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
           child: Text(
             'Map',
-            style: TextStyle(
+            style: GoogleFonts.alegreya(
               fontWeight: FontWeight.w700,
               color: AppTheme().black,
-              fontFamily: 'Nexa',
+              // fontFamily: 'Nexa',
             ),
           ),
         ),
@@ -819,21 +831,21 @@ class _BusinessReviewsState extends State<BusinessReviews> {
                   ),
                   title: Text(
                     widget.data[index]['user']['name'],
-                    style: TextStyle(
-                      fontFamily: 'Nexa',
-                    ),
+                    style: GoogleFonts.alegreya(
+                        // fontFamily: 'Nexa',
+                        ),
                   ),
                   subtitle: Text(
                     widget.data[index]['review'],
-                    style: TextStyle(
-                      fontFamily: 'Nexa',
-                    ),
+                    style: GoogleFonts.alegreya(
+                        // fontFamily: 'Nexa',
+                        ),
                   ),
                   trailing: Text(
                     widget.data[index]['rating'],
-                    style: TextStyle(
-                      fontFamily: 'Nexa',
-                    ),
+                    style: GoogleFonts.alegreya(
+                        // fontFamily: 'Nexa',
+                        ),
                   ),
                 ),
               ),

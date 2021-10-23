@@ -8,6 +8,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterationPage extends StatefulWidget {
@@ -70,8 +71,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
             )),
         backgroundColor: AppTheme().white,
         title: Text('Signup',
-            style: TextStyle(
-              fontFamily: 'Nexa',
+            style: GoogleFonts.alegreya(
+              // fontFamily: 'Nexa',
               color: AppTheme().black,
               fontWeight: FontWeight.w700,
             )),
@@ -104,9 +105,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       controller: uname,
                       decoration: InputDecoration(
                         hintText: 'User Name',
-                        hintStyle: TextStyle(
+                        hintStyle: GoogleFonts.lato(
                           color: AppTheme().grey,
-                          fontFamily: 'Roxborough CF',
+                          // fontFamily: 'Roxborough CF',
                         ),
                         border: InputBorder.none,
                       ),
@@ -128,9 +129,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                             controller: fname,
                             decoration: InputDecoration(
                               hintText: 'First Name',
-                              hintStyle: TextStyle(
+                              hintStyle: GoogleFonts.lato(
                                 color: AppTheme().grey,
-                                fontFamily: 'Roxborough CF',
+                                // fontFamily: 'Roxborough CF',
                               ),
                               border: InputBorder.none,
                             ),
@@ -151,9 +152,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                             controller: lname,
                             decoration: InputDecoration(
                               hintText: 'Last Name',
-                              hintStyle: TextStyle(
+                              hintStyle: GoogleFonts.lato(
                                 color: AppTheme().grey,
-                                fontFamily: 'Roxborough CF',
+                                // fontFamily: 'Roxborough CF',
                               ),
                               border: InputBorder.none,
                             ),
@@ -175,9 +176,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       controller: email,
                       decoration: InputDecoration(
                         hintText: 'Enter Your E-Mail',
-                        hintStyle: TextStyle(
+                        hintStyle: GoogleFonts.lato(
                           color: AppTheme().grey,
-                          fontFamily: 'Roxborough CF',
+                          // fontFamily: 'Roxborough CF',
                         ),
                         border: InputBorder.none,
                       ),
@@ -199,7 +200,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                               showFlag: true,
                               initialSelection: 'PK',
                               favorite: ['+92', 'PK'],
-                              textStyle: TextStyle(color: AppTheme().grey),
+                              textStyle:
+                                  GoogleFonts.lato(color: AppTheme().grey),
                               onChanged: (code) {
                                 this.countrycode = code.toString();
                                 print(countrycode);
@@ -219,8 +221,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: "Phone Number",
-                                    hintStyle: TextStyle(
-                                        fontFamily: 'Roxborough CF',
+                                    hintStyle: GoogleFonts.lato(
+                                        // fontFamily: 'Roxborough CF',
                                         color: AppTheme().darkgrey)),
                                 onChanged: (value) {
                                   if (number.text.isNotEmpty) {
@@ -256,9 +258,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         ),
                         Text(
                           'Male',
-                          style: TextStyle(
+                          style: GoogleFonts.lato(
                             color: AppTheme().grey,
-                            fontFamily: 'Roxborough CF',
+                            // fontFamily: 'Roxborough CF',
                           ),
                         ),
                         Radio(
@@ -273,9 +275,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         ),
                         Text(
                           'Female',
-                          style: TextStyle(
+                          style: GoogleFonts.lato(
                             color: AppTheme().grey,
-                            fontFamily: 'Roxborough CF',
+                            // fontFamily: 'Roxborough CF',
                           ),
                         ),
                         Radio(
@@ -290,9 +292,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         ),
                         Text(
                           'Other',
-                          style: TextStyle(
+                          style: GoogleFonts.lato(
                             color: AppTheme().grey,
-                            fontFamily: 'Roxborough CF',
+                            // fontFamily: 'Roxborough CF',
                           ),
                         ),
                       ],
@@ -319,9 +321,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       },
                       decoration: InputDecoration(
                           hintText: 'Enter Your Password',
-                          hintStyle: TextStyle(
+                          hintStyle: GoogleFonts.lato(
                             color: AppTheme().grey,
-                            fontFamily: 'Roxborough CF',
+                            // fontFamily: 'Roxborough CF',
                           ),
                           border: InputBorder.none),
                     ),
@@ -347,9 +349,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                       controller: confirmpswd,
                       decoration: InputDecoration(
                           hintText: 'Confirm Password',
-                          hintStyle: TextStyle(
+                          hintStyle: GoogleFonts.lato(
                             color: AppTheme().grey,
-                            fontFamily: 'Roxborough CF',
+                            // fontFamily: 'Roxborough CF',
                           ),
                           border: InputBorder.none),
                     ),
@@ -404,10 +406,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                                     color: AppTheme().lblack, width: 1)),
                             child: Text(
                               'Create',
-                              style: TextStyle(
+                              style: GoogleFonts.alegreya(
                                 color: AppTheme().black,
                                 fontWeight: FontWeight.w700,
-                                fontFamily: 'Nexa',
+                                // fontFamily: 'Nexa',
                               ),
                             ),
                           ),

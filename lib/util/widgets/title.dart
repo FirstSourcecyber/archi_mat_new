@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:Archimat/pages/search.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme.dart';
@@ -64,10 +65,10 @@ class Title_Widgets extends StatelessWidget {
             children: [
               Text(
                 this.text,
-                style: TextStyle(
+                style: GoogleFonts.alegreya(
                     color: AppTheme().l2black,
                     fontSize: 18,
-                    fontFamily: 'Nexa',
+                    // fontFamily: 'Nexa',
                     fontWeight:
                         this.bold == true ? FontWeight.w700 : FontWeight.w300),
               ),
@@ -87,14 +88,15 @@ class Title_Widgets extends StatelessWidget {
                 child: Row(
                   children: [
                     Text('See All ',
-                        style: TextStyle(
-                          fontFamily: 'Roxborough CF',
+                        style: GoogleFonts.lato(
+                          fontSize: 10,
+                          // fontFamily: 'Roxborough CF',
                           color: AppTheme().l2black,
                         )),
                     Icon(
                       Icons.arrow_forward_ios,
-                      size: 12,
-                      color: AppTheme().grey,
+                      size: 15,
+                      color: AppTheme().black,
                     )
                   ],
                 ),

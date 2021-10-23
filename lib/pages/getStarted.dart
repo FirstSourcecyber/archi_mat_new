@@ -1,6 +1,7 @@
 import 'package:Archimat/pages/browseMaterail.dart';
 import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GetStartedScreen extends StatefulWidget {
   @override
@@ -56,10 +57,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                     children: [
                       Text(
                         'Create a \nNew Account',
-                        style: TextStyle(
+                        style: GoogleFonts.alegreya(
                             fontSize: 32,
                             color: AppTheme().white,
-                            fontFamily: 'Nexa',
+                            // fontFamily: 'Nexa',
                             fontWeight: FontWeight.w700),
                       ),
                       Padding(
@@ -73,9 +74,9 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       ),
                       Text(
                         'For the best experience \nwith ArchiMAT',
-                        style: TextStyle(
+                        style: GoogleFonts.lato(
                             color: AppTheme().white,
-                            fontFamily: 'Roxborough CF',
+                            // fontFamily: 'Roxborough CF',
                             fontSize: 20),
                       ),
                     ],
@@ -101,9 +102,9 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                     child: Container(
                                         child: Text(
                                       'Sign Up',
-                                      style: TextStyle(
+                                      style: GoogleFonts.alegreya(
                                           fontWeight: FontWeight.w700,
-                                          fontFamily: 'Nexa',
+                                          // fontFamily: 'Nexa',
                                           color: isSignup == false
                                               ? AppTheme().loginBtnColor
                                               : Colors.white),
@@ -140,9 +141,9 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                     child: Container(
                                       child: Text(
                                         'Log In',
-                                        style: TextStyle(
+                                        style: GoogleFonts.alegreya(
                                             fontWeight: FontWeight.w700,
-                                            fontFamily: 'Nexa',
+                                            // fontFamily: 'Nexa',
                                             color: isLogin == false
                                                 ? AppTheme().loginBtnColor
                                                 : Colors.white),
@@ -187,9 +188,9 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                 children: [
                                   Text(
                                     'SIGN UP WITH EMAIL',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         color: Colors.black,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   )
@@ -221,9 +222,9 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                 children: [
                                   Text(
                                     'SIGN UP WITH PHONE NUMBER',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         color: AppTheme().white,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   )

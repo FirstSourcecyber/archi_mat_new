@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_9.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:dash_chat/dash_chat.dart';
@@ -235,9 +236,9 @@ class _ChatPageState extends State<ChatPage> {
                                 controller: fname,
                                 decoration: InputDecoration(
                                   hintText: 'First Name',
-                                  hintStyle: TextStyle(
+                                  hintStyle: GoogleFonts.lato(
                                     color: AppTheme().black,
-                                    fontFamily: 'Roxborough CF',
+                                    // fontFamily: 'Roxborough CF',
                                   ),
                                   border: InputBorder.none,
                                 ),
@@ -301,9 +302,9 @@ class _ChatPageState extends State<ChatPage> {
                   },
                   inputDecoration: InputDecoration.collapsed(
                       hintText: "Add message here...",
-                      hintStyle: TextStyle(
-                        fontFamily: 'Roxborough CF',
-                      )),
+                      hintStyle: GoogleFonts.lato(
+                          // fontFamily: 'Roxborough CF',
+                          )),
                   dateFormat: DateFormat('yyyy-MMM-dd'),
                   timeFormat: DateFormat('HH:mm'),
                   messages: messages,
@@ -403,9 +404,9 @@ class _ChatPageState extends State<ChatPage> {
                                                 horizontal: 8.0),
                                             child: Text(
                                               message.text,
-                                              style: TextStyle(
+                                              style: GoogleFonts.lato(
                                                 color: Colors.black,
-                                                fontFamily: 'Roxborough CF',
+                                                // fontFamily: 'Roxborough CF',
                                               ),
                                             ),
                                           ),
@@ -416,8 +417,8 @@ class _ChatPageState extends State<ChatPage> {
                                           child: Text(
                                             DateFormat.jm()
                                                 .format(message.createdAt),
-                                            style: TextStyle(
-                                                fontFamily: 'Roxborough CF',
+                                            style: GoogleFonts.lato(
+                                                // fontFamily: 'Roxborough CF',
                                                 color:
                                                     message.user.uid == userid
                                                         ? Colors.black
@@ -560,7 +561,7 @@ class _ChatPageState extends State<ChatPage> {
                                             child: Text(
                                               DateFormat.jm()
                                                   .format(message.createdAt),
-                                              style: TextStyle(
+                                              style: GoogleFonts.alegreya(
                                                   color:
                                                       message.user.uid == userid
                                                           ? Colors.black

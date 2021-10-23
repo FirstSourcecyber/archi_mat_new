@@ -2,6 +2,7 @@ import 'package:Archimat/pages/search.dart';
 import 'package:Archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import '../../theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class List1 extends StatefulWidget {
   const List1({Key key}) : super(key: key);
@@ -19,10 +20,10 @@ class _List1State extends State<List1> {
         Divider_Widgets(),
         Padding(
           padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-          child: Wrap(
-            spacing: 10,
-            runSpacing: 15,
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Row(
+            // spacing: 10,
+            // runSpacing: 15,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
                 onTap: () {
@@ -39,13 +40,13 @@ class _List1State extends State<List1> {
                               )));
                 },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+                  padding: EdgeInsets.fromLTRB(15, 12, 15, 12),
                   alignment: Alignment.center,
-                  width:
-                      //  i == 0 ?
-                      90
+                  // width:
+                  //     //  i == 0 ?
+                  //     90
                   //  : 50
-                  ,
+                  // ,
                   decoration:
                       //  i != 0
                       //     ? BoxDecoration()
@@ -57,10 +58,10 @@ class _List1State extends State<List1> {
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Shops',
-                    style: TextStyle(
+                    style: GoogleFonts.alegreya(
                       fontSize: 12,
                       color: AppTheme().black,
-                      fontFamily: 'Nexa',
+                      // fontFamily: 'Nexa',
                     ),
                   ),
                 ),
@@ -79,13 +80,13 @@ class _List1State extends State<List1> {
                               )));
                 },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+                  padding: EdgeInsets.fromLTRB(15, 12, 15, 12),
                   alignment: Alignment.center,
-                  width:
-                      // i == 1 ?
-                      90
-                  //  : 55
-                  ,
+                  // width:
+                  //     // i == 1 ?
+                  //     90
+                  // //  : 55
+                  // ,
                   decoration:
                       //  i != 1
                       //     ? BoxDecoration()
@@ -97,10 +98,10 @@ class _List1State extends State<List1> {
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Products',
-                    style: TextStyle(
+                    style: GoogleFonts.alegreya(
                       fontSize: 12,
                       color: AppTheme().black,
-                      fontFamily: 'Nexa',
+                      // fontFamily: 'Nexa',
                     ),
                   ),
                 ),
@@ -119,13 +120,13 @@ class _List1State extends State<List1> {
                               )));
                 },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+                  padding: EdgeInsets.fromLTRB(15, 12, 15, 12),
                   alignment: Alignment.center,
-                  width:
-                      //  i == 2 ?
-                      90
-                  // : 50
-                  ,
+                  // width:
+                  //     //  i == 2 ?
+                  //     90
+                  // // : 50
+                  // ,
                   decoration:
                       //  i != 2
                       //     ? BoxDecoration()
@@ -137,10 +138,10 @@ class _List1State extends State<List1> {
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Services',
-                    style: TextStyle(
+                    style: GoogleFonts.alegreya(
                       fontSize: 12,
                       color: AppTheme().black,
-                      fontFamily: 'Nexa',
+                      // fontFamily: 'Nexa',
                     ),
                   ),
                 ),
@@ -158,11 +159,11 @@ class _List1State extends State<List1> {
                               )));
                 },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+                  padding: EdgeInsets.fromLTRB(15, 12, 15, 12),
                   alignment: Alignment.center,
-                  width:
-                      // i != 3 ? 50 :
-                      90,
+                  // width:
+                  //     // i != 3 ? 50 :
+                  //     90,
                   decoration:
                       // i != 3
                       //     ? BoxDecoration()
@@ -174,10 +175,10 @@ class _List1State extends State<List1> {
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Material',
-                    style: TextStyle(
+                    style: GoogleFonts.alegreya(
                       fontSize: 12,
                       color: AppTheme().black,
-                      fontFamily: 'Nexa',
+                      // fontFamily: 'Nexa',
                     ),
                   ),
                 ),

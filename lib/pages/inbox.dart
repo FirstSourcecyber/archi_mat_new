@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:Archimat/Services/inboxService.dart';
 import 'package:Archimat/pages/chat.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../environment.dart';
@@ -245,7 +245,7 @@ class _InboxState extends State<Inbox> {
                           },
                         ),
                   hintText: "Search Messages",
-                  hintStyle: TextStyle(color: AppTheme().l1black),
+                  hintStyle: GoogleFonts.alegreya(color: AppTheme().l1black),
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15.0))),
@@ -340,7 +340,8 @@ class _InboxState extends State<Inbox> {
                                                 .substring(0, 200) +
                                             ' ...'
                                         : inbox1[i]['message'],
-                                    style: TextStyle(color: Colors.grey),
+                                    style: GoogleFonts.alegreya(
+                                        color: Colors.grey),
                                   ),
                                   trailing: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -349,7 +350,7 @@ class _InboxState extends State<Inbox> {
                                         date(DateTime.parse(
                                                 inbox1[i]['updatedAt']))
                                             .toString(),
-                                        style: TextStyle(
+                                        style: GoogleFonts.alegreya(
                                             color: Colors.grey, fontSize: 10),
                                       ),
                                     ],
@@ -372,7 +373,8 @@ class _InboxState extends State<Inbox> {
                               padding: const EdgeInsets.only(top: 10),
                               child: Text(
                                 'No Message available',
-                                style: TextStyle(color: Colors.black),
+                                style:
+                                    GoogleFonts.alegreya(color: Colors.black),
                               ),
                             ),
                     ],

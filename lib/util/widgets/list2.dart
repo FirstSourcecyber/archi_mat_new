@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme.dart';
 
@@ -48,9 +49,9 @@ class _List2State extends State<List2> {
                       border: Border.all(color: AppTheme().lblack, width: 1)),
               child: Text(
                 'New',
-                style: TextStyle(
+                style: GoogleFonts.alegreya(
                   fontSize: 12,
-                  fontFamily: 'Nexa',
+                  // fontFamily: 'Nexa',
                 ),
               ),
             ),
@@ -73,9 +74,9 @@ class _List2State extends State<List2> {
                       border: Border.all(color: AppTheme().lblack, width: 1)),
               child: Text(
                 'Top',
-                style: TextStyle(
+                style: GoogleFonts.alegreya(
                   fontSize: 12,
-                  fontFamily: 'Nexa',
+                  // fontFamily: 'Nexa',
                 ),
               ),
             ),
@@ -98,9 +99,9 @@ class _List2State extends State<List2> {
                       border: Border.all(color: AppTheme().lblack, width: 1)),
               child: Text(
                 'Minimalist',
-                style: TextStyle(
+                style: GoogleFonts.alegreya(
                   fontSize: 12,
-                  fontFamily: 'Nexa',
+                  // fontFamily: 'Nexa',
                 ),
               ),
             ),
@@ -123,9 +124,9 @@ class _List2State extends State<List2> {
                       border: Border.all(color: AppTheme().lblack, width: 1)),
               child: Text(
                 'Eco',
-                style: TextStyle(
+                style: GoogleFonts.alegreya(
                   fontSize: 12,
-                  fontFamily: 'Nexa',
+                  // fontFamily: 'Nexa',
                 ),
               ),
             ),

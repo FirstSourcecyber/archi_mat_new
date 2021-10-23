@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
@@ -30,10 +31,10 @@ class AppTheme {
 
   // Primary Text Style
   TextStyle primaryTextStyle(bool i) {
-    return TextStyle(
+    return GoogleFonts.lato(
       fontSize: 8,
       color: !i ? black : white,
-      fontFamily: 'Roxborough CF',
+      // fontFamily: 'Roxborough CF',
     );
   }
 }

@@ -117,7 +117,9 @@ class _HomePageState extends State<HomePage> {
           service = data['allservice'];
           slider = data['slider1'];
           slider2 = data['slider2'];
+          print(data['slider3'].length.toString());
           slider3 = data['slider3'];
+          // slider3 = [];
           loader = false;
         }
       });
@@ -243,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                             title: 'Find Professional Services',
                           )
                         : Container(),
-                    slider3.length == 0
+                    slider3.length != 0
                         ? Slider1Page(
                             data: slider3,
                           )

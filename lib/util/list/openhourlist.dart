@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class OpenHourList extends StatefulWidget {
@@ -39,9 +40,9 @@ class _OpenHourListState extends State<OpenHourList> {
       child: widget.data.length == 0
           ? Text(
               'close',
-              style: TextStyle(
-                fontFamily: 'Nexa',
-              ),
+              style: GoogleFonts.alegreya(
+                  // fontFamily: 'Nexa',
+                  ),
             )
           : ListView.builder(
               physics: NeverScrollableScrollPhysics(),
@@ -59,9 +60,9 @@ class _OpenHourListState extends State<OpenHourList> {
                           width: MediaQuery.of(context).size.width * 0.2,
                           child: Text(
                             widget.data[index]['day'],
-                            style: TextStyle(
+                            style: GoogleFonts.alegreya(
                               fontSize: 12,
-                              fontFamily: 'Nexa',
+                              // fontFamily: 'Nexa',
                             ),
                           )),
                       Container(
@@ -74,9 +75,9 @@ class _OpenHourListState extends State<OpenHourList> {
                               : (gettimeDate(widget.data[index]['opentime']) +
                                   ' - ' +
                                   gettimeDate(widget.data[index]['closetime'])),
-                          style: TextStyle(
+                          style: GoogleFonts.alegreya(
                             fontSize: 12,
-                            fontFamily: 'Nexa',
+                            // fontFamily: 'Nexa',
                           ),
                         ),
                       )

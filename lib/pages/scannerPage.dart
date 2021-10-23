@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:Archimat/Services/fallowService.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -117,11 +118,11 @@ class _ShopQrState extends State<ShopQr> {
                                     color: AppTheme().lblack, width: 1)),
                             child: Text(
                               'My Code',
-                              style: TextStyle(
+                              style: GoogleFonts.alegreya(
                                 color: i == 1
                                     ? AppTheme().white
                                     : AppTheme().black,
-                                fontFamily: 'Nexa',
+                                // fontFamily: 'Nexa',
                               ),
                             ),
                           ),
@@ -146,11 +147,11 @@ class _ShopQrState extends State<ShopQr> {
                                     color: AppTheme().lblack, width: 1)),
                             child: Text(
                               'Scan Code',
-                              style: TextStyle(
+                              style: GoogleFonts.alegreya(
                                 color: i == 2
                                     ? AppTheme().white
                                     : AppTheme().black,
-                                fontFamily: 'Nexa',
+                                // fontFamily: 'Nexa',
                               ),
                             ),
                           ),
@@ -184,16 +185,16 @@ class _ShopQrState extends State<ShopQr> {
                             ),
                           ),
                           Text("Its the best way to grow your ",
-                              style: TextStyle(
+                              style: GoogleFonts.alegreya(
                                 color: Colors.black,
                                 fontSize: 20,
-                                fontFamily: 'Nexa',
+                                // fontFamily: 'Nexa',
                               )),
                           Text("follower and reach more buyers. ",
-                              style: TextStyle(
+                              style: GoogleFonts.alegreya(
                                 color: Colors.black,
                                 fontSize: 20,
-                                fontFamily: 'Nexa',
+                                // fontFamily: 'Nexa',
                               )),
                         ],
                       ),

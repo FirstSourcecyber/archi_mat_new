@@ -8,6 +8,7 @@ import 'package:Archimat/util/widgets/profilepic.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -131,8 +132,8 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         Container(
                           child: Text(
                             'Username',
-                            style: TextStyle(
-                                fontFamily: 'Nexa',
+                            style: GoogleFonts.alegreya(
+                                // fontFamily: 'Nexa',
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
@@ -148,10 +149,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             controller: username,
                             decoration: InputDecoration(
                                 hintText: 'User Name',
-                                hintStyle: TextStyle(
+                                hintStyle: GoogleFonts.alegreya(
                                   color: Colors.grey,
                                   fontSize: 14,
-                                  fontFamily: 'Nexa',
+                                  // fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
                           ),
@@ -167,8 +168,8 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       children: [
                         Container(
                           child: Text('First Name',
-                              style: TextStyle(
-                                  fontFamily: 'Nexa',
+                              style: GoogleFonts.alegreya(
+                                  // fontFamily: 'Nexa',
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700)),
                           alignment: Alignment.topLeft,
@@ -183,10 +184,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             controller: fname,
                             decoration: InputDecoration(
                                 hintText: 'First Name',
-                                hintStyle: TextStyle(
+                                hintStyle: GoogleFonts.alegreya(
                                   color: Colors.grey,
                                   fontSize: 14,
-                                  fontFamily: 'Nexa',
+                                  // fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
                           ),
@@ -203,8 +204,8 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         Container(
                           child: Text(
                             'Last Name',
-                            style: TextStyle(
-                                fontFamily: 'Nexa',
+                            style: GoogleFonts.alegreya(
+                                // fontFamily: 'Nexa',
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
@@ -220,10 +221,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             controller: lname,
                             decoration: InputDecoration(
                                 hintText: 'Last Name',
-                                hintStyle: TextStyle(
+                                hintStyle: GoogleFonts.alegreya(
                                   color: Colors.grey,
                                   fontSize: 14,
-                                  fontFamily: 'Nexa',
+                                  // fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
                           ),
@@ -262,8 +263,8 @@ class _UserEditProfileState extends State<UserEditProfile> {
                     padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                     child: Text(
                       'Gender',
-                      style: TextStyle(
-                          fontFamily: 'Nexa',
+                      style: GoogleFonts.alegreya(
+                          // fontFamily: 'Nexa',
                           fontSize: 14,
                           fontWeight: FontWeight.w700),
                     ),
@@ -283,10 +284,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       ),
                       Text(
                         'Male',
-                        style: TextStyle(
+                        style: GoogleFonts.alegreya(
                           color: Colors.black,
                           fontSize: 14,
-                          fontFamily: 'Nexa',
+                          // fontFamily: 'Nexa',
                         ),
                       ),
                       Radio(
@@ -300,10 +301,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       ),
                       Text(
                         'Female',
-                        style: TextStyle(
+                        style: GoogleFonts.alegreya(
                           color: Colors.black,
                           fontSize: 14,
-                          fontFamily: 'Nexa',
+                          // fontFamily: 'Nexa',
                         ),
                       ),
                       Radio(
@@ -317,10 +318,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                       ),
                       Text(
                         'Other',
-                        style: TextStyle(
+                        style: GoogleFonts.alegreya(
                           fontSize: 14,
                           color: Colors.black,
-                          fontFamily: 'Nexa',
+                          // fontFamily: 'Nexa',
                         ),
                       ),
                     ],
@@ -367,8 +368,8 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         Container(
                           child: Text(
                             'Phone',
-                            style: TextStyle(
-                                fontFamily: 'Nexa',
+                            style: GoogleFonts.alegreya(
+                                // fontFamily: 'Nexa',
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
@@ -404,9 +405,9 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                   controller: phone,
                                   keyboardType: TextInputType.phone,
                                   decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Phone Number",
-                                  ),
+                                      border: InputBorder.none,
+                                      hintText: "Phone Number",
+                                      hintStyle: GoogleFonts.alegreya()),
                                   onChanged: (value) {
                                     if (phone.text.isNotEmpty) {
                                       if (value[0] != '0') {
@@ -431,8 +432,8 @@ class _UserEditProfileState extends State<UserEditProfile> {
                         Container(
                           child: Text(
                             'Email',
-                            style: TextStyle(
-                                fontFamily: 'Nexa',
+                            style: GoogleFonts.alegreya(
+                                // fontFamily: 'Nexa',
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700),
                           ),
@@ -448,10 +449,10 @@ class _UserEditProfileState extends State<UserEditProfile> {
                             controller: email,
                             decoration: InputDecoration(
                                 hintText: 'Xxxxxxxxxxxxxxx',
-                                hintStyle: TextStyle(
+                                hintStyle: GoogleFonts.alegreya(
                                   color: Colors.grey,
                                   fontSize: 14,
-                                  fontFamily: 'Nexa',
+                                  // fontFamily: 'Nexa',
                                 ),
                                 border: InputBorder.none),
                           ),
@@ -501,8 +502,8 @@ class _UserEditProfileState extends State<UserEditProfile> {
                                     color: AppTheme().l1black, width: 1)),
                             child: Text(
                               'Save',
-                              style: TextStyle(
-                                fontFamily: 'Nexa',
+                              style: GoogleFonts.alegreya(
+                                // fontFamily: 'Nexa',
                                 fontSize: 14,
                               ),
                             ),

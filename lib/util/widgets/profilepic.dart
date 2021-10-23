@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:Archimat/Services/loginService.dart';
 import 'package:Archimat/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -57,15 +58,15 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
       progress: 0.0,
       progressWidgetAlignment: Alignment.center,
       maxProgress: 100.0,
-      progressTextStyle: TextStyle(
+      progressTextStyle: GoogleFonts.lato(
           color: Colors.black,
           fontSize: 13.0,
-          fontFamily: 'Roxborough CF',
+          // fontFamily: 'Roxborough CF',
           fontWeight: FontWeight.w300),
-      messageTextStyle: TextStyle(
+      messageTextStyle: GoogleFonts.lancelot(
           color: Colors.black,
           fontSize: 19.0,
-          fontFamily: 'Roxborough CF',
+          // fontFamily: 'Roxborough CF',
           fontWeight: FontWeight.w700),
     );
     return Stack(
@@ -121,9 +122,9 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
           return AlertDialog(
             title: Text(
               'Choose Source',
-              style: TextStyle(
-                fontFamily: 'Roxborough CF',
-              ),
+              style: GoogleFonts.lato(
+                  // fontFamily: 'Roxborough CF',
+                  ),
             ),
             content: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

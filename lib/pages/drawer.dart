@@ -3,6 +3,7 @@ import 'package:Archimat/pages/inbox.dart';
 import 'package:Archimat/theme.dart';
 import 'package:Archimat/userside/setting.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../environment.dart';
@@ -74,9 +75,9 @@ class _Menu2State extends State<Menu2> {
                               ? name.toString().substring(0, 200) + ' ...'
                               : name
                           : '----',
-                      style: TextStyle(
+                      style: GoogleFonts.lato(
                         color: AppTheme().white,
-                        fontFamily: 'Roxborough CF',
+                        // fontFamily: 'Roxborough CF',
                       ),
                     ),
                   ),
@@ -98,9 +99,9 @@ class _Menu2State extends State<Menu2> {
                   ),
                   Text(
                     'Profile',
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                       color: AppTheme().purple,
-                      fontFamily: 'Roxborough CF',
+                      // fontFamily: 'Roxborough CF',
                     ),
                   ),
                 ],
@@ -131,9 +132,9 @@ class _Menu2State extends State<Menu2> {
                   ),
                   Text(
                     'Inbox',
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                       color: AppTheme().purple,
-                      fontFamily: 'Roxborough CF',
+                      // fontFamily: 'Roxborough CF',
                     ),
                   ),
                 ],

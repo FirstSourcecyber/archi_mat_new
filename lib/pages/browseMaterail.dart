@@ -2,6 +2,7 @@ import 'package:Archimat/splash/loginregister.dart';
 import 'package:flutter/material.dart';
 import 'package:Archimat/theme.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class VirtualMaterialScreen1 extends StatefulWidget {
@@ -97,9 +98,9 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                       },
                                       child: Text(
                                         'SKIP',
-                                        style: TextStyle(
+                                        style: GoogleFonts.lato(
                                           color: AppTheme().grey,
-                                          fontFamily: 'Roxborough CF',
+                                          // fontFamily: 'Roxborough CF',
                                         ),
                                       ),
                                     )
@@ -116,10 +117,10 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                             ? 'Experience \n Virtually'
                                             : 'Save Your \n Fave Materials',
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: GoogleFonts.alegreya(
                                         fontSize: 30,
                                         color: Colors.black54,
-                                        fontFamily: 'Nexa',
+                                        // fontFamily: 'Nexa',
                                         fontWeight: FontWeight.w700),
                                   ),
                                 ),
@@ -136,9 +137,9 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                 Text(
                                   'World Of Architectural & \n Building Materials',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: GoogleFonts.alegreya(
                                       color: Colors.black54,
-                                      fontFamily: 'Nexa',
+                                      // fontFamily: 'Nexa',
                                       fontSize: 18),
                                 ),
                                 SizedBox(
@@ -183,9 +184,9 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                 children: [
                                   Text(
                                     'NEXT',
-                                    style: TextStyle(
+                                    style: GoogleFonts.lato(
                                         color: Colors.black,
-                                        fontFamily: 'Roxborough CF',
+                                        // fontFamily: 'Roxborough CF',
                                         // fontWeight: FontWeight.bold,
                                         fontSize: 14),
                                   )

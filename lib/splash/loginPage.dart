@@ -9,6 +9,7 @@ import 'package:Archimat/theme.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -63,8 +64,8 @@ class _LoginPageState extends State<LoginPage> {
               )),
           title: Text(
             'Login',
-            style: TextStyle(
-              fontFamily: 'Nexa',
+            style: GoogleFonts.alegreya(
+              // fontFamily: 'Nexa',
               color: AppTheme().black,
               fontWeight: FontWeight.w700,
             ),
@@ -115,9 +116,9 @@ class _LoginPageState extends State<LoginPage> {
                             },
                             decoration: InputDecoration(
                               hintText: 'Enter Your E-Mail',
-                              hintStyle: TextStyle(
+                              hintStyle: GoogleFonts.lato(
                                 color: AppTheme().grey,
-                                fontFamily: 'Roxborough CF',
+                                // fontFamily: 'Roxborough CF',
                               ),
                               border: InputBorder.none,
                             ),
@@ -138,9 +139,9 @@ class _LoginPageState extends State<LoginPage> {
                             controller: pswd,
                             decoration: InputDecoration(
                                 hintText: 'Enter Your Password',
-                                hintStyle: TextStyle(
+                                hintStyle: GoogleFonts.lato(
                                   color: AppTheme().grey,
-                                  fontFamily: 'Roxborough CF',
+                                  // fontFamily: 'Roxborough CF',
                                 ),
                                 border: InputBorder.none),
                           ),
@@ -175,10 +176,10 @@ class _LoginPageState extends State<LoginPage> {
                                           color: AppTheme().lblack, width: 1)),
                                   child: Text(
                                     'Login',
-                                    style: TextStyle(
+                                    style: GoogleFonts.alegreya(
                                       color: AppTheme().black,
                                       fontWeight: FontWeight.w700,
-                                      fontFamily: 'Nexa',
+                                      // fontFamily: 'Nexa',
                                     ),
                                   ),
                                 ),
@@ -213,9 +214,9 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                     Text(
                                       'SIGN UP WITH GMAIL',
-                                      style: TextStyle(
+                                      style: GoogleFonts.lato(
                                           color: Colors.black,
-                                          fontFamily: 'Roxborough CF',
+                                          // fontFamily: 'Roxborough CF',
                                           // fontWeight: FontWeight.bold,
                                           fontSize: 14),
                                     )
