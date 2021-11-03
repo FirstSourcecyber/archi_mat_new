@@ -1,5 +1,5 @@
-import 'package:Archimat/pages/search.dart';
-import 'package:Archimat/util/widgets/divider.dart';
+import 'package:archimat/pages/search.dart';
+import 'package:archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import '../../theme.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,13 +53,13 @@ class _List1State extends State<List1> {
                       //     :
                       BoxDecoration(
                           color: AppTheme().white,
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(15),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Shops',
-                    style: GoogleFonts.alegreya(
-                      fontSize: 12,
+                    style: GoogleFonts.lato(
+                      fontSize: 14,
                       color: AppTheme().black,
                       // fontFamily: 'Nexa',
                     ),
@@ -93,13 +93,13 @@ class _List1State extends State<List1> {
                       //     :
                       BoxDecoration(
                           color: AppTheme().white,
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(15),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Products',
-                    style: GoogleFonts.alegreya(
-                      fontSize: 12,
+                    style: GoogleFonts.lato(
+                      fontSize: 14,
                       color: AppTheme().black,
                       // fontFamily: 'Nexa',
                     ),
@@ -133,13 +133,13 @@ class _List1State extends State<List1> {
                       //     :
                       BoxDecoration(
                           color: AppTheme().white,
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(15),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Services',
-                    style: GoogleFonts.alegreya(
-                      fontSize: 12,
+                    style: GoogleFonts.lato(
+                      fontSize: 14,
                       color: AppTheme().black,
                       // fontFamily: 'Nexa',
                     ),
@@ -170,13 +170,13 @@ class _List1State extends State<List1> {
                       //     :
                       BoxDecoration(
                           color: AppTheme().white,
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(15),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
                     'Material',
-                    style: GoogleFonts.alegreya(
-                      fontSize: 12,
+                    style: GoogleFonts.lato(
+                      fontSize: 14,
                       color: AppTheme().black,
                       // fontFamily: 'Nexa',
                     ),

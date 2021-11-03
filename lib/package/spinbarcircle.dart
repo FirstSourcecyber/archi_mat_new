@@ -372,7 +372,7 @@
 
 library spincircle_bottom_bar;
 
-import 'package:Archimat/package/bar.dart';
+import 'package:archimat/package/bar.dart';
 import 'package:flutter/material.dart';
 
 class SpinCircleBottomBarHolder extends StatelessWidget {

@@ -1,7 +1,7 @@
-import 'package:Archimat/environment.dart';
-import 'package:Archimat/pages/materialdetail.dart';
-import 'package:Archimat/pages/servicdetail.dart';
-import 'package:Archimat/userside/productDetail.dart';
+import 'package:archimat/environment.dart';
+import 'package:archimat/pages/materialdetail.dart';
+import 'package:archimat/pages/servicdetail.dart';
+import 'package:archimat/userside/productDetail.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../theme.dart';
@@ -136,8 +136,8 @@ class _ShopProductlistState extends State<ShopProductlist> {
                             children: [
                               Text(
                                 widget.data[index]['name'],
-                                style: GoogleFonts.alegreya(
-                                  fontSize: 15,
+                                style: GoogleFonts.lato(
+                                  fontSize: 14,
                                   // fontFamily: 'Nexa',
                                 ),
                               ),

@@ -1,7 +1,8 @@
-import 'package:Archimat/Services/shopService.dart';
-import 'package:Archimat/util/slider/profileslider.dart';
-import 'package:Archimat/util/widgets/businesslist.dart';
+import 'package:archimat/Services/shopService.dart';
+import 'package:archimat/util/slider/profileslider.dart';
+import 'package:archimat/util/widgets/businesslist.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../environment.dart';
 import '../theme.dart';
 
@@ -97,11 +98,11 @@ class _BusinessHomeState extends State<BusinessHome> {
                                       children: [
                                         Text(
                                           widget.data['name'],
-                                          style: TextStyle(fontSize: 15),
+                                          style: GoogleFonts.lato(fontSize: 15),
                                         ),
                                         Text(
                                           '@username',
-                                          style: TextStyle(fontSize: 12),
+                                          style: GoogleFonts.lato(fontSize: 12),
                                         ),
                                       ],
                                     ),
@@ -110,7 +111,7 @@ class _BusinessHomeState extends State<BusinessHome> {
                                     ),
                                     Text(
                                       'Verified',
-                                      style: TextStyle(fontSize: 12),
+                                      style: GoogleFonts.lato(fontSize: 12),
                                     ),
                                     // SmoothStarRating(
                                     //     allowHalfRating: false,
@@ -137,7 +138,10 @@ class _BusinessHomeState extends State<BusinessHome> {
                                 borderRadius: BorderRadius.circular(30),
                                 border: Border.all(
                                     color: AppTheme().l1black, width: 1)),
-                            child: Text('Follow'),
+                            child: Text(
+                              'Follow',
+                              style: GoogleFonts.lato(fontSize: 12),
+                            ),
                           ),
                         ],
                       ),
@@ -156,12 +160,15 @@ class _BusinessHomeState extends State<BusinessHome> {
                             children: [
                               Text(
                                 'Listing',
-                                style: TextStyle(fontSize: 12),
+                                style: GoogleFonts.lato(fontSize: 12),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
-                              Text('24')
+                              Text(
+                                '24',
+                                style: GoogleFonts.lato(fontSize: 12),
+                              )
                             ],
                           ),
                         ),
@@ -177,12 +184,15 @@ class _BusinessHomeState extends State<BusinessHome> {
                             children: [
                               Text(
                                 'Industry',
-                                style: TextStyle(fontSize: 12),
+                                style: GoogleFonts.lato(fontSize: 12),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
-                              Text(shop['shop_type']['name'])
+                              Text(
+                                shop['shop_type']['name'],
+                                style: GoogleFonts.lato(fontSize: 12),
+                              )
                             ],
                           ),
                         ),
@@ -198,12 +208,15 @@ class _BusinessHomeState extends State<BusinessHome> {
                             children: [
                               Text(
                                 'Country',
-                                style: TextStyle(fontSize: 12),
+                                style: GoogleFonts.lato(fontSize: 12),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
-                              Text('Malaysia')
+                              Text(
+                                'Malaysia',
+                                style: GoogleFonts.lato(fontSize: 12),
+                              )
                             ],
                           ),
                         ),
@@ -219,12 +232,15 @@ class _BusinessHomeState extends State<BusinessHome> {
                             children: [
                               Text(
                                 'Followers',
-                                style: TextStyle(fontSize: 12),
+                                style: GoogleFonts.lato(fontSize: 12),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
-                              Text('1244')
+                              Text(
+                                '1244',
+                                style: GoogleFonts.lato(fontSize: 12),
+                              )
                             ],
                           ),
                         ),

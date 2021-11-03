@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:Archimat/theme.dart';
-import 'package:Archimat/util/widgets/back.dart';
+import 'package:archimat/theme.dart';
+import 'package:archimat/util/widgets/back.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -61,7 +61,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         controller: currentpaswd,
                         decoration: InputDecoration(
                           hintText: 'Current Password',
-                          hintStyle: TextStyle(color: Colors.grey),
+                          hintStyle: GoogleFonts.lato(color: Colors.grey),
                           border: InputBorder.none,
                         ),
                       ),
@@ -79,7 +79,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         controller: newpaswd,
                         decoration: InputDecoration(
                             hintText: 'New Password',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     ),
@@ -96,7 +96,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         controller: confirmpaswd,
                         decoration: InputDecoration(
                             hintText: 'New Password again',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     ),
@@ -117,7 +117,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                                 Border.all(color: AppTheme().lblack, width: 1)),
                         child: Text(
                           'Change',
-                          style: GoogleFonts.alegreya(),
+                          style: GoogleFonts.lato(),
                         ),
                       ),
                     ),
@@ -126,7 +126,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     ),
                     Text(
                       'Forget Password?',
-                      style: GoogleFonts.alegreya(),
+                      style: GoogleFonts.lato(),
                     )
                   ],
                 ),

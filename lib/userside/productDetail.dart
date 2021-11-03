@@ -1,6 +1,6 @@
-import 'package:Archimat/userside/shophome.dart';
-import 'package:Archimat/util/slider/profileslider.dart';
-import 'package:Archimat/util/widgets/divider.dart';
+import 'package:archimat/userside/shophome.dart';
+import 'package:archimat/util/slider/profileslider.dart';
+import 'package:archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -93,7 +93,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           children: [
                             Text(
                               widget.data['name'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                 fontSize: 15,
                                 // fontFamily: 'Nexa',
                               ),
@@ -103,9 +103,9 @@ class _ProductDetailState extends State<ProductDetail> {
                                       widget.data['price'].toString() != null
                                   ? widget.data['price'].toString()
                                   : '0',
-                              style: TextStyle(
+                              style: GoogleFonts.lato(
                                   color: AppTheme().l1black,
-                                  fontFamily: 'Roxborough CF',
+                                  // fontFamily: 'Roxborough CF',
                                   fontSize: 12),
                             ),
                             !widget.shop
@@ -152,7 +152,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                           },
                                           child: Text(
                                             'Visit Shop',
-                                            style: GoogleFonts.alegreya(
+                                            style: GoogleFonts.lato(
                                               color: AppTheme().white,
                                               // fontFamily: 'Nexa'
                                             ),
@@ -169,14 +169,14 @@ class _ProductDetailState extends State<ProductDetail> {
                       padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
                       child: Text(
                         'Description',
-                        style: GoogleFonts.alegreya(
+                        style: GoogleFonts.lato(
                           fontWeight: FontWeight.w700,
                           color: AppTheme().black,
                           // fontFamily: 'Nexa',
                         ),
                       ),
                     ),
-                    Divider_Widgets1(),
+                    DividerWidgets1(),
                     Container(
                       padding: EdgeInsets.all(20),
                       child: Column(
@@ -229,14 +229,14 @@ class _ProductDetailState extends State<ProductDetail> {
                       padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
                       child: Text(
                         'Basic Info',
-                        style: GoogleFonts.alegreya(
+                        style: GoogleFonts.lato(
                           fontWeight: FontWeight.w700,
                           color: AppTheme().black,
                           // fontFamily: 'Nexa',
                         ),
                       ),
                     ),
-                    Divider_Widgets1(),
+                    DividerWidgets1(),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                       child: Row(
@@ -246,7 +246,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'In Stock',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -256,7 +256,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               widget.data['stock'].toString(),
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   color: AppTheme().black),
                             ),
@@ -273,7 +273,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Category',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -285,7 +285,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               widget.data['category']['name'] +
                                   '>' +
                                   widget.data['subcategory']['name'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   ),
                             ),
@@ -302,7 +302,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Size',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -312,7 +312,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               widget.data['size'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   ),
                             ),
@@ -329,7 +329,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Category',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -341,7 +341,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               widget.data['category']['name'] +
                                   '>' +
                                   widget.data['subcategory']['name'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   ),
                             ),
@@ -358,7 +358,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Product Code',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -368,7 +368,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               widget.data['productCode'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   ),
                             ),

@@ -18,8 +18,8 @@ class Divider_Widgets extends StatelessWidget {
   }
 }
 
-class Divider_Widgets1 extends StatelessWidget {
-  const Divider_Widgets1({
+class DividerWidgets1 extends StatelessWidget {
+  const DividerWidgets1({
     Key key,
   }) : super(key: key);
 

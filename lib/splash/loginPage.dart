@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:Archimat/Services/loginService.dart';
-import 'package:Archimat/controller/loginRegister.dart';
+import 'package:archimat/Services/loginService.dart';
+import 'package:archimat/controller/loginRegister.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:Archimat/pages/tab.dart';
+import 'package:archimat/pages/tab.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:Archimat/theme.dart';
+import 'package:archimat/theme.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
               )),
           title: Text(
             'Login',
-            style: GoogleFonts.alegreya(
+            style: GoogleFonts.lato(
               // fontFamily: 'Nexa',
               color: AppTheme().black,
               fontWeight: FontWeight.w700,
@@ -176,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
                                           color: AppTheme().lblack, width: 1)),
                                   child: Text(
                                     'Login',
-                                    style: GoogleFonts.alegreya(
+                                    style: GoogleFonts.lato(
                                       color: AppTheme().black,
                                       fontWeight: FontWeight.w700,
                                       // fontFamily: 'Nexa',

@@ -1,5 +1,5 @@
-import 'package:Archimat/userside/shophome.dart';
-import 'package:Archimat/util/widgets/divider.dart';
+import 'package:archimat/userside/shophome.dart';
+import 'package:archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -108,7 +108,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
                           children: [
                             Text(
                               widget.data['name'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                 fontSize: 15,
                                 // fontFamily: 'Nexa',
                               ),
@@ -157,7 +157,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
                                           },
                                           child: Text(
                                             'Visit Shop',
-                                            style: GoogleFonts.alegreya(
+                                            style: GoogleFonts.lato(
                                               color: AppTheme().white,
                                               // fontFamily: 'Nexa'
                                             ),
@@ -174,14 +174,14 @@ class _ServiceDetailState extends State<ServiceDetail> {
                       padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
                       child: Text(
                         'Description',
-                        style: GoogleFonts.alegreya(
+                        style: GoogleFonts.lato(
                           fontWeight: FontWeight.w700,
                           color: AppTheme().black,
                           // fontFamily: 'Nexa',
                         ),
                       ),
                     ),
-                    Divider_Widgets1(),
+                    DividerWidgets1(),
                     Container(
                       padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                       child: Column(
@@ -243,7 +243,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Status',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -255,7 +255,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
                               widget.data['status']
                                   ? 'Available'
                                   : 'Not Available',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   ),
                             ),

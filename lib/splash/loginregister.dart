@@ -1,9 +1,9 @@
-import 'package:Archimat/controller/loginRegister.dart';
-import 'package:Archimat/splash/loginPage.dart';
-import 'package:Archimat/splash/registeration.dart';
+import 'package:archimat/controller/loginRegister.dart';
+import 'package:archimat/splash/loginPage.dart';
+import 'package:archimat/splash/registeration.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:Archimat/theme.dart';
+import 'package:archimat/theme.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -67,7 +67,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                     children: [
                       Text(
                         'Create a \nNew Account',
-                        style: GoogleFonts.alegreya(
+                        style: GoogleFonts.lato(
                             fontWeight: FontWeight.w700,
                             // fontFamily: 'Nexa',
                             fontSize: 25,
@@ -77,7 +77,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                         height: 10,
                       ),
                       Text(
-                        'Welcome Archimat',
+                        'Welcome archimat',
                         style: GoogleFonts.lato(
                           fontSize: 14,
                           color: AppTheme().black,

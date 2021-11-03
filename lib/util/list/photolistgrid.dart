@@ -1,4 +1,4 @@
-import 'package:Archimat/environment.dart';
+import 'package:archimat/environment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -158,7 +158,7 @@ class _ImageCardState extends State<ImageCard> {
                               '..'
                           : widget.data['name']
                       : '',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
                     fontSize: 15,
                     // fontFamily: 'Nexa',
                   ),

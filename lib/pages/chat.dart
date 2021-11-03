@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io' as io;
-import 'package:Archimat/Services/inboxService.dart';
+import 'package:archimat/Services/inboxService.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -195,7 +195,9 @@ class _ChatPageState extends State<ChatPage> {
           !widget.shopside
               ? widget.shop['name']
               : widget.user['firstname'] + ' ' + widget.user['lastname'],
-          style: TextStyle(fontFamily: 'Nexa', fontWeight: FontWeight.w700),
+          style: GoogleFonts.lato(
+              // fontFamily: 'Nexa',
+              fontWeight: FontWeight.w700),
         ),
         backgroundColor: AppTheme().purple,
       ),
@@ -561,7 +563,7 @@ class _ChatPageState extends State<ChatPage> {
                                             child: Text(
                                               DateFormat.jm()
                                                   .format(message.createdAt),
-                                              style: GoogleFonts.alegreya(
+                                              style: GoogleFonts.lato(
                                                   color:
                                                       message.user.uid == userid
                                                           ? Colors.black

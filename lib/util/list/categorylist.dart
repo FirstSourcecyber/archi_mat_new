@@ -1,6 +1,6 @@
-import 'package:Archimat/environment.dart';
-import 'package:Archimat/userside/category.dart';
-import 'package:Archimat/util/widgets/divider.dart';
+import 'package:archimat/environment.dart';
+import 'package:archimat/userside/category.dart';
+import 'package:archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 

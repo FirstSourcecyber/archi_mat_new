@@ -1,5 +1,5 @@
-import 'package:Archimat/userside/shophome.dart';
-import 'package:Archimat/util/widgets/divider.dart';
+import 'package:archimat/userside/shophome.dart';
+import 'package:archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -105,7 +105,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                           children: [
                             Text(
                               widget.data['name'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                 fontSize: 15,
                                 // fontFamily: 'Nexa',
                               ),
@@ -164,7 +164,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                                           },
                                           child: Text(
                                             'Visit Shop',
-                                            style: GoogleFonts.alegreya(
+                                            style: GoogleFonts.lato(
                                               color: AppTheme().white,
                                               // fontFamily: 'Nexa'
                                             ),
@@ -182,14 +182,14 @@ class _MaterialDetailState extends State<MaterialDetail> {
                       padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
                       child: Text(
                         'Basic Info',
-                        style: GoogleFonts.alegreya(
+                        style: GoogleFonts.lato(
                           fontWeight: FontWeight.w700,
                           color: AppTheme().black,
                           // fontFamily: 'Nexa',
                         ),
                       ),
                     ),
-                    Divider_Widgets1(),
+                    DividerWidgets1(),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                       child: Row(
@@ -199,7 +199,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Brand',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -211,7 +211,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                               widget.data['brand'] == ''
                                   ? ''
                                   : widget.data['brand'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   color: AppTheme().black),
                             ),
@@ -228,7 +228,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Country',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -238,7 +238,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               widget.data['country'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   ),
                             ),
@@ -255,7 +255,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Color',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -284,7 +284,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Status',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -296,7 +296,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                               widget.data['status']
                                   ? 'Available'
                                   : 'Not Available',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   ),
                             ),
@@ -313,7 +313,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               'Material Code',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   fontWeight: FontWeight.w700),
                             ),
@@ -323,7 +323,7 @@ class _MaterialDetailState extends State<MaterialDetail> {
                             width: MediaQuery.of(context).size.width * 0.4,
                             child: Text(
                               widget.data['code'],
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                   // fontFamily: 'Nexa',
                                   ),
                             ),

@@ -40,9 +40,10 @@ class _OpenHourListState extends State<OpenHourList> {
       child: widget.data.length == 0
           ? Text(
               'close',
-              style: GoogleFonts.alegreya(
-                  // fontFamily: 'Nexa',
-                  ),
+              style: GoogleFonts.lato(
+                fontSize: 14,
+                // fontFamily: 'Nexa',
+              ),
             )
           : ListView.builder(
               physics: NeverScrollableScrollPhysics(),
@@ -51,7 +52,7 @@ class _OpenHourListState extends State<OpenHourList> {
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+                  padding: const EdgeInsets.only(bottom: 10),
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -60,8 +61,8 @@ class _OpenHourListState extends State<OpenHourList> {
                           width: MediaQuery.of(context).size.width * 0.2,
                           child: Text(
                             widget.data[index]['day'],
-                            style: GoogleFonts.alegreya(
-                              fontSize: 12,
+                            style: GoogleFonts.lato(
+                              fontSize: 14,
                               // fontFamily: 'Nexa',
                             ),
                           )),
@@ -75,8 +76,8 @@ class _OpenHourListState extends State<OpenHourList> {
                               : (gettimeDate(widget.data[index]['opentime']) +
                                   ' - ' +
                                   gettimeDate(widget.data[index]['closetime'])),
-                          style: GoogleFonts.alegreya(
-                            fontSize: 12,
+                          style: GoogleFonts.lato(
+                            fontSize: 14,
                             // fontFamily: 'Nexa',
                           ),
                         ),

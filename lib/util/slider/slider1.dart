@@ -1,5 +1,5 @@
-import 'package:Archimat/environment.dart';
-import 'package:Archimat/theme.dart';
+import 'package:archimat/environment.dart';
+import 'package:archimat/theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +69,7 @@ class _Slider1PageState extends State<Slider1Page> {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
-                  height: 200,
+                  height: 300,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     image: DecorationImage(
@@ -97,7 +97,7 @@ class _Slider1PageState extends State<Slider1Page> {
         ),
         Positioned(
           right: 30,
-          top: (100.0 - (imageList.length * 8)),
+          top: (200.0 - (imageList.length * 8)),
           child: DotsIndicator(
             // mainAxisAlignment: MainAxisAlignment.center,
             axis: Axis.vertical,

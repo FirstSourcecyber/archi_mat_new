@@ -18,6 +18,7 @@ class AppTheme {
   Color darkgrey = Colors.grey[800];
   Color lightgrey = Colors.grey[200];
   Color light1grey = Colors.grey[300];
+  Color darklgrey = Colors.grey[700];
   Color red = Colors.red;
   Color purple = Color(0xFFA12791);
   Color pink = Colors.pink;
@@ -32,7 +33,7 @@ class AppTheme {
   // Primary Text Style
   TextStyle primaryTextStyle(bool i) {
     return GoogleFonts.lato(
-      fontSize: 8,
+      fontSize: 10,
       color: !i ? black : white,
       // fontFamily: 'Roxborough CF',
     );

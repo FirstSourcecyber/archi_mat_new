@@ -1,8 +1,7 @@
-import 'package:Archimat/Services/categoryService.dart';
-import 'package:Archimat/util/list/categorylist.dart';
-import 'package:Archimat/util/list/photolistgrid.dart';
-import 'package:Archimat/util/list/productgrid.dart';
-import 'package:Archimat/util/widgets/divider.dart';
+import 'package:archimat/Services/categoryService.dart';
+import 'package:archimat/util/list/categorylist.dart';
+import 'package:archimat/util/list/productgrid.dart';
+import 'package:archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../theme.dart';

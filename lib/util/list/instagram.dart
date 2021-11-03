@@ -1,4 +1,4 @@
-import 'package:Archimat/util/widgets/title.dart';
+import 'package:archimat/util/widgets/title.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme.dart';

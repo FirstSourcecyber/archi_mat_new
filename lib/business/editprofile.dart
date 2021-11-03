@@ -1,12 +1,11 @@
-import 'package:Archimat/theme.dart';
-import 'package:Archimat/util/widgets/back.dart';
-import 'package:Archimat/util/widgets/divider.dart';
-import 'package:Archimat/util/widgets/logout.dart';
-import 'package:Archimat/util/widgets/profilepic.dart';
-import 'package:Archimat/util/widgets/profiletab.dart';
+import 'package:archimat/theme.dart';
+import 'package:archimat/util/widgets/back.dart';
+import 'package:archimat/util/widgets/divider.dart';
+import 'package:archimat/util/widgets/logout.dart';
+import 'package:archimat/util/widgets/profilepic.dart';
+import 'package:archimat/util/widgets/profiletab.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class BusinessEditProfile extends StatefulWidget {
   final dynamic data;
@@ -20,14 +19,14 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
   TextEditingController username = new TextEditingController();
   @override
   void initState() {
-    userdetail();
+    // userdetail();
     super.initState();
   }
 
-  userdetail() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    var data = pref.getString('user');
-  }
+  // userdetail() async {
+  //   // SharedPreferences pref = await SharedPreferences.getInstance();
+  //   // var data = pref.getString('user');
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +58,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                     Container(
                       child: Text(
                         'Username',
-                        style: GoogleFonts.alegreya(),
+                        style: GoogleFonts.lato(),
                       ),
                       alignment: Alignment.topLeft,
                       width: 70,
@@ -75,7 +74,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'User Name',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -91,7 +90,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                     Container(
                       child: Text(
                         'First Name',
-                        style: GoogleFonts.alegreya(),
+                        style: GoogleFonts.lato(),
                       ),
                       alignment: Alignment.topLeft,
                       width: 70,
@@ -107,7 +106,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'First Name',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -123,7 +122,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                     Container(
                       child: Text(
                         'Last Name',
-                        style: GoogleFonts.alegreya(),
+                        style: GoogleFonts.lato(),
                       ),
                       alignment: Alignment.topLeft,
                       width: 70,
@@ -139,7 +138,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Last Name',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -155,7 +154,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                     Container(
                       child: Text(
                         'Address',
-                        style: GoogleFonts.alegreya(),
+                        style: GoogleFonts.lato(),
                       ),
                       alignment: Alignment.topLeft,
                       width: 70,
@@ -172,7 +171,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Address....',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -188,7 +187,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                     Container(
                       child: Text(
                         'Email',
-                        style: GoogleFonts.alegreya(),
+                        style: GoogleFonts.lato(),
                       ),
                       alignment: Alignment.topLeft,
                       width: 70,
@@ -204,7 +203,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Email',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -220,7 +219,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                     Container(
                       child: Text(
                         'Mobile',
-                        style: GoogleFonts.alegreya(),
+                        style: GoogleFonts.lato(),
                       ),
                       alignment: Alignment.topLeft,
                       width: 70,
@@ -236,7 +235,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Xxxxxxx',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -252,7 +251,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                     Container(
                       child: Text(
                         'Company',
-                        style: GoogleFonts.alegreya(),
+                        style: GoogleFonts.lato(),
                       ),
                       alignment: Alignment.topLeft,
                       width: 70,
@@ -268,7 +267,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Xxxxxxxxxxxxxxx',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -282,7 +281,10 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      child: Text('Registration Number'),
+                      child: Text(
+                        'Registration Number',
+                        style: GoogleFonts.lato(fontSize: 12),
+                      ),
                       alignment: Alignment.topLeft,
                       width: 75,
                     ),
@@ -297,7 +299,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Xxxxxxxxxxxxxxx',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -311,7 +313,10 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      child: Text('Bio'),
+                      child: Text(
+                        'Bio',
+                        style: GoogleFonts.lato(fontSize: 12),
+                      ),
                       alignment: Alignment.topLeft,
                       width: 70,
                     ),
@@ -328,7 +333,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         maxLines: 4,
                         decoration: InputDecoration(
                           hintText: 'Xxxxxxxxxxxxxxx',
-                          hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                          hintStyle: GoogleFonts.lato(color: Colors.grey),
                           border: new OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
                               const Radius.circular(10.0),
@@ -347,7 +352,10 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      child: Text('Website'),
+                      child: Text(
+                        'Website',
+                        style: GoogleFonts.lato(fontSize: 12),
+                      ),
                       alignment: Alignment.topLeft,
                       width: 70,
                     ),
@@ -362,7 +370,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Xxxxxxxxxxxxxxx',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -376,7 +384,10 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      child: Text('Virtual Shop'),
+                      child: Text(
+                        'Virtual Shop',
+                        style: GoogleFonts.lato(fontSize: 12),
+                      ),
                       alignment: Alignment.topLeft,
                       width: 70,
                     ),
@@ -391,7 +402,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Xxxxxxxxxxxxxxx',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -405,7 +416,10 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      child: Text('Virtual Event'),
+                      child: Text(
+                        'Virtual Event',
+                        style: GoogleFonts.lato(fontSize: 12),
+                      ),
                       alignment: Alignment.topLeft,
                       width: 70,
                     ),
@@ -420,7 +434,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Xxxxxxxxxxxxxxx',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )
@@ -434,7 +448,10 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      child: Text('Hotline'),
+                      child: Text(
+                        'Hotline',
+                        style: GoogleFonts.lato(fontSize: 12),
+                      ),
                       alignment: Alignment.topLeft,
                       width: 70,
                     ),
@@ -449,7 +466,7 @@ class _BusinessEditProfileState extends State<BusinessEditProfile> {
                         controller: username,
                         decoration: InputDecoration(
                             hintText: 'Xxxxxxxxxxxxxxx',
-                            hintStyle: GoogleFonts.alegreya(color: Colors.grey),
+                            hintStyle: GoogleFonts.lato(color: Colors.grey),
                             border: InputBorder.none),
                       ),
                     )

@@ -1,5 +1,5 @@
-import 'package:Archimat/environment.dart';
-import 'package:Archimat/theme.dart';
+import 'package:archimat/environment.dart';
+import 'package:archimat/theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +77,8 @@ class _SliderPageState extends State<SliderPage> {
                 return Stack(
                   children: [
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.53,
+                      // height: MediaQuery.of(context).size.height * 0.53,
+                      height: 520,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         // image: DecorationImage(
@@ -95,7 +96,7 @@ class _SliderPageState extends State<SliderPage> {
 
                       child: CachedNetworkImage(
                         width: MediaQuery.of(context).size.width,
-                        height: 230,
+                        // height: 230,
                         imageUrl: widget.data != null
                             ? Config.url + item['image']
                             : item,
@@ -116,19 +117,19 @@ class _SliderPageState extends State<SliderPage> {
                                         children: [
                                           Text(
                                             item['title'],
-                                            style: GoogleFonts.alegreya(
+                                            style: GoogleFonts.lato(
                                                 color: AppTheme().white,
                                                 // fontFamily: 'Nexa',
                                                 fontWeight: FontWeight.w700,
-                                                fontSize: 14),
+                                                fontSize: 16),
                                           ),
                                           Text(
                                             'How can we help you?',
-                                            style: GoogleFonts.alegreya(
+                                            style: GoogleFonts.lato(
                                                 color: AppTheme().white,
                                                 // fontFamily: 'Nexa',
                                                 fontWeight: FontWeight.w700,
-                                                fontSize: 30),
+                                                fontSize: 21),
                                           ),
                                         ],
                                       )
@@ -138,19 +139,19 @@ class _SliderPageState extends State<SliderPage> {
                                         children: [
                                           Text(
                                             'Hello Eva Tee',
-                                            style: GoogleFonts.alegreya(
+                                            style: GoogleFonts.lato(
                                                 color: AppTheme().white,
                                                 // fontFamily: 'Nexa',
                                                 fontWeight: FontWeight.w700,
-                                                fontSize: 14),
+                                                fontSize: 16),
                                           ),
                                           Text(
                                             'How can we help you?',
-                                            style: GoogleFonts.alegreya(
+                                            style: GoogleFonts.lato(
                                                 color: AppTheme().white,
                                                 // fontFamily: 'Nexa',
                                                 fontWeight: FontWeight.w700,
-                                                fontSize: 25),
+                                                fontSize: 21),
                                           ),
                                         ],
                                       ),
@@ -164,7 +165,7 @@ class _SliderPageState extends State<SliderPage> {
         ),
         Positioned(
           right: 30,
-          top: (210.0 - (imageList.length * 9)),
+          top: (230.0 - (imageList.length * 9)),
           child: DotsIndicator(
             // mainAxisAlignment: MainAxisAlignment.center,
             axis: Axis.vertical,

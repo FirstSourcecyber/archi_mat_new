@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:Archimat/pages/search.dart';
+import 'package:archimat/pages/search.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -65,9 +65,9 @@ class Title_Widgets extends StatelessWidget {
             children: [
               Text(
                 this.text,
-                style: GoogleFonts.alegreya(
+                style: GoogleFonts.lato(
                     color: AppTheme().l2black,
-                    fontSize: 18,
+                    fontSize: 16,
                     // fontFamily: 'Nexa',
                     fontWeight:
                         this.bold == true ? FontWeight.w700 : FontWeight.w300),

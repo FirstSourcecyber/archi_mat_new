@@ -1,6 +1,6 @@
-import 'package:Archimat/splash/loginregister.dart';
+import 'package:archimat/splash/loginregister.dart';
 import 'package:flutter/material.dart';
-import 'package:Archimat/theme.dart';
+import 'package:archimat/theme.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -117,7 +117,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                             ? 'Experience \n Virtually'
                                             : 'Save Your \n Fave Materials',
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.alegreya(
+                                    style: GoogleFonts.lato(
                                         fontSize: 30,
                                         color: Colors.black54,
                                         // fontFamily: 'Nexa',
@@ -137,7 +137,7 @@ class _VirtualMaterialScreen1State extends State<VirtualMaterialScreen1> {
                                 Text(
                                   'World Of Architectural & \n Building Materials',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.alegreya(
+                                  style: GoogleFonts.lato(
                                       color: Colors.black54,
                                       // fontFamily: 'Nexa',
                                       fontSize: 18),

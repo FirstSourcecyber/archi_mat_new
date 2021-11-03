@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:Archimat/Services/searchService.dart';
-import 'package:Archimat/util/list/productgrid.dart';
-import 'package:Archimat/util/widgets/divider.dart';
+import 'package:archimat/Services/searchService.dart';
+import 'package:archimat/util/list/productgrid.dart';
+import 'package:archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -193,7 +193,7 @@ class _SearchPageState extends State<SearchPage> {
                           },
                         ),
                   hintText: "Search Messages",
-                  hintStyle: GoogleFonts.alegreya(color: AppTheme().l1black),
+                  hintStyle: GoogleFonts.lato(color: AppTheme().l1black),
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15.0))),

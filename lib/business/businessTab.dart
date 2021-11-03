@@ -1,10 +1,11 @@
-import 'package:Archimat/userside/category.dart';
-import 'package:Archimat/userside/feeds.dart';
-import 'package:Archimat/theme.dart';
-import 'package:Archimat/userside/setting.dart';
-import 'package:Archimat/userside/shophome.dart';
+import 'package:archimat/userside/category.dart';
+import 'package:archimat/userside/feeds.dart';
+import 'package:archimat/theme.dart';
+import 'package:archimat/userside/setting.dart';
+import 'package:archimat/userside/shophome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BusinessTab extends StatefulWidget {
   final int index;
@@ -133,7 +134,7 @@ class _BusinessTabState extends State<BusinessTab> {
                     ),
                     Text(
                       'Home',
-                      style: TextStyle(
+                      style: GoogleFonts.lato(
                           color:
                               _page == 0 ? AppTheme().purple : AppTheme().grey,
                           fontSize: 12),
@@ -159,7 +160,7 @@ class _BusinessTabState extends State<BusinessTab> {
                     ),
                     Text(
                       'Chat',
-                      style: TextStyle(
+                      style: GoogleFonts.lato(
                         color: _page == 1 ? AppTheme().purple : AppTheme().grey,
                         fontSize: 12,
                       ),
@@ -174,7 +175,7 @@ class _BusinessTabState extends State<BusinessTab> {
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
                       'ARVR',
-                      style: TextStyle(
+                      style: GoogleFonts.lato(
                         color: AppTheme().purple,
                         fontSize: 12,
                       ),
@@ -200,7 +201,7 @@ class _BusinessTabState extends State<BusinessTab> {
                     ),
                     Text(
                       'Discover',
-                      style: TextStyle(
+                      style: GoogleFonts.lato(
                           color:
                               _page == 2 ? AppTheme().purple : AppTheme().grey,
                           fontSize: 12),

@@ -1,14 +1,13 @@
 import 'dart:convert';
 
-import 'package:Archimat/business/setting.dart';
-import 'package:Archimat/pages/inbox.dart';
-import 'package:Archimat/pages/scannerPage.dart';
-import 'package:Archimat/userside/homepage.dart';
-import 'package:Archimat/theme.dart';
-import 'package:Archimat/userside/setting.dart';
-import 'package:Archimat/userside/shophome.dart';
+import 'package:archimat/business/setting.dart';
+import 'package:archimat/pages/inbox.dart';
+import 'package:archimat/pages/scannerPage.dart';
+import 'package:archimat/userside/homepage.dart';
+import 'package:archimat/theme.dart';
+import 'package:archimat/userside/setting.dart';
+import 'package:archimat/userside/shophome.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -52,7 +51,7 @@ class _TabPageState extends State<TabPage> {
           );
     }
 
-    if (_page == 2) {
+    if (_page == 3) {
       return AnimatedContainer(
           color: AppTheme().white,
           duration: Duration(seconds: 0),
@@ -62,7 +61,7 @@ class _TabPageState extends State<TabPage> {
                   data: detail,
                 ));
     }
-    if (_page == 3) {
+    if (_page == 2) {
       return AnimatedContainer(
           color: AppTheme().white,
           duration: Duration(seconds: 0),
@@ -146,21 +145,27 @@ class _TabPageState extends State<TabPage> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(top: 18, bottom: 3),
-                      child: SvgPicture.asset(
-                        'assets/images/home.svg',
-                        width: 20,
-                        color:
-                            _page == 0 ? AppTheme().purple : AppTheme().black,
-                      ),
-                    ),
+                        padding: const EdgeInsets.only(top: 10, bottom: 3),
+                        child: Image.asset(
+                          'assets/images/home.png',
+                          width: 30,
+                          color:
+                              _page == 0 ? AppTheme().purple : AppTheme().black,
+                        )
+                        //  SvgPicture.asset(
+                        //   'assets/images/home.svg',
+                        //   width: 20,
+                        //   color:
+                        //       _page == 0 ? AppTheme().purple : AppTheme().black,
+                        // ),
+                        ),
                     Text(
                       'Home',
                       style: GoogleFonts.lato(
                           color:
                               _page == 0 ? AppTheme().purple : AppTheme().black,
                           // fontFamily: 'Roxborough CF',
-                          fontSize: 8),
+                          fontSize: 10),
                     )
                   ],
                 ),
@@ -174,18 +179,20 @@ class _TabPageState extends State<TabPage> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(top: 20, bottom: 3),
-                      child: SvgPicture.asset(
-                        // widget.data != null
-                        //     ?
-                        'assets/images/message.svg'
-                        // : 'assets/images/category.svg'
-                        ,
-                        width: 22,
-                        color:
-                            _page == 1 ? AppTheme().purple : AppTheme().black,
-                      ),
-                    ),
+                        padding: const EdgeInsets.only(top: 10, bottom: 3),
+                        child: Image.asset(
+                          'assets/images/chat.png',
+                          width: 30,
+                          color:
+                              _page == 1 ? AppTheme().purple : AppTheme().black,
+                        )
+                        // SvgPicture.asset(
+                        //   'assets/images/message.svg',
+                        //   width: 22,
+                        //   color:
+                        //       _page == 1 ? AppTheme().purple : AppTheme().black,
+                        // ),
+                        ),
                     Text(
                       // widget.data != null ?
                       'Chat'
@@ -195,35 +202,11 @@ class _TabPageState extends State<TabPage> {
                         // fontFamily: 'Roxborough CF',
                         color:
                             _page == 1 ? AppTheme().purple : AppTheme().black,
-                        fontSize: 8,
+                        fontSize: 10,
                       ),
                     )
                   ],
                 ),
-              ),
-              Column(
-                children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      this.setState(() {
-                        _page = 4;
-                      });
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(top: 13),
-                      padding: EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: AppTheme().black),
-                          shape: BoxShape.circle),
-                      child: SvgPicture.asset(
-                        'assets/images/makitsvg.svg',
-                        width: 30,
-                        color:
-                            _page == 4 ? AppTheme().purple : AppTheme().black,
-                      ),
-                    ),
-                  ),
-                ],
               ),
               GestureDetector(
                 onTap: () {
@@ -234,24 +217,55 @@ class _TabPageState extends State<TabPage> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(top: 20, bottom: 3),
-                      child:
-                          //  widget.data != null
-                          //     ?
-                          //     Icon(
-                          //   Icons.person,
-                          //   size: 30,
-                          //   color:
-                          //       _page == 2 ? AppTheme().purple : AppTheme().grey,
-                          // )
-                          // :
-                          SvgPicture.asset(
-                        'assets/images/person.svg',
-                        width: 22,
+                        padding: const EdgeInsets.only(top: 10, bottom: 3),
+                        child: Image.asset(
+                          'assets/images/search.png',
+                          width: 30,
+                          color:
+                              _page == 2 ? AppTheme().purple : AppTheme().black,
+                        )
+                        //  SvgPicture.asset(
+                        //   'assets/images/search.svg',
+                        //   width: 22,
+                        //   color:
+                        //       _page == 1 ? AppTheme().purple : AppTheme().black,
+                        // ),
+                        ),
+                    Text(
+                      'Search',
+                      style: GoogleFonts.lato(
+                        // fontFamily: 'Roxborough CF',
                         color:
                             _page == 2 ? AppTheme().purple : AppTheme().black,
+                        fontSize: 10,
                       ),
-                    ),
+                    )
+                  ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  this.setState(() {
+                    _page = 3;
+                  });
+                },
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                        padding: const EdgeInsets.only(top: 10, bottom: 3),
+                        child: Image.asset(
+                          'assets/images/person.png',
+                          width: 30,
+                          color:
+                              _page == 3 ? AppTheme().purple : AppTheme().black,
+                        )
+                        //     SvgPicture.asset(
+                        //   'assets/images/person.svg',
+                        //   width: 22,
+                        //   color:
+                        //       _page == 2 ? AppTheme().purple : AppTheme().black,
+                        // ),
+                        ),
                     Text(
                       // widget.data != null ?
                       'Person'
@@ -261,54 +275,111 @@ class _TabPageState extends State<TabPage> {
                           // fontFamily: 'Roxborough CF',
                           color:
                               _page == 2 ? AppTheme().purple : AppTheme().black,
-                          fontSize: 8),
+                          fontSize: 10),
                     )
                   ],
                 ),
               ),
               Column(
                 children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      this.setState(() {
-                        _page = 3;
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, bottom: 5),
-                          child: SvgPicture.asset(
-                            'assets/images/makitsvg.svg',
-                            width: 27,
-                            color: _page == 3
-                                ? AppTheme().purple
-                                : AppTheme().black,
-                          ),
-                        ),
-                        Text(
-                          'MAT IT',
-                          style: GoogleFonts.lato(
-                              // fontFamily: 'Roxborough CF',
-                              // fontWeight: FontWeight.w700,
-                              color: _page == 3
-                                  ? AppTheme().purple
-                                  : AppTheme().black,
-                              fontSize: 8),
-                        )
-                        // Padding(
-                        //   padding: const EdgeInsets.only(top: 20),
-                        //   child: SvgPicture.asset(
-                        //     'assets/images/mat.svg',
-                        //     width: 35,
-                        //     color: _page == 3 ? AppTheme().purple : AppTheme().grey,
-                        //   ),
-                        // ),
-                      ],
-                    ),
-                  ),
+                  Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 3),
+                      child: Image.asset(
+                        'assets/images/scan.png',
+                        width: 30,
+                        color:
+                            _page == 4 ? AppTheme().purple : AppTheme().black,
+                      )
+                      //     SvgPicture.asset(
+                      //   'assets/images/person.svg',
+                      //   width: 22,
+                      //   color:
+                      //       _page == 2 ? AppTheme().purple : AppTheme().black,
+                      // ),
+                      ),
+                  Text(
+                    // widget.data != null ?
+                    'AR'
+                    // : 'Discover'
+                    ,
+                    style: GoogleFonts.lato(
+                        // fontFamily: 'Roxborough CF',
+                        color:
+                            _page == 2 ? AppTheme().purple : AppTheme().black,
+                        fontSize: 10),
+                  )
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     this.setState(() {
+                  //       _page = 4;
+                  //     });
+                  //   },
+                  //   child: Container(
+                  //       margin: EdgeInsets.only(top: 13),
+                  //       padding: EdgeInsets.all(12),
+                  //       decoration: BoxDecoration(
+                  //           border:
+                  //               Border.all(width: 1, color: AppTheme().black),
+                  //           shape: BoxShape.circle),
+                  //       child: Image.asset(
+                  //         'assets/images/scan.png',
+                  //         width: 30,
+                  //         color:
+                  //             _page == 4 ? AppTheme().purple : AppTheme().black,
+                  //       )
+                  //       //  SvgPicture.asset(
+                  //       //   'assets/images/makitsvg.svg',
+                  //       //   width: 30,
+                  //       //   color:
+                  //       //       _page == 4 ? AppTheme().purple : AppTheme().black,
+                  //       // ),
+                  //       ),
+                  // ),
                 ],
               ),
+              // Column(
+              //   children: <Widget>[
+              //     GestureDetector(
+              //       onTap: () {
+              //         this.setState(() {
+              //           _page = 3;
+              //         });
+              //       },
+              //       child: Column(
+              //         children: [
+              //           Padding(
+              //             padding: const EdgeInsets.only(top: 20, bottom: 5),
+              //             child: SvgPicture.asset(
+              //               'assets/images/makitsvg.svg',
+              //               width: 27,
+              //               color: _page == 3
+              //                   ? AppTheme().purple
+              //                   : AppTheme().black,
+              //             ),
+              //           ),
+              //           Text(
+              //             'MAT IT',
+              //             style: GoogleFonts.lato(
+              //                 // fontFamily: 'Roxborough CF',
+              //                 // fontWeight: FontWeight.w700,
+              //                 color: _page == 3
+              //                     ? AppTheme().purple
+              //                     : AppTheme().black,
+              //                 fontSize: 8),
+              //           )
+              //           // Padding(
+              //           //   padding: const EdgeInsets.only(top: 20),
+              //           //   child: SvgPicture.asset(
+              //           //     'assets/images/mat.svg',
+              //           //     width: 35,
+              //           //     color: _page == 3 ? AppTheme().purple : AppTheme().grey,
+              //           //   ),
+              //           // ),
+              //         ],
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),

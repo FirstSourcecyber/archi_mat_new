@@ -1,8 +1,8 @@
-import 'package:Archimat/util/list/openhourlist.dart';
-import 'package:Archimat/util/list/productgrid.dart';
-import 'package:Archimat/util/list/shopproductlist.dart';
-import 'package:Archimat/util/widgets/divider.dart';
+import 'package:archimat/util/list/openhourlist.dart';
+import 'package:archimat/util/list/productlist.dart';
+import 'package:archimat/util/widgets/divider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme.dart';
@@ -10,7 +10,11 @@ import '../../theme.dart';
 class BusinessList extends StatefulWidget {
   final dynamic shop;
   final dynamic product;
-  const BusinessList({Key key, this.shop, this.product}) : super(key: key);
+  final dynamic material;
+  final dynamic service;
+  const BusinessList(
+      {Key key, this.shop, this.product, this.material, this.service})
+      : super(key: key);
 
   @override
   _BusinessListState createState() => _BusinessListState();
@@ -18,7 +22,73 @@ class BusinessList extends StatefulWidget {
 
 class _BusinessListState extends State<BusinessList> {
   double i = 0;
-  List review = [];
+  List review = [
+    {
+      'rating': '5.0',
+      'review':
+          'Love the outcome of the design, fuss free communication and straightforward.',
+      'user': {
+        'image':
+            'https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg',
+        'name': 'Mererials',
+      }
+    },
+    {
+      'rating': '5.0',
+      'review':
+          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
+      'user': {
+        'image':
+            'https://cdn.pixabay.com/photo/2017/12/13/00/23/christmas-3015776_960_720.jpg',
+        'name': 'Showrooms',
+        'category': 'Shop'
+      }
+    },
+    {
+      'rating': '5.0',
+      'review':
+          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
+      'user': {
+        'image':
+            'https://cdn.pixabay.com/photo/2019/12/19/10/55/christmas-market-4705877_960_720.jpg',
+        'name': 'Event',
+        'category': 'Shop'
+      }
+    },
+    {
+      'rating': '5.0',
+      'review':
+          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
+      'user': {
+        'image':
+            'https://cdn.pixabay.com/photo/2019/12/20/00/03/road-4707345_960_720.jpg',
+        'name': 'Mererials',
+        'category': 'Shop'
+      }
+    },
+    {
+      'rating': '5.0',
+      'review':
+          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
+      'user': {
+        'image':
+            'https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg',
+        'name': 'Showrooms',
+        'category': 'Shop'
+      }
+    },
+    {
+      'rating': '5.0',
+      'review':
+          'Love the outcome of the design, fuss free communication and straightforward.Highly recommended.',
+      'user': {
+        'image':
+            'https://cdn.pixabay.com/photo/2016/11/22/07/09/spruce-1848543__340.jpg',
+        'name': 'Event',
+        'category': 'Shop'
+      }
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -40,47 +110,26 @@ class _BusinessListState extends State<BusinessList> {
                   },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                    decoration:
-                        // i != 0
-                        //     ? BoxDecoration(
-                        //         color: AppTheme().white,
-                        //       )
-                        //     :
-                        BoxDecoration(
-                            color:
-                                i == 0 ? AppTheme().purple : AppTheme().white,
-                            borderRadius: BorderRadius.circular(5),
+                    decoration: i != 0
+                        ? BoxDecoration(
+                            // color: AppTheme().white,
+                            )
+                        : BoxDecoration(
+                            color: AppTheme().darklgrey,
+                            borderRadius: BorderRadius.circular(15),
                             border: Border.all(
                                 color: AppTheme().lblack, width: 0.5)),
                     child: Text(
-                      'Listing',
-                      style: AppTheme().primaryTextStyle(i == 0 ? true : false),
+                      'Shop',
+                      style: GoogleFonts.lato(
+                        fontSize: 14,
+                        color: i != 0 ? AppTheme().black : AppTheme().white,
+                        // fontFamily: 'Roxborough CF',
+                      ),
                     ),
                   ),
                 ),
-                // GestureDetector(
-                //   onTap: () {
-                //     setState(() {
-                //       i = 1;
-                //     });
-                //   },
-                //   child: Container(
-                //     padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                //     decoration: i != 1
-                //         ? BoxDecoration(
-                //             color: AppTheme().white,
-                //           )
-                //         : BoxDecoration(
-                //             color: AppTheme().l1black,
-                //             borderRadius: BorderRadius.circular(25),
-                //             border:
-                //                 Border.all(color: AppTheme().lblack, width: 1)),
-                //     child: Text(
-                //       'Reviews',
-                //       style: AppTheme().primaryTextStyle(i == 1 ? true : false),
-                //     ),
-                //   ),
-                // ),
+
                 // GestureDetector(
                 //   onTap: () {
                 //     setState(() {
@@ -112,21 +161,49 @@ class _BusinessListState extends State<BusinessList> {
                   },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
-                    decoration:
-                        // i != 3
-                        //     ? BoxDecoration(
-                        //         color: AppTheme().white,
-                        //       )
-                        //     :
-                        BoxDecoration(
-                            color:
-                                i == 3 ? AppTheme().purple : AppTheme().white,
-                            borderRadius: BorderRadius.circular(5),
+                    decoration: i != 3
+                        ? BoxDecoration(
+                            // color: AppTheme().white,
+                            )
+                        : BoxDecoration(
+                            color: AppTheme().darklgrey,
+                            borderRadius: BorderRadius.circular(25),
                             border: Border.all(
                                 color: AppTheme().lblack, width: 0.5)),
                     child: Text(
                       'About',
-                      style: AppTheme().primaryTextStyle(i == 3 ? true : false),
+                      style: GoogleFonts.lato(
+                        fontSize: 14,
+                        color: i != 3 ? AppTheme().black : AppTheme().white,
+                        // fontFamily: 'Roxborough CF',
+                      ),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      i = 1;
+                    });
+                  },
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    decoration: i != 1
+                        ? BoxDecoration(
+                            // color: AppTheme().white,
+                            )
+                        : BoxDecoration(
+                            color: AppTheme().darklgrey,
+                            borderRadius: BorderRadius.circular(25),
+                            border:
+                                Border.all(color: AppTheme().lblack, width: 1)),
+                    child: Text(
+                      'Reviews',
+                      style: GoogleFonts.lato(
+                        fontSize: 14,
+                        color: i != 1 ? AppTheme().black : AppTheme().white,
+                        // fontFamily: 'Roxborough CF',
+                      ),
                     ),
                   ),
                 ),
@@ -134,7 +211,11 @@ class _BusinessListState extends State<BusinessList> {
             ),
           ),
           i == 0
-              ? ListingPage(data: widget.product)
+              ? ListingPage(
+                  product: widget.product,
+                  material: widget.material,
+                  service: widget.service,
+                )
               : i == 1
                   ? BusinessReviews(
                       data: review,
@@ -153,8 +234,11 @@ class _BusinessListState extends State<BusinessList> {
 }
 
 class ListingPage extends StatefulWidget {
-  final dynamic data;
-  const ListingPage({Key key, this.data}) : super(key: key);
+  final dynamic product;
+  final dynamic service;
+  final dynamic material;
+  const ListingPage({Key key, this.product, this.service, this.material})
+      : super(key: key);
 
   @override
   _ListingPageState createState() => _ListingPageState();
@@ -166,9 +250,13 @@ class _ListingPageState extends State<ListingPage> {
   bool loader = false;
   @override
   void initState() {
-    print('widget.data===========================================');
+    print('widget.product===========================================');
+    print(widget.product);
+    print('widget.service===========================================');
+    print(widget.service);
+    print('widget.material===========================================');
 
-    print(widget.data);
+    print(widget.material);
     super.initState();
   }
 
@@ -176,6 +264,116 @@ class _ListingPageState extends State<ListingPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        widget.product.length == 0 &&
+                widget.service.length == 0 &&
+                widget.material.length == 0
+            ? Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'No Listing Available',
+                  style: GoogleFonts.lato(fontSize: 14),
+                ),
+              )
+            : Container(),
+        widget.product.length == 0
+            ? Container()
+            : Productlist(
+                i: 3,
+                data: widget.product,
+                seeall: false,
+                title: 'Products',
+              ),
+        // ? Container()
+        // : Column(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [
+        //       Padding(
+        //         padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+        //         child: Text(
+        //           'Product',
+        //           style: GoogleFonts.lato(
+        //             fontWeight: FontWeight.w700,
+        //             color: AppTheme().black,
+        //             // fontFamily: 'Nexa',
+        //           ),
+        //         ),
+        //       ),
+        //       DividerWidgets1(),
+        //       Padding(
+        //         padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+        //         child: ShopProductlist(
+        //           i: 1,
+        //           data: widget.product,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        widget.material.length == 0
+            ? Container()
+            : Productlist(
+                i: 1,
+                seeall: false,
+                data: widget.material,
+                title: 'Materials',
+              ),
+        // ? Container()
+        // : Column(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [
+        //       Padding(
+        //         padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+        //         child: Text(
+        //           'Material',
+        //           style: GoogleFonts.lato(
+        //             fontWeight: FontWeight.w700,
+        //             color: AppTheme().black,
+        //             // fontFamily: 'Nexa',
+        //           ),
+        //         ),
+        //       ),
+        //       DividerWidgets1(),
+        //       Padding(
+        //         padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+        //         child: ShopProductlist(
+        //           i: 2,
+        //           data: widget.material,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        widget.service.length == 0
+            ? Container()
+            : Productlist(
+                i: 4,
+                seeall: false,
+                data: widget.service,
+                title: 'Service',
+              ),
+        // ? Container()
+        // : Column(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [
+        //       Padding(
+        //         padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+        //         child: Text(
+        //           'Service',
+        //           style: GoogleFonts.lato(
+        //             fontWeight: FontWeight.w700,
+        //             color: AppTheme().black,
+        //             // fontFamily: 'Nexa',
+        //           ),
+        //         ),
+        //       ),
+        //       DividerWidgets1(),
+        //       Padding(
+        //         padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+        //         child: ShopProductlist(
+        //           i: 3,
+        //           data: widget.service,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
         // Padding(
         //   padding: const EdgeInsets.all(8.0),
         //   child: Row(
@@ -241,79 +439,79 @@ class _ListingPageState extends State<ListingPage> {
         // SizedBox(
         //   height: 10,
         // ),
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    i = 0;
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
-                  decoration: BoxDecoration(
-                      color: i == 0 ? AppTheme().purple : AppTheme().white,
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(color: AppTheme().lblack, width: 0.5)),
-                  child: Text(
-                    'Product',
-                    style: AppTheme().primaryTextStyle(i == 0 ? true : false),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    i = 1;
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
-                  decoration: BoxDecoration(
-                      color: i == 1 ? AppTheme().purple : AppTheme().white,
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(color: AppTheme().lblack, width: 0.5)),
-                  child: Text(
-                    'Material',
-                    style: AppTheme().primaryTextStyle(i == 1 ? true : false),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    i = 2;
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
-                  decoration: BoxDecoration(
-                      color: i == 2 ? AppTheme().purple : AppTheme().white,
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(color: AppTheme().lblack, width: 0.5)),
-                  child: Text(
-                    'Service',
-                    style: AppTheme().primaryTextStyle(i == 2 ? true : false),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        loader
-            ? Center(
-                child: CircularProgressIndicator(
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(AppTheme().purple)))
-            : ProductListGride(
-                data: widget.data,
-              ),
-        SizedBox(
-          height: 20,
-        ),
+        // Padding(
+        //   padding: const EdgeInsets.all(10.0),
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //     children: [
+        //       GestureDetector(
+        //         onTap: () {
+        //           setState(() {
+        //             i = 0;
+        //           });
+        //         },
+        //         child: Container(
+        //           padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+        //           decoration: BoxDecoration(
+        //               color: i == 0 ? AppTheme().purple : AppTheme().white,
+        //               borderRadius: BorderRadius.circular(5),
+        //               border: Border.all(color: AppTheme().lblack, width: 0.5)),
+        //           child: Text(
+        //             'Product',
+        //             style: AppTheme().primaryTextStyle(i == 0 ? true : false),
+        //           ),
+        //         ),
+        //       ),
+        //       GestureDetector(
+        //         onTap: () {
+        //           setState(() {
+        //             i = 1;
+        //           });
+        //         },
+        //         child: Container(
+        //           padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+        //           decoration: BoxDecoration(
+        //               color: i == 1 ? AppTheme().purple : AppTheme().white,
+        //               borderRadius: BorderRadius.circular(5),
+        //               border: Border.all(color: AppTheme().lblack, width: 0.5)),
+        //           child: Text(
+        //             'Material',
+        //             style: AppTheme().primaryTextStyle(i == 1 ? true : false),
+        //           ),
+        //         ),
+        //       ),
+        //       GestureDetector(
+        //         onTap: () {
+        //           setState(() {
+        //             i = 2;
+        //           });
+        //         },
+        //         child: Container(
+        //           padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+        //           decoration: BoxDecoration(
+        //               color: i == 2 ? AppTheme().purple : AppTheme().white,
+        //               borderRadius: BorderRadius.circular(5),
+        //               border: Border.all(color: AppTheme().lblack, width: 0.5)),
+        //           child: Text(
+        //             'Service',
+        //             style: AppTheme().primaryTextStyle(i == 2 ? true : false),
+        //           ),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        // loader
+        //     ? Center(
+        //         child: CircularProgressIndicator(
+        //             valueColor:
+        //                 AlwaysStoppedAnimation<Color>(AppTheme().purple)))
+        //     : ProductListGride(
+        //         data: widget.data,
+        //       ),
+        // SizedBox(
+        //   height: 20,
+        // ),
       ],
     );
   }
@@ -321,12 +519,11 @@ class _ListingPageState extends State<ListingPage> {
 
 class BusinessAboutPage extends StatefulWidget {
   final dynamic data;
-  final dynamic product;
-  final dynamic service;
-  final dynamic material;
-  const BusinessAboutPage(
-      {Key key, this.data, this.material, this.service, this.product})
-      : super(key: key);
+
+  const BusinessAboutPage({
+    Key key,
+    this.data,
+  }) : super(key: key);
 
   @override
   _BusinessAboutPageState createState() => _BusinessAboutPageState();
@@ -372,22 +569,24 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                 child: Text(
                   'About Us',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                    fontSize: 16,
                     fontWeight: FontWeight.w700,
                     color: AppTheme().black,
                     // fontFamily: 'Nexa',
                   ),
                 ),
               ),
-              Divider_Widgets1(),
+              // DividerWidgets1(),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: Text(
                   widget.data['desc'].length > 200 && aboutText
                       ? widget.data['desc'].toString().substring(0, 200) +
                           ' .....'
                       : widget.data['desc'] + '',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                      fontSize: 14,
                       // fontFamily: 'Nexa',
                       color: AppTheme().black),
                 ),
@@ -400,7 +599,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                         ? GestureDetector(
                             child: Text(
                               'More',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
+                                fontSize: 14,
                                 color: AppTheme().blue,
                                 // fontFamily: 'Nexa',
                               ),
@@ -415,7 +615,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                             ? GestureDetector(
                                 child: Text(
                                   'less',
-                                  style: GoogleFonts.alegreya(
+                                  style: GoogleFonts.lato(
+                                    fontSize: 14,
                                     color: AppTheme().blue,
                                     // fontFamily: 'Nexa',
                                   ),
@@ -433,98 +634,22 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
-        widget.product.length == 0
-            ? Container()
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
-                    child: Text(
-                      'Product',
-                      style: GoogleFonts.alegreya(
-                        fontWeight: FontWeight.w700,
-                        color: AppTheme().black,
-                        // fontFamily: 'Nexa',
-                      ),
-                    ),
-                  ),
-                  Divider_Widgets1(),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                    child: ShopProductlist(
-                      i: 1,
-                      data: widget.product,
-                    ),
-                  ),
-                ],
-              ),
-        widget.material.length == 0
-            ? Container()
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
-                    child: Text(
-                      'Material',
-                      style: GoogleFonts.alegreya(
-                        fontWeight: FontWeight.w700,
-                        color: AppTheme().black,
-                        // fontFamily: 'Nexa',
-                      ),
-                    ),
-                  ),
-                  Divider_Widgets1(),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                    child: ShopProductlist(
-                      i: 2,
-                      data: widget.material,
-                    ),
-                  ),
-                ],
-              ),
-        widget.service.length == 0
-            ? Container()
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
-                    child: Text(
-                      'Service',
-                      style: GoogleFonts.alegreya(
-                        fontWeight: FontWeight.w700,
-                        color: AppTheme().black,
-                        // fontFamily: 'Nexa',
-                      ),
-                    ),
-                  ),
-                  Divider_Widgets1(),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                    child: ShopProductlist(
-                      i: 3,
-                      data: widget.service,
-                    ),
-                  ),
-                ],
-              ),
+//  DividerWidgets1(),
+//         Padding(
+//           padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+//           child: Text(
+//             'Basic Info',
+//             style: GoogleFonts.lato(
+//               fontSize:16,
+//               fontWeight: FontWeight.w700,
+//               color: AppTheme().black,
+//               // fontFamily: 'Nexa',
+//             ),
+//           ),
+//         ),
+        DividerWidgets1(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
-          child: Text(
-            'Basic Info',
-            style: GoogleFonts.alegreya(
-              fontWeight: FontWeight.w700,
-              color: AppTheme().black,
-              // fontFamily: 'Nexa',
-            ),
-          ),
-        ),
-        Divider_Widgets1(),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           child: Row(
             children: [
               Container(
@@ -532,7 +657,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Company',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
                       // fontFamily: 'Nexa',
                       fontWeight: FontWeight.w700),
                 ),
@@ -542,7 +668,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   widget.data['company']['title'],
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                      fontSize: 14,
                       // fontFamily: 'Nexa',
                       color: AppTheme().black),
                 ),
@@ -550,8 +677,9 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
+        DividerWidgets1(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           child: Row(
             children: [
               Container(
@@ -559,7 +687,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Year',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
                       // fontFamily: 'Nexa',
                       fontWeight: FontWeight.w700),
                 ),
@@ -569,16 +698,18 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   '2011',
-                  style: GoogleFonts.alegreya(
-                      // fontFamily: 'Nexa',
-                      ),
+                  style: GoogleFonts.lato(
+                    fontSize: 14,
+                    // fontFamily: 'Nexa',
+                  ),
                 ),
               ),
             ],
           ),
         ),
+        DividerWidgets1(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           child: Row(
             children: [
               Container(
@@ -586,7 +717,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Registration No.',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
                       // fontFamily: 'Nexa',
                       fontWeight: FontWeight.w700),
                 ),
@@ -596,16 +728,18 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   '123456789',
-                  style: GoogleFonts.alegreya(
-                      // fontFamily: 'Nexa',
-                      ),
+                  style: GoogleFonts.lato(
+                    fontSize: 14,
+                    // fontFamily: 'Nexa',
+                  ),
                 ),
               ),
             ],
           ),
         ),
+        DividerWidgets1(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           child: Row(
             children: [
               Container(
@@ -613,7 +747,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Website',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
                       // fontFamily: 'Nexa',
                       fontWeight: FontWeight.w700),
                 ),
@@ -623,16 +758,18 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   widget.data['website'],
-                  style: GoogleFonts.alegreya(
-                      // fontFamily: 'Nexa',
-                      ),
+                  style: GoogleFonts.lato(
+                    fontSize: 14,
+                    // fontFamily: 'Nexa',
+                  ),
                 ),
               ),
             ],
           ),
         ),
+        DividerWidgets1(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           child: Row(
             children: [
               Container(
@@ -640,7 +777,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Email',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
                       // fontFamily: 'Nexa',
                       fontWeight: FontWeight.w700),
                 ),
@@ -650,16 +788,18 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   widget.data['email'],
-                  style: GoogleFonts.alegreya(
-                      // fontFamily: 'Nexa',
-                      ),
+                  style: GoogleFonts.lato(
+                    fontSize: 14,
+                    // fontFamily: 'Nexa',
+                  ),
                 ),
               ),
             ],
           ),
         ),
+        DividerWidgets1(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           child: Row(
             children: [
               Container(
@@ -667,7 +807,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Mobile',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
                       // fontFamily: 'Nexa',
                       fontWeight: FontWeight.w700),
                 ),
@@ -677,16 +818,18 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   widget.data['phone'],
-                  style: GoogleFonts.alegreya(
-                      // fontFamily: 'Nexa',
-                      ),
+                  style: GoogleFonts.lato(
+                    fontSize: 14,
+                    // fontFamily: 'Nexa',
+                  ),
                 ),
               ),
             ],
           ),
         ),
+        DividerWidgets1(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 15, 5),
+          padding: const EdgeInsets.fromLTRB(20, 15, 15, 15),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -695,7 +838,8 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Text(
                   'Opening Hours',
-                  style: GoogleFonts.alegreya(
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
                       // fontFamily: 'Nexa',
                       fontWeight: FontWeight.w700),
                 ),
@@ -706,9 +850,10 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
                 child: openingtime == null || openingtime == []
                     ? Text(
                         'close',
-                        style: GoogleFonts.alegreya(
-                            // fontFamily: 'Nexa',
-                            ),
+                        style: GoogleFonts.lato(
+                          fontSize: 14,
+                          // fontFamily: 'Nexa',
+                        ),
                       )
                     : OpenHourList(
                         data: openingtime,
@@ -717,20 +862,21 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
+        DividerWidgets1(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 5),
           child: Text(
             'Map',
-            style: GoogleFonts.alegreya(
+            style: GoogleFonts.lato(
+              fontSize: 16,
               fontWeight: FontWeight.w700,
               color: AppTheme().black,
               // fontFamily: 'Nexa',
             ),
           ),
         ),
-        Divider_Widgets1(),
         Container(
-          padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+          padding: EdgeInsets.fromLTRB(20, 5, 20, 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -741,56 +887,145 @@ class _BusinessAboutPageState extends State<BusinessAboutPage> {
             ],
           ),
         ),
-        SizedBox(
-          height: 20,
+        DividerWidgets1(),
+
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 5),
+          child: Row(
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  'Facebook',
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  widget.data['name'],
+                  style: GoogleFonts.lato(
+                    fontSize: 14,
+                    // fontFamily: 'Nexa',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+          child: Row(
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  'Instagram',
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  widget.data['name'],
+                  style: GoogleFonts.lato(
+                    fontSize: 14,
+                    // fontFamily: 'Nexa',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 15),
+          child: Row(
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  'Youtube',
+                  style: GoogleFonts.lato(
+                      fontSize: 16,
+                      // fontFamily: 'Nexa',
+                      fontWeight: FontWeight.w700),
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Text(
+                  widget.data['name'],
+                  style: GoogleFonts.lato(
+                    fontSize: 14,
+                    // fontFamily: 'Nexa',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        DividerWidgets1(),
+
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 5, 0, 5),
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppTheme().black)),
+                child: SvgPicture.asset(
+                  'assets/images/facebook.svg',
+                  color: AppTheme().black,
+                  width: 10,
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppTheme().black)),
+                child: SvgPicture.asset(
+                  'assets/images/insta.svg',
+                  color: AppTheme().black,
+                  width: 20,
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppTheme().black)),
+                child: SvgPicture.asset(
+                  'assets/images/word.svg',
+                  color: AppTheme().black,
+                  width: 20,
+                ),
+              ),
+            ],
+          ),
         )
-        // Divider_Widgets(),
-        // Padding(
-        //   padding: const EdgeInsets.fromLTRB(20, 5, 0, 5),
-        //   child: Row(
-        //     children: [
-        //       Container(
-        //         padding: EdgeInsets.all(15),
-        //         decoration: BoxDecoration(
-        //             shape: BoxShape.circle,
-        //             border: Border.all(color: AppTheme().black)),
-        //         child: SvgPicture.asset(
-        //           'assets/images/facebook.svg',
-        //           color: AppTheme().black,
-        //           width: 10,
-        //         ),
-        //       ),
-        //       SizedBox(
-        //         width: 10,
-        //       ),
-        //       Container(
-        //         padding: EdgeInsets.all(10),
-        //         decoration: BoxDecoration(
-        //             shape: BoxShape.circle,
-        //             border: Border.all(color: AppTheme().black)),
-        //         child: SvgPicture.asset(
-        //           'assets/images/insta.svg',
-        //           color: AppTheme().black,
-        //           width: 20,
-        //         ),
-        //       ),
-        //       SizedBox(
-        //         width: 10,
-        //       ),
-        //       Container(
-        //         padding: EdgeInsets.all(10),
-        //         decoration: BoxDecoration(
-        //             shape: BoxShape.circle,
-        //             border: Border.all(color: AppTheme().black)),
-        //         child: SvgPicture.asset(
-        //           'assets/images/word.svg',
-        //           color: AppTheme().black,
-        //           width: 20,
-        //         ),
-        //       ),
-        //     ],
-        //   ),
-        // )
       ],
     );
   }
@@ -831,21 +1066,24 @@ class _BusinessReviewsState extends State<BusinessReviews> {
                   ),
                   title: Text(
                     widget.data[index]['user']['name'],
-                    style: GoogleFonts.alegreya(
+                    style: GoogleFonts.lato(
+                        fontSize: 16, fontWeight: FontWeight.w700
                         // fontFamily: 'Nexa',
                         ),
                   ),
                   subtitle: Text(
                     widget.data[index]['review'],
-                    style: GoogleFonts.alegreya(
-                        // fontFamily: 'Nexa',
-                        ),
+                    style: GoogleFonts.lato(
+                      fontSize: 14,
+                      // fontFamily: 'Nexa',
+                    ),
                   ),
                   trailing: Text(
                     widget.data[index]['rating'],
-                    style: GoogleFonts.alegreya(
-                        // fontFamily: 'Nexa',
-                        ),
+                    style: GoogleFonts.lato(
+                      fontSize: 14,
+                      // fontFamily: 'Nexa',
+                    ),
                   ),
                 ),
               ),

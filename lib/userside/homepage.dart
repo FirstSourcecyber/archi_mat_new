@@ -1,10 +1,10 @@
-import 'package:Archimat/Services/homeService.dart';
-import 'package:Archimat/theme.dart';
-import 'package:Archimat/util/list/categorylist.dart';
-import 'package:Archimat/util/list/productlist.dart';
-import 'package:Archimat/util/slider/slider.dart';
-import 'package:Archimat/util/slider/slider1.dart';
-import 'package:Archimat/util/widgets/list.dart';
+import 'package:archimat/Services/homeService.dart';
+import 'package:archimat/theme.dart';
+import 'package:archimat/util/list/categorylist.dart';
+import 'package:archimat/util/list/productlist.dart';
+import 'package:archimat/util/slider/slider.dart';
+import 'package:archimat/util/slider/slider1.dart';
+import 'package:archimat/util/widgets/list.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -215,6 +215,7 @@ class _HomePageState extends State<HomePage> {
                     material.length != 0
                         ? Productlist(
                             i: 1,
+                            seeall: true,
                             data: material,
                             title: 'Find Materials Around You',
                           )
@@ -227,6 +228,7 @@ class _HomePageState extends State<HomePage> {
                     shop.length != 0
                         ? Productlist(
                             i: 2,
+                            seeall: true,
                             data: shop,
                             title: 'Find Virtual Shops',
                           )
@@ -234,13 +236,15 @@ class _HomePageState extends State<HomePage> {
                     product.length != 0
                         ? Productlist(
                             i: 3,
+                            seeall: true,
                             data: product,
-                            title: 'Find AR Product',
+                            title: 'Find Product',
                           )
                         : Container(),
                     service.length != 0
                         ? Productlist(
                             i: 4,
+                            seeall: true,
                             data: service,
                             title: 'Find Professional Services',
                           )

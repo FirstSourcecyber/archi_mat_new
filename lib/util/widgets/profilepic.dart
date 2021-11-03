@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:Archimat/Services/loginService.dart';
-import 'package:Archimat/theme.dart';
+import 'package:archimat/Services/loginService.dart';
+import 'package:archimat/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:progress_dialog/progress_dialog.dart';
@@ -63,7 +63,7 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
           fontSize: 13.0,
           // fontFamily: 'Roxborough CF',
           fontWeight: FontWeight.w300),
-      messageTextStyle: GoogleFonts.lancelot(
+      messageTextStyle: GoogleFonts.lato(
           color: Colors.black,
           fontSize: 19.0,
           // fontFamily: 'Roxborough CF',

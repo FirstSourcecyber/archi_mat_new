@@ -1,8 +1,9 @@
 library cupertino_date_textbox;
 
-import 'package:Archimat/theme.dart';
+import 'package:archimat/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class CupertinoDateTextBox extends StatefulWidget {
@@ -151,7 +152,7 @@ class _CupertinoDateTextBoxState extends State<CupertinoDateTextBox> {
             padding: const EdgeInsets.all(5.0),
             child: new Text(
               fieldText,
-              style: TextStyle(
+              style: GoogleFonts.lato(
                 color: textColor,
                 fontSize: widget.fontSize,
               ),

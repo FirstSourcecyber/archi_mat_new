@@ -1,8 +1,8 @@
-import 'package:Archimat/environment.dart';
-import 'package:Archimat/pages/materialdetail.dart';
-import 'package:Archimat/pages/servicdetail.dart';
-import 'package:Archimat/userside/productDetail.dart';
-import 'package:Archimat/userside/shophome.dart';
+import 'package:archimat/environment.dart';
+import 'package:archimat/pages/materialdetail.dart';
+import 'package:archimat/pages/servicdetail.dart';
+import 'package:archimat/userside/productDetail.dart';
+import 'package:archimat/userside/shophome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -87,9 +87,9 @@ class _ProductListGrideState extends State<ProductListGride> {
                               ? 'Service'
                               : 'Material') +
                   ' Available',
-              style: TextStyle(
-                fontFamily: 'Nexa',
-              ),
+              style: GoogleFonts.lato(
+                  // fontFamily: 'Nexa',
+                  ),
             ),
           )
         : Wrap(
@@ -122,22 +122,22 @@ class _ProductListGrideState extends State<ProductListGride> {
                       },
                       child: Container(
                           // width: MediaQuery.of(context).size.width * 0.5,
-                          width: 150,
-                          height: 200,
+                          width: 175,
+                          height: 215,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              // borderRadius: BorderRadius.circular(10),
                               border: Border.all(color: AppTheme().grey),
                               color: AppTheme().white),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                width: 150,
-                                height: 150,
+                                width: 175,
+                                height: 165,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10)),
+                                    // borderRadius: BorderRadius.only(
+                                    //     // topLeft: Radius.circular(10),
+                                    //     topRight: Radius.circular(10)),
                                     image: DecorationImage(
                                         image: widget.i == 1 &&
                                                 widget.data[index]['images']
@@ -148,13 +148,13 @@ class _ProductListGrideState extends State<ProductListGride> {
                                                     ['image']))
                                             : widget.data[index]['image'] !=
                                                         null &&
-                                                    widget.data[index]
-                                                            ['image'] !=
+                                                    widget.data[index]['image'] !=
                                                         ''
                                                 ? NetworkImage(Config.url +
                                                     (widget.data[index]
                                                         ['image']))
-                                                : AssetImage('assets/images/back.png'),
+                                                : AssetImage(
+                                                    'assets/images/back.png'),
                                         // AssetImage(widget.data[index]['image']),
                                         fit: BoxFit.cover)),
                               ),
@@ -185,7 +185,7 @@ class _ProductListGrideState extends State<ProductListGride> {
                                                   ' .. '
                                               : widget.data[index]['name']
                                           : ' ',
-                                      style: GoogleFonts.alegreya(
+                                      style: GoogleFonts.lato(
                                         fontSize: 15,
                                         // fontFamily: 'Nexa',
                                       ),
@@ -295,7 +295,7 @@ class _ListGrideState extends State<ListGride> {
                               ? 'Services'
                               : 'Material') +
                   ' Available',
-              style: GoogleFonts.alegreya(
+              style: GoogleFonts.lato(
                   // fontFamily: 'Nexa',
                   ),
             ),
@@ -381,7 +381,7 @@ class _ListGrideState extends State<ListGride> {
                                         '..'
                                     : widget.data[index]['name']
                                 : '',
-                            style: GoogleFonts.alegreya(
+                            style: GoogleFonts.lato(
                               fontSize: 15,
                               // fontFamily: 'Nexa',
                             ),

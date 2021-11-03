@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:Archimat/Services/fallowService.dart';
-import 'package:Archimat/Services/shopService.dart';
-import 'package:Archimat/pages/chat.dart';
-import 'package:Archimat/util/slider/profileslider.dart';
-import 'package:Archimat/util/widgets/businesslist.dart';
+import 'package:archimat/Services/fallowService.dart';
+import 'package:archimat/Services/shopService.dart';
+import 'package:archimat/pages/chat.dart';
+import 'package:archimat/util/slider/profileslider.dart';
+import 'package:archimat/util/widgets/businesslist.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -186,7 +186,7 @@ class _ShopHomePageState extends State<ShopHomePage> {
                             //       ),
 
                             Container(
-                              height: 100,
+                              height: 70,
                               padding:
                                   const EdgeInsets.fromLTRB(20, 10, 20, 10),
                               decoration: BoxDecoration(color: AppTheme().white
@@ -194,136 +194,164 @@ class _ShopHomePageState extends State<ShopHomePage> {
                                   //     bottom: BorderSide(
                                   //         width: 0.5, color: AppTheme().lblack)),
                                   ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  widget.shop
-                                      ? Container()
-                                      : GestureDetector(
-                                          child: Container(
-                                            // width: 150,
-                                            height: 35,
-                                            alignment: Alignment.center,
-                                            padding: EdgeInsets.fromLTRB(
-                                                15, 0, 15, 0),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
-                                                color: youfallow
-                                                    ? AppTheme().red
-                                                    : AppTheme().purple,
-                                                border: Border.all(
-                                                    color: AppTheme().l1black,
-                                                    width: 1)),
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                fallow1();
-                                              },
-                                              child: Text(
-                                                youfallow
-                                                    ? 'Unfollow'
-                                                    : 'Follow',
-                                                style: GoogleFonts.alegreya(
-                                                  color: AppTheme().white,
-                                                  // fontFamily: 'Nexa'
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                ],
-                              ),
+                              // child: Row(
+                              //   mainAxisAlignment: MainAxisAlignment.end,
+                              //   crossAxisAlignment: CrossAxisAlignment.end,
+                              //   children: [
+                              //     widget.shop
+                              //         ? Container()
+                              //         : GestureDetector(
+                              //             onTap: () {
+                              //               fallow1();
+                              //             },
+                              //             child: Container(
+                              //               // width: 150,
+                              //               height: 35,
+                              //               alignment: Alignment.center,
+                              //               padding: EdgeInsets.fromLTRB(
+                              //                   15, 0, 15, 0),
+                              //               decoration: BoxDecoration(
+                              //                   borderRadius:
+                              //                       BorderRadius.circular(5),
+                              //                   color: youfallow
+                              //                       ? AppTheme().red
+                              //                       : AppTheme().purple,
+                              //                   border: Border.all(
+                              //                       color: AppTheme().l1black,
+                              //                       width: 1)),
+                              //               child: Text(
+                              //                 youfallow ? 'Unfollow' : 'Follow',
+                              //                 style: GoogleFonts.lato(
+                              //                   color: AppTheme().white,
+                              //                   // fontFamily: 'Nexa'
+                              //                 ),
+                              //               ),
+                              //             ),
+                              //           ),
+                              //   ],
+                              // ),
                             ),
                           ],
                         ),
                         Positioned(
-                          bottom: 22,
+                          bottom: 12,
                           left: 20,
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.68,
-                            child: Row(
-                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CircleAvatar(
-                                  radius: 57,
-                                  backgroundColor: AppTheme().white,
-                                  child: CircleAvatar(
-                                    radius: 50,
-                                    backgroundColor: Colors.grey[200],
-                                    backgroundImage: widget.data['image'] !=
-                                            null
-                                        ? NetworkImage(Config.url +
-                                            '/' +
-                                            widget.data['image'])
-                                        : AssetImage('assets/images/mask.png'),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.68,
+                                child: Row(
+                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          widget.data['name'],
-                                          style: GoogleFonts.alegreya(
-                                              fontSize: 15,
-                                              // fontFamily: 'Nexa',
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.location_on,
-                                              size: 15,
-                                            ),
-                                            SizedBox(
-                                              width: 5,
-                                            ),
-                                            Text(
-                                              'Malaysia',
-                                              style: GoogleFonts.alegreya(
-                                                  // fontFamily: 'Nexa',
-                                                  color: AppTheme().lblack,
-                                                  fontSize: 12),
-                                            )
-                                          ],
-                                        )
-                                      ],
+                                    // CircleAvatar(
+                                    //   radius: 57,
+                                    //   backgroundColor: AppTheme().white,
+                                    //   child:
+                                    CircleAvatar(
+                                      radius: 35,
+                                      backgroundColor: Colors.grey[200],
+                                      backgroundImage:
+                                          widget.data['image'] != null
+                                              ? NetworkImage(Config.url +
+                                                  '/' +
+                                                  widget.data['image'])
+                                              : AssetImage(
+                                                  'assets/images/mask.png'),
                                     ),
+                                    // ),
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    // Text(
-                                    //   'Verified',
-                                    //   style: TextStyle(fontSize: 12),
-                                    // ),
-                                    // SmoothStarRating(
-                                    //     allowHalfRating: false,
-                                    //     onRated: (v) {},
-                                    //     starCount: 5,
-                                    //     rating: rating,
-                                    //     size: 15.0,
-                                    //     isReadOnly: true,
-                                    //     // fullRatedIconData: Icons.blur_off,
-                                    //     // halfRatedIconData: Icons.blur_on,
-                                    //     color: Colors.green,
-                                    //     borderColor: Colors.green,
-                                    //     spacing: 0.0)
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                widget.data['name'],
+                                                style: GoogleFonts.lato(
+                                                    fontSize: 15,
+                                                    // fontFamily: 'Nexa',
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.location_on,
+                                                    size: 15,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Text(
+                                                    'Malaysia',
+                                                    style: GoogleFonts.lato(
+                                                        // fontFamily: 'Nexa',
+                                                        color:
+                                                            AppTheme().lblack,
+                                                        fontSize: 12),
+                                                  )
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          // Text(
+                                          //   'Verified',
+                                          //   style: TextStyle(fontSize: 12),
+                                          // ),
+                                          // SmoothStarRating(
+                                          //     allowHalfRating: false,
+                                          //     onRated: (v) {},
+                                          //     starCount: 5,
+                                          //     rating: rating,
+                                          //     size: 15.0,
+                                          //     isReadOnly: true,
+                                          //     // fullRatedIconData: Icons.blur_off,
+                                          //     // halfRatedIconData: Icons.blur_on,
+                                          //     color: Colors.green,
+                                          //     borderColor: Colors.green,
+                                          //     spacing: 0.0)
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              Container(
+                                // width: 150,
+                                // height: 35,
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.only(top: 20),
+                                padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: AppTheme().darklgrey,
+                                    border: Border.all(
+                                        color: AppTheme().l1black, width: 1)),
+                                child: Text(
+                                  'Visit Shop',
+                                  style: GoogleFonts.lato(
+                                    color: AppTheme().white,
+                                    // fontFamily: 'Nexa'
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         )
                       ],
@@ -443,8 +471,8 @@ class _ShopHomePageState extends State<ShopHomePage> {
                     //     ),
                     //   ],
                     // ),
-                    BusinessAboutPage(
-                      data: shop,
+                    BusinessList(
+                      shop: shop,
                       product: product,
                       service: service,
                       material: material,

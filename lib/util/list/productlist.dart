@@ -1,9 +1,9 @@
-import 'package:Archimat/environment.dart';
-import 'package:Archimat/pages/materialdetail.dart';
-import 'package:Archimat/pages/servicdetail.dart';
-import 'package:Archimat/userside/productDetail.dart';
-import 'package:Archimat/userside/shophome.dart';
-import 'package:Archimat/util/widgets/title.dart';
+import 'package:archimat/environment.dart';
+import 'package:archimat/pages/materialdetail.dart';
+import 'package:archimat/pages/servicdetail.dart';
+import 'package:archimat/userside/productDetail.dart';
+import 'package:archimat/userside/shophome.dart';
+import 'package:archimat/util/widgets/title.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -12,9 +12,12 @@ import '../../theme.dart';
 class Productlist extends StatefulWidget {
   final int i;
   final dynamic data;
+  final bool seeall;
   final String title;
   // final Function onclick();
-  const Productlist({Key key, this.i, this.data, this.title}) : super(key: key);
+  const Productlist(
+      {Key key, this.i, this.data, this.title, @required this.seeall})
+      : super(key: key);
 
   @override
   _ProductlistState createState() => _ProductlistState();
@@ -73,7 +76,7 @@ class _ProductlistState extends State<Productlist> {
             bold: false,
           ),
           Container(
-            height: 230,
+            height: 220,
             alignment: Alignment.topLeft,
             // padding: EdgeInsets.only(left: 10),
             color: AppTheme().white,
@@ -112,7 +115,9 @@ class _ProductlistState extends State<Productlist> {
                     }
                   },
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    margin: EdgeInsets.all(3),
+                    width: 185,
+                    // width: MediaQuery.of(context).size.width * 0.5,
                     height: 230,
                     alignment: Alignment.topLeft,
                     decoration: BoxDecoration(
@@ -124,8 +129,9 @@ class _ProductlistState extends State<Productlist> {
                         Stack(
                           children: [
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.5,
-                              height: 185,
+                              // width: MediaQuery.of(context).size.width * 0.5,
+                              width: 185,
+                              height: 166,
                               decoration: BoxDecoration(
                                   border: Border(
                                       bottom:
@@ -149,28 +155,28 @@ class _ProductlistState extends State<Productlist> {
                                       // AssetImage(widget.data[index]['image']),
                                       fit: BoxFit.cover)),
                             ),
-                            Positioned(
-                              left: 10,
-                              top: 10,
-                              child: widget.i != 1 && widget.i != 4
-                                  ? Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: AppTheme()
-                                              .lightgrey
-                                              .withOpacity(0.4),
-                                          border: Border.all(
-                                              color: AppTheme().l2black)),
-                                      child: Text(
-                                        widget.i == 2 ? 'VR' : 'AR',
-                                        style: GoogleFonts.lato(
-                                            fontSize: 8,
-                                            // fontFamily: 'Roxborough CF',
-                                            color: AppTheme().l2black),
-                                      ))
-                                  : Container(),
-                            )
+                            // Positioned(
+                            //   left: 10,
+                            //   top: 10,
+                            //   child: widget.i != 1 && widget.i != 4
+                            //       ? Container(
+                            //           padding: EdgeInsets.all(5),
+                            //           decoration: BoxDecoration(
+                            //               shape: BoxShape.circle,
+                            //               color: AppTheme()
+                            //                   .lightgrey
+                            //                   .withOpacity(0.4),
+                            //               border: Border.all(
+                            //                   color: AppTheme().l2black)),
+                            //           child: Text(
+                            //             widget.i == 2 ? 'VR' : 'AR',
+                            //             style: GoogleFonts.lato(
+                            //                 fontSize: 8,
+                            //                 // fontFamily: 'Roxborough CF',
+                            //                 color: AppTheme().l2black),
+                            //           ))
+                            //       : Container(),
+                            // )
                           ],
                         ),
                         // SizedBox(
@@ -191,108 +197,94 @@ class _ProductlistState extends State<Productlist> {
                                             ' .. '
                                         : widget.data[index]['name']
                                     : '',
-                                style: GoogleFonts.alegreya(
-                                  fontSize: 15,
+                                style: GoogleFonts.lato(
+                                  fontSize: 14,
                                   // fontFamily: 'Nexa',
                                 ),
                               ),
-                              widget.i != 2
-                                  ? Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          widget.data[index]['shop']['name'] !=
-                                                      '' &&
-                                                  widget.data[index]['shop']
-                                                          ['name'] !=
-                                                      null
-                                              ? widget
-                                                          .data[index]['shop']
-                                                              ['name']
-                                                          .length >
-                                                      18
-                                                  ? widget.data[index]['shop']
-                                                              ['name']
-                                                          .toString()
-                                                          .substring(0, 18) +
-                                                      ' .. '
-                                                  : widget.data[index]['shop']
-                                                      ['name']
-                                              : '',
-                                          style: GoogleFonts.lato(
-                                              color: AppTheme().l1black,
-                                              // fontFamily: 'Roxborough CF',
-                                              fontSize: 12),
-                                        ),
-                                        // Container(
-                                        //   width: 70,
-                                        //   child: Row(
-                                        //     mainAxisAlignment:
-                                        //         MainAxisAlignment.spaceBetween,
-                                        //     children: [
-                                        //       // Container(
-                                        //       //   decoration: BoxDecoration(
-                                        //       //       shape: BoxShape.circle,
-                                        //       //       border: Border.all(
-                                        //       //           color: AppTheme().grey)),
-                                        //       //   child: Icon(
-                                        //       //     Icons.star,
-                                        //       //     color: AppTheme().grey,
-                                        //       //     size: 15,
-                                        //       //   ),
-                                        //       // ),
-                                        //       // Container(
-                                        //       //   padding: EdgeInsets.all(5),
-                                        //       //   decoration: BoxDecoration(
-                                        //       //       shape: BoxShape.circle,
-                                        //       //       border: Border.all(
-                                        //       //           color: AppTheme().grey)),
-                                        //       //   child: Icon(FontAwesomeIcons.leaf,
-                                        //       //       size: 10, color: AppTheme().grey),
-                                        //       // ),
-                                        //       // Container(
-                                        //       //     padding: EdgeInsets.all(5),
-                                        //       //     decoration: BoxDecoration(
-                                        //       //         shape: BoxShape.circle,
-                                        //       //         border: Border.all(
-                                        //       //             color: AppTheme().grey)),
-                                        //       //     child: Text(
-                                        //       //       'VR',
-                                        //       //       style: TextStyle(fontSize: 8),
-                                        //       //     )),
-                                        //     ],
-                                        //   ),
-                                        // )
-                                      ],
-                                    )
-                                  : Container(
-                                      child: Text(
-                                        widget.data[index]['company']
-                                                        ['title'] !=
-                                                    '' &&
-                                                widget.data[index]['company']
-                                                        ['title'] !=
-                                                    null
-                                            ? widget
-                                                        .data[index]['company']
-                                                            ['title']
-                                                        .length >
-                                                    18
-                                                ? widget.data[index]['company']
-                                                            ['title']
-                                                        .toString()
-                                                        .substring(0, 18) +
-                                                    ' .. '
-                                                : widget.data[index]['company']
-                                                    ['title']
-                                            : '',
-                                        style: GoogleFonts.lato(
-                                            color: AppTheme().l1black,
-                                            // fontFamily: 'Roxborough CF',
-                                            fontSize: 12),
-                                      ),
-                                    )
+                              Container(
+                                height: 20,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    widget.i != 2
+                                        ? Text(
+                                            widget.data[index]['shop']
+                                                            ['name'] !=
+                                                        '' &&
+                                                    widget.data[index]['shop']
+                                                            ['name'] !=
+                                                        null
+                                                ? widget
+                                                            .data[index]['shop']
+                                                                ['name']
+                                                            .length >
+                                                        18
+                                                    ? widget.data[index]['shop']
+                                                                ['name']
+                                                            .toString()
+                                                            .substring(0, 18) +
+                                                        ' .. '
+                                                    : widget.data[index]['shop']
+                                                        ['name']
+                                                : '',
+                                            style: GoogleFonts.lato(
+                                                color: AppTheme().l1black,
+                                                // fontFamily: 'Roxborough CF',
+                                                fontSize: 10),
+                                          )
+                                        : Container(
+                                            child: Text(
+                                              widget.data[index]['company']
+                                                              ['title'] !=
+                                                          '' &&
+                                                      widget.data[index]['company']
+                                                              ['title'] !=
+                                                          null
+                                                  ? widget
+                                                              .data[index]
+                                                                  ['company']
+                                                                  ['title']
+                                                              .length >
+                                                          18
+                                                      ? widget.data[index]
+                                                                  ['company']
+                                                                  ['title']
+                                                              .toString()
+                                                              .substring(
+                                                                  0, 18) +
+                                                          ' .. '
+                                                      : widget.data[index]
+                                                          ['company']['title']
+                                                  : '',
+                                              style: GoogleFonts.lato(
+                                                  color: AppTheme().l1black,
+                                                  // fontFamily: 'Roxborough CF',
+                                                  fontSize: 10),
+                                            ),
+                                          ),
+                                    widget.i != 1 && widget.i != 4
+                                        ? Container(
+                                            padding: EdgeInsets.all(3),
+                                            decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: AppTheme()
+                                                    .lightgrey
+                                                    .withOpacity(0.4),
+                                                border: Border.all(
+                                                    color: AppTheme().l2black)),
+                                            child: Text(
+                                              widget.i == 2 ? 'VR' : 'AR',
+                                              style: GoogleFonts.lato(
+                                                  fontSize: 10,
+                                                  // fontFamily: 'Roxborough CF',
+                                                  color: AppTheme().l2black),
+                                            ))
+                                        : Container(),
+                                  ],
+                                ),
+                              )
                             ],
                           ),
                         ),

@@ -1,12 +1,12 @@
 import 'dart:convert';
-import 'package:Archimat/Services/loginService.dart';
+import 'package:archimat/Services/loginService.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:Archimat/pages/tab.dart';
-import 'package:Archimat/util/widgets/profilepic.dart';
+import 'package:archimat/pages/tab.dart';
+import 'package:archimat/util/widgets/profilepic.dart';
 // import 'package:cupertino_date_textbox/cupertino_date_textbox.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:Archimat/theme.dart';
+import 'package:archimat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -71,7 +71,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
             )),
         backgroundColor: AppTheme().white,
         title: Text('Signup',
-            style: GoogleFonts.alegreya(
+            style: GoogleFonts.lato(
               // fontFamily: 'Nexa',
               color: AppTheme().black,
               fontWeight: FontWeight.w700,
@@ -406,7 +406,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                                     color: AppTheme().lblack, width: 1)),
                             child: Text(
                               'Create',
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.lato(
                                 color: AppTheme().black,
                                 fontWeight: FontWeight.w700,
                                 // fontFamily: 'Nexa',

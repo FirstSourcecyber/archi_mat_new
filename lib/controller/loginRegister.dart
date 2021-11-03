@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:Archimat/Services/loginService.dart';
-import 'package:Archimat/pages/tab.dart';
+import 'package:archimat/Services/loginService.dart';
+import 'package:archimat/pages/tab.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';

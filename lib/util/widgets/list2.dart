@@ -49,7 +49,7 @@ class _List2State extends State<List2> {
                       border: Border.all(color: AppTheme().lblack, width: 1)),
               child: Text(
                 'New',
-                style: GoogleFonts.alegreya(
+                style: GoogleFonts.lato(
                   fontSize: 12,
                   // fontFamily: 'Nexa',
                 ),
@@ -74,7 +74,7 @@ class _List2State extends State<List2> {
                       border: Border.all(color: AppTheme().lblack, width: 1)),
               child: Text(
                 'Top',
-                style: GoogleFonts.alegreya(
+                style: GoogleFonts.lato(
                   fontSize: 12,
                   // fontFamily: 'Nexa',
                 ),
@@ -99,7 +99,7 @@ class _List2State extends State<List2> {
                       border: Border.all(color: AppTheme().lblack, width: 1)),
               child: Text(
                 'Minimalist',
-                style: GoogleFonts.alegreya(
+                style: GoogleFonts.lato(
                   fontSize: 12,
                   // fontFamily: 'Nexa',
                 ),
@@ -124,7 +124,7 @@ class _List2State extends State<List2> {
                       border: Border.all(color: AppTheme().lblack, width: 1)),
               child: Text(
                 'Eco',
-                style: GoogleFonts.alegreya(
+                style: GoogleFonts.lato(
                   fontSize: 12,
                   // fontFamily: 'Nexa',
                 ),

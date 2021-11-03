@@ -1,8 +1,8 @@
-import 'package:Archimat/userside/editprofile.dart';
-import 'package:Archimat/util/widgets/divider.dart';
-import 'package:Archimat/util/widgets/logout.dart';
-import 'package:Archimat/util/widgets/profilepic.dart';
-import 'package:Archimat/util/widgets/profiletab.dart';
+import 'package:archimat/userside/editprofile.dart';
+import 'package:archimat/util/widgets/divider.dart';
+import 'package:archimat/util/widgets/logout.dart';
+import 'package:archimat/util/widgets/profilepic.dart';
+import 'package:archimat/util/widgets/profiletab.dart';
 import 'package:flutter/material.dart';
 
 class UserSetting extends StatefulWidget {
