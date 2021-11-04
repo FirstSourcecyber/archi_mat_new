@@ -54,7 +54,7 @@ class _SliderPageState extends State<SliderPage> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-            height: MediaQuery.of(context).size.height * 0.53,
+            height: MediaQuery.of(context).size.height * 0.6,
             viewportFraction: 1,
             initialPage: 0,
             enableInfiniteScroll: true,
@@ -77,8 +77,8 @@ class _SliderPageState extends State<SliderPage> {
                 return Stack(
                   children: [
                     Container(
-                      // height: MediaQuery.of(context).size.height * 0.53,
-                      height: 520,
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      // height: 520,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         // image: DecorationImage(

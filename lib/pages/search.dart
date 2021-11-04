@@ -221,7 +221,7 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                       )
                     : Padding(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(10),
                         child: ProductListGride(
                           data: inbox1,
                           i: widget.search,

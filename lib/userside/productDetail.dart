@@ -320,37 +320,37 @@ class _ProductDetailState extends State<ProductDetail> {
                         ],
                       ),
                     ),
+                    // Padding(
+                    //   padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    //   child: Row(
+                    //     children: [
+                    //       Container(
+                    //         alignment: Alignment.centerLeft,
+                    //         width: MediaQuery.of(context).size.width * 0.4,
+                    //         child: Text(
+                    //           'Category',
+                    //           style: GoogleFonts.lato(
+                    //               // fontFamily: 'Nexa',
+                    //               fontWeight: FontWeight.w700),
+                    //         ),
+                    //       ),
+                    //       Container(
+                    //         alignment: Alignment.centerLeft,
+                    //         width: MediaQuery.of(context).size.width * 0.4,
+                    //         child: Text(
+                    //           widget.data['category']['name'] +
+                    //               '>' +
+                    //               widget.data['subcategory']['name'],
+                    //           style: GoogleFonts.lato(
+                    //               // fontFamily: 'Nexa',
+                    //               ),
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      child: Row(
-                        children: [
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text(
-                              'Category',
-                              style: GoogleFonts.lato(
-                                  // fontFamily: 'Nexa',
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Text(
-                              widget.data['category']['name'] +
-                                  '>' +
-                                  widget.data['subcategory']['name'],
-                              style: GoogleFonts.lato(
-                                  // fontFamily: 'Nexa',
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
                       child: Row(
                         children: [
                           Container(

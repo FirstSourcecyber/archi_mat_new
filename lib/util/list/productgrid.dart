@@ -92,166 +92,175 @@ class _ProductListGrideState extends State<ProductListGride> {
                   ),
             ),
           )
-        : Wrap(
-            spacing: 14,
-            runSpacing: 14,
-            children: List.generate(
-                widget.data.length,
-                (index) => GestureDetector(
-                      onTap: () {
-                        if (widget.i == 1) {
-                          print('product===');
-                          print(widget.data[index]);
-                          gotoproduct(widget.data[index]);
-                        } else if (widget.i == 2) {
-                          print('shop===');
-                          print(widget.data[index]);
+        : Center(
+            child: Wrap(
+                spacing: 5,
+                // alignment: WrapAlignment.center,
+                // crossAxisAlignment: WrapCrossAlignment.center,
+                runSpacing: 10,
+                children: List.generate(
+                    widget.data.length,
+                    (index) => GestureDetector(
+                          onTap: () {
+                            if (widget.i == 1) {
+                              print('product===');
+                              print(widget.data[index]);
+                              gotoproduct(widget.data[index]);
+                            } else if (widget.i == 2) {
+                              print('shop===');
+                              print(widget.data[index]);
 
-                          gotoshop(widget.data[index]);
-                        } else if (widget.i == 4) {
-                          print('shop===');
-                          print(widget.data[index]);
+                              gotoshop(widget.data[index]);
+                            } else if (widget.i == 4) {
+                              print('shop===');
+                              print(widget.data[index]);
 
-                          gotomaterial(widget.data[index]);
-                        } else {
-                          print('shop===');
-                          print(widget.data[index]);
+                              gotomaterial(widget.data[index]);
+                            } else {
+                              print('shop===');
+                              print(widget.data[index]);
 
-                          gotoservice(widget.data[index]);
-                        }
-                      },
-                      child: Container(
-                          // width: MediaQuery.of(context).size.width * 0.5,
-                          width: 175,
-                          height: 215,
-                          decoration: BoxDecoration(
-                              // borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: AppTheme().grey),
-                              color: AppTheme().white),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 175,
-                                height: 165,
-                                decoration: BoxDecoration(
-                                    // borderRadius: BorderRadius.only(
-                                    //     // topLeft: Radius.circular(10),
-                                    //     topRight: Radius.circular(10)),
-                                    image: DecorationImage(
-                                        image: widget.i == 1 &&
-                                                widget.data[index]['images']
-                                                        .length !=
-                                                    0
-                                            ? NetworkImage(Config.url +
-                                                (widget.data[index]['images'][0]
-                                                    ['image']))
-                                            : widget.data[index]['image'] !=
-                                                        null &&
-                                                    widget.data[index]['image'] !=
-                                                        ''
+                              gotoservice(widget.data[index]);
+                            }
+                          },
+                          child: Container(
+                              // width: MediaQuery.of(context).size.width * 0.5,
+                              width: 165,
+                              height: 215,
+                              decoration: BoxDecoration(
+                                  // borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: AppTheme().grey),
+                                  color: AppTheme().white),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 165,
+                                    height: 165,
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.only(
+                                        //     // topLeft: Radius.circular(10),
+                                        //     topRight: Radius.circular(10)),
+                                        image: DecorationImage(
+                                            image: widget.i == 1 &&
+                                                    widget.data[index]['images']
+                                                            .length !=
+                                                        0
                                                 ? NetworkImage(Config.url +
                                                     (widget.data[index]
-                                                        ['image']))
-                                                : AssetImage(
-                                                    'assets/images/back.png'),
-                                        // AssetImage(widget.data[index]['image']),
-                                        fit: BoxFit.cover)),
-                              ),
-                              // ClipRRect(
-                              //   borderRadius: BorderRadius.only(
-                              //       topLeft: Radius.circular(10),
-                              //       topRight: Radius.circular(10)),
-                              //   child: Image.network(
-                              //     Config.url + widget.data[index]['images'][0]['image'],
-                              //     width: MediaQuery.of(context).size.width,
-                              //     height: 134,
-                              //     fit: BoxFit.cover,
-                              //   ),
-                              // ),
-                              Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      widget.data[index]['name'] != '' &&
-                                              widget.data[index]['name'] != null
-                                          ? widget.data[index]['name'].length >
-                                                  16
+                                                        ['images'][0]['image']))
+                                                : widget.data[index]['image'] !=
+                                                            null &&
+                                                        widget.data[index]
+                                                                ['image'] !=
+                                                            ''
+                                                    ? NetworkImage(Config.url +
+                                                        (widget.data[index]
+                                                            ['image']))
+                                                    : AssetImage('assets/images/back.png'),
+                                            // AssetImage(widget.data[index]['image']),
+                                            fit: BoxFit.cover)),
+                                  ),
+                                  // ClipRRect(
+                                  //   borderRadius: BorderRadius.only(
+                                  //       topLeft: Radius.circular(10),
+                                  //       topRight: Radius.circular(10)),
+                                  //   child: Image.network(
+                                  //     Config.url + widget.data[index]['images'][0]['image'],
+                                  //     width: MediaQuery.of(context).size.width,
+                                  //     height: 134,
+                                  //     fit: BoxFit.cover,
+                                  //   ),
+                                  // ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          widget.data[index]['name'] != '' &&
+                                                  widget.data[index]['name'] !=
+                                                      null
                                               ? widget.data[index]['name']
-                                                      .toString()
-                                                      .substring(0, 16) +
-                                                  ' .. '
-                                              : widget.data[index]['name']
-                                          : ' ',
-                                      style: GoogleFonts.lato(
-                                        fontSize: 15,
-                                        // fontFamily: 'Nexa',
-                                      ),
+                                                          .length >
+                                                      16
+                                                  ? widget.data[index]['name']
+                                                          .toString()
+                                                          .substring(0, 16) +
+                                                      ' .. '
+                                                  : widget.data[index]['name']
+                                              : ' ',
+                                          style: GoogleFonts.lato(
+                                            fontSize: 15,
+                                            // fontFamily: 'Nexa',
+                                          ),
+                                        ),
+                                        widget.i != 2
+                                            ? Text(
+                                                widget.data[index]['shop']
+                                                                ['name'] !=
+                                                            '' &&
+                                                        widget.data[index]['shop']
+                                                                ['name'] !=
+                                                            null
+                                                    ? widget
+                                                                .data[index]
+                                                                    ['shop']
+                                                                    ['name']
+                                                                .length >
+                                                            18
+                                                        ? widget.data[index]
+                                                                    ['shop']
+                                                                    ['name']
+                                                                .toString()
+                                                                .substring(
+                                                                    0, 18) +
+                                                            ' .. '
+                                                        : widget.data[index]
+                                                            ['shop']['name']
+                                                    : '',
+                                                style: GoogleFonts.lato(
+                                                    color: AppTheme().l1black,
+                                                    // fontFamily: 'Roxborough CF',
+                                                    fontSize: 12),
+                                              )
+                                            : Container(
+                                                child: Text(
+                                                  widget.data[index]['company']
+                                                                  ['title'] !=
+                                                              '' &&
+                                                          widget.data[index]['company']
+                                                                  ['title'] !=
+                                                              null
+                                                      ? widget
+                                                                  .data[index]['company']
+                                                                      ['title']
+                                                                  .length >
+                                                              18
+                                                          ? widget.data[index]
+                                                                      ['company']
+                                                                      ['title']
+                                                                  .toString()
+                                                                  .substring(
+                                                                      0, 18) +
+                                                              ' .. '
+                                                          : widget.data[index]
+                                                              ['company']['title']
+                                                      : '',
+                                                  style: GoogleFonts.lato(
+                                                      color: AppTheme().l1black,
+                                                      // fontFamily: 'Roxborough CF',
+                                                      fontSize: 12),
+                                                ),
+                                              )
+                                      ],
                                     ),
-                                    widget.i != 2
-                                        ? Text(
-                                            widget.data[index]['shop']
-                                                            ['name'] !=
-                                                        '' &&
-                                                    widget.data[index]['shop']
-                                                            ['name'] !=
-                                                        null
-                                                ? widget
-                                                            .data[index]['shop']
-                                                                ['name']
-                                                            .length >
-                                                        18
-                                                    ? widget.data[index]['shop']
-                                                                ['name']
-                                                            .toString()
-                                                            .substring(0, 18) +
-                                                        ' .. '
-                                                    : widget.data[index]['shop']
-                                                        ['name']
-                                                : '',
-                                            style: GoogleFonts.lato(
-                                                color: AppTheme().l1black,
-                                                // fontFamily: 'Roxborough CF',
-                                                fontSize: 12),
-                                          )
-                                        : Container(
-                                            child: Text(
-                                              widget.data[index]['company']
-                                                              ['title'] !=
-                                                          '' &&
-                                                      widget.data[index]['company']
-                                                              ['title'] !=
-                                                          null
-                                                  ? widget
-                                                              .data[index]
-                                                                  ['company']
-                                                                  ['title']
-                                                              .length >
-                                                          18
-                                                      ? widget.data[index]
-                                                                  ['company']
-                                                                  ['title']
-                                                              .toString()
-                                                              .substring(
-                                                                  0, 18) +
-                                                          ' .. '
-                                                      : widget.data[index]
-                                                          ['company']['title']
-                                                  : '',
-                                              style: GoogleFonts.lato(
-                                                  color: AppTheme().l1black,
-                                                  // fontFamily: 'Roxborough CF',
-                                                  fontSize: 12),
-                                            ),
-                                          )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          )),
-                    )));
+                                  ),
+                                ],
+                              )),
+                        ))),
+          );
   }
 }
 
