@@ -1,19 +1,20 @@
 import 'dart:convert';
 import 'package:archimat/Services/loginService.dart';
+import 'package:archimat/controller/loginRegister.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:archimat/pages/tab.dart';
 import 'package:archimat/util/widgets/profilepic.dart';
-// import 'package:cupertino_date_textbox/cupertino_date_textbox.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:archimat/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterationPage extends StatefulWidget {
   final bool login;
-  const RegisterationPage({Key key, this.login}) : super(key: key);
+  final dynamic data;
+  const RegisterationPage({Key key, this.login, this.data}) : super(key: key);
 
   @override
   _RegisterationPageState createState() => _RegisterationPageState();
@@ -27,21 +28,27 @@ class _RegisterationPageState extends State<RegisterationPage> {
   TextEditingController uname = new TextEditingController();
   TextEditingController lname = new TextEditingController();
   TextEditingController number = new TextEditingController();
-
+  final LoginRegisterController contro = Get.find();
   String token;
   bool passwordmatch = false, birth = true;
   var countrycode = '+92';
-  var newphone;
+  var newphone, image;
   String gender = 'male';
   bool loader = false;
 
   @override
   initState() {
     super.initState();
-    FirebaseMessaging.instance.getToken().then((tokeen) {
-      print(tokeen);
-      this.token = tokeen;
-      print(token);
+    if (widget.login) {
+      withgoogle();
+    }
+  }
+
+  withgoogle() {
+    setState(() {
+      email.text = widget.data['email'];
+      uname.text = widget.data['username'];
+      image = widget.data['image'];
     });
   }
 
@@ -91,7 +98,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                 children: [
                   Center(
                       child: ProfilepicWidgets(
-                    image: '',
+                    image: widget.login ? image : '',
                     update: true,
                   )),
                   SizedBox(height: 20),
@@ -359,61 +366,57 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  loader
-                      ? Center(
+                  Obx(() {
+                    if (contro.loader.value) {
+                      return Center(
                           child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
-                                  AppTheme().purple)))
-                      : GestureDetector(
-                          onTap: () {
-                            FocusScope.of(context)
-                                .requestFocus(new FocusNode());
-                            // print(selectedDate.toString());
-                            print(birth);
-                            print(newphone);
-                            print(email.text);
-                            print(pswd.text);
-                            print(lname.text);
-                            print(fname.text);
-                            if (email.text.isEmpty ||
-                                pswd.text.isEmpty ||
-                                lname.text.trim().isEmpty ||
-                                fname.text.trim().isEmpty ||
-                                uname.text.trim().isEmpty ||
-                                // birth ||
-                                newphone == null) {
-                              print('Please Fill All Field');
-                              showAlert("Please Fill All Field", Colors.red);
-                            } else if (!passwordmatch) {
-                              print(
-                                  'Pasword and Confirm Pasword does`t match!');
-                              showAlert(
-                                  "Pasword and Confirm Pasword does`t match!",
-                                  Colors.red);
-                            } else {
-                              print('signup');
-                              signup();
-                            }
-                          },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
-                            decoration: BoxDecoration(
-                                color: AppTheme().white,
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                    color: AppTheme().lblack, width: 1)),
-                            child: Text(
-                              'Create',
-                              style: GoogleFonts.lato(
-                                color: AppTheme().black,
-                                fontWeight: FontWeight.w700,
-                                // fontFamily: 'Nexa',
-                              ),
+                                  AppTheme().purple)));
+                    } else {
+                      return GestureDetector(
+                        onTap: () {
+                          FocusScope.of(context).requestFocus(new FocusNode());
+
+                          if (email.text.isEmpty ||
+                              pswd.text.isEmpty ||
+                              lname.text.trim().isEmpty ||
+                              fname.text.trim().isEmpty ||
+                              uname.text.trim().isEmpty ||
+                              // birth ||
+                              newphone == null) {
+                            print('Please Fill All Field');
+                            showAlert("Please Fill All Field", Colors.red);
+                          } else if (!passwordmatch) {
+                            print('Pasword and Confirm Pasword does`t match!');
+                            showAlert(
+                                "Pasword and Confirm Pasword does`t match!",
+                                Colors.red);
+                          } else {
+                            print('signup');
+                            signup();
+                          }
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
+                          decoration: BoxDecoration(
+                              color: AppTheme().white,
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(
+                                  color: AppTheme().lblack, width: 1)),
+                          child: Text(
+                            'Create',
+                            style: GoogleFonts.lato(
+                              color: AppTheme().black,
+                              fontWeight: FontWeight.w700,
+                              // fontFamily: 'Nexa',
                             ),
                           ),
                         ),
+                      );
+                    }
+                  }),
                 ],
               ),
             ),
@@ -421,37 +424,37 @@ class _RegisterationPageState extends State<RegisterationPage> {
           ),
         ),
       ),
+
       // )
     );
   }
 
-  signup() async {
-    setState(() {
-      loader = true;
-    });
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  signup() {
+    contro.loader.value = true;
+    contro.update();
+
     var data = {
+      'status': 1,
       'email': email.text.trim(),
       'username': uname.text.trim(),
       'password': pswd.text.trim(),
-      'mob_token': token,
+      ' mob_token': contro.token.value,
       'firstname': fname.text.trim(),
       'lastname': lname.text.trim(),
+      "roleId": 2,
       'gender': gender != null ? gender : 'Male',
-      // 'birthday': selectedDate.toString(),
-      'google': true,
-      'phone': countrycode + newphone,
-      'image': prefs.getString('image')
+      'countrycode': countrycode,
+      'phoneNo': newphone,
+      'image': contro.image
     };
+    if (widget.login) {
+      data['google'] = widget.data['id'];
+    }
     print(data);
     LoginService().signup(data).then((value) {
       print(value);
       if (value['message'] == 'success') {
         if (value['user']['role']['name'] == 'user') {
-          print('user');
-          prefs.remove('image');
-          prefs.setString('user', jsonEncode(value['user']));
-
           Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
                   builder: (context) => TabPage(

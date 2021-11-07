@@ -1,11 +1,11 @@
 import 'dart:async';
-import 'dart:convert';
-
+import 'package:archimat/controller/loginRegister.dart';
 import 'package:archimat/pages/browseMaterail.dart';
 import 'package:archimat/pages/tab.dart';
 import 'package:archimat/splash/loginregister.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // class SplashScreen extends StatefulWidget {
@@ -190,27 +190,26 @@ class _SplachPageState extends State<SplachPage> {
   var profile;
   var profile1;
   var role;
+
+  final controller = Get.put(LoginRegisterController());
   checker() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    // pref.clear();
+    // // pref.clear();
 
-    this.profile1 = pref.getString('user');
+    // this.profile1 = pref.getString('user');
 
-    print('role her');
-    print(profile1);
-    //  print(role);
-    //  print(jsonDecode(profile));
     if (pref.getString('new') == '' || pref.getString('new') == null) {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => VirtualMaterialScreen1()),
           (Route<dynamic> route) => false);
     } else {
-      if (this.profile1 == null) {
+      if (controller.user == null) {
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => LoginRegister()),
             (Route<dynamic> route) => false);
       } else {
-        this.profile = jsonDecode(pref.getString('user'));
+        // this.profile = jsonDecode(controller.user.toString());
+        this.profile = controller.user;
         this.role = profile['role']['name'];
 
         if (this.role == 'user') {
@@ -251,7 +250,7 @@ class _SplachPageState extends State<SplachPage> {
   @override
   void initState() {
     super.initState();
-
+    controller.tokenget();
     Timer(Duration(seconds: 3), () => checker());
     // firebaseCloudMessaging_Listeners();
   }

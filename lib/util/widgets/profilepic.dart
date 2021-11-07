@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:archimat/Services/loginService.dart';
+import 'package:archimat/controller/loginRegister.dart';
 import 'package:archimat/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:image_picker/image_picker.dart';
@@ -24,6 +26,8 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
   File img1;
   final picker = ImagePicker();
   ProgressDialog pr;
+
+  final LoginRegisterController contro = Get.find();
   String image = '';
   @override
   void initState() {
@@ -202,10 +206,8 @@ class _ProfilepicWidgetsState extends State<ProfilepicWidgets> {
       if (value['message'] == 'success') {
         setState(() {
           image = data['name'];
-          print('image');
-          print(image);
-          pref.setString('image', image);
-          // imageshow = true;
+          contro.image.value = image;
+          contro.update();
           hideprogresbar();
         });
       } else {

@@ -111,9 +111,6 @@ class _LoginPageState extends State<LoginPage> {
                           child: TextField(
                             keyboardType: TextInputType.text,
                             controller: email,
-                            onChanged: (value) {
-                              checker(value);
-                            },
                             decoration: InputDecoration(
                               hintText: 'Enter Your E-Mail',
                               hintStyle: GoogleFonts.lato(
@@ -232,10 +229,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ));
-  }
-
-  void checker(value) {
-    emailvarified = EmailValidator.validate(value);
   }
 
   login() async {

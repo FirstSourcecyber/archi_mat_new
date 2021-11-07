@@ -53,7 +53,7 @@ class _List1State extends State<List1> {
                       //     :
                       BoxDecoration(
                           color: AppTheme().white,
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
@@ -93,7 +93,7 @@ class _List1State extends State<List1> {
                       //     :
                       BoxDecoration(
                           color: AppTheme().white,
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
@@ -133,7 +133,7 @@ class _List1State extends State<List1> {
                       //     :
                       BoxDecoration(
                           color: AppTheme().white,
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(
@@ -170,7 +170,7 @@ class _List1State extends State<List1> {
                       //     :
                       BoxDecoration(
                           color: AppTheme().white,
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(25),
                           border:
                               Border.all(color: AppTheme().lblack, width: 1)),
                   child: Text(

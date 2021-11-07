@@ -25,7 +25,7 @@ class _CategoryListState extends State<CategoryList> {
     return Column(
       children: [
         Container(
-          // padding: EdgeInsets.only(left: 20),
+          padding: EdgeInsets.only(left: 5),
           height: 90,
           child:
               // loader

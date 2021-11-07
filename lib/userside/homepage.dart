@@ -1,4 +1,5 @@
-import 'package:archimat/Services/homeService.dart';
+import 'package:archimat/controller/homeController.dart';
+import 'package:archimat/controller/loginRegister.dart';
 import 'package:archimat/theme.dart';
 import 'package:archimat/util/list/categorylist.dart';
 import 'package:archimat/util/list/productlist.dart';
@@ -6,6 +7,7 @@ import 'package:archimat/util/slider/slider.dart';
 import 'package:archimat/util/slider/slider1.dart';
 import 'package:archimat/util/widgets/list.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -16,16 +18,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int i = 0, j = 0;
-  List category = [],
-      product = [],
-      service = [],
-      slider = [],
-      slider2 = [],
-      slider3 = [],
-      shop = [],
-      material = [];
+  // List category = [],
+  //     product = [],
+  //     service = [],
+  //     slider = [],
+  //     slider2 = [],
+  //     slider3 = [],
+  //     shop = [],
+  //     material = [];
 
-  bool loader = true;
+  // bool loader = true;
+  final LoginRegisterController controller = Get.find();
+  final HomeController controller1 = Get.find();
 
   // getcategory() {
   //   setState(() {
@@ -100,31 +104,31 @@ class _HomePageState extends State<HomePage> {
   //   });
   // }
 
-  gethome() {
-    setState(() {
-      loader = true;
-    });
+  // gethome() {
+  //   setState(() {
+  //     loader = true;
+  //   });
 
-    HomeService().gethomedetail().then((value) {
-      print(value);
-      setState(() {
-        if (value != null) {
-          var data = value;
-          product = data['vrproduct'];
-          material = data['allmaterial'];
-          category = data['allcategory'];
-          shop = data['vrshop'];
-          service = data['allservice'];
-          slider = data['slider1'];
-          slider2 = data['slider2'];
-          print(data['slider3'].length.toString());
-          slider3 = data['slider3'];
-          // slider3 = [];
-          loader = false;
-        }
-      });
-    });
-  }
+  //   HomeService().gethomedetail().then((value) {
+  //     print(value);
+  //     setState(() {
+  //       if (value != null) {
+  //         var data = value;
+  //         product = data['vrproduct'];
+  //         material = data['allmaterial'];
+  //         category = data['allcategory'];
+  //         shop = data['vrshop'];
+  //         service = data['allservice'];
+  //         slider = data['slider1'];
+  //         slider2 = data['slider2'];
+  //         print(data['slider3'].length.toString());
+  //         slider3 = data['slider3'];
+  //         // slider3 = [];
+  //         loader = false;
+  //       }
+  //     });
+  //   });
+  // }
 
   @override
   void initState() {
@@ -132,7 +136,10 @@ class _HomePageState extends State<HomePage> {
     // getproduct();
     // getservice();
     // getslider();
-    gethome();
+    // gethome();
+    // print('token------------------------');
+    // print(controller.token);
+    // print('token------------------------');
     super.initState();
   }
 
@@ -141,117 +148,119 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // key: scaffoldKey,
-        // drawer: Menu2(),
-        backgroundColor: AppTheme().lightgrey,
-        appBar: AppBar(
-          backgroundColor: AppTheme().white,
-          // leading: GestureDetector(
-          //   onTap: () => scaffoldKey.currentState.openDrawer(),
-          //   child: Padding(
-          //     padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-          //     child: Container(
-          //       padding: EdgeInsets.all(10),
-          //       decoration: BoxDecoration(
-          //           shape: BoxShape.circle,
-          //           border: Border.all(color: AppTheme().black)),
-          //       child: SvgPicture.asset(
-          //         'assets/images/menu.svg',
-          //         color: AppTheme().l1black,
-          //         width: 40,
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          title: Image(
-            image: AssetImage('assets/images/archimat.png'),
-            width: 150,
-            height: 100,
+          // key: scaffoldKey,
+          // drawer: Menu2(),
+          backgroundColor: AppTheme().lightgrey,
+          appBar: AppBar(
+            backgroundColor: AppTheme().white,
+            // leading: GestureDetector(
+            //   onTap: () => scaffoldKey.currentState.openDrawer(),
+            //   child: Padding(
+            //     padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+            //     child: Container(
+            //       padding: EdgeInsets.all(10),
+            //       decoration: BoxDecoration(
+            //           shape: BoxShape.circle,
+            //           border: Border.all(color: AppTheme().black)),
+            //       child: SvgPicture.asset(
+            //         'assets/images/menu.svg',
+            //         color: AppTheme().l1black,
+            //         width: 40,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            title: Image(
+              image: AssetImage('assets/images/archimat.png'),
+              width: 150,
+              height: 100,
+            ),
+            centerTitle: true,
+            // actions: <Widget>[
+            //   Padding(
+            //     padding: const EdgeInsets.only(right: 15),
+            //     child: GestureDetector(
+            //       onTap: () {
+            //         Navigator.push(
+            //             context,
+            //             MaterialPageRoute(
+            //                 builder: (context) => SearchPage(
+            //                       search: '',
+            //                     )));
+            //       },
+            //       child: SvgPicture.asset(
+            //         'assets/images/search.svg',
+            //         color: AppTheme().l1black,
+            //         width: 20,
+            //       ),
+            //     ),
+            //   )
+            // ],
           ),
-          centerTitle: true,
-          // actions: <Widget>[
-          //   Padding(
-          //     padding: const EdgeInsets.only(right: 15),
-          //     child: GestureDetector(
-          //       onTap: () {
-          //         Navigator.push(
-          //             context,
-          //             MaterialPageRoute(
-          //                 builder: (context) => SearchPage(
-          //                       search: '',
-          //                     )));
-          //       },
-          //       child: SvgPicture.asset(
-          //         'assets/images/search.svg',
-          //         color: AppTheme().l1black,
-          //         width: 20,
-          //       ),
-          //     ),
-          //   )
-          // ],
-        ),
-        body: loader
-            ? Center(
-                child: CircularProgressIndicator(
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(AppTheme().purple)))
-            : SingleChildScrollView(
+          body: Obx(() {
+            if (controller1.loader.value) {
+              return Center(
+                  child: CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(AppTheme().purple)));
+            } else {
+              return SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    slider.length != 0
+                    controller1.slider.length != 0
                         ? SliderPage(
                             text: false,
-                            data: slider,
+                            data: controller1.slider,
                           )
                         : Container(),
                     List1(),
-                    category.length != 0
+                    controller1.category.length != 0
                         ? CategoryList(
-                            category: category,
+                            category: controller1.category,
                             subcategory: false,
                           )
                         : Container(),
-                    material.length != 0
+                    controller1.material.length != 0
                         ? Productlist(
                             i: 1,
                             seeall: true,
-                            data: material,
+                            data: controller1.material,
                             title: 'Find Materials Around You',
                           )
                         : Container(),
-                    slider2.length != 0
+                    controller1.slider2.length != 0
                         ? Slider1Page(
-                            data: slider2,
+                            data: controller1.slider2,
                           )
                         : Container(),
-                    shop.length != 0
+                    controller1.shop.length != 0
                         ? Productlist(
                             i: 2,
                             seeall: true,
-                            data: shop,
+                            data: controller1.shop,
                             title: 'Find Virtual Shops',
                           )
                         : Container(),
-                    product.length != 0
+                    controller1.product.length != 0
                         ? Productlist(
                             i: 3,
                             seeall: true,
-                            data: product,
+                            data: controller1.product,
                             title: 'Find Product',
                           )
                         : Container(),
-                    service.length != 0
+                    controller1.service.length != 0
                         ? Productlist(
                             i: 4,
                             seeall: true,
-                            data: service,
+                            data: controller1.service,
                             title: 'Find Professional Services',
                           )
                         : Container(),
-                    slider3.length != 0
+                    controller1.slider3.length != 0
                         ? Slider1Page(
-                            data: slider3,
+                            data: controller1.slider3,
                           )
                         : Container(),
                     // Productlist(
@@ -279,8 +288,101 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-              ),
-      ),
+              );
+            }
+          })
+
+          //  loader
+          //     ? Center(
+          //         child: CircularProgressIndicator(
+          //             valueColor:
+          //                 AlwaysStoppedAnimation<Color>(AppTheme().purple)))
+          //     : SingleChildScrollView(
+          //         child: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           children: [
+          //             slider.length != 0
+          //                 ? SliderPage(
+          //                     text: false,
+          //                     data: slider,
+          //                   )
+          //                 : Container(),
+          //             List1(),
+          //             category.length != 0
+          //                 ? CategoryList(
+          //                     category: category,
+          //                     subcategory: false,
+          //                   )
+          //                 : Container(),
+          //             material.length != 0
+          //                 ? Productlist(
+          //                     i: 1,
+          //                     seeall: true,
+          //                     data: material,
+          //                     title: 'Find Materials Around You',
+          //                   )
+          //                 : Container(),
+          //             slider2.length != 0
+          //                 ? Slider1Page(
+          //                     data: slider2,
+          //                   )
+          //                 : Container(),
+          //             shop.length != 0
+          //                 ? Productlist(
+          //                     i: 2,
+          //                     seeall: true,
+          //                     data: shop,
+          //                     title: 'Find Virtual Shops',
+          //                   )
+          //                 : Container(),
+          //             product.length != 0
+          //                 ? Productlist(
+          //                     i: 3,
+          //                     seeall: true,
+          //                     data: product,
+          //                     title: 'Find Product',
+          //                   )
+          //                 : Container(),
+          //             service.length != 0
+          //                 ? Productlist(
+          //                     i: 4,
+          //                     seeall: true,
+          //                     data: service,
+          //                     title: 'Find Professional Services',
+          //                   )
+          //                 : Container(),
+          //             slider3.length != 0
+          //                 ? Slider1Page(
+          //                     data: slider3,
+          //                   )
+          //                 : Container(),
+          //             // Productlist(
+          //             //   i: 0,
+          //             //   data: product,
+          //             //   title: 'Find Interactive Events',
+          //             // ),
+          //             // Title_Widgets(
+          //             //   bold: false,
+          //             //   text: 'Latest Feed',
+          //             // ),
+          //             // List2(),
+          //             // PhotoListGride(
+          //             //   i: 0,
+          //             //   count: 2,
+          //             //   data: product,
+          //             //   title: 'Find Interactive Events',
+          //             // ),
+          //             // InstList(
+          //             //   data: product,
+          //             //   title: 'Instagram #archimat.xr',
+          //             // ),
+          //             SizedBox(
+          //               height: 20,
+          //             )
+          //           ],
+          //         ),
+          //       ),
+          ),
     );
   }
 }

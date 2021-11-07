@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   // all colors here
   Color white = Colors.white;
+  Color transparent = Colors.transparent;
   Color yellowdark = Colors.yellow[700];
   Color black = Colors.black87;
   Color lightblack = Colors.black12;

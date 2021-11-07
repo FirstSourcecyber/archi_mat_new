@@ -17,7 +17,8 @@ class LoginRegister extends StatefulWidget {
 
 class _LoginRegisterState extends State<LoginRegister> {
   // bool login = true;
-  final controller = Get.put(LoginRegisterController());
+  // final controller = Get.put(LoginRegisterController());
+  final LoginRegisterController controller = Get.find();
   String token;
 
   @override
@@ -138,7 +139,9 @@ class _LoginRegisterState extends State<LoginRegister> {
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => RegisterationPage()));
+                              builder: (context) => RegisterationPage(
+                                    login: false,
+                                  )));
                         },
                         child: Container(
                             margin: EdgeInsets.only(left: 15, right: 15),

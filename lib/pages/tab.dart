@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:archimat/business/setting.dart';
+import 'package:archimat/controller/homeController.dart';
 import 'package:archimat/pages/inbox.dart';
 import 'package:archimat/pages/scannerPage.dart';
 import 'package:archimat/userside/homepage.dart';
@@ -8,6 +9,7 @@ import 'package:archimat/theme.dart';
 import 'package:archimat/userside/setting.dart';
 import 'package:archimat/userside/shophome.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,6 +25,7 @@ class _TabPageState extends State<TabPage> {
   int _page = 0;
   bool check = true;
 
+  final controller = Get.put(HomeController());
   getPage() {
     if (_page == 0) {
       return AnimatedContainer(
@@ -37,7 +40,7 @@ class _TabPageState extends State<TabPage> {
     }
     if (_page == 1) {
       return AnimatedContainer(
-          color: AppTheme().white,
+          // color: AppTheme().white,
           duration: Duration(seconds: 0),
           child:
               //  widget.data != null
@@ -53,7 +56,7 @@ class _TabPageState extends State<TabPage> {
 
     if (_page == 3) {
       return AnimatedContainer(
-          color: AppTheme().white,
+          // color: AppTheme().white,
           duration: Duration(seconds: 0),
           child: widget.data != null
               ? BusinessSetting()
@@ -63,14 +66,14 @@ class _TabPageState extends State<TabPage> {
     }
     if (_page == 2) {
       return AnimatedContainer(
-          color: AppTheme().white,
+          // color: AppTheme().white,
           duration: Duration(seconds: 0),
           child: Container());
     }
     if (_page == 4) {
       return AnimatedContainer(
-          color: AppTheme().white,
-          duration: Duration(seconds: 1),
+          // color: AppTheme().white,
+          duration: Duration(seconds: 0),
           child: ShopQr(
             shopside: widget.data != null ? true : false,
             shopdata: widget.data != null ? detail['shop'] : detail,
@@ -109,7 +112,8 @@ class _TabPageState extends State<TabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(237, 240, 242, 1.0),
+      extendBody: true,
+      // backgroundColor: Color.fromRGBO(237, 240, 242, 1.0),
       body: getPage(),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       // floatingActionButton: FloatingActionButton(
@@ -126,11 +130,19 @@ class _TabPageState extends State<TabPage> {
       //   },
       // ),
       bottomNavigationBar: BottomAppBar(
-        color: AppTheme().white,
-        shape: CircularNotchedRectangle(),
-        notchMargin: 0.0,
+        // color: AppTheme().transparent,
+        // shape: CircularNotchedRectangle(),
+        shape: AutomaticNotchedShape(RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+        )),
+        // notchMargin: 0.0,
         child: Container(
-          height: 70,
+          height: 60,
+          decoration: BoxDecoration(
+              // color: AppTheme().white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40), topRight: Radius.circular(40))),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -138,6 +150,9 @@ class _TabPageState extends State<TabPage> {
             children: <Widget>[
               GestureDetector(
                 onTap: () {
+                  controller.loader.value = true;
+                  controller.update();
+                  controller.home();
                   this.setState(() {
                     _page = 0;
                   });
@@ -280,62 +295,69 @@ class _TabPageState extends State<TabPage> {
                   ],
                 ),
               ),
-              Column(
-                children: <Widget>[
-                  Padding(
-                      padding: const EdgeInsets.only(top: 10, bottom: 3),
-                      child: Image.asset(
-                        'assets/images/scan.png',
-                        width: 30,
-                        color:
-                            _page == 4 ? AppTheme().purple : AppTheme().black,
-                      )
-                      //     SvgPicture.asset(
-                      //   'assets/images/person.svg',
-                      //   width: 22,
-                      //   color:
-                      //       _page == 2 ? AppTheme().purple : AppTheme().black,
-                      // ),
-                      ),
-                  Text(
-                    // widget.data != null ?
-                    'AR'
-                    // : 'Discover'
-                    ,
-                    style: GoogleFonts.lato(
-                        // fontFamily: 'Roxborough CF',
-                        color:
-                            _page == 2 ? AppTheme().purple : AppTheme().black,
-                        fontSize: 10),
-                  )
-                  // GestureDetector(
-                  //   onTap: () {
-                  //     this.setState(() {
-                  //       _page = 4;
-                  //     });
-                  //   },
-                  //   child: Container(
-                  //       margin: EdgeInsets.only(top: 13),
-                  //       padding: EdgeInsets.all(12),
-                  //       decoration: BoxDecoration(
-                  //           border:
-                  //               Border.all(width: 1, color: AppTheme().black),
-                  //           shape: BoxShape.circle),
-                  //       child: Image.asset(
-                  //         'assets/images/scan.png',
-                  //         width: 30,
-                  //         color:
-                  //             _page == 4 ? AppTheme().purple : AppTheme().black,
-                  //       )
-                  //       //  SvgPicture.asset(
-                  //       //   'assets/images/makitsvg.svg',
-                  //       //   width: 30,
-                  //       //   color:
-                  //       //       _page == 4 ? AppTheme().purple : AppTheme().black,
-                  //       // ),
-                  //       ),
-                  // ),
-                ],
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _page = 4;
+                  });
+                },
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                        padding: const EdgeInsets.only(top: 10, bottom: 3),
+                        child: Image.asset(
+                          'assets/images/scan.png',
+                          width: 30,
+                          color:
+                              _page == 4 ? AppTheme().purple : AppTheme().black,
+                        )
+                        //     SvgPicture.asset(
+                        //   'assets/images/person.svg',
+                        //   width: 22,
+                        //   color:
+                        //       _page == 2 ? AppTheme().purple : AppTheme().black,
+                        // ),
+                        ),
+                    Text(
+                      // widget.data != null ?
+                      'AR'
+                      // : 'Discover'
+                      ,
+                      style: GoogleFonts.lato(
+                          // fontFamily: 'Roxborough CF',
+                          color:
+                              _page == 2 ? AppTheme().purple : AppTheme().black,
+                          fontSize: 10),
+                    )
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     this.setState(() {
+                    //       _page = 4;
+                    //     });
+                    //   },
+                    //   child: Container(
+                    //       margin: EdgeInsets.only(top: 13),
+                    //       padding: EdgeInsets.all(12),
+                    //       decoration: BoxDecoration(
+                    //           border:
+                    //               Border.all(width: 1, color: AppTheme().black),
+                    //           shape: BoxShape.circle),
+                    //       child: Image.asset(
+                    //         'assets/images/scan.png',
+                    //         width: 30,
+                    //         color:
+                    //             _page == 4 ? AppTheme().purple : AppTheme().black,
+                    //       )
+                    //       //  SvgPicture.asset(
+                    //       //   'assets/images/makitsvg.svg',
+                    //       //   width: 30,
+                    //       //   color:
+                    //       //       _page == 4 ? AppTheme().purple : AppTheme().black,
+                    //       // ),
+                    //       ),
+                    // ),
+                  ],
+                ),
               ),
               // Column(
               //   children: <Widget>[
