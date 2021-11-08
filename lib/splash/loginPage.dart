@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:archimat/Services/loginService.dart';
 import 'package:archimat/controller/loginRegister.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:archimat/pages/tab.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';

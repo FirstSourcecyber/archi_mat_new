@@ -88,53 +88,49 @@ class LoginRegisterController extends GetxController {
   }
 
   signup() async {
-    setState(() {
-      loader = true;
-    });
+    // var data = {
+    //   'email': email.text.trim(),
+    //   'username': uname.text.trim(),
+    //   'password': pswd.text.trim(),
+    //   'mob_token': token,
+    //   'firstname': fname.text.trim(),
+    //   'lastname': lname.text.trim(),
+    //   'gender': gender != null ? gender : 'Male',
+    //   // 'birthday': selectedDate.toString(),
+    //   'google': true,
+    //   'phone': countrycode + newphone,
+    //   'image': prefs.getString('image')
+    // };
+    // print(data);
+    // LoginService().signup(data).then((value) {
+    //   print(value);
+    //   if (value['message'] == 'success') {
+    //     if (value['user']['role']['name'] == 'user') {
+    //       print('user');
+    //       prefs.remove('image');
+    //       prefs.setString('user', jsonEncode(value['user']));
 
-    var data = {
-      'email': email.text.trim(),
-      'username': uname.text.trim(),
-      'password': pswd.text.trim(),
-      'mob_token': token,
-      'firstname': fname.text.trim(),
-      'lastname': lname.text.trim(),
-      'gender': gender != null ? gender : 'Male',
-      // 'birthday': selectedDate.toString(),
-      'google': true,
-      'phone': countrycode + newphone,
-      'image': prefs.getString('image')
-    };
-    print(data);
-    LoginService().signup(data).then((value) {
-      print(value);
-      if (value['message'] == 'success') {
-        if (value['user']['role']['name'] == 'user') {
-          print('user');
-          prefs.remove('image');
-          prefs.setString('user', jsonEncode(value['user']));
-
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                  builder: (context) => TabPage(
-                        index: 0,
-                        data: null,
-                      )),
-              (Route<dynamic> route) => false);
-        } else {
-          setState(() {
-            loader = false;
-          });
-          showAlert('User not available', Colors.red);
-          print('User not available');
-        }
-      } else {
-        setState(() {
-          loader = false;
-        });
-        showAlert(value['message'], Colors.red);
-      }
-    });
+    //       Navigator.of(context).pushAndRemoveUntil(
+    //           MaterialPageRoute(
+    //               builder: (context) => TabPage(
+    //                     index: 0,
+    //                     data: null,
+    //                   )),
+    //           (Route<dynamic> route) => false);
+    //     } else {
+    //       setState(() {
+    //         loader = false;
+    //       });
+    //       showAlert('User not available', Colors.red);
+    //       print('User not available');
+    //     }
+    //   } else {
+    //     setState(() {
+    //       loader = false;
+    //     });
+    //     showAlert(value['message'], Colors.red);
+    //   }
+    // });
   }
 
   updateUser(value) async {

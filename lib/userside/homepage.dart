@@ -153,49 +153,12 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: AppTheme().lightgrey,
           appBar: AppBar(
             backgroundColor: AppTheme().white,
-            // leading: GestureDetector(
-            //   onTap: () => scaffoldKey.currentState.openDrawer(),
-            //   child: Padding(
-            //     padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-            //     child: Container(
-            //       padding: EdgeInsets.all(10),
-            //       decoration: BoxDecoration(
-            //           shape: BoxShape.circle,
-            //           border: Border.all(color: AppTheme().black)),
-            //       child: SvgPicture.asset(
-            //         'assets/images/menu.svg',
-            //         color: AppTheme().l1black,
-            //         width: 40,
-            //       ),
-            //     ),
-            //   ),
-            // ),
             title: Image(
               image: AssetImage('assets/images/archimat.png'),
               width: 150,
               height: 100,
             ),
             centerTitle: true,
-            // actions: <Widget>[
-            //   Padding(
-            //     padding: const EdgeInsets.only(right: 15),
-            //     child: GestureDetector(
-            //       onTap: () {
-            //         Navigator.push(
-            //             context,
-            //             MaterialPageRoute(
-            //                 builder: (context) => SearchPage(
-            //                       search: '',
-            //                     )));
-            //       },
-            //       child: SvgPicture.asset(
-            //         'assets/images/search.svg',
-            //         color: AppTheme().l1black,
-            //         width: 20,
-            //       ),
-            //     ),
-            //   )
-            // ],
           ),
           body: Obx(() {
             if (controller1.loader.value) {

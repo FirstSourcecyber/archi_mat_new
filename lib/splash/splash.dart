@@ -194,7 +194,7 @@ class _SplachPageState extends State<SplachPage> {
   final controller = Get.put(LoginRegisterController());
   checker() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    // // pref.clear();
+    // pref.clear();
 
     // this.profile1 = pref.getString('user');
 
@@ -203,13 +203,14 @@ class _SplachPageState extends State<SplachPage> {
           MaterialPageRoute(builder: (context) => VirtualMaterialScreen1()),
           (Route<dynamic> route) => false);
     } else {
-      if (controller.user == null) {
+      if (controller.user.isEmpty) {
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => LoginRegister()),
             (Route<dynamic> route) => false);
       } else {
         // this.profile = jsonDecode(controller.user.toString());
-        this.profile = controller.user;
+
+        this.profile = controller.user.value;
         this.role = profile['role']['name'];
 
         if (this.role == 'user') {
